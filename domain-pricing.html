@@ -1,0 +1,922 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>域名注册价格 - xicel</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ========== 导航 ========== -->
+<nav id="navbar" class="bg-white/90 backdrop-blur-xl border-b border-slate-100 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <img src="assets/images/logo.png" alt="xicel Logo" class="h-8 w-auto" />
+    </a>
+    <div class="hidden lg:flex items-center gap-8">
+      <div class="relative group">
+        <span class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors cursor-default">产品服务 ▾</span>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">
+          <a href="products.html?subtab=domain" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-primary rounded-full"></div><span class="font-semibold text-sm text-body">品牌基石</span></div><div class="text-xs text-muted ml-3">域名注册 · 商标注册 · WHOIS · 品牌保护</div></a>
+          <a href="products-hosting.html" class="bg-slate-50 rounded-xl p-3 hover:bg-emerald-50 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-emerald-500 rounded-full"></div><span class="font-semibold text-sm text-body">站点构建</span></div><div class="text-xs text-muted ml-3">网站建设 · SSL证书 · 云服务器</div></a>
+          <a href="products-compute.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-purple-500 rounded-full"></div><span class="font-semibold text-sm text-body">算力底座</span></div><div class="text-xs text-muted ml-3">云服务器 · GPU算力 · 对象存储</div></a>
+          <a href="products-network.html" class="bg-slate-50 rounded-xl p-3 hover:bg-amber-50 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-amber-500 rounded-full"></div><span class="font-semibold text-sm text-body">全球连接</span></div><div class="text-xs text-muted ml-3">SD-WAN · BGP带宽 · DDoS防护</div></a>
+        </div>
+      </div>
+      <a href="solutions.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">解决方案</a>
+      <a href="news.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">新闻动态</a>
+      <a href="about.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">关于我们</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="cart-wrapper hidden sm:flex">
+        <a href="user.html#panel-orders" class="nav-icon-btn" title="购物车/订单">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-badge">5</span>
+        </a>
+        <div class="cart-dropdown">
+          <div class="cart-dropdown-header"><span class="cart-dropdown-title">我的订单</span><span class="cart-dropdown-count">共 5 笔</span></div>
+          <div class="cart-list">
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="cart-item-info"><div class="cart-item-name">xicel.com 域名注册</div><div class="cart-item-meta"><span>域名注册</span><span>·</span><span style="color:#22C55E;">已完成</span></div></div><div class="cart-item-price">¥89.00</div></div>
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><div class="cart-item-info"><div class="cart-item-name">ECS 通用型 4核8G</div><div class="cart-item-meta"><span>云服务器</span><span>·</span><span style="color:#EF4444;">处理中</span></div></div><div class="cart-item-price">¥3,580.00</div></div>
+          </div>
+          <div class="cart-dropdown-footer"><a href="user.html#panel-orders" class="cart-view-all">查看全部订单 →</a></div>
+        </div>
+      </div>
+      <div class="user-menu-wrapper hidden sm:flex">
+        <a href="user.html" class="user-avatar" title="个人中心"><img src="assets/images/avatars/men_32.jpg" alt="Paul"></a>
+        <div class="user-dropdown">
+          <div class="user-dropdown-header"><div class="user-dropdown-name-row"><span class="user-dropdown-name">Paul</span></div><div class="user-dropdown-status"><span class="status-label">认证状态</span><span class="status-badge">已认证</span></div></div>
+          <div class="user-dropdown-menu">
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-account'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>基本信息</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-wallet'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="5" y1="8" x2="5" y2="8.01"/><circle cx="12" cy="14" r="2"/><path d="M19 10v4"/></svg>我的钱包</div>
+            <div class="user-menu-item logout" onclick="handleLogout(event)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>退出登录</div>
+          </div>
+        </div>
+      </div>
+      <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 whitespace-nowrap">立即咨询</button>
+      <button id="hamburgerBtn" class="lg:hidden flex flex-col gap-1.5 w-9 h-9 items-center justify-center rounded-lg hover:bg-slate-100 transition-colors" onclick="toggleMobileMenu()">
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line1"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line2"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line3"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="mobileMenu" class="lg:hidden fixed inset-0 top-[65px] bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto overflow-x-hidden">
+  <div class="px-6 py-6 flex flex-col gap-2">
+    <div class="py-3 border-b border-slate-100">
+      <span class="text-sm font-semibold text-body block mb-3">产品服务</span>
+      <a href="products.html?subtab=domain" class="block py-2.5 pl-4 text-sm text-muted hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌基石</a>
+      <a href="products-hosting.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-emerald-500 border-l-2 border-emerald-500 transition-colors" onclick="closeMobileMenu()">站点构建</a>
+      <a href="products-compute.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">算力底座</a>
+      <a href="products-network.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-amber-500 border-l-2 border-amber-500 transition-colors" onclick="closeMobileMenu()">全球连接</a>
+      <a href="domain-pricing.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-slate-700 border-l-2 border-slate-300 transition-colors" onclick="closeMobileMenu()">域名价格</a>
+    </div>
+    <a href="solutions.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">解决方案</a>
+    <a href="news.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">新闻动态</a>
+    <a href="about.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">关于我们</a>
+    <div class="flex flex-col gap-3 mt-4">
+      <a href="user.html" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>个人中心</a>
+      <a href="user.html#panel-orders" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>我的订单</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== Hero ========== -->
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-14">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">域名价格搜索</h1>
+    <p class="text-blue-100 text-sm mb-8">覆盖全球200+域名后缀，透明定价</p>
+    <div class="flex items-center gap-2 bg-white rounded-2xl p-1.5 shadow-xl">
+      <div class="flex-1 relative">
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input id="heroSearchInput" type="text" placeholder="搜索域名后缀，如 .com、.cn" class="w-full pl-11 pr-3 py-3.5 text-sm text-body placeholder-slate-400 border-0 focus:outline-none bg-transparent" autocomplete="off">
+      </div>
+      <button id="heroSearchBtn" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-8 py-3.5 rounded-xl transition-colors whitespace-nowrap">查询</button>
+    </div>
+    <p class="text-blue-200 text-xs mt-3">输入后缀关键词，下方列表自动筛选匹配结果</p>
+  </div>
+</section>
+
+<!-- ========== 无结果 + 咨询表单 ========== -->
+<section id="noResultsConsult" class="py-20 bg-white" style="display:none;">
+  <div class="max-w-lg mx-auto px-6 text-center">
+    <div class="mb-6">
+      <svg class="w-20 h-20 mx-auto" viewBox="0 0 140 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 35a6 6 0 016-6h28l10 10h56a6 6 0 016 6v48a6 6 0 01-6 6H21a6 6 0 01-6-6V35z" stroke="#CBD5E1" stroke-width="2" fill="#F1F5F9"/>
+        <circle cx="95" cy="95" r="24" stroke="#CBD5E1" stroke-width="2.5" fill="white"/>
+        <path d="M113 113l16 16" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="95" cy="95" r="10" stroke="#E2E8F0" stroke-width="1.5" fill="none" stroke-dasharray="3 2"/>
+      </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-body mb-2">未找到匹配的域名后缀</h3>
+    <p class="text-muted mb-8">填写以下信息，我们的域名顾问将为您提供专属方案</p>
+    <form onsubmit="submitNoResultConsult(event)" class="space-y-4 text-left">
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+      </div>
+      <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请描述您需要的域名后缀类型..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+      <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+    </form>
+  </div>
+</section>
+
+<!-- ========== 热门推荐 ========== -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-body mb-8 flex items-center gap-3">
+      <svg class="w-6 h-6 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>热门推荐
+    </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">CO</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.com</div>
+            <div class="text-xs text-muted">全球用户注册首选域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥98<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.com" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/cn.svg" alt="cn" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.cn</div>
+            <div class="text-xs text-muted">中国国家顶级域名<span class="text-xs bg-red-50 text-[#EF4444] px-1.5 py-0.5 rounded ml-1.5">促销</span></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-[#EF4444]">¥35<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">NE</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.net</div>
+            <div class="text-xs text-muted">网络服务机构首选</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥79<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.net" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/cn.svg" alt="CN" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.com.cn</div>
+            <div class="text-xs text-muted">中国企业专属域名<span class="text-xs bg-red-50 text-[#EF4444] px-1.5 py-0.5 rounded ml-1.5">促销</span></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-[#EF4444]">¥39<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.com.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- ========== 新顶级域名 ========== -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-body mb-2 flex items-center gap-3">
+      <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" transform="rotate(45 12 12)"/></svg>新顶级域名
+    </h2>
+    <p class="text-sm text-muted mb-8">平价潮流后缀，创意品牌首选</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-amber-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">TO</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.top</div>
+            <div class="text-xs text-muted">巅峰首选</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥9<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.top" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">XY</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.xyz</div>
+            <div class="text-xs text-muted">新一代通用</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥8<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.xyz" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">SI</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.site</div>
+            <div class="text-xs text-muted">建站首选</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥15<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.site" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-orange-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">SH</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.shop</div>
+            <div class="text-xs text-muted">电商专属</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥68<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.shop" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-amber-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">VI</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.vip</div>
+            <div class="text-xs text-muted">尊贵身份</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥29<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.vip" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-pink-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">CL</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.club</div>
+            <div class="text-xs text-muted">社群俱乐部</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥19<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.club" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-cyan-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">WO</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.work</div>
+            <div class="text-xs text-muted">职场个人站</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥12<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.work" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-indigo-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">LI</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.link</div>
+            <div class="text-xs text-muted">链接跳转</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥25<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.link" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-sm">AI</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.ai</div>
+            <div class="text-xs text-muted">人工智能专属</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥1,280<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.ai" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- ========== 中国地区 ========== -->
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-body mb-8 flex items-center gap-3">
+      <img src="assets/flags/cn.svg" alt="中国" class="w-6 h-6 rounded-sm" /> 中国地区
+    </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/cn.svg" alt="cn" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.中国</div>
+            <div class="text-xs text-muted">中文顶级域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥480<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.中国" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/cn.svg" alt="hk" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.hk</div>
+            <div class="text-xs text-muted">香港地区域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥299<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.hk" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/cn.svg" alt="hk" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.com.hk</div>
+            <div class="text-xs text-muted">香港商业域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥298<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.com.hk" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/cn.svg" alt="tw" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.com.tw</div>
+            <div class="text-xs text-muted">台湾商业域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥368<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.com.tw" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- ========== 亚太地区 ========== -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-body mb-8 flex items-center gap-3">
+      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg> 亚太地区
+    </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/jp.svg" alt="jp" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.jp</div>
+            <div class="text-xs text-muted">日本国家域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥688<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.jp" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/sg.svg" alt="sg" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.sg</div>
+            <div class="text-xs text-muted">新加坡域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥499<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.sg" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/kr.svg" alt="kr" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.kr</div>
+            <div class="text-xs text-muted">韩国域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥499<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.kr" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/au.svg" alt="au" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.au</div>
+            <div class="text-xs text-muted">澳大利亚域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥300<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.au" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/in.svg" alt="in" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.in</div>
+            <div class="text-xs text-muted">印度域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥138<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.in" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/my.svg" alt="my" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.my</div>
+            <div class="text-xs text-muted">马来西亚域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥618<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.my" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/my.svg" alt="my" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.com.my</div>
+            <div class="text-xs text-muted">马来西亚商业域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥618<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.com.my" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/id.svg" alt="id" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.id</div>
+            <div class="text-xs text-muted">印度尼西亚域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥398<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.id" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- ========== 欧洲地区 ========== -->
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-body mb-8 flex items-center gap-3">
+      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> 欧洲地区
+    </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/gb.svg" alt="gb" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.uk</div>
+            <div class="text-xs text-muted">英国域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥200<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.uk" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/de.svg" alt="de" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.de</div>
+            <div class="text-xs text-muted">德国域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥139<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.de" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/fr.svg" alt="fr" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.fr</div>
+            <div class="text-xs text-muted">法国域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥400<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.fr" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/eu.svg" alt="eu" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.eu</div>
+            <div class="text-xs text-muted">欧盟域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥198<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.eu" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/it.svg" alt="it" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.it</div>
+            <div class="text-xs text-muted">意大利域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥299<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.it" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/pl.svg" alt="pl" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.pl</div>
+            <div class="text-xs text-muted">波兰域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥398<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.pl" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/ru.svg" alt="ru" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.ru</div>
+            <div class="text-xs text-muted">俄罗斯域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥358<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.ru" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/fi.svg" alt="fi" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.fi</div>
+            <div class="text-xs text-muted">芬兰域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥238<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.fi" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/pt.svg" alt="pt" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.pt</div>
+            <div class="text-xs text-muted">葡萄牙域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥637<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.pt" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/lu.svg" alt="lu" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.lu</div>
+            <div class="text-xs text-muted">卢森堡域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥328<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.lu" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- ========== 美洲地区 ========== -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-body mb-8 flex items-center gap-3">
+      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/></svg> 美洲地区
+    </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/us.svg" alt="us" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.us</div>
+            <div class="text-xs text-muted">美国域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥198<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.us" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/ca.svg" alt="ca" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.ca</div>
+            <div class="text-xs text-muted">加拿大域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥328<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.ca" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/mx.svg" alt="mx" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.mx</div>
+            <div class="text-xs text-muted">墨西哥域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥659<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.mx" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- ========== 中东/其他 ========== -->
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-body mb-8 flex items-center gap-3">
+      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> 中东 / 其他
+    </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/ae.svg" alt="ae" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.ae</div>
+            <div class="text-xs text-muted">阿联酋域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥798<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.ae" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/sa.svg" alt="sa" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.sa</div>
+            <div class="text-xs text-muted">沙特阿拉伯域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥1,800<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.sa" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/am.svg" alt="am" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.am</div>
+            <div class="text-xs text-muted">亚美尼亚域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥979<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.am" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/ua.svg" alt="ua" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.ua</div>
+            <div class="text-xs text-muted">乌克兰域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥619<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.ua" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="flex items-start gap-3 mb-4">
+          <img src="assets/flags/tr.svg" alt="tr" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="text-2xl font-bold text-body mb-0.5">.com.tr</div>
+            <div class="text-xs text-muted">土耳其商业域名</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-base font-semibold text-primary">¥598<span class="text-xs font-normal text-muted">/首年</span></div>
+          <a href="domain-order.html?domain=.com.tr" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section id="ctaSection" class="py-20 bg-gradient-to-r from-[#EFF6FF] to-[#E6FFFA]">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-body mb-4">未找到想要的域名后缀？</h2>
+    <p class="text-muted text-lg mb-8 max-w-2xl mx-auto">我们支持200+域名后缀注册，立即咨询获取完整价格表</p>
+    <button onclick="openConsultModal()" class="bg-white text-body hover:bg-slate-50 font-semibold px-8 py-4 rounded-xl transition-all shadow-lg border border-slate-200 hover:shadow-xl hover:-translate-y-0.5">立即咨询</button>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="bg-slate-50 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-10">
+      <div><div class="flex items-center gap-2.5 mb-4"><img src="assets/images/logo.png" alt="xicel" class="h-8 w-auto"></div><p class="text-muted text-sm leading-relaxed">全球品牌基建服务商</p></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">产品服务</h4><ul class="space-y-2.5"><li><a href="products.html?subtab=domain" class="text-muted hover:text-primary text-sm transition-colors">品牌基石</a></li><li><a href="products-hosting.html" class="text-muted hover:text-primary text-sm transition-colors">站点构建</a></li><li><a href="products-compute.html" class="text-muted hover:text-primary text-sm transition-colors">算力底座</a></li><li><a href="products-network.html" class="text-muted hover:text-primary text-sm transition-colors">全球连接</a></li></ul></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">解决方案</h4><ul class="space-y-2.5"><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">初创期(0→1)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成长期(1→10)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">扩张期(10→100)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成熟期(100+)</a></li></ul></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">联系我们</h4><ul class="space-y-2.5 text-sm text-muted mb-6"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>sales01@xice1.com</span></li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>18475488381</span></li><li class="flex items-start gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>深圳市龙华区汇隆大厦</span></li></ul><div class="w-[120px] h-[120px] rounded-xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center gap-1 bg-white">
+          <svg class="w-8 h-8 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v3h-3M20 20h-3v-3"/></svg>
+          <span class="text-xs text-muted">扫码咨询</span>
+        </div></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">支持</h4><ul class="space-y-2.5"><li><a href="help.html" class="text-muted hover:text-primary text-sm transition-colors">帮助中心</a></li><li><a href="help.html#名词解释" class="text-muted hover:text-primary text-sm transition-colors">名词解释</a></li><li><a href="news.html" class="text-muted hover:text-primary text-sm transition-colors">新闻动态</a></li><li><a href="about.html" class="text-muted hover:text-primary text-sm transition-colors">关于我们</a></li></ul></div>
+    </div>
+    <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted"><span>&copy; 2026 深圳市希赛乐科技有限公司</span><span>粤ICP备XXXXXXXX号</span></div>
+  </div>
+</footer>
+
+<!-- ========== 咨询弹窗 ========== -->
+<div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeConsultModal()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-fade-in">
+    <div class="h-2 bg-gradient-to-r from-primary to-[#0047CC]"></div>
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-6"><h3 class="text-2xl font-bold text-body">立即咨询</h3><button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+      <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">
+        <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+        <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
+function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu'), l1=document.getElementById('ham-line1'), l2=document.getElementById('ham-line2'), l3=document.getElementById('ham-line3');
+  if(menu.classList.contains('translate-x-full')){ menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0'); l1.style.transform='rotate(45deg) translate(5px,5px)'; l2.style.opacity='0'; l3.style.transform='rotate(-45deg) translate(5px,-5px)'; document.body.style.overflow='hidden'; }
+  else{ closeMobileMenu(); }
+}
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu'); menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
+  document.getElementById('ham-line1').style.transform=''; document.getElementById('ham-line2').style.opacity=''; document.getElementById('ham-line3').style.transform=''; document.body.style.overflow='';
+}
+function handleLogout(e){ e.stopPropagation(); document.querySelector('.user-menu-wrapper').style.display='none'; }
+
+// ===== 域名后缀搜索过滤 =====
+(function() {
+  // 收集所有域名卡片：通过 .text-2xl.font-bold 元素获取后缀
+  var cards = [];
+  document.querySelectorAll('.text-2xl.font-bold').forEach(function(el) {
+    var text = el.textContent.trim();
+    if (text.startsWith('.')) {
+      var card = el.closest('.rounded-2xl');
+      if (card) cards.push({ card: card, domain: text });
+    }
+  });
+
+  // 卡片→所属section映射
+  var sectionCards = new Map();
+  cards.forEach(function(item) {
+    var section = item.card.closest('section.py-16');
+    if (section) {
+      if (!sectionCards.has(section)) sectionCards.set(section, []);
+      sectionCards.get(section).push(item);
+    }
+  });
+
+  var noResults = document.getElementById('noResultsConsult');
+  var cta = document.getElementById('ctaSection');
+
+  document.getElementById('heroSearchInput').addEventListener('input', function() {
+    var q = this.value.trim().toLowerCase();
+    var total = 0;
+
+    sectionCards.forEach(function(items, section) {
+      var secTotal = 0;
+      items.forEach(function(item) {
+        if (!q || item.domain.toLowerCase().indexOf(q) !== -1) {
+          item.card.style.display = '';
+          secTotal++;
+        } else {
+          item.card.style.display = 'none';
+        }
+      });
+      section.style.display = (secTotal === 0 && q) ? 'none' : '';
+      total += secTotal;
+    });
+
+    if (total === 0 && q) {
+      if (noResults) noResults.style.display = '';
+      if (cta) cta.style.display = 'none';
+    } else {
+      if (noResults) noResults.style.display = 'none';
+      if (cta) cta.style.display = '';
+    }
+  });
+})();
+
+function submitNoResultConsult(e) {
+  e.preventDefault();
+  alert('感谢您的咨询，我们将尽快联系您！');
+}
+</script>
+</body>
+</html>

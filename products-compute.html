@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算力底座 - xicel</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+<style>
+  .tab-active-compute { color: #7C3AED !important; border-bottom-color: #7C3AED !important; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-answer.open { max-height: 500px; }
+  .faq-chevron { transition: transform 0.3s ease; }
+  .faq-chevron.open { transform: rotate(180deg); }
+</style>
+</head>
+<body>
+
+<!-- ========== 导航 ========== -->
+<nav id="navbar" class="bg-white/90 backdrop-blur-xl border-b border-slate-100 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <img src="assets/images/logo.png" alt="xicel Logo" class="h-8 w-auto" />
+    </a>
+    <div class="hidden lg:flex items-center gap-8">
+      <div class="relative group">
+        <span class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors cursor-default">产品服务 ▾</span>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">
+          <a href="products.html?subtab=domain" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-primary rounded-full"></div><span class="font-semibold text-sm text-body">品牌基石</span></div><div class="text-xs text-muted ml-3">域名注册 · 商标注册 · WHOIS · 品牌保护</div></a>
+          <a href="products-hosting.html" class="bg-slate-50 rounded-xl p-3 hover:bg-emerald-50 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-emerald-500 rounded-full"></div><span class="font-semibold text-sm text-body">站点构建</span></div><div class="text-xs text-muted ml-3">网站建设 · SSL证书 · 云服务器</div></a>
+          <a href="products-compute.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-purple-500 rounded-full"></div><span class="font-semibold text-sm text-body">算力底座</span></div><div class="text-xs text-muted ml-3">云服务器 · GPU算力 · 对象存储</div></a>
+          <a href="products-network.html" class="bg-slate-50 rounded-xl p-3 hover:bg-amber-50 transition-colors cursor-pointer block no-underline"><div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-amber-500 rounded-full"></div><span class="font-semibold text-sm text-body">全球连接</span></div><div class="text-xs text-muted ml-3">SD-WAN · BGP带宽 · DDoS防护</div></a>
+        </div>
+      </div>
+      <a href="solutions.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">解决方案</a>
+      <a href="news.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">新闻动态</a>
+      <a href="about.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">关于我们</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="cart-wrapper hidden sm:flex">
+        <a href="user.html#panel-orders" class="nav-icon-btn" title="购物车/订单">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-badge">5</span>
+        </a>
+        <div class="cart-dropdown">
+          <div class="cart-dropdown-header"><span class="cart-dropdown-title">我的订单</span><span class="cart-dropdown-count">共 5 笔</span></div>
+          <div class="cart-list">
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="cart-item-info"><div class="cart-item-name">xicel.com 域名注册</div><div class="cart-item-meta"><span>域名注册</span><span>·</span><span style="color:#22C55E;">已完成</span></div></div><div class="cart-item-price">¥89.00</div></div>
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><div class="cart-item-info"><div class="cart-item-name">ECS 通用型 4核8G</div><div class="cart-item-meta"><span>云服务器</span><span>·</span><span style="color:#EF4444;">处理中</span></div></div><div class="cart-item-price">¥3,580.00</div></div>
+          </div>
+          <div class="cart-dropdown-footer"><a href="user.html#panel-orders" class="cart-view-all">查看全部订单 →</a></div>
+        </div>
+      </div>
+      <div class="user-menu-wrapper hidden sm:flex">
+        <a href="user.html" class="user-avatar" title="个人中心"><img src="assets/images/avatars/men_32.jpg" alt="Paul"></a>
+        <div class="user-dropdown">
+          <div class="user-dropdown-header"><div class="user-dropdown-name-row"><span class="user-dropdown-name">Paul</span></div><div class="user-dropdown-status"><span class="status-label">认证状态</span><span class="status-badge">已认证</span></div></div>
+          <div class="user-dropdown-menu">
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-account'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>基本信息</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-wallet'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="5" y1="8" x2="5" y2="8.01"/><circle cx="12" cy="14" r="2"/><path d="M19 10v4"/></svg>我的钱包</div>
+            <div class="user-menu-item logout" onclick="handleLogout(event)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>退出登录</div>
+          </div>
+        </div>
+      </div>
+      <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 whitespace-nowrap">立即咨询</button>
+      <button id="hamburgerBtn" class="lg:hidden flex flex-col gap-1.5 w-9 h-9 items-center justify-center rounded-lg hover:bg-slate-100 transition-colors" onclick="toggleMobileMenu()">
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line1"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line2"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line3"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="mobileMenu" class="lg:hidden fixed inset-0 top-[65px] bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto overflow-x-hidden">
+  <div class="px-6 py-6 flex flex-col gap-2">
+    <div class="py-3 border-b border-slate-100">
+      <span class="text-sm font-semibold text-body block mb-3">产品服务</span>
+      <a href="products.html?subtab=domain" class="block py-2.5 pl-4 text-sm text-muted hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌基石</a>
+      <a href="products-hosting.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-emerald-500 border-l-2 border-emerald-500 transition-colors" onclick="closeMobileMenu()">站点构建</a>
+      <a href="products-compute.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">算力底座</a>
+      <a href="products-network.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-amber-500 border-l-2 border-amber-500 transition-colors" onclick="closeMobileMenu()">全球连接</a>
+      <a href="domain-pricing.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-slate-700 border-l-2 border-slate-300 transition-colors" onclick="closeMobileMenu()">域名价格</a>
+    </div>
+    <a href="solutions.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">解决方案</a>
+    <a href="news.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">新闻动态</a>
+    <a href="about.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">关于我们</a>
+    <div class="flex flex-col gap-3 mt-4">
+      <a href="user.html" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>个人中心</a>
+      <a href="user.html#panel-orders" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>我的订单</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== Hero ========== -->
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-20 lg:py-24" style="background: url('assets/images/compute_hero.jpg') center/cover no-repeat;">
+  <div class="max-w-7xl mx-auto px-6 text-left">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-body mb-4">算力底座</h1>
+    <p class="text-muted text-lg md:text-xl max-w-2xl">弹性计算、GPU算力、智能CDN，为业务增长提供强劲引擎</p>
+  </div>
+</section>
+
+<!-- ========== 子Tab 切换 ========== -->
+<section class="bg-white border-b border-slate-100 sticky top-[65px] z-30">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex overflow-x-auto gap-0 -mb-px">
+      <button class="compute-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="ecs" id="subtab-ecs">云服务器ECS</button>
+      <button class="compute-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="gpu" id="subtab-gpu">GPU云主机</button>
+      <button class="compute-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="oss" id="subtab-oss">对象存储</button>
+      <button class="compute-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="cdn" id="subtab-cdn">CDN加速</button>
+    </div>
+  </div>
+</section>
+
+<!-- Tab 1: 云服务器ECS -->
+<section class="compute-content py-16 bg-white" id="content-ecs">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-lg text-muted max-w-3xl mb-12">弹性伸缩计算实例，按需付费、灵活升降，满足高性能业务需求。</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">通用型</div><div class="text-2xl font-bold text-body mb-1">¥0.18<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-sm text-body font-medium mb-2">2核 · 4GB</div><p class="text-xs text-muted mb-4">适合企业官网、中小型应用</p><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 border-purple-300 relative"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="text-sm font-semibold text-body mb-2">计算型</div><div class="text-2xl font-bold text-body mb-1">¥0.35<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-sm text-body font-medium mb-2">4核 · 8GB</div><p class="text-xs text-muted mb-4">适合电商平台、中型SaaS</p><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">内存型</div><div class="text-2xl font-bold text-body mb-1">¥0.56<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-sm text-body font-medium mb-2">8核 · 32GB</div><p class="text-xs text-muted mb-4">适合数据库、缓存、大数据分析</p><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">高性能型</div><div class="text-2xl font-bold text-body mb-1">¥1.20<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-sm text-body font-medium mb-2">16核 · 64GB</div><p class="text-xs text-muted mb-4">适合核心业务系统、金融级应用</p><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">⚡</div><h4 class="font-bold text-body mb-2">秒级部署</h4><p class="text-sm text-muted">镜像市场一键部署，数分钟内即可完成实例创建和启动</p></div>
+      <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">📈</div><h4 class="font-bold text-body mb-2">弹性伸缩</h4><p class="text-sm text-muted">根据业务负载自动扩容/缩容，按实际用量付费</p></div>
+      <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">🔐</div><h4 class="font-bold text-body mb-2">安全隔离</h4><p class="text-sm text-muted">VPC网络隔离、安全组策略，保障云资源安全</p></div>
+      <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">💾</div><h4 class="font-bold text-body mb-2">多重备份</h4><p class="text-sm text-muted">自动快照+异地灾备，数据安全99.9999999%持久性</p></div>
+    </div>
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>ECS支持哪些实例规格？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">提供通用型、计算型、内存型、高性能型四大系列，覆盖1核1GB到16核64GB等多种规格，支持在线升降配。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>按量付费如何计费？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">按小时计费，不满1小时按1小时计算。关机不收费（仅收系统盘存储费用），适合短期项目或测试环境。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tab 2: GPU云主机 -->
+<section class="compute-content hidden py-16 bg-slate-50" id="content-gpu">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-lg text-muted max-w-3xl mb-12">NVIDIA全系列GPU实例，满足AI训练、深度学习、图形渲染等高性能计算需求。</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">NVIDIA T4</div><div class="text-2xl font-bold text-body mb-2">¥4.5<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-xs text-muted mb-3">16GB显存 · 推理优化</div><div class="border-t pt-3 space-y-1.5 text-xs text-muted"><div>8 vCPU · 32GB内存</div><div>适合AI推理、图形渲染</div></div><button class="mt-auto mt-4 w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 border-purple-300 relative"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="text-sm font-semibold text-body mb-2">NVIDIA V100</div><div class="text-2xl font-bold text-body mb-2">¥12<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-xs text-muted mb-3">32GB显存 · 训练/推理</div><div class="border-t pt-3 space-y-1.5 text-xs text-muted"><div>16 vCPU · 64GB内存</div><div>适合深度学习训练、科学计算</div></div><button class="mt-auto mt-4 w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">NVIDIA A100</div><div class="text-2xl font-bold text-body mb-2">¥28<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-xs text-muted mb-3">80GB显存 · 大模型训练</div><div class="border-t pt-3 space-y-1.5 text-xs text-muted"><div>32 vCPU · 128GB内存</div><div>适合LLM训练、大规模仿真</div></div><button onclick="openConsultModal()" class="mt-auto mt-4 w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">NVIDIA H100</div><div class="text-2xl font-bold text-body mb-2">¥48<span class="text-sm font-normal text-muted">/时起</span></div><div class="text-xs text-muted mb-3">80GB HBM3 · 极致性能</div><div class="border-t pt-3 space-y-1.5 text-xs text-muted"><div>64 vCPU · 256GB内存</div><div>适合千亿参数大模型训练</div></div><button onclick="openConsultModal()" class="mt-auto mt-4 w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
+    </div>
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>GPU云主机适合哪些场景？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">深度学习训练/推理、科学计算、视频渲染、基因测序、金融量化分析等需要大规模并行计算的场景。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>A100/H100需要申请吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">A100/H100资源有限，需要提交申请说明使用场景和预计用量，通过审核后即可开通使用。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tab 3: 对象存储 -->
+<section class="compute-content hidden py-16 bg-white" id="content-oss">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-lg text-muted max-w-3xl mb-12">海量数据安全存储，按需选择存储类型，兼顾性能与成本。</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 border-purple-300 relative"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">⚡</div><h3 class="font-bold text-body mb-2">标准存储</h3><p class="text-sm text-muted mb-4">高频访问数据，毫秒级响应</p><div class="text-[#7C3AED] font-bold text-xl mb-4" min-h-[2rem] flex items-end>¥0.12<span class="text-sm font-normal text-muted">/GB月</span></div><div class="text-xs text-muted space-y-1 mb-4"><div>99.9999999% 数据持久性</div><div>低延迟、高吞吐</div></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">📦</div><h3 class="font-bold text-body mb-2">低频存储</h3><p class="text-sm text-muted mb-4">不频繁访问数据，30天起存</p><div class="text-[#7C3AED] font-bold text-xl mb-4" min-h-[2rem] flex items-end>¥0.08<span class="text-sm font-normal text-muted">/GB月</span></div><div class="text-xs text-muted space-y-1 mb-4"><div>适合备份、日志归档</div><div>取回需额外费用</div></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">🗄️</div><h3 class="font-bold text-body mb-2">归档存储</h3><p class="text-sm text-muted mb-4">长期冷数据，180天起存</p><div class="text-[#7C3AED] font-bold text-xl mb-4" min-h-[2rem] flex items-end>¥0.03<span class="text-sm font-normal text-muted">/GB月</span></div><div class="text-xs text-muted space-y-1 mb-4"><div>适合合规/审计归档</div><div>取回需数小时</div></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+    </div>
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>对象存储如何计费？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">按实际存储容量计费，另按外网下行流量和请求次数计费。存储不满1GB不收费。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>可以自动转换存储类型吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">支持生命周期管理策略，可设置规则自动将数据从标准→低频→归档转换，优化存储成本。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tab 4: CDN加速 -->
+<section class="compute-content hidden py-16 bg-slate-50" id="content-cdn">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-lg text-muted max-w-3xl mb-12">全球3000+边缘节点，毫秒级内容分发，为网站和应用加速。</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 border-purple-300 relative"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">📊</div><h3 class="font-bold text-body mb-2">按流量计费</h3><p class="text-sm text-muted mb-4">适合流量波动较大的场景，用多少付多少</p><div class="text-[#7C3AED] font-bold text-xl mb-2">¥0.20<span class="text-sm font-normal text-muted">/GB起</span></div><div class="text-xs text-muted mb-4">阶梯定价，用量越大单价越低</div><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">📡</div><h3 class="font-bold text-body mb-2">按带宽计费</h3><p class="text-sm text-muted mb-4">适合流量稳定的大带宽场景，费用可预测</p><div class="text-[#7C3AED] font-bold text-xl mb-2">¥18<span class="text-sm font-normal text-muted">/Mbps月</span></div><div class="text-xs text-muted mb-4">固定带宽峰值，超出另计</div><button class="mt-auto w-full h-11 flex items-center justify-center bg-[#7C3AED] hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div class="bg-white rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">🌍</div><h4 class="font-bold text-body mb-2">全球加速</h4><p class="text-sm text-muted">3000+边缘节点，覆盖全球主要国家和地区</p></div>
+      <div class="bg-white rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">⚡</div><h4 class="font-bold text-body mb-2">毫秒级响应</h4><p class="text-sm text-muted">智能调度+HTTP/3协议，国内延迟&lt;20ms</p></div>
+      <div class="bg-white rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">🛡️</div><h4 class="font-bold text-body mb-2">安全防护</h4><p class="text-sm text-muted">内置DDoS清洗、WAF防护、防盗链</p></div>
+      <div class="bg-white rounded-2xl p-6"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-2xl">📈</div><h4 class="font-bold text-body mb-2">实时监控</h4><p class="text-sm text-muted">流量/带宽/命中率可视化监控大盘</p></div>
+    </div>
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>CDN加速多久生效？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">CDN配置完成后通常5-10分钟即可全球生效，DNS切换可能需要24-48小时完全同步。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>按流量和按带宽怎么选？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">流量波动大选按流量（用多少付多少），带宽稳定选按带宽（固定月费更经济），也支持混合计费模式。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="py-20 bg-gradient-to-r from-[#F5F3FF] to-[#EFF6FF]">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-body mb-4">让算力成为您的核心竞争力</h2>
+    <p class="text-muted text-lg mb-8 max-w-2xl mx-auto">弹性计算、GPU加速、智能CDN，为业务增长提供强劲引擎</p>
+    <button onclick="openConsultModal()" class="bg-white text-body hover:bg-slate-50 font-semibold px-8 py-4 rounded-xl transition-all shadow-lg border border-slate-200 hover:shadow-xl hover:-translate-y-0.5">立即咨询</button>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="bg-slate-50 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-10">
+      <div><div class="flex items-center gap-2.5 mb-4"><img src="assets/images/logo.png" alt="xicel" class="h-8 w-auto"></div><p class="text-muted text-sm leading-relaxed">全球品牌基建服务商</p></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">产品服务</h4><ul class="space-y-2.5"><li><a href="products.html?subtab=domain" class="text-muted hover:text-primary text-sm transition-colors">品牌基石</a></li><li><a href="products-hosting.html" class="text-muted hover:text-primary text-sm transition-colors">站点构建</a></li><li><a href="products-compute.html" class="text-muted hover:text-primary text-sm transition-colors">算力底座</a></li><li><a href="products-network.html" class="text-muted hover:text-primary text-sm transition-colors">全球连接</a></li></ul></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">解决方案</h4><ul class="space-y-2.5"><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">初创期(0→1)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成长期(1→10)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">扩张期(10→100)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成熟期(100+)</a></li></ul></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">联系我们</h4><ul class="space-y-2.5 text-sm text-muted mb-6"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>sales01@xice1.com</span></li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>18475488381</span></li><li class="flex items-start gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>深圳市龙华区汇隆大厦</span></li></ul><div class="w-[120px] h-[120px] rounded-xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center gap-1 bg-white">
+          <svg class="w-8 h-8 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v3h-3M20 20h-3v-3"/></svg>
+          <span class="text-xs text-muted">扫码咨询</span>
+        </div></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">支持</h4><ul class="space-y-2.5"><li><a href="help.html" class="text-muted hover:text-primary text-sm transition-colors">帮助中心</a></li><li><a href="help.html#名词解释" class="text-muted hover:text-primary text-sm transition-colors">名词解释</a></li><li><a href="news.html" class="text-muted hover:text-primary text-sm transition-colors">新闻动态</a></li><li><a href="about.html" class="text-muted hover:text-primary text-sm transition-colors">关于我们</a></li></ul></div>
+    </div>
+    <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted"><span>&copy; 2026 深圳市希赛乐科技有限公司</span><span>粤ICP备XXXXXXXX号</span></div>
+  </div>
+</footer>
+
+<!-- ========== 咨询弹窗 ========== -->
+<div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeConsultModal()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-fade-in">
+    <div class="h-2 bg-gradient-to-r from-[#0A66FF] to-[#7C3AED]"></div>
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-6"><h3 class="text-2xl font-bold text-body">立即咨询</h3><button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+      <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">
+        <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+        <button type="submit" class="w-full bg-[#7C3AED] hover:bg-purple-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm hover:shadow-md">提交咨询</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
+function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu'), l1=document.getElementById('ham-line1'), l2=document.getElementById('ham-line2'), l3=document.getElementById('ham-line3');
+  if(menu.classList.contains('translate-x-full')){ menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0'); l1.style.transform='rotate(45deg) translate(5px,5px)'; l2.style.opacity='0'; l3.style.transform='rotate(-45deg) translate(5px,-5px)'; document.body.style.overflow='hidden'; }
+  else{ closeMobileMenu(); }
+}
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu'); menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
+  document.getElementById('ham-line1').style.transform=''; document.getElementById('ham-line2').style.opacity=''; document.getElementById('ham-line3').style.transform=''; document.body.style.overflow='';
+}
+function handleLogout(e){ e.stopPropagation(); document.querySelector('.user-menu-wrapper').style.display='none'; }
+function toggleFaq(btn){ var a=btn.nextElementSibling,c=btn.querySelector('.faq-chevron'); a.classList.toggle('open');c.classList.toggle('open'); a.style.maxHeight=a.classList.contains('open')?a.scrollHeight+'px':'0'; }
+function switchComputeSubtab(s){
+  document.querySelectorAll('.compute-content').forEach(function(c){c.classList.add('hidden');});
+  document.getElementById('content-'+s).classList.remove('hidden');
+  history.replaceState(null,'','?subtab='+s);
+  document.querySelectorAll('.compute-subtab').forEach(function(b){b.classList.remove('tab-active-compute');b.classList.add('border-transparent','text-muted');});
+  var ab=document.getElementById('subtab-'+s);ab.classList.add('tab-active-compute');ab.classList.remove('border-transparent','text-muted');
+}
+document.querySelectorAll('.compute-subtab').forEach(function(b){b.addEventListener('click',function(){switchComputeSubtab(b.dataset.subtab);});});
+(function(){var p=new URLSearchParams(window.location.search),s=p.get('subtab')||'ecs';if(['ecs','gpu','oss','cdn'].indexOf(s)===-1)s='ecs';switchComputeSubtab(s);})();
+</script>
+</body>
+</html>
