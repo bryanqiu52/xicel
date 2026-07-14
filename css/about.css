@@ -1,0 +1,322 @@
+/* ===== 关于我们页面样式 ===== */
+
+/* ===== Hero区 ===== */
+.about-hero {
+  padding: 100px 0 120px;
+  background: linear-gradient(180deg, #F0F7FE 0%, #FFFFFF 50%, #F6FEF9 100%);
+  position: relative;
+}
+
+.about-glow-1 {
+  background: radial-gradient(circle, rgba(10, 102, 255, 0.10), transparent 70%);
+}
+
+.about-glow-2 {
+  background: radial-gradient(circle, rgba(0, 212, 170, 0.08), transparent 70%);
+}
+
+.about-glow-3 {
+  background: radial-gradient(circle, rgba(10, 102, 255, 0.06), transparent 70%);
+}
+
+.about-hero-badge {
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.about-hero-stat {
+  text-align: center;
+  min-width: 100px;
+}
+
+.about-hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 0;
+}
+
+.about-hero-wave svg {
+  width: 100%;
+  height: 80px;
+}
+
+/* ===== 标签 ===== */
+.about-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E293B;
+  transition: all 0.3s;
+}
+
+.about-tag:hover {
+  border-color: #0A66FF;
+  background: #EFF6FF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 102, 255, 0.1);
+}
+
+/* ===== 图片卡片 ===== */
+.about-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+}
+
+.about-image-main {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF9 100%);
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(10, 102, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(0, 212, 170, 0.08) 0%, transparent 50%);
+}
+
+.about-image-placeholder {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-image-float-1 {
+  position: absolute;
+  top: 10%;
+  right: -10%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.about-image-float-2 {
+  position: absolute;
+  bottom: 15%;
+  left: -5%;
+  animation: float 3s ease-in-out infinite 1s;
+}
+
+/* ===== 使命区 ===== */
+.about-mission-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #FFFFFF 100%);
+}
+
+/* ===== 核心能力卡片 ===== */
+.about-capability-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s;
+}
+
+.about-capability-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border-color: #0A66FF33;
+  transform: translateY(-4px);
+}
+
+.about-capability-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+/* ===== 降本增效区 ===== */
+.about-cost-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.about-cost-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid #E2E8F0;
+  text-align: left;
+  transition: all 0.3s;
+}
+
+.about-cost-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: #0A66FF33;
+}
+
+.about-cost-icon-bg {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.about-cost-card:hover .about-cost-icon-bg {
+  transform: scale(1.05);
+}
+
+/* ===== 愿景区 ===== */
+.about-vision-wrapper {
+  background: linear-gradient(135deg, #0A66FF 0%, #0891B2 50%, #0D9488 100%);
+}
+
+.about-vision-bg {
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0, 212, 170, 0.3) 0%, transparent 40%);
+}
+
+.about-vision-highlight {
+  background: linear-gradient(135deg, #FCD34D, #F472B6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-vision-item {
+  text-align: center;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.about-vision-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* ===== 展望未来区 ===== */
+.about-future-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.about-future-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #E2E8F0;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.about-future-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.about-future-card-1:hover {
+  border-color: #0A66FF;
+  background: #EFF6FF;
+}
+
+.about-future-card-2:hover {
+  border-color: #00D4AA;
+  background: #F0FDF9;
+}
+
+.about-future-card-3:hover {
+  border-color: #8B5CF6;
+  background: #F5F3FF;
+}
+
+.about-future-card-4:hover {
+  border-color: #F59E0B;
+  background: #FFFBEB;
+}
+
+/* ===== 响应式适配 ===== */
+@media (max-width: 1024px) {
+  .about-image-float-1,
+  .about-image-float-2 {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 60px 0 80px;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-hero p {
+    font-size: 1.125rem;
+  }
+  
+  .about-hero-stat .text-4xl {
+    font-size: 1.75rem;
+  }
+  
+  .about-capability-card {
+    padding: 24px;
+  }
+  
+  .about-capability-icon {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .about-cost-card {
+    padding: 24px;
+  }
+  
+  .about-cost-icon-bg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .about-vision-wrapper > div {
+    padding: 48px 24px;
+  }
+  
+  .about-future-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-stat {
+    min-width: 70px;
+  }
+  
+  .about-hero-stat .text-4xl {
+    font-size: 1.5rem;
+  }
+  
+  .about-tag {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,65 @@
+.login-page {
+  background: linear-gradient(180deg, #F0F7FE 0%, #FFFFFF 50%, #F6FEF9 100%);
+}
+
+.login-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-wrapper .input-icon svg {
+  transition: color 0.2s ease;
+}
+
+.input-wrapper:focus-within .input-icon {
+  color: #0A66FF;
+}
+
+.social-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.social-btn:hover svg {
+  transform: scale(1.1);
+}
+
+#submitBtn .btn-text,
+#submitBtn .btn-loading,
+#submitBtn .btn-success {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#submitBtn .btn-loading svg {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.error-msg {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+@media (max-width: 640px) {
+  .login-card {
+    padding: 2rem 1.5rem !important;
+  }
+}
