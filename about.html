@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于我们 - xicel 希赛乐科技</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/about.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ========== 导航 ========== -->
+<nav id="navbar" class="bg-white/90 backdrop-blur-xl border-b border-slate-100 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <img src="https://oss.xicel.com/domain/20251226/22a3eca6eea64d00a407149b2307f8b0.png" alt="xicel Logo" class="h-8 w-auto" />
+    </a>
+    <div class="hidden lg:flex items-center gap-8">
+      <div class="relative group">
+        <span class="nav-link text-body/70 hover:text-primary cursor-default text-sm font-medium transition-colors">产品服务 ▾</span>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">
+          <a href="products.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-primary rounded-full"></div><span class="font-semibold text-sm text-body">品牌基石</span></div>
+            <div class="text-xs text-muted ml-3">域名注册 · 商标注册 · WHOIS · 品牌保护</div>
+          </a>
+          <a href="products-hosting.html" class="bg-slate-50 rounded-xl p-3 hover:bg-accent/5 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-accent rounded-full"></div><span class="font-semibold text-sm text-body">站点构建</span></div>
+            <div class="text-xs text-muted ml-3">网站建设 · SSL证书 · 企业邮箱</div>
+          </a>
+          <a href="products-compute.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-purple-500 rounded-full"></div><span class="font-semibold text-sm text-body">算力底座</span></div>
+            <div class="text-xs text-muted ml-3">云服务器 · GPU算力 · 服务器租用</div>
+          </a>
+          <a href="products-network.html" class="bg-slate-50 rounded-xl p-3 hover:bg-amber-50 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-amber-500 rounded-full"></div><span class="font-semibold text-sm text-body">全球连接</span></div>
+            <div class="text-xs text-muted ml-3">网络专线 · 硬件采购 · 机房托管</div>
+          </a>
+          <div class="col-span-2 border-t border-slate-100 my-1"></div>
+          <a href="domain-pricing.html" class="col-span-2 block px-3 py-2 text-sm text-muted hover:text-primary rounded-lg hover:bg-slate-50 transition-colors text-center">域名价格</a>
+        </div>
+      </div>
+      <a href="solutions.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">解决方案</a>
+      <a href="news.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">新闻动态</a>
+      <a href="about.html" class="nav-link text-primary font-semibold text-sm transition-colors">关于我们</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="cart-wrapper hidden sm:flex">
+        <a href="user.html#panel-orders" class="nav-icon-btn" title="购物车/订单">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-badge">5</span>
+        </a>
+        <div class="cart-dropdown">
+          <div class="cart-dropdown-header"><span class="cart-dropdown-title">我的订单</span><span class="cart-dropdown-count">共 5 笔</span></div>
+          <div class="cart-list">
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="cart-item-info"><div class="cart-item-name">xicel.com 域名注册</div><div class="cart-item-meta"><span>域名注册</span><span>·</span><span style="color:#22C55E;">已完成</span></div></div><div class="cart-item-price">¥89.00</div></div>
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><div class="cart-item-info"><div class="cart-item-name">ECS 通用型 4核8G 云服务器</div><div class="cart-item-meta"><span>云服务器</span><span>·</span><span style="color:#EF4444;">处理中</span></div></div><div class="cart-item-price">¥3,580.00</div></div>
+          </div>
+          <div class="cart-dropdown-footer"><a href="user.html#panel-orders" class="cart-view-all">查看全部订单 →</a></div>
+        </div>
+      </div>
+      <div class="user-menu-wrapper hidden sm:flex">
+        <a href="user.html" class="user-avatar" title="个人中心"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Paul"></a>
+        <div class="user-dropdown">
+          <div class="user-dropdown-header"><div class="user-dropdown-name-row"><span class="user-dropdown-name">Paul</span><div class="user-edit-icon" title="编辑资料"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div></div><div class="user-dropdown-status"><span class="status-label">认证状态</span><span class="status-badge">已认证</span></div></div>
+          <div class="user-dropdown-menu">
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-account'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>基本信息</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-wallet'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="5" y1="8" x2="5" y2="8.01"/><circle cx="12" cy="14" r="2"/><path d="M19 10v4"/></svg>我的钱包</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-security'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>安全设置</div>
+            <div class="user-menu-item logout" onclick="handleLogout(event)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>退出登录</div>
+          </div>
+        </div>
+      </div>
+      <a href="login.html" id="loginLinkBtn" class="text-primary hover:text-primary-dark text-sm font-medium transition-colors hidden sm:inline" style="display:none;">登录</a>
+      <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 whitespace-nowrap">立即咨询</button>
+      <button id="hamburgerBtn" class="lg:hidden flex flex-col gap-1.5 w-9 h-9 items-center justify-center rounded-lg hover:bg-slate-100 transition-colors" onclick="toggleMobileMenu()">
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line1"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line2"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line3"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="mobileMenu" class="lg:hidden fixed inset-0 top-[65px] bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto overflow-x-hidden">
+  <div class="px-6 py-6 flex flex-col gap-2">
+    <div class="py-3 border-b border-slate-100">
+      <span class="text-sm font-semibold text-body block mb-3">产品服务</span>
+      <a href="products.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌基石</a>
+      <a href="products-hosting.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-accent border-l-2 border-accent transition-colors" onclick="closeMobileMenu()">站点构建</a>
+      <a href="products-compute.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">算力底座</a>
+      <a href="products-network.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-amber-500 border-l-2 border-amber-500 transition-colors" onclick="closeMobileMenu()">全球连接</a>
+      <a href="domain-pricing.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-slate-700 border-l-2 border-slate-300 transition-colors" onclick="closeMobileMenu()">域名价格</a>
+    </div>
+    <a href="solutions.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">解决方案</a>
+    <a href="news.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">新闻动态</a>
+    <a href="about.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">关于我们</a>
+    <div class="flex flex-col gap-3 mt-4">
+      <a href="user.html" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>个人中心</a>
+      <a href="user.html#panel-orders" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>我的订单</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2. Hero 关于我们 ========== -->
+<section class="about-hero relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 about-glow-1"></div>
+  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-x-1/4 translate-y-1/3 about-glow-2"></div>
+  <div class="absolute top-1/2 left-1/2 w-[400px] h-[400px] rounded-full blur-3xl -translate-x-1/2 about-glow-3"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center animate-fade-in">
+      <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur rounded-full px-5 py-2 text-primary/80 text-sm mb-8 shadow-sm border border-primary/10 about-hero-badge">
+        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+        你的要求，我们的追求
+      </div>
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-body leading-tight mb-6 tracking-tight">
+        关于<span class="gradient-text">希赛乐</span>
+      </h1>
+      <p class="text-muted-override text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed mb-10">
+        我们提供的服务，从上市公司到初创企业，从大型网站到个人博客
+      </p>
+      <div class="flex justify-center gap-6">
+        <div class="about-hero-stat">
+          <div class="text-4xl font-bold gradient-text">2024</div>
+          <div class="text-sm text-muted-override mt-1">成立年份</div>
+        </div>
+        <div class="w-px bg-slate-200"></div>
+        <div class="about-hero-stat">
+          <div class="text-4xl font-bold gradient-text">2+</div>
+          <div class="text-sm text-muted-override mt-1">分公司</div>
+        </div>
+        <div class="w-px bg-slate-200"></div>
+        <div class="about-hero-stat">
+          <div class="text-4xl font-bold gradient-text">全球</div>
+          <div class="text-sm text-muted-override mt-1">服务网络</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="about-hero-wave">
+    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== 3. 公司简介 ========== -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="order-2 lg:order-1">
+        <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
+          <span class="w-6 h-px bg-primary"></span> ABOUT US <span class="w-6 h-px bg-primary"></span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-body mb-6 leading-tight">
+          专注中小企业出海服务<br>
+          <span class="gradient-text">一站式解决方案供应商</span>
+        </h2>
+        <p class="text-muted-override text-lg leading-relaxed mb-6">
+          深圳市希赛乐科技有限公司（以下简称"希赛乐"）创立于2024年，是一家专注于为中国中小型企业提供全方位出海服务的一站式解决方案供应商。公司自成立以来发展迅速，目前已设立两家分公司，并逐步构建起覆盖全球关键市场的服务网络。
+        </p>
+        <p class="text-muted-override text-lg leading-relaxed mb-8">
+          希赛乐总部坐落在科技创新的前沿阵地——中国深圳，同时在中国香港、美国以及欧洲等重要国际商贸区域设立了分支机构，形成了立足中国、辐射全球的战略布局。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <div class="about-tag">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            大数据技术
+          </div>
+          <div class="about-tag">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+            云计算
+          </div>
+          <div class="about-tag">
+            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            智能化风控
+          </div>
+          <div class="about-tag">
+            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            全球化布局
+          </div>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="about-image-card">
+          <div class="about-image-main">
+            <div class="about-image-placeholder">
+              <svg class="w-20 h-20 text-primary/30 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              <p class="text-lg font-semibold text-body/50">公司总部</p>
+              <p class="text-sm text-muted-override mt-1">深圳 · 科技创新前沿</p>
+            </div>
+          </div>
+          <div class="about-image-float-1 animate-float">
+            <div class="bg-white rounded-xl p-4 shadow-lg border border-slate-100 flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-body">深圳总部</div>
+                <div class="text-xs text-muted-override">中国 · 深圳</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image-float-2 animate-float" style="animation-delay: 1s;">
+            <div class="bg-white rounded-xl p-4 shadow-lg border border-slate-100 flex items-center gap-3">
+              <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-body">全球服务网络</div>
+                <div class="text-xs text-muted-override">香港 · 美国 · 欧洲</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. 我们的使命 ========== -->
+<section class="py-20 about-mission-section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="text-sm text-primary font-semibold mb-2">OUR MISSION</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-body mb-4">我们为什么存在</h2>
+      <p class="text-muted-override text-lg max-w-3xl mx-auto">
+        洞察中小企业出海痛点，用技术助力企业扬帆远航
+      </p>
+    </div>
+    
+    <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+      
+      <div class="relative z-10">
+        <div class="text-5xl mb-6">💡</div>
+        <p class="text-xl md:text-2xl text-body leading-relaxed font-medium mb-6">
+          在全球化竞争日益激烈的今天，众多中国中小企业虽拥有优质的产品与服务，却在拓展海外市场的过程中面临诸多挑战，如<span class="gradient-text font-bold">市场信息不对称、跨境风险管控能力不足、品牌国际影响力有限、运营成本高昂</span>等。
+        </p>
+        <p class="text-lg text-muted-override leading-relaxed">
+          希赛乐正是洞察到这一核心痛点，致力于借助先进的大数据、云计算等前沿技术力量，为这些企业提供强有力的支持，助力其顺利扬帆远航。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. 核心业务能力 ========== -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3">
+        <span class="w-6 h-px bg-primary"></span> OUR CAPABILITIES <span class="w-6 h-px bg-primary"></span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">核心业务能力</h2>
+      <p class="text-muted-override text-lg">技术创新驱动，全方位赋能企业出海</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- 智能风控 -->
+      <div class="about-capability-card group">
+        <div class="flex items-start gap-6">
+          <div class="about-capability-icon bg-primary/10 group-hover:bg-primary group-hover:text-white transition-all">
+            <svg class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-body mb-3">智能化风险评估与预警</h3>
+            <p class="text-muted-override leading-relaxed mb-4">
+              希赛乐通过技术创新，重点帮助出口企业提升风控水平。公司构建了智能化的风险评估与预警系统，能够对目标市场的政策变动、汇率波动、贸易纠纷等潜在风险进行实时监测与分析。
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                政策变动实时监测
+              </div>
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                汇率波动分析预警
+              </div>
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                贸易纠纷风险评估
+              </div>
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                精准数据决策支持
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 全球影响力 -->
+      <div class="about-capability-card group">
+        <div class="flex items-start gap-6">
+          <div class="about-capability-icon bg-accent/10 group-hover:bg-accent group-hover:text-body transition-all">
+            <svg class="w-8 h-8 text-accent group-hover:text-body transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-body mb-3">全球化品牌影响力</h3>
+            <p class="text-muted-override leading-relaxed mb-4">
+              希域云致力于帮助企业扩大全球影响力。通过深度分析全球市场数据与消费者洞察，公司为客户制定精准的本地化营销策略，利用数字渠道提升品牌在国际市场的知名度与美誉度。
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                全球市场数据分析
+              </div>
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                消费者洞察研究
+              </div>
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                本地化营销策略
+              </div>
+              <div class="flex items-center gap-2 text-sm text-body">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                数字渠道品牌推广
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. 降本增效三大领域 ========== -->
+<section class="py-20 about-cost-section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <div class="text-sm text-primary font-semibold mb-2">COST EFFICIENCY</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">降本增效 · 三大数字化领域</h2>
+      <p class="text-muted-override text-lg">创新科技深度赋能企业运营关键环节</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- 品牌数字化 -->
+      <div class="about-cost-card group">
+        <div class="about-cost-icon-bg bg-primary/10 group-hover:bg-primary/20 transition-all">
+          <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-body mb-3 mt-6">品牌数字化</h3>
+        <p class="text-muted-override text-sm leading-relaxed mb-4">
+          构建全球统一的数字品牌资产管理系统，确保品牌形象在不同市场的一致性与专业性。
+        </p>
+        <div class="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
+          <span>了解更多</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      
+      <!-- 营销数字化 -->
+      <div class="about-cost-card group">
+        <div class="about-cost-icon-bg bg-accent/10 group-hover:bg-accent/20 transition-all">
+          <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
+            <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-body mb-3 mt-6">营销数字化</h3>
+        <p class="text-muted-override text-sm leading-relaxed mb-4">
+          利用自动化营销工具与精准投放平台，优化广告支出，提高获客效率。
+        </p>
+        <div class="flex items-center text-accent text-sm font-medium group-hover:gap-2 transition-all">
+          <span>了解更多</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      
+      <!-- 管理数字化 -->
+      <div class="about-cost-card group">
+        <div class="about-cost-icon-bg bg-purple-100 group-hover:bg-purple-200 transition-all">
+          <svg class="w-10 h-10 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-body mb-3 mt-6">管理数字化</h3>
+        <p class="text-muted-override text-sm leading-relaxed mb-4">
+          提供集成的SaaS管理解决方案，实现供应链、客户关系、跨国协作等流程的线上化与智能化。
+        </p>
+        <div class="flex items-center text-purple-500 text-sm font-medium group-hover:gap-2 transition-all">
+          <span>了解更多</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. 终极愿景 ========== -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="about-vision-wrapper relative overflow-hidden rounded-3xl">
+      <div class="absolute inset-0 about-vision-bg"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+      
+      <div class="relative z-10 p-10 md:p-16 text-center text-white">
+        <div class="text-sm font-semibold mb-4 opacity-80">OUR VISION</div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          构建健康、动态、互联的<br>
+          <span class="about-vision-highlight">全球信息生态体系</span>
+        </h2>
+        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">
+          希赛乐的终极目标，是助力每一家合作的出口企业构建起一个健康、动态、互联的全球信息生态体系。这个体系不仅能够打通从生产端到消费端的数据流，更能实现企业内部管理与外部市场拓展的无缝衔接，从而真正推动企业完成数字化的转型升级，在全球竞争中建立起可持续的核心优势。
+        </p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <div class="about-vision-item">
+            <div class="text-3xl font-bold">🌐</div>
+            <div class="text-sm mt-2">全球数据互通</div>
+          </div>
+          <div class="about-vision-item">
+            <div class="text-3xl font-bold">🔗</div>
+            <div class="text-sm mt-2">无缝衔接协同</div>
+          </div>
+          <div class="about-vision-item">
+            <div class="text-3xl font-bold">📈</div>
+            <div class="text-sm mt-2">数字化转型</div>
+          </div>
+          <div class="about-vision-item">
+            <div class="text-3xl font-bold">🏆</div>
+            <div class="text-sm mt-2">可持续竞争优势</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. 展望未来 ========== -->
+<section class="py-20 about-future-section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
+          <span class="w-6 h-px bg-primary"></span> LOOKING AHEAD <span class="w-6 h-px bg-primary"></span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-body mb-6 leading-tight">
+          展望未来<br>
+          <span class="gradient-text">携手开拓新商业传奇</span>
+        </h2>
+        <p class="text-muted-override text-lg leading-relaxed mb-8">
+          展望未来，希赛乐将继续深化技术创新，拓展全球服务网络，不断完善一站式服务体系。公司立志成为最值得信赖的中国企业出海合作伙伴，陪伴客户共同成长，携手在波澜壮阔的全球商业浪潮中，开拓更加广阔的天地，成就新的商业传奇。
+        </p>
+      </div>
+      <div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="about-future-card about-future-card-1">
+            <div class="text-4xl mb-3">🚀</div>
+            <div class="font-bold text-body">深化技术创新</div>
+            <div class="text-xs text-muted-override mt-1">持续投入研发</div>
+          </div>
+          <div class="about-future-card about-future-card-2">
+            <div class="text-4xl mb-3">🌍</div>
+            <div class="font-bold text-body">拓展全球网络</div>
+            <div class="text-xs text-muted-override mt-1">覆盖更多市场</div>
+          </div>
+          <div class="about-future-card about-future-card-3">
+            <div class="text-4xl mb-3">💼</div>
+            <div class="font-bold text-body">完善服务体系</div>
+            <div class="text-xs text-muted-override mt-1">一站式解决方案</div>
+          </div>
+          <div class="about-future-card about-future-card-4">
+            <div class="text-4xl mb-3">🤝</div>
+            <div class="font-bold text-body">陪伴客户成长</div>
+            <div class="text-xs text-muted-override mt-1">携手共创辉煌</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 9. CTA 联系我们 ========== -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="bg-gradient-to-r from-primary to-primary-dark rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-56 h-56 bg-accent/20 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+      
+      <div class="relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">准备好开启您的出海之旅了吗？</h2>
+        <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+          立即联系我们，获取专属出海解决方案，让希赛乐成为您最值得信赖的合作伙伴
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button class="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-4 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
+            立即咨询
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="bg-slate-50 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <img src="https://oss.xicel.com/domain/20251226/22a3eca6eea64d00a407149b2307f8b0.png" alt="xicel" class="h-8 w-auto">
+        </div>
+        <p class="text-muted text-sm leading-relaxed">全球品牌基建服务商</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">产品服务</h4>
+        <ul class="space-y-2.5">
+          <li><a href="products.html" class="text-muted hover:text-primary text-sm transition-colors">品牌基石</a></li>
+          <li><a href="products-hosting.html" class="text-muted hover:text-primary text-sm transition-colors">站点构建</a></li>
+          <li><a href="products-compute.html" class="text-muted hover:text-primary text-sm transition-colors">算力底座</a></li>
+          <li><a href="products-network.html" class="text-muted hover:text-primary text-sm transition-colors">全球连接</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">解决方案</h4>
+        <ul class="space-y-2.5">
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">初创期(0→1)</a></li>
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成长期(1→10)</a></li>
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">扩张期(10→100)</a></li>
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成熟期(100+)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">联系我们</h4>
+        <ul class="space-y-2.5 text-sm text-muted mb-6">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>sales01@xice1.com</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>18475488381</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>深圳市龙华区汇隆大厦</span>
+          </li>
+        </ul>
+        <div class="w-[120px] h-[120px] rounded-xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center gap-1 bg-white">
+          <svg class="w-8 h-8 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v3h-3M20 20h-3v-3"/></svg>
+          <span class="text-xs text-muted">扫码咨询</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">支持</h4>
+        <ul class="space-y-2.5">
+          <li><a href="help.html" class="text-muted hover:text-primary text-sm transition-colors">帮助中心</a></li>
+          <li><a href="help.html#名词解释" class="text-muted hover:text-primary text-sm transition-colors">名词解释</a></li>
+          <li><a href="news.html" class="text-muted hover:text-primary text-sm transition-colors">新闻动态</a></li>
+          <li><a href="about.html" class="text-muted hover:text-primary text-sm transition-colors">关于我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted">
+      <span>&copy; 2026 深圳市希赛乐科技有限公司</span>
+      <span>粤ICP备XXXXXXXX号</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== 咨询弹窗 Modal ========== -->
+<div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeConsultModal()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-fade-in">
+    <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-body">立即咨询</h3>
+        <button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">
+        <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+        <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
+function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  var l1=document.getElementById('ham-line1');
+  var l2=document.getElementById('ham-line2');
+  var l3=document.getElementById('ham-line3');
+  if(menu.classList.contains('translate-x-full')){
+    menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0');
+    l1.style.transform='rotate(45deg) translate(5px,5px)';
+    l2.style.opacity='0';
+    l3.style.transform='rotate(-45deg) translate(5px,-5px)';
+    document.body.style.overflow='hidden';
+  }else{
+    closeMobileMenu();
+  }
+}
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
+  var l1=document.getElementById('ham-line1'); l1.style.transform='';
+  var l2=document.getElementById('ham-line2'); l2.style.opacity='';
+  var l3=document.getElementById('ham-line3'); l3.style.transform='';
+  document.body.style.overflow='';
+}
+</script>
+</body>
+</html>

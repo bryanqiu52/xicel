@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新闻动态 — xicel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+<style>
+  body.dark { background: #0D1117; color: #e2e8f0; }
+  body.dark .bg-white { background: #161b22 !important; }
+  body.dark .bg-white\/90 { background: rgba(22,27,34,0.9) !important; }
+  body.dark .border-slate-100, body.dark .border-slate-200, body.dark .border-\[\\#E2E8F0\], body.dark .border-\[\\#F1F5F9\] { border-color: #21262d !important; }
+  body.dark .text-body, body.dark .text-\[\#1E293B\] { color: #e2e8f0 !important; }
+  body.dark .text-muted, body.dark .text-\[\#64748B\] { color: #8b949e !important; }
+  body.dark .text-\[\#94A3B8\] { color: #6e7681 !important; }
+  body.dark .bg-slate-50 { background: #0D1117 !important; }
+  body.dark .text-muted-override { color: #8b949e !important; }
+  body.dark .hover\:shadow-lg:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5) !important; }
+  body.dark .from-\[\#EFF6FF\] { --tw-gradient-from: #0d1b3e !important; }
+  body.dark .to-white { --tw-gradient-to: #0D1117 !important; }
+  body.dark .bg-\[\#EFF6FF\] { background: #0d1b3e !important; }
+  body.dark .text-\[\#0A66FF\] { color: #60a5fa !important; }
+  body.dark .bg-primary\/5 { background: rgba(96,165,250,0.1) !important; }
+  body.dark .bg-primary\/10 { background: rgba(96,165,250,0.15) !important; }
+</style>
+</head>
+<body>
+
+<!-- ========== 导航 ========== -->
+<nav id="navbar" class="bg-white/90 backdrop-blur-xl border-b border-slate-100 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <img src="https://oss.xicel.com/domain/20251226/22a3eca6eea64d00a407149b2307f8b0.png" alt="xicel Logo" class="h-8 w-auto" />
+    </a>
+    <div class="hidden lg:flex items-center gap-8">
+      <div class="relative group">
+        <span class="nav-link text-body/70 hover:text-primary cursor-default text-sm font-medium transition-colors">产品服务 ▾</span>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">
+          <a href="products.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-primary rounded-full"></div><span class="font-semibold text-sm text-body">品牌基石</span></div>
+            <div class="text-xs text-muted ml-3">域名注册 · 商标注册 · WHOIS · 品牌保护</div>
+          </a>
+          <a href="products-hosting.html" class="bg-slate-50 rounded-xl p-3 hover:bg-accent/5 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-accent rounded-full"></div><span class="font-semibold text-sm text-body">站点构建</span></div>
+            <div class="text-xs text-muted ml-3">网站建设 · SSL证书 · 企业邮箱</div>
+          </a>
+          <a href="products-compute.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-purple-500 rounded-full"></div><span class="font-semibold text-sm text-body">算力底座</span></div>
+            <div class="text-xs text-muted ml-3">云服务器 · GPU算力 · 服务器租用</div>
+          </a>
+          <a href="products-network.html" class="bg-slate-50 rounded-xl p-3 hover:bg-amber-50 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-amber-500 rounded-full"></div><span class="font-semibold text-sm text-body">全球连接</span></div>
+            <div class="text-xs text-muted ml-3">网络专线 · 硬件采购 · 机房托管</div>
+          </a>
+          <div class="col-span-2 border-t border-slate-100 my-1"></div>
+          <a href="domain-pricing.html" class="col-span-2 block px-3 py-2 text-sm text-muted hover:text-primary rounded-lg hover:bg-slate-50 transition-colors text-center">域名价格</a>
+        </div>
+      </div>
+      <a href="solutions.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">解决方案</a>
+      <a href="news.html" class="nav-link text-primary font-semibold text-sm transition-colors">新闻动态</a>
+      <a href="about.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">关于我们</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="cart-wrapper hidden sm:flex">
+        <a href="user.html#panel-orders" class="nav-icon-btn" title="购物车/订单">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-badge">5</span>
+        </a>
+        <div class="cart-dropdown">
+          <div class="cart-dropdown-header"><span class="cart-dropdown-title">我的订单</span><span class="cart-dropdown-count">共 5 笔</span></div>
+          <div class="cart-list">
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="cart-item-info"><div class="cart-item-name">xicel.com 域名注册</div><div class="cart-item-meta"><span>域名注册</span><span>·</span><span style="color:#22C55E;">已完成</span></div></div><div class="cart-item-price">¥89.00</div></div>
+            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><div class="cart-item-info"><div class="cart-item-name">ECS 通用型 4核8G 云服务器</div><div class="cart-item-meta"><span>云服务器</span><span>·</span><span style="color:#EF4444;">处理中</span></div></div><div class="cart-item-price">¥3,580.00</div></div>
+          </div>
+          <div class="cart-dropdown-footer"><a href="user.html#panel-orders" class="cart-view-all">查看全部订单 →</a></div>
+        </div>
+      </div>
+      <div class="user-menu-wrapper hidden sm:flex">
+        <a href="user.html" class="user-avatar" title="个人中心"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Paul"></a>
+        <div class="user-dropdown">
+          <div class="user-dropdown-header"><div class="user-dropdown-name-row"><span class="user-dropdown-name">Paul</span><div class="user-edit-icon" title="编辑资料"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div></div><div class="user-dropdown-status"><span class="status-label">认证状态</span><span class="status-badge">已认证</span></div></div>
+          <div class="user-dropdown-menu">
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-account'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>基本信息</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-wallet'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="5" y1="8" x2="5" y2="8.01"/><circle cx="12" cy="14" r="2"/><path d="M19 10v4"/></svg>我的钱包</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-security'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>安全设置</div>
+            <div class="user-menu-item logout" onclick="handleLogout(event)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>退出登录</div>
+          </div>
+        </div>
+      </div>
+      <a href="login.html" id="loginLinkBtn" class="text-primary hover:text-primary-dark text-sm font-medium transition-colors hidden sm:inline" style="display:none;">登录</a>
+      <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 whitespace-nowrap">立即咨询</button>
+      <button id="hamburgerBtn" class="lg:hidden flex flex-col gap-1.5 w-9 h-9 items-center justify-center rounded-lg hover:bg-slate-100 transition-colors" onclick="toggleMobileMenu()">
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line1"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line2"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line3"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="mobileMenu" class="lg:hidden fixed inset-0 top-[65px] bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto overflow-x-hidden">
+  <div class="px-6 py-6 flex flex-col gap-2">
+    <div class="py-3 border-b border-slate-100">
+      <span class="text-sm font-semibold text-body block mb-3">产品服务</span>
+      <a href="products.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌基石</a>
+      <a href="products-hosting.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-accent border-l-2 border-accent transition-colors" onclick="closeMobileMenu()">站点构建</a>
+      <a href="products-compute.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">算力底座</a>
+      <a href="products-network.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-amber-500 border-l-2 border-amber-500 transition-colors" onclick="closeMobileMenu()">全球连接</a>
+      <a href="domain-pricing.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-slate-700 border-l-2 border-slate-300 transition-colors" onclick="closeMobileMenu()">域名价格</a>
+    </div>
+    <a href="solutions.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">解决方案</a>
+    <a href="news.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">新闻动态</a>
+    <a href="about.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">关于我们</a>
+    <div class="flex flex-col gap-3 mt-4">
+      <a href="user.html" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>个人中心</a>
+      <a href="user.html#panel-orders" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>我的订单</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 顶部横幅 ========== -->
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-20 lg:py-24" style="background: url('assets/images/news_hero.jpg') center/cover no-repeat;">
+  <div class="max-w-7xl mx-auto px-6 text-left">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E293B] mb-4">新闻动态</h1>
+    <p class="text-muted text-lg">了解xicel最新资讯与行业动态</p>
+  </div>
+</section>
+
+<!-- ========== 分类筛选 + 新闻列表 ========== -->
+<section class="bg-white py-12">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 分类筛选 -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mb-10" id="categoryFilters">
+      <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-primary text-white shadow-sm transition-all" data-category="all">全部</button>
+      <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white text-[#64748B] border border-[#E2E8F0] hover:border-primary hover:text-primary transition-all" data-category="product">产品发布</button>
+      <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white text-[#64748B] border border-[#E2E8F0] hover:border-primary hover:text-primary transition-all" data-category="industry">行业资讯</button>
+      <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white text-[#64748B] border border-[#E2E8F0] hover:border-primary hover:text-primary transition-all" data-category="tech">技术分享</button>
+      <button class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white text-[#64748B] border border-[#E2E8F0] hover:border-primary hover:text-primary transition-all" data-category="company">公司动态</button>
+    </div>
+
+    <!-- 新闻列表 3列 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="newsGrid">
+      <!-- 卡片 JS 动态渲染 -->
+    </div>
+
+    <!-- 分页器 -->
+    <div class="flex items-center justify-center gap-2 mt-12" id="pagination">
+      <!-- JS 动态渲染 -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="bg-slate-50 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <img src="https://oss.xicel.com/domain/20251226/22a3eca6eea64d00a407149b2307f8b0.png" alt="xicel" class="h-8 w-auto">
+        </div>
+        <p class="text-muted text-sm leading-relaxed">全球品牌基建服务商</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">产品服务</h4>
+        <ul class="space-y-2.5">
+          <li><a href="products.html" class="text-muted hover:text-primary text-sm transition-colors">品牌基石</a></li>
+          <li><a href="products-hosting.html" class="text-muted hover:text-primary text-sm transition-colors">站点构建</a></li>
+          <li><a href="products-compute.html" class="text-muted hover:text-primary text-sm transition-colors">算力底座</a></li>
+          <li><a href="products-network.html" class="text-muted hover:text-primary text-sm transition-colors">全球连接</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">解决方案</h4>
+        <ul class="space-y-2.5">
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">初创期(0→1)</a></li>
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成长期(1→10)</a></li>
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">扩张期(10→100)</a></li>
+          <li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成熟期(100+)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">联系我们</h4>
+        <ul class="space-y-2.5 text-sm text-muted mb-6">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>sales01@xice1.com</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>18475488381</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>深圳市龙华区汇隆大厦</span>
+          </li>
+        </ul>
+        <div class="w-[120px] h-[120px] rounded-xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center gap-1 bg-white">
+          <svg class="w-8 h-8 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v3h-3M20 20h-3v-3"/></svg>
+          <span class="text-xs text-muted">扫码咨询</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-sm text-body">支持</h4>
+        <ul class="space-y-2.5">
+          <li><a href="help.html" class="text-muted hover:text-primary text-sm transition-colors">帮助中心</a></li>
+          <li><a href="help.html#名词解释" class="text-muted hover:text-primary text-sm transition-colors">名词解释</a></li>
+          <li><a href="news.html" class="text-muted hover:text-primary text-sm transition-colors">新闻动态</a></li>
+          <li><a href="about.html" class="text-muted hover:text-primary text-sm transition-colors">关于我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted">
+      <span>&copy; 2026 深圳市希赛乐科技有限公司</span>
+      <span>粤ICP备XXXXXXXX号</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== 新闻数据 =====
+var newsData = [
+  { id: 1, title: "xicel 全球节点扩展至30+国家，亚太区延迟降低40%", summary: "xicel正式宣布全球骨干网络扩展至30+国家和地区，亚太地区用户平均访问延迟降低40%，为企业出海提供更优质的网络基础设施。", date: "2026-07-05", category: "company", categoryLabel: "公司动态", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop", reads: 12860, content: "<p>xicel正式宣布全球骨干网络扩展至30+国家和地区，亚太地区用户平均访问延迟降低40%，为企业出海提供更优质的网络基础设施。</p><p>本次扩展覆盖了东南亚、中东、欧洲及南美地区的新设节点。其中东南亚新增新加坡、雅加达、曼谷三个Tier3级节点，中东新增迪拜节点，欧洲新增法兰克福和米兰节点。这些节点均采用BGP智能路由与SD-WAN技术，可自动选择最优网络路径。</p><p>据测试数据，新加坡至中国大陆的延迟从此前的85ms降至48ms，迪拜至深圳的延迟降至112ms，法兰克福至广州的延迟降至158ms。新的骨干网架构还支持Anycast DNS，确保域名解析速度提升60%以上。</p><div class='bg-slate-100 rounded-xl h-64 flex items-center justify-center text-[#94A3B8] text-sm my-6'>全球节点分布示意图</div><p>「我们持续投资全球网络基础设施，」xicel CTO Alex Chen表示，「无论是跨境电商、出海游戏还是全球化SaaS企业，都能在新架构下获得更快的加载速度和更稳定的网络体验。」</p><p>新节点现已全面开放，所有客户自动受益，无需额外配置。企业客户还可通过控制台查看实时延迟地图和流量分布热力图。</p>" },
+  { id: 2, title: "2026全球出海域名保护趋势报告：.ai域名增长320%", summary: "xicel研究院发布《2026全球域名保护趋势报告》，数据显示.ai域名注册量同比增长320%，成为增速最快的顶级域名，反映了AI行业的爆发式增长。", date: "2026-07-02", category: "industry", categoryLabel: "行业资讯", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop", reads: 9850, content: "<p>xicel研究院发布《2026全球域名保护趋势报告》，数据显示.ai域名注册量同比增长320%，成为增速最快的顶级域名，反映了AI行业的爆发式增长。</p><p>报告基于全球300万+域名注册数据分析，主要发现包括：① .ai域名从2025年的12万注册量飙升至2026年中的50万+，增长320%；② .io域名增长放缓至15%；③ 传统.com仍占绝对优势（42%市场份额），但份额同比下降3个百分点；④ 中国企业域名争议案件同比增长28%，品牌域名保护意识显著增强。</p><div class='bg-slate-100 rounded-xl h-64 flex items-center justify-center text-[#94A3B8] text-sm my-6'>域名增长趋势图表</div><p>值得注意的是，73%的.ai域名注册来自AI创业公司和科技巨头。Google、Meta、Microsoft等公司均在今年上半年批量注册了大量.ai域名作为品牌保护策略。中国企业方面，字节跳动、百度、商汤科技等也加大了对.ai域名的持有量。</p><p>xicel域名业务负责人建议企业应建立\"品牌域名矩阵\"，至少覆盖.com/.cn/.ai/.io四个核心后缀，并结合商标注册构建完整的品牌护城河。</p>" },
+  { id: 3, title: "xicel SSL证书产品线升级：支持90天自动化部署与OCSP装订", summary: "SSL证书产品线重大升级，新增自动化部署工具，支持ACME协议一键签发，兼容Nginx/Apache/Caddy等主流Web服务器，证书部署效率提升80%。", date: "2026-06-28", category: "product", categoryLabel: "产品发布", img: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&h=400&fit=crop", reads: 7450, content: "<p>SSL证书产品线重大升级，新增自动化部署工具，支持ACME协议一键签发，兼容Nginx/Apache/Caddy等主流Web服务器，证书部署效率提升80%。</p><p>本次升级的核心功能包括：</p><p><strong>1. 90天自动化部署</strong>：基于ACME v2协议，用户只需在控制台申请证书并下载一个配置文件，系统会自动完成验证、签发、部署和定时续期。支持通配符证书和SAN多域名证书。</p><p><strong>2. OCSP装订</strong>：新增OCSP Stapling支持，可大幅减少SSL握手时间（平均减少30%），同时提升用户隐私保护，避免CA服务器追踪访问行为。</p><div class='bg-slate-100 rounded-xl h-48 flex items-center justify-center text-[#94A3B8] text-sm my-6'>自动化部署流程图</div><p><strong>3. 多服务器同步</strong>：一个证书可同步部署至最多10台服务器，适用于负载均衡和CDN边缘节点场景。</p><p>新功能即日起对所有SSL证书用户免费开放。管理员可在xicel控制台 → 安全 → SSL证书 → 自动化部署中开启。</p>" },
+  { id: 4, title: "SD-WAN智能路由技术详解：如何将跨境网络成本降低40%", summary: "深入解析xicel SD-WAN智能路由核心技术——动态路径选择、前向纠错与流量压缩三大技术如何协同工作，帮助出海企业大幅降低跨境网络成本。", date: "2026-06-20", category: "tech", categoryLabel: "技术分享", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop", reads: 6320, content: "<p>深入解析xicel SD-WAN智能路由核心技术——动态路径选择、前向纠错与流量压缩三大技术如何协同工作，帮助出海企业大幅降低跨境网络成本。</p><p><strong>一、动态路径选择（DPS）</strong></p><p>传统BGP路由依赖固定路径表，一旦某条链路出现拥塞，数据包只能排队等待。xicel的DPS引擎每秒采集全球200+节点的延迟、丢包率和可用带宽数据，通过加权最短路径算法实时计算最优路由。实测数据显示，DPS可将跨境链路的平均RTT降低35%，峰值时段可降低60%以上。</p><p><strong>二、前向纠错（FEC）</strong></p><p>在丢包率超过0.5%的链路上，TCP重传会导致带宽利用率骤降。xicel的FEC机制在发送端额外注入10%~15%的冗余校验包，接收端可自行恢复丢失数据包而无需等待重传。在3%丢包率的恶劣网络环境下，有效吞吐量可提升200%。</p><div class='bg-slate-100 rounded-xl h-48 flex items-center justify-center text-[#94A3B8] text-sm my-6'>FEC工作原理示意图</div><p><strong>三、智能流量压缩</strong></p><p>针对HTTP/HTTPS、数据库查询等可压缩流量，xicel在CPE端进行实时LZ4/Zstd压缩。典型的企业应用流量可压缩至原始的30%~50%，直接节省带宽成本。</p><p>三项技术的联合应用，使xicel某跨境电商客户实现了月均网络成本从$12,000降至$7,200，降幅40%。</p>" },
+  { id: 5, title: "xicel推出企业品牌保护一站式方案：域名+商标+监控全覆盖", summary: "全新企业品牌保护方案正式上线，整合域名注册/监控、商标注册/续展、品牌侵权监测三大模块，帮助企业构建完整的品牌数字护城河。", date: "2026-06-15", category: "product", categoryLabel: "产品发布", img: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop", reads: 5280, content: "<p>全新企业品牌保护方案正式上线，整合域名注册/监控、商标注册/续展、品牌侵权监测三大模块，帮助企业构建完整的品牌数字护城河。</p><p>方案核心能力：</p><p><strong>域名矩阵管理</strong>：自动推荐与品牌相关的高价值域名（如品牌名+行业关键词），支持跨后缀批量注册和管理。内置WHOIS变更监控，当竞争对手尝试注册相似域名时主动告警。</p><p><strong>商标智能注册</strong>：基于AI的商标分类推荐引擎，根据企业经营范围自动匹配尼斯分类。支持全球100+国家/地区的商标注册与续展提醒。</p><div class='bg-slate-100 rounded-xl h-48 flex items-center justify-center text-[#94A3B8] text-sm my-6'>品牌保护方案架构图</div><p><strong>侵权监测</strong>：7×24小时监控全球电商平台（Amazon、eBay、Shopee等）、社交媒体、App Store中的品牌侵权线索。发现疑似侵权行为后30分钟内通过短信、邮件和站内信三重通知。</p><p>定价方面，基础版¥2,999/年（覆盖域名监控+1个商标类别），专业版¥8,999/年（覆盖全球监控+3个商标类别+律师函服务），企业版定制报价。</p>" },
+  { id: 6, title: "从零到一：域名转入xicel完整指南，5步完成迁移", summary: "本文详细讲解域名从其他注册商转入xicel的完整流程，包括解锁域名、获取转移码、发起转入、DNS无缝切换和验证确认，全程零宕机。", date: "2026-06-08", category: "tech", categoryLabel: "技术分享", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop", reads: 4120, content: "<p>本文详细讲解域名从其他注册商转入xicel的完整流程，包括解锁域名、获取转移码、发起转入、DNS无缝切换和验证确认，全程零宕机。</p><p><strong>第一步：准备工作（5分钟）</strong></p><p>登录当前域名注册商后台，确认以下三点：① 域名注册满60天（ICANN规定新注册域名60天内不可转移）；② 域名处于 unlocked 状态；③ WHOIS隐私保护已关闭或邮箱可正常接收邮件。同时确保域名的管理员邮箱是您可访问的——转移确认邮件将发送至此邮箱。</p><p><strong>第二步：获取转移码/EPP Code（5分钟）</strong></p><p>在注册商后台找到「获取转移码」或「Request Auth Code」功能。Godaddy在「域名设置→转移域名」中，Namecheap在「Domain→Manage→Sharing & Transfer」中。转移码通常为6-16位的字母数字组合，有效期5-15天。收到后请复制保存。</p><div class='bg-slate-100 rounded-xl h-48 flex items-center justify-center text-[#94A3B8] text-sm my-6'>获取转移码截图示意</div><p><strong>第三步：在xicel发起转入（3分钟）</strong></p><p>登录xicel控制台 → 域名 → 域名转入，输入域名和转移码，选择续费年限（转入通常要求续费1年），提交订单并完成支付。</p><p><strong>第四步：确认转移（等待1-5天）</strong></p><p>提交后，ICANN会向域名管理员邮箱发送确认邮件。点击邮件中的确认链接。大多数后缀（.com/.net/.org等）转移耗时1-5个工作日；.cn域名转移较快，通常24小时内完成。</p><p><strong>第五步：DNS无缝切换</strong></p><p>转移完成前，建议先在xicel预先配置好DNS解析记录（A记录、CNAME、MX等），确保转移完成瞬间DNS即生效，实现零宕机迁移。</p>" }
+];
+
+// ===== 渲染 =====
+var currentPage = 1;
+var pageSize = 6;
+var currentCategory = 'all';
+
+function getCategoryColor(cat) {
+  var map = { company: 'text-primary bg-[#EFF6FF]', industry: 'text-accent bg-[#E6FFFA]', product: 'text-purple-500 bg-purple-50', tech: 'text-amber-600 bg-amber-50' };
+  return map[cat] || 'text-[#64748B] bg-slate-100';
+}
+
+function getCategoryImgBg(cat) {
+  var map = { company: 'from-primary/10 to-primary/5', industry: 'from-accent/10 to-accent/5', product: 'from-purple-50 to-purple-100', tech: 'from-amber-50 to-amber-100' };
+  return map[cat] || 'from-slate-50 to-slate-100';
+}
+
+function renderNewsCard(n) {
+  return '<a href="news-detail.html?id='+n.id+'" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#E2E8F0]">'+
+    '<div class="aspect-video overflow-hidden"><img src="'+n.img+'" alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" /></div>'+
+    '<div class="p-5">'+
+      '<span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full '+getCategoryColor(n.category)+' mb-3">'+n.categoryLabel+'</span>'+
+      '<h3 class="font-semibold text-[#1E293B] group-hover:text-primary transition-colors mb-2 line-clamp-2" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">'+n.title+'</h3>'+
+      '<p class="text-xs text-[#64748B] mb-4 line-clamp-2" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">'+n.summary+'</p>'+
+      '<div class="flex items-center justify-between text-xs">'+
+        '<span class="text-[#94A3B8]">'+n.date+'</span>'+
+        '<span class="text-primary font-medium group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">阅读更多 <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>'+
+      '</div>'+
+    '</div>'+
+  '</a>';
+}
+
+function renderPagination(totalPages) {
+  if (totalPages <= 1) return '';
+  var html = '<button class="px-3 py-2 rounded-lg text-sm text-[#64748B] hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors" id="prevPage" '+(currentPage===1?'disabled':'')+'><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>';
+  for (var i=1; i<=totalPages; i++) {
+    html += '<button class="w-9 h-9 rounded-lg text-sm font-medium transition-all '+(i===currentPage?'bg-primary text-white shadow-sm':'text-[#64748B] hover:bg-slate-100')+'" data-page="'+i+'">'+i+'</button>';
+  }
+  html += '<button class="px-3 py-2 rounded-lg text-sm text-[#64748B] hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors" id="nextPage" '+(currentPage===totalPages?'disabled':'')+'><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>';
+  return html;
+}
+
+function renderNews() {
+  var filtered = currentCategory === 'all' ? newsData : newsData.filter(function(n){ return n.category === currentCategory; });
+  var totalPages = Math.ceil(filtered.length / pageSize);
+  if (currentPage > totalPages) currentPage = totalPages || 1;
+  var start = (currentPage - 1) * pageSize;
+  var pageItems = filtered.slice(start, start + pageSize);
+
+  document.getElementById('newsGrid').innerHTML = pageItems.map(renderNewsCard).join('');
+  document.getElementById('pagination').innerHTML = renderPagination(totalPages);
+
+  // 绑定分页事件
+  document.querySelectorAll('#pagination button[data-page]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      currentPage = parseInt(this.dataset.page);
+      renderNews();
+      window.scrollTo({ top: document.getElementById('newsGrid').offsetTop - 120, behavior: 'smooth' });
+    });
+  });
+  var prevBtn = document.getElementById('prevPage');
+  var nextBtn = document.getElementById('nextPage');
+  if (prevBtn) prevBtn.addEventListener('click', function(){ if (currentPage>1){ currentPage--; renderNews(); window.scrollTo({ top: document.getElementById('newsGrid').offsetTop - 120, behavior: 'smooth' }); } });
+  if (nextBtn) nextBtn.addEventListener('click', function(){ if (currentPage<totalPages){ currentPage++; renderNews(); window.scrollTo({ top: document.getElementById('newsGrid').offsetTop - 120, behavior: 'smooth' }); } });
+}
+
+// 分类筛选
+document.querySelectorAll('#categoryFilters .filter-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('#categoryFilters .filter-btn').forEach(function(b){
+      b.classList.remove('bg-primary','text-white','shadow-sm');
+      b.classList.add('bg-white','text-[#64748B]','border','border-[#E2E8F0]');
+    });
+    btn.classList.add('bg-primary','text-white','shadow-sm');
+    btn.classList.remove('bg-white','text-[#64748B]','border','border-[#E2E8F0]');
+    currentCategory = btn.dataset.category;
+    currentPage = 1;
+    renderNews();
+  });
+});
+
+// 初始化
+renderNews();
+</script>
+
+<!-- ========== 咨询弹窗 Modal ========== -->
+<div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeConsultModal()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-fade-in">
+    <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-body">立即咨询</h3>
+        <button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">
+        <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+        <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
+function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  var l1=document.getElementById('ham-line1');
+  var l2=document.getElementById('ham-line2');
+  var l3=document.getElementById('ham-line3');
+  if(menu.classList.contains('translate-x-full')){
+    menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0');
+    l1.style.transform='rotate(45deg) translate(5px,5px)';
+    l2.style.opacity='0';
+    l3.style.transform='rotate(-45deg) translate(5px,-5px)';
+    document.body.style.overflow='hidden';
+  }else{
+    closeMobileMenu();
+  }
+}
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
+  var l1=document.getElementById('ham-line1'); l1.style.transform='';
+  var l2=document.getElementById('ham-line2'); l2.style.opacity='';
+  var l3=document.getElementById('ham-line3'); l3.style.transform='';
+  document.body.style.overflow='';
+}
+</script>
+</body>
+</html>

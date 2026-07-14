@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>域名注册查询 - Xicel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A66FF',
+            'primary-dark': '#0047CC',
+            accent: '#00D4AA',
+            dark: '#0D1117',
+            surface: '#F5F7FA',
+            body: '#1E293B',
+            muted: '#64748B',
+            border: '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+
+<!-- ========== 导航 ========== -->
+<nav id="navbar" class="bg-white/90 backdrop-blur-xl border-b border-slate-100 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <img src="https://oss.xicel.com/domain/20251226/22a3eca6eea64d00a407149b2307f8b0.png" alt="xicel Logo" class="h-8 w-auto" />
+    </a>
+    <div class="hidden lg:flex items-center gap-8">
+      <div class="relative group">
+        <span class="nav-link text-body/70 hover:text-primary cursor-default text-sm font-medium transition-colors">产品服务 ▾</span>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">
+          <a href="products.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-primary rounded-full"></div><span class="font-semibold text-sm text-body">品牌基石</span></div>
+            <div class="text-xs text-muted ml-3">域名注册 · 商标注册 · WHOIS · 品牌保护</div>
+          </a>
+          <a href="products-hosting.html" class="bg-slate-50 rounded-xl p-3 hover:bg-accent/5 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-accent rounded-full"></div><span class="font-semibold text-sm text-body">站点构建</span></div>
+            <div class="text-xs text-muted ml-3">网站建设 · SSL证书 · 企业邮箱</div>
+          </a>
+          <a href="products-compute.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-purple-500 rounded-full"></div><span class="font-semibold text-sm text-body">算力底座</span></div>
+            <div class="text-xs text-muted ml-3">云服务器 · GPU算力 · 服务器租赁</div>
+          </a>
+          <a href="products-network.html" class="bg-slate-50 rounded-xl p-3 hover:bg-amber-50 transition-colors cursor-pointer block no-underline">
+            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-amber-500 rounded-full"></div><span class="font-semibold text-sm text-body">全球连接</span></div>
+            <div class="text-xs text-muted ml-3">网络专线 · 硬件采购 · 机房托管</div>
+          </a>
+          <div class="col-span-2 border-t border-slate-100 my-1"></div>
+          <a href="domain-pricing.html" class="col-span-2 block px-3 py-2 text-sm text-muted hover:text-primary rounded-lg hover:bg-slate-50 transition-colors text-center">域名价格</a>
+        </div>
+      </div>
+      <a href="solutions.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">解决方案</a>
+      <a href="news.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">新闻动态</a>
+      <a href="about.html" class="nav-link text-body/70 hover:text-primary text-sm font-medium transition-colors">关于我们</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="user.html#panel-orders" class="nav-icon-btn hidden sm:flex" title="购物车/订单">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        <span class="cart-badge">0</span>
+      </a>
+      <div class="user-menu-wrapper hidden sm:flex">
+        <a href="user.html" class="user-avatar" title="个人中心"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Paul"></a>
+        <div class="user-dropdown">
+          <div class="user-dropdown-header"><div class="user-dropdown-name-row"><span class="user-dropdown-name">Paul</span></div><div class="user-dropdown-status"><span class="status-label">认证状态</span><span class="status-badge">已认证</span></div></div>
+          <div class="user-dropdown-menu">
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-account'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>基本信息</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-wallet'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="5" y1="8" x2="5" y2="8.01"/><circle cx="12" cy="14" r="2"/><path d="M19 10v4"/></svg>我的钱包</div>
+            <div class="user-menu-item" onclick="window.location.href='user.html#panel-security'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>安全设置</div>
+            <div class="user-menu-item logout" onclick="handleLogout(event)"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>退出登录</div>
+          </div>
+        </div>
+      </div>
+      <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 whitespace-nowrap">立即咨询</button>
+      <button id="hamburgerBtn" class="lg:hidden flex flex-col gap-1.5 w-9 h-9 items-center justify-center rounded-lg hover:bg-slate-100 transition-colors" onclick="toggleMobileMenu()">
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line1"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line2"></span>
+        <span class="block w-5 h-0.5 bg-body rounded transition-all duration-300" id="ham-line3"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="mobileMenu" class="lg:hidden fixed inset-0 top-[65px] bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto overflow-x-hidden">
+  <div class="px-6 py-6 flex flex-col gap-2">
+    <div class="py-3 border-b border-slate-100">
+      <span class="text-sm font-semibold text-body block mb-3">产品服务</span>
+      <a href="products.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌基石</a>
+      <a href="products-hosting.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-accent border-l-2 border-accent transition-colors" onclick="closeMobileMenu()">站点构建</a>
+      <a href="products-compute.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">算力底座</a>
+      <a href="products-network.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-amber-500 border-l-2 border-amber-500 transition-colors" onclick="closeMobileMenu()">全球连接</a>
+      <a href="domain-pricing.html" class="block py-2.5 pl-4 text-sm text-muted hover:text-slate-700 border-l-2 border-slate-300 transition-colors" onclick="closeMobileMenu()">域名价格</a>
+    </div>
+    <a href="solutions.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">解决方案</a>
+    <a href="news.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">新闻动态</a>
+    <a href="about.html" class="block py-3 text-sm font-semibold text-body border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">关于我们</a>
+    <div class="flex flex-col gap-3 mt-4">
+      <a href="user.html" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>个人中心</a>
+      <a href="user.html#panel-orders" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>我的订单</a>
+    </div>
+  </div>
+</div>
+
+<main class="flex-1">
+
+<!-- ========== Hero 搜索区========== -->
+<section class="py-16 bg-gradient-to-r from-[#0A66FF]/5 to-[#0047CC]/5">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-body mb-3">域名注册查询</h1>
+    <p class="text-muted mb-8">输入您想要的域名前缀，即刻查询全球顶级后缀的注册状态</p>
+    <div class="flex bg-white rounded-2xl shadow-lg shadow-primary/10 border border-slate-200 p-2">
+      <input id="domainSearchInput" type="text" placeholder="输入域名前缀，如 123、mybrand"
+        class="flex-1 px-4 py-3 text-base outline-none rounded-xl" autocomplete="off">
+      <button onclick="handleSearch()"
+        class="bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-3 rounded-xl transition-all ml-2 whitespace-nowrap">
+        立即查询
+      </button>
+    </div>
+    <p class="text-xs text-muted mt-3">支持查询 .com .cn .net .xyz .top .vip 等 30+ 后缀</p>
+  </div>
+</section>
+
+<!-- ========== 初始推荐（无搜索结果时） ========== -->
+<section class="py-12 bg-white" id="initialSuggestions">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-lg font-semibold text-body mb-6">热门搜索</h3>
+    <div class="flex flex-wrap gap-3">
+      <button onclick="quickSearch('brand')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">brand</button>
+      <button onclick="quickSearch('shop')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">shop</button>
+      <button onclick="quickSearch('my')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">my</button>
+      <button onclick="quickSearch('123')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">123</button>
+      <button onclick="quickSearch('hello')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">hello</button>
+      <button onclick="quickSearch('global')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">global</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 筛选栏（仅在有结果时显示） ========== -->
+<section id="searchControls" class="py-6 bg-white border-b border-slate-100" style="display:none;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div id="resultCount" class="text-sm text-muted">共 30 个结果</div>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs text-muted">状态筛选：</span>
+        <button onclick="filterResults('all')" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-primary text-white transition-all">全部</button>
+        <button onclick="filterResults('available')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 text-muted hover:border-green-400 hover:text-green-600 transition-all">可注册</button>
+        <button onclick="filterResults('registered')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 text-muted hover:border-red-400 hover:text-red-600 transition-all">已注册</button>
+        <button onclick="filterResults('premium')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 text-muted hover:border-orange-400 hover:text-orange-600 transition-all">溢价域名</button>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-muted">排序：</span>
+        <button type="button" id="sortBtn" data-value="default" class="dropdown-btn dropdown-btn-sm">
+          <span id="sortText">综合排序</span>
+          <svg class="dropdown-arrow ml-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 搜索结果区========== -->
+<section id="searchResults" class="py-12 bg-white" style="display:none;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div id="searchQueryTitle" class="mb-8" style="display:none;">
+      <h2 class="text-2xl font-bold text-body">
+        搜索 <span class="text-primary" id="searchQueryDisplay"></span>
+        <span id="searchQuerySuffix" class="text-base text-muted font-normal"></span>
+      </h2>
+    </div>
+    <div id="resultsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    </div>
+  </div>
+</section>
+
+<!-- ========== 无结果兜底========== -->
+<section id="noResults" class="py-24 bg-white" style="display:none;">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="mb-6">
+      <svg class="w-28 h-28 mx-auto" viewBox="0 0 140 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 35a6 6 0 016-6h28l10 10h56a6 6 0 016 6v48a6 6 0 01-6 6H21a6 6 0 01-6-6V35z" stroke="#CBD5E1" stroke-width="2" fill="#F1F5F9"/>
+        <circle cx="95" cy="95" r="24" stroke="#CBD5E1" stroke-width="2.5" fill="white"/>
+        <path d="M113 113l16 16" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="95" cy="95" r="10" stroke="#E2E8F0" stroke-width="1.5" fill="none" stroke-dasharray="3 2"/>
+      </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-body mb-2">未找到匹配结果</h3>
+    <p class="text-muted mb-8">试试其他关键词，或浏览热门推荐域名</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto" id="noResultsHotCards">
+    </div>
+  </div>
+</section>
+<!-- ========== JS 数据与逻辑 ========== -->
+<script>
+// ===== TLD 数据集（30个） =====
+var TLD_DATA = [
+  { domain: '.com',  desc: '全球用户注册首选域名',  price: 98,   color: 'bg-blue-600',      abbr: 'CO' },
+  { domain: '.net',  desc: '网络服务机构首选',        price: 79,   color: 'bg-blue-600',      abbr: 'NE' },
+  { domain: '.org',  desc: '非盈利组织专用',          price: 85,   color: 'bg-teal-600',      abbr: 'OR' },
+  { domain: '.info', desc: '信息服务平台',            price: 25,   color: 'bg-cyan-600',      abbr: 'IN' },
+  { domain: '.biz',  desc: '商业专属域名',            price: 55,   color: 'bg-slate-600',     abbr: 'BI' },
+  { domain: '.cn',   desc: '中国国家顶级域名',        price: 35,   flag: 'assets/flags/cn.svg' },
+  { domain: '.com.cn', desc: '中国企业专属域名',       price: 39,   flag: 'assets/flags/cn.svg' },
+  { domain: '.hk',   desc: '香港地区域名',            price: 180,  flag: 'assets/flags/cn.svg' },
+  { domain: '.com.hk', desc: '香港商业域名',          price: 200,  flag: 'assets/flags/cn.svg' },
+  { domain: '.com.tw', desc: '台湾地区域名',          price: 150,  flag: 'assets/flags/cn.svg' },
+  { domain: '.jp',   desc: '日本国家域名',            price: 320,  color: 'bg-red-600',       abbr: 'JP' },
+  { domain: '.kr',   desc: '韩国国家域名',            price: 280,  color: 'bg-blue-600',      abbr: 'KR' },
+  { domain: '.sg',   desc: '新加坡国家域名',          price: 250,  color: 'bg-red-600',       abbr: 'SG' },
+  { domain: '.uk',   desc: '英国国家域名',            price: 150,  color: 'bg-blue-600',      abbr: 'UK' },
+  { domain: '.de',   desc: '德国国家域名',            price: 130,  color: 'bg-gray-800',      abbr: 'DE' },
+  { domain: '.us',   desc: '美国国家域名',            price: 198,  color: 'bg-blue-600',      abbr: 'US' },
+  { domain: '.fr',   desc: '法国国家域名',            price: 140,  color: 'bg-blue-600',      abbr: 'FR' },
+  { domain: '.ai',   desc: '人工智能专属',            price: 580,  color: 'bg-purple-600',    abbr: 'AI' },
+  { domain: '.io',   desc: '科技创业首选',            price: 420,  color: 'bg-gray-800',      abbr: 'IO' },
+  { domain: '.co',   desc: '公司企业域名',            price: 180,  color: 'bg-blue-600',      abbr: 'CO2' },
+  { domain: '.cc',   desc: '创意无限',                price: 88,   color: 'bg-teal-600',      abbr: 'CC' },
+  { domain: '.top',  desc: '巅峰首选',                price: 9,    color: 'bg-amber-600',     abbr: 'TO' },
+  { domain: '.xyz',  desc: '新一代通用域名',          price: 8,    color: 'bg-purple-600',    abbr: 'XY' },
+  { domain: '.vip',  desc: '尊贵身份象征',            price: 29,   color: 'bg-amber-600',     abbr: 'VI' },
+  { domain: '.club', desc: '社群俱乐部',              price: 19,   color: 'bg-pink-600',      abbr: 'CL' },
+  { domain: '.shop', desc: '电商专属',                price: 68,   color: 'bg-orange-600',    abbr: 'SH' },
+  { domain: '.site', desc: '建站首选',                price: 15,   color: 'bg-emerald-600',   abbr: 'SI' },
+  { domain: '.work', desc: '职场个人站',              price: 12,   color: 'bg-cyan-600',      abbr: 'WO' },
+  { domain: '.link', desc: '链接跳转',                price: 25,   color: 'bg-indigo-600',    abbr: 'LI' },
+  { domain: '.online', desc: '在线首选',              price: 18,   color: 'bg-cyan-600',      abbr: 'ON' }
+];
+
+var currentPrefix = '';
+var currentResults = [];
+var currentFilter = 'all';
+
+// ===== DJB2 hash（保证同 prefix+TLD 结果稳定）=====
+function simpleHash(str) {
+  var hash = 5381;
+  for (var i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+}
+
+// ===== 生成 mock 可用性结果=====
+function generateResults(prefix) {
+  return TLD_DATA.map(function(tld) {
+    var hash = simpleHash(prefix + tld.domain);
+    var status;
+    if (hash % 7 === 0) status = 'registered';
+    else if (hash % 13 === 0) status = 'premium';
+    else status = 'available';
+
+    var fullDomain = prefix + tld.domain;
+    var result = {
+      domain: tld.domain,
+      desc: tld.desc,
+      price: tld.price,
+      color: tld.color,
+      abbr: tld.abbr,
+      flag: tld.flag,
+      status: status,
+      fullDomain: fullDomain
+    };
+
+    if (status === 'premium') {
+      result.premiumPrice = tld.price * 15;
+    }
+
+    return result;
+  });
+}
+
+// ===== 渲染单张结果卡片 =====
+function renderCard(item) {
+  var prefix = currentPrefix;
+
+  // 占位缩略图
+  var thumb;
+  if (item.flag) {
+    thumb = '<img src="' + item.flag + '" alt="" class="w-10 h-10 rounded-lg object-cover shrink-0" onerror="this.style.display=\'none\'" />';
+  } else {
+    thumb = '<div class="w-10 h-10 rounded-lg ' + item.color + ' flex items-center justify-center shrink-0"><span class="text-white font-bold text-xs">' + item.abbr + '</span></div>';
+  }
+
+  if (item.status === 'available') {
+    // 可注册卡片
+    return '<div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="goToOrder(\'' + item.domain + '\',\'' + prefix + '\')">' +
+      '<div class="flex items-center justify-between mb-3">' +
+        '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-medium"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> 可注册</span>' +
+      '</div>' +
+      '<div class="flex items-center gap-2.5 mb-3">' + thumb +
+        '<div class="flex-1 min-w-0"><div class="text-lg font-bold text-body truncate">' + item.fullDomain + '</div><div class="text-[11px] text-muted">' + item.desc + '</div></div>' +
+      '</div>' +
+      '<div class="flex items-center justify-between pt-3 border-t border-slate-100">' +
+        '<div class="text-base font-semibold text-primary">\u00a5' + item.price + '<span class="text-xs font-normal text-muted">/首年</span></div>' +
+        '<span class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 \u2192</span>' +
+      '</div>' +
+    '</div>';
+
+  } else if (item.status === 'registered') {
+    // 已注册卡片
+    return '<div class="bg-white rounded-2xl border border-slate-200 p-5 opacity-75">' +
+      '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-50 text-red-700 text-xs font-medium mb-3"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> 已注册</span>' +
+      '<div class="flex items-center gap-2.5 mb-3">' + thumb +
+        '<div class="flex-1 min-w-0"><div class="text-lg font-bold text-muted line-through truncate">' + item.fullDomain + '</div><div class="text-[11px] text-muted">' + item.desc + '</div></div>' +
+      '</div>' +
+      '<div class="flex items-center justify-between pt-3 border-t border-slate-100">' +
+        '<span class="text-xs text-muted">该域名已被注册</span>' +
+        '<span onclick="event.stopPropagation(); quickSearch(\'' + prefix + '\')" class="text-xs text-primary hover:text-primary-dark font-medium transition-colors cursor-pointer">查看替代 \u2192</span>' +
+      '</div>' +
+    '</div>';
+
+  } else {
+    // 溢价卡片
+    var premiumPrice = item.premiumPrice;
+    var priceDisplay = '\u00a5' + premiumPrice.toLocaleString();
+    return '<div class="bg-white rounded-2xl border border-amber-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="goToOrder(\'' + item.domain + '\',\'' + prefix + '\')">' +
+      '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-medium mb-3"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> 溢价域名</span>' +
+      '<div class="flex items-center gap-2.5 mb-3">' + thumb +
+        '<div class="flex-1 min-w-0"><div class="text-lg font-bold text-body truncate">' + item.fullDomain + '</div><div class="text-[11px] text-muted">' + item.desc + '</div></div>' +
+      '</div>' +
+      '<div class="flex items-center justify-between pt-3 border-t border-slate-100">' +
+        '<div class="text-base font-semibold text-amber-600">' + priceDisplay + '<span class="text-xs font-normal text-muted">/首年</span></div>' +
+        '<span class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">查看详情 \u2192</span>' +
+      '</div>' +
+    '</div>';
+  }
+}
+
+// ===== 退出登录处理 =====
+function handleLogout(e) {
+  e.stopPropagation();
+  var wrapper = document.querySelector('.user-menu-wrapper');
+  if (wrapper) wrapper.style.display = 'none';
+  var badge = document.querySelector('.cart-badge');
+  if (badge) badge.style.display = 'none';
+}
+
+// ===== 立即咨询（无 modal 时降级为提示） =====
+function openConsultModal() {
+  var modal = document.getElementById('consultModal');
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  } else {
+    window.location.href = 'about.html#contact';
+  }
+}
+
+// ===== 渲染热门推荐（无结果时） =====
+function renderHotCards() {
+  var hotDomains = TLD_DATA.slice(0, 8);
+  return hotDomains.map(function(tld) {
+    var thumb;
+    if (tld.flag) {
+      thumb = '<img src="' + tld.flag + '" alt="" class="w-12 h-12 rounded-xl object-cover shrink-0" onerror="this.style.display=\'none\'" />';
+    } else {
+      thumb = '<div class="w-12 h-12 rounded-xl ' + tld.color + ' flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">' + tld.abbr + '</span></div>';
+    }
+    return '<div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="location.href=\'domain-order.html?domain=' + tld.domain + '\'">' +
+      '<div class="flex items-start gap-3 mb-4">' + thumb +
+        '<div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">' + tld.domain + '</div><div class="text-xs text-muted">' + tld.desc + '</div></div>' +
+      '</div>' +
+      '<div class="flex items-center justify-between">' +
+        '<div class="text-base font-semibold text-primary">\u00a5' + tld.price + '<span class="text-xs font-normal text-muted">/首年</span></div>' +
+        '<span class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 \u2192</span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+// ===== 渲染结果列表 =====
+function renderResults(results) {
+  var grid = document.getElementById('resultsGrid');
+  var noResults = document.getElementById('noResults');
+  if (results.length === 0) {
+    grid.innerHTML = '';
+    noResults.style.display = '';
+  } else {
+    noResults.style.display = 'none';
+    grid.innerHTML = results.map(renderCard).join('');
+  }
+}
+
+// ===== 主搜索函数=====
+function handleSearch() {
+  var input = document.getElementById('domainSearchInput');
+  var query = input.value.trim();
+
+  if (!query) return;
+
+  currentPrefix = query;
+  currentFilter = 'all';
+
+  // 重置筛选按钮
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.classList.remove('active', 'bg-primary', 'text-white');
+    btn.classList.add('border', 'border-slate-200', 'text-muted');
+  });
+  document.querySelector('.filter-btn[onclick*="all"]').classList.add('active', 'bg-primary', 'text-white');
+  document.querySelector('.filter-btn[onclick*="all"]').classList.remove('border', 'border-slate-200', 'text-muted');
+
+  // 重置排序
+  // 重置排序下拉按钮显示
+  const sortBtn = document.getElementById('sortBtn');
+  if (sortBtn) {
+    sortBtn.setAttribute('data-value', 'default');
+    const sortText = document.getElementById('sortText');
+    if (sortText) {
+      sortText.textContent = '综合排序';
+    }
+  }
+
+  currentResults = generateResults(query);
+
+  // 显示/隐藏区域
+  document.getElementById('initialSuggestions').style.display = 'none';
+  document.getElementById('searchControls').style.display = '';
+  document.getElementById('searchResults').style.display = '';
+  document.getElementById('noResults').style.display = 'none';
+
+  // 标题
+  document.getElementById('searchQueryTitle').style.display = '';
+  document.getElementById('searchQueryDisplay').textContent = '"' + query + '"';
+  document.getElementById('searchQuerySuffix').textContent = ' \u00d7 ' + currentResults.length + ' 个后缀';
+
+  renderAndCount();
+  updateURL(query);
+}
+
+// ===== 渲染 + 计数 =====
+function renderAndCount() {
+  var filtered = currentResults;
+  if (currentFilter !== 'all') {
+    filtered = currentResults.filter(function(r) { return r.status === currentFilter; });
+  }
+
+  var avail = currentResults.filter(function(r) { return r.status === 'available'; }).length;
+  var reg = currentResults.filter(function(r) { return r.status === 'registered'; }).length;
+  var prem = currentResults.filter(function(r) { return r.status === 'premium'; }).length;
+
+  document.getElementById('resultCount').innerHTML =
+    '共<b class="text-body">' + currentResults.length + '</b> 个结果' +
+    ' &middot; <span class="text-green-600">' + avail + ' 可注册</span>' +
+    ' &middot; <span class="text-red-500">' + reg + ' 已注册</span>' +
+    ' &middot; <span class="text-amber-600">' + prem + ' 溢价</span>';
+
+  renderResults(filtered);
+}
+
+// ===== 快速搜索=====
+function quickSearch(keyword) {
+  document.getElementById('domainSearchInput').value = keyword;
+  handleSearch();
+}
+
+// ===== 筛选=====
+function filterResults(status) {
+  currentFilter = status;
+
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.classList.remove('active', 'bg-primary', 'text-white');
+    btn.classList.add('border', 'border-slate-200', 'text-muted');
+  });
+
+  var activeBtn = document.querySelector('.filter-btn[onclick*="' + status + '"]');
+  if (activeBtn) {
+    activeBtn.classList.add('active', 'bg-primary', 'text-white');
+    activeBtn.classList.remove('border', 'border-slate-200', 'text-muted');
+  }
+
+  renderAndCount();
+}
+
+// ===== 排序 =====
+function applySort() {
+  var sort = document.getElementById('sortBtn').getAttribute('data-value');
+  var filtered = currentResults;
+  if (currentFilter !== 'all') {
+    filtered = currentResults.filter(function(r) { return r.status === currentFilter; });
+  }
+
+  if (sort === 'price-asc') {
+    filtered.sort(function(a, b) {
+      var pa = a.status === 'premium' ? (a.premiumPrice || 0) : a.price;
+      var pb = b.status === 'premium' ? (b.premiumPrice || 0) : b.price;
+      return pa - pb;
+    });
+  } else if (sort === 'price-desc') {
+    filtered.sort(function(a, b) {
+      var pa = a.status === 'premium' ? (a.premiumPrice || 0) : a.price;
+      var pb = b.status === 'premium' ? (b.premiumPrice || 0) : b.price;
+      return pb - pa;
+    });
+  }
+  // default: re-generate original order
+  if (sort === 'default') {
+    filtered = generateResults(currentPrefix);
+    if (currentFilter !== 'all') {
+      filtered = filtered.filter(function(r) { return r.status === currentFilter; });
+    }
+  }
+
+  renderResults(filtered);
+}
+
+// ===== 跳转订单页=====
+function goToOrder(tld, prefix) {
+  window.location.href = 'domain-order.html?domain=' + encodeURIComponent(prefix + tld) + '&prefix=' + encodeURIComponent(prefix);
+}
+
+// ===== URL 参数支持 =====
+function updateURL(query) {
+  if (history.pushState) {
+    history.pushState(null, '', '?q=' + encodeURIComponent(query));
+  }
+}
+
+// ===== 回车触发搜索 =====
+document.getElementById('domainSearchInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    handleSearch();
+  }
+});
+
+// ===== 加载时查 URL 参数 =====
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get('q');
+  if (q) {
+    document.getElementById('domainSearchInput').value = q;
+    handleSearch();
+  }
+})();
+</script>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="bg-slate-50 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-10">
+      <div><div class="flex items-center gap-2.5 mb-4"><img src="https://oss.xicel.com/domain/20251226/22a3eca6eea64d00a407149b2307f8b0.png" alt="xicel" class="h-8 w-auto"></div><p class="text-muted text-sm leading-relaxed">全球品牌基建服务商</p></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">产品服务</h4><ul class="space-y-2.5"><li><a href="products.html?subtab=domain" class="text-muted hover:text-primary text-sm transition-colors">品牌基石</a></li><li><a href="products-hosting.html" class="text-muted hover:text-primary text-sm transition-colors">站点构建</a></li><li><a href="products-compute.html" class="text-muted hover:text-primary text-sm transition-colors">算力底座</a></li><li><a href="products-network.html" class="text-muted hover:text-primary text-sm transition-colors">全球连接</a></li></ul></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">解决方案</h4><ul class="space-y-2.5"><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">初创企业(0元)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成长企业(1-10)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">扩张企业(10-100)</a></li><li><a href="solutions.html" class="text-muted hover:text-primary text-sm transition-colors">成熟企业(100+)</a></li></ul></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">联系我们</h4><ul class="space-y-2.5 text-sm text-muted mb-6"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>sales01@xice1.com</span></li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>18475488381</span></li><li class="flex items-start gap-2"><svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>深圳市龙华区汇隆大厦</span></li></ul><div class="w-[120px] h-[120px] rounded-xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center gap-1 bg-white">
+          <svg class="w-8 h-8 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v3h-3M20 20h-3v-3"/></svg>
+          <span class="text-xs text-muted">扫码咨询</span>
+        </div></div>
+      <div><h4 class="font-semibold mb-4 text-sm text-body">支持</h4><ul class="space-y-2.5"><li><a href="help.html" class="text-muted hover:text-primary text-sm transition-colors">帮助中心</a></li><li><a href="help.html#名词解释" class="text-muted hover:text-primary text-sm transition-colors">名词解释</a></li><li><a href="news.html" class="text-muted hover:text-primary text-sm transition-colors">新闻动态</a></li><li><a href="about.html" class="text-muted hover:text-primary text-sm transition-colors">关于我们</a></li></ul></div>
+    </div>
+    <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted"><span>&copy; 2026 深圳市希赛乐科技有限公司</span><span>粤ICP备XXXXXXXX号</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('sortBtn');
+  if (!btn) return;
+  var arrow = btn.querySelector('.dropdown-arrow');
+  var OPTIONS = [
+    { value: 'default',    label: '综合排序' },
+    { value: 'price-asc',  label: '价格从低到高' },
+    { value: 'price-desc', label: '价格从高到低' }
+  ];
+
+  function panelHTML() {
+    var cur = btn.getAttribute('data-value');
+    return OPTIONS.map(function(o){
+      var sel = o.value === cur;
+      return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.value + '">'
+           +   '<span>' + o.label + '</span>'
+           +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+           + '</div>';
+    }).join('');
+  }
+
+  function open() {
+    close();
+    var dd = document.createElement('div');
+    dd.id = 'sortDropdown';
+    dd.className = 'dropdown-panel';
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+    inner.innerHTML = panelHTML();
+    dd.appendChild(inner);
+    var rect = btn.getBoundingClientRect();
+    dd.style.top  = (rect.bottom + 4) + 'px';
+    dd.style.left = rect.left + 'px';
+    dd.style.minWidth = '140px';
+    document.body.appendChild(dd);
+    arrow.classList.add('open');
+    dd.querySelectorAll('.dropdown-option').forEach(function(el){
+      el.addEventListener('click', function(){
+        var v = el.getAttribute('data-value');
+        btn.setAttribute('data-value', v);
+        document.getElementById('sortText').textContent = OPTIONS.find(function(o){return o.value===v;}).label;
+        close();
+        if (typeof applySort === 'function') applySort();
+      });
+    });
+    setTimeout(function(){
+      document.addEventListener('click', onDocClick);
+      window.addEventListener('scroll', close, true);
+    }, 0);
+  }
+  function close() {
+    var d = document.getElementById('sortDropdown');
+    if (d) d.remove();
+    arrow.classList.remove('open');
+    document.removeEventListener('click', onDocClick);
+    window.removeEventListener('scroll', close, true);
+  }
+  function onDocClick(e) {
+    var d = document.getElementById('sortDropdown');
+    if (d && d.contains(e.target)) return;
+    if (btn.contains(e.target)) return;
+    close();
+  }
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var existing = document.getElementById('sortDropdown');
+    if (existing) { close(); } else { open(); }
+  });
+})();
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  var l1=document.getElementById('ham-line1');
+  var l2=document.getElementById('ham-line2');
+  var l3=document.getElementById('ham-line3');
+  if(menu.classList.contains('translate-x-full')){
+    menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0');
+    l1.style.transform='rotate(45deg) translate(5px,5px)';
+    l2.style.opacity='0';
+    l3.style.transform='rotate(-45deg) translate(5px,-5px)';
+    document.body.style.overflow='hidden';
+  }else{
+    closeMobileMenu();
+  }
+}
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
+  var l1=document.getElementById('ham-line1'); l1.style.transform='';
+  var l2=document.getElementById('ham-line2'); l2.style.opacity='';
+  var l3=document.getElementById('ham-line3'); l3.style.transform='';
+  document.body.style.overflow='';
+}
+</script>
+
+</body>
+</html>
