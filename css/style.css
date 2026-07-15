@@ -1,7 +1,10 @@
 /* ===== 全局基础样式 ===== */
 * { font-family: 'Microsoft YaHei','PingFang SC','Helvetica Neue',sans-serif; }
 html { scroll-behavior: smooth; }
-body { background: #FFFFFF; color: #1E293B; }
+body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
+
+/* ===== 导航栏固定定位 ===== */
+#navbar { position: fixed !important; top: 0; left: 0; right: 0; z-index: 50; }
 
 /* ===== 渐变文字 ===== */
 .gradient-text { background: linear-gradient(135deg,#0A66FF,#00D4AA); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
