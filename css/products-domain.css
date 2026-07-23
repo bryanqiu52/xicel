@@ -43,31 +43,6 @@
   letter-spacing: 1px;
 }
 
-/* What 卡片样式 */
-.what-card {
-  background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
-  border: 1px solid #DBEAFE;
-}
-
-/* IP图标框样式 */
-.ip-icon-box {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ip-icon-box.what {
-  background: rgba(10, 102, 255, 0.1);
-}
-.ip-icon-box.why {
-  background: rgba(239, 68, 68, 0.1);
-}
-.ip-icon-box.price {
-  background: rgba(99, 102, 241, 0.1);
-}
-
 /* 价值主张卡片 */
 .value-card {
   position: relative;
@@ -95,44 +70,6 @@
   transform: scaleX(1);
 }
 
-/* Who 标签样式 */
-.who-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: rgba(10, 102, 255, 0.06);
-  border: 1px solid rgba(10, 102, 255, 0.15);
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #0A66FF;
-  transition: all 0.3s;
-}
-.who-tag:hover {
-  background: rgba(10, 102, 255, 0.12);
-  border-color: rgba(10, 102, 255, 0.25);
-  transform: translateY(-1px);
-}
-
-/* 价格卡片样式 */
-.price-card {
-  background: #fff;
-  border: 1px solid #E2E8F0;
-  border-radius: 20px;
-  transition: all 0.3s;
-}
-.price-card:hover {
-  border-color: #0A66FF;
-  box-shadow: 0 12px 40px rgba(10, 102, 255, 0.1);
-  transform: translateY(-3px);
-}
-.price-card.featured {
-  border-color: #0A66FF;
-  border-width: 2px;
-  background: linear-gradient(135deg, #fff 0%, #EFF6FF 100%);
-}
-
 /* 价格卡片推荐标签 */
 .price-badge {
   position: absolute;
@@ -148,57 +85,6 @@
   box-shadow: 0 2px 8px rgba(10, 102, 255, 0.25);
 }
 
-/* 时间轴样式 */
-.how-timeline {
-  position: relative;
-}
-.how-timeline::before {
-  content: '';
-  position: absolute;
-  left: 27px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #E2E8F0;
-}
-.how-timeline-item {
-  position: relative;
-  padding-bottom: 40px;
-}
-.how-timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-/* 时间轴步骤编号 */
-.timeline-num {
-  position: absolute;
-  left: -42px;
-  top: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #0A66FF;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.15);
-  z-index: 2;
-}
-
-/* 修复时间轴样式 - 覆盖style.css中的重复圆点 */
-.how-timeline-item::before {
-  display: none !important;
-}
-
-/* 调整时间轴padding，确保编号完整显示 */
-.how-timeline {
-  padding-left: 56px !important;
-}
-
 /* 搜索框标签样式 */
 .search-tab {
   cursor: pointer;
@@ -212,22 +98,6 @@
 @media (max-width: 768px) {
   .ip-section-title .line {
     width: 24px;
-  }
-  .how-timeline {
-    padding-left: 44px !important;
-  }
-  .how-timeline::before {
-    left: 20px !important;
-  }
-  .timeline-num {
-    left: -33px !important;
-    width: 22px;
-    height: 22px;
-    font-size: 11px;
-  }
-  .who-tag {
-    font-size: 12px;
-    padding: 8px 12px;
   }
 }
 
@@ -499,4 +369,55 @@
     flex-shrink: 0;
   }
   .anatomy-card-right { flex: 1; }
+}
+
+/* ===== 时间轴步骤编号（覆盖 style.css 默认圆点） ===== */
+.timeline-num {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0A66FF;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.15);
+  z-index: 2;
+}
+
+/* 隐藏 style.css 默认的伪元素圆点 */
+.how-timeline-item::before {
+  display: none !important;
+}
+
+/* 调整 padding-left 为 timeline-num 腾空间 */
+.how-timeline {
+  padding-left: 56px !important;
+}
+
+/* 调整垂直线位置对齐大圆点中心 */
+.how-timeline::before {
+  left: 27px !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .how-timeline {
+    padding-left: 44px !important;
+  }
+  .how-timeline::before {
+    left: 20px !important;
+  }
+  .timeline-num {
+    left: -33px !important;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
 }

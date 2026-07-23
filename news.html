@@ -328,29 +328,8 @@ renderNews();
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
-function toggleMobileMenu(){
-  var menu=document.getElementById('mobileMenu');
-  var l1=document.getElementById('ham-line1');
-  var l2=document.getElementById('ham-line2');
-  var l3=document.getElementById('ham-line3');
-  if(menu.classList.contains('translate-x-full')){
-    menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0');
-    l1.style.transform='rotate(45deg) translate(5px,5px)';
-    l2.style.opacity='0';
-    l3.style.transform='rotate(-45deg) translate(5px,-5px)';
-    document.body.style.overflow='hidden';
-  }else{
-    closeMobileMenu();
-  }
-}
-function closeMobileMenu(){
-  var menu=document.getElementById('mobileMenu');
-  menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
-  var l1=document.getElementById('ham-line1'); l1.style.transform='';
-  var l2=document.getElementById('ham-line2'); l2.style.opacity='';
-  var l3=document.getElementById('ham-line3'); l3.style.transform='';
-  document.body.style.overflow='';
-}
+
+
 </script>
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>

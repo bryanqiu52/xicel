@@ -51,6 +51,7 @@ tailwind.config = {
       <button class="brand-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="domain" id="subtab-domain">域名注册</button>
       <button class="brand-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="buyback" id="subtab-buyback">域名回购</button>
       <button class="brand-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="dispute" id="subtab-dispute">域名争议处理</button>
+      <button class="brand-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="takedown" id="subtab-takedown">域名侵权下架</button>
       <button class="brand-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="pricing" id="subtab-pricing">域名价格</button>
     </div>
   </div>
@@ -258,12 +259,16 @@ tailwind.config = {
           个人创业者
         </span>
         <span class="who-tag">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          外贸厂商
+        </span>
+        <span class="who-tag">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
           品牌方
         </span>
         <span class="who-tag">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          域名投资者
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          品牌储备
         </span>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
@@ -641,11 +646,15 @@ tailwind.config = {
         </span>
         <span class="who-tag">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          域名投资者
+          外贸厂商
         </span>
         <span class="who-tag">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
           跨境企业
+        </span>
+        <span class="who-tag">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          品牌储备
         </span>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
@@ -666,7 +675,7 @@ tailwind.config = {
             </li>
             <li class="flex items-center gap-3 text-sm text-muted">
               <span class="w-2 h-2 bg-accent rounded-full"></span>
-              投资优质域名获取增值回报
+              提前布局国别域名，防范品牌抢注风险
             </li>
           </ul>
         </div>
@@ -1024,6 +1033,236 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- Tab 5: 域名侵权下架 -->
+<section class="brand-content hidden py-20 bg-white" id="content-takedown">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- What 板块 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <div class="line"></div>
+        <span class="tag">What</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">什么是域名侵权下架？</h2>
+      <div class="what-card rounded-2xl p-8">
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+          <div class="ip-icon-box what shrink-0">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-body mb-4">专业移除侵权内容，保护品牌权益</h3>
+            <p class="text-muted text-lg leading-relaxed mb-6">
+              域名侵权下架是指针对第三方网站、域名上存在的侵犯企业商标权、外观专利权、网站版权等合法权益的侵权内容，通过专业的法律途径和处理渠道，对这些侵权内容进行强制下架处理的服务。下架方式包括删除侵权信息、暂停域名解析、锁定域名等，根据侵权类型和程度采取不同的处理方案。
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-primary font-bold text-lg mb-1">🛡️ 侵权移除</div>
+                <div class="text-sm text-muted">专业下架各类侵权内容</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-accent font-bold text-lg mb-1">⚡ 快速响应</div>
+                <div class="text-sm text-muted">高效处理流程快速见效</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-orange-500 font-bold text-lg mb-1">🔒 合法合规</div>
+                <div class="text-sm text-muted">规范的维权途径保障权益</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why 板块 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <div class="line"></div>
+        <span class="tag">Why</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">为什么需要域名侵权下架？</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">保护品牌形象</h3>
+          <p class="text-sm text-muted">侵权网站、仿冒页面严重损害企业品牌信誉和消费者信任，及时下架可有效止损。</p>
+        </div>
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">防止客户流失</h3>
+          <p class="text-sm text-muted">仿冒网站截留客户流量和订单，导致品牌损失大量潜在客户和市场份额。</p>
+        </div>
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">维护合法权益</h3>
+          <p class="text-sm text-muted">坚决制止侵权行为，维护企业商标权和版权，震慑潜在的侵权者。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who 板块 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <div class="line"></div>
+        <span class="tag">Who</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">适合谁来处理？</h2>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <span class="who-tag">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          品牌企业
+        </span>
+        <span class="who-tag">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          商标权利人
+        </span>
+        <span class="who-tag">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          电商平台
+        </span>
+        <span class="who-tag">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          跨境企业
+        </span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-2xl p-6">
+          <h4 class="font-bold text-body mb-3">适用场景</h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              仿冒品牌官网、钓鱼网站
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              盗用产品图片、文案等版权内容
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              域名恶意仿冒品牌商标
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              未经授权使用企业商标和品牌标识
+            </li>
+          </ul>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-6">
+          <h4 class="font-bold text-body mb-3">服务优势</h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-primary rounded-full"></span>
+              专业团队全程代理，无需亲自处理
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-primary rounded-full"></span>
+              经验丰富，处理成功率高
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-primary rounded-full"></span>
+              费用透明合理，性价比高
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-primary rounded-full"></span>
+              流程清晰可追踪，进度实时反馈
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- How 板块 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <div class="line"></div>
+        <span class="tag">How</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">如何进行域名侵权下架？</h2>
+      <div class="bg-white rounded-2xl border border-slate-200">
+        <div class="how-timeline p-8">
+          <div class="how-timeline-item">
+            <div class="timeline-num">1</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">发现侵权</h4>
+              <p class="text-sm text-muted mb-3">企业主动发现侵权内容，或通过品牌监测服务发现侵权行为</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">即时发现</span>
+            </div>
+          </div>
+          <div class="how-timeline-item">
+            <div class="timeline-num">2</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">调查取证</h4>
+              <p class="text-sm text-muted mb-3">收集固化侵权证据，确认侵权事实和侵权主体信息</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">3-7个工作日</span>
+            </div>
+          </div>
+          <div class="how-timeline-item">
+            <div class="timeline-num">3</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">提交处理</h4>
+              <p class="text-sm text-muted mb-3">向相关机构、注册局或平台提交下架申请和证据材料</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">1-2个工作日</span>
+            </div>
+          </div>
+          <div class="how-timeline-item">
+            <div class="timeline-num">4</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">下架完成</h4>
+              <p class="text-sm text-muted mb-3">侵权内容被移除，域名被锁定或暂停解析，完成下架</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">7-15天完成</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How Much 板块 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <div class="line"></div>
+        <span class="tag">How Much</span>
+        <div class="line"></div>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">立即咨询</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-body mb-6">侵权下架咨询</h3>
+          <form id="takedownConsultForm" onsubmit="submitConsult(event)" class="space-y-4">
+            <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">侵权域名</label><input type="text" placeholder="如 fake-xicel.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请描述侵权情况..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-6">提交后我们的专业团队将在24小时内与您联系</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 板块 -->
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>下架侵权内容需要多久？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">一般情况下需要7~15天。因侵权类型、涉及的注册局或平台不同，处理时间可能有所差异。复杂案件可能需要更长时间，我们会及时反馈处理进度。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>需要提供什么资料？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">需要提供证明企业拥有相关权益的证明文件。如涉及商标权侵权，需提供商标注册证；涉及版权侵权，需提供版权登记证书。我们的团队会指导您准备完整的材料清单。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>下架不成功会退费吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">我们承诺未下架成功将全额退款，免除客户的后顾之忧，确保客户零风险。具体退费政策请在咨询时与我们的团队确认。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>色情、赌博内容是否可以处理？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">域名侵权下架服务主要处理侵犯企业商标权、外观专利权、网站版权等相关侵权内容，色情和赌博内容不在处理范围。此类情况建议通过UDRP域名争议解决程序处理。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Tab 4: 域名价格 -->
 <section class="brand-content hidden py-20 bg-slate-50" id="content-pricing">
   <div class="max-w-7xl mx-auto px-6">
@@ -1157,16 +1396,7 @@ tailwind.config = {
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
-function toggleMobileMenu(){
-  var menu=document.getElementById('mobileMenu'), l1=document.getElementById('ham-line1'), l2=document.getElementById('ham-line2'), l3=document.getElementById('ham-line3');
-  if(menu.classList.contains('translate-x-full')){ menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0'); l1.style.transform='rotate(45deg) translate(5px,5px)'; l2.style.opacity='0'; l3.style.transform='rotate(-45deg) translate(5px,-5px)'; document.body.style.overflow='hidden'; }
-  else{ closeMobileMenu(); }
-}
-function closeMobileMenu(){
-  var menu=document.getElementById('mobileMenu'); menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
-  document.getElementById('ham-line1').style.transform=''; document.getElementById('ham-line2').style.opacity=''; document.getElementById('ham-line3').style.transform=''; document.body.style.overflow='';
-}
-function handleLogout(e){ e.stopPropagation(); document.querySelector('.user-menu-wrapper').style.display='none'; }
+
 function toggleFaq(btn){
   var answer = btn.nextElementSibling, chevron = btn.querySelector('.faq-chevron');
   answer.classList.toggle('open'); chevron.classList.toggle('open');

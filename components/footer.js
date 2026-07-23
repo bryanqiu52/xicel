@@ -52,9 +52,8 @@
             <span>深圳市龙华区汇隆大厦</span>
           </li>
         </ul>
-        <div class="w-[120px] h-[120px] rounded-xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center gap-1 bg-white">
-          <svg class="w-8 h-8 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v3h-3M20 20h-3v-3"/></svg>
-          <span class="text-xs text-muted">扫码咨询</span>
+        <div class="w-[120px] h-[120px] rounded-xl border border-slate-200 overflow-hidden bg-white">
+          <img src="assets/images/sini_qr.png" alt="扫码咨询" class="w-full h-full object-cover">
         </div>
       </div>
 

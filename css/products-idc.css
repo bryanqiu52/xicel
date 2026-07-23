@@ -9,10 +9,6 @@
 .idc-cloud-section .cloud-badge-green { color: #059669; }
 .idc-cloud-section .cloud-icon-bg { background-color: #ECFDF5; }
 
-/* GPU/对象存储/CDN区域 - 保留purple紫色内部装饰 */
-.idc-purple-section .purple-badge { color: #7C3AED; }
-.idc-purple-section .purple-icon-bg { background-color: #F3E8FF; }
-
 /* 网络专线区域 - 保留amber琥珀色内部装饰 */
 .idc-amber-section .amber-badge { color: #B45309; }
 .idc-amber-section .amber-icon-bg { background-color: #FFF7ED; }

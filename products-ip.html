@@ -55,31 +55,6 @@ tailwind.config = {
 <section class="ip-content py-20 bg-white" id="content-trademark">
   <div class="max-w-7xl mx-auto px-6">
 
-    <!-- ========== 商标查询模块 ========== -->
-    <div class="mb-20">
-      <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">Trademark</span>
-        <div class="line"></div>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">查询你的商标</h2>
-      <div class="unified-search relative z-0 bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-        <div class="flex items-center gap-2">
-          <div class="flex-1 relative">
-            <div class="search-input-wrapper relative overflow-hidden rounded-xl border border-slate-200 bg-white focus-within:ring-1 focus-within:ring-primary focus-within:border-primary transition-shadow">
-              <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              <input id="trademarkSearchInput" type="text" placeholder="输入商标名称或注册号" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" />
-            </div>
-          </div>
-          <button onclick="handleTrademarkSearch()" class="search-btn relative flex items-center gap-1 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 h-12 rounded-xl transition-colors whitespace-nowrap overflow-visible">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            查询
-            <span class="free-ribbon">免费</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
     <!-- What 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
@@ -964,28 +939,6 @@ tailwind.config = {
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
-function scrollToProducts(){
-  document.getElementById('content-trademark').scrollIntoView({ behavior: 'smooth' });
-}
-function handleTrademarkSearch(){
-  var input = document.getElementById('trademarkSearchInput');
-  var query = input ? input.value.trim() : '';
-  if (query) {
-    window.location.href = 'trademark-search.html?q=' + encodeURIComponent(query);
-  } else {
-    window.location.href = 'trademark-search.html';
-  }
-}
-function toggleMobileMenu(){
-  var menu=document.getElementById('mobileMenu'), l1=document.getElementById('ham-line1'), l2=document.getElementById('ham-line2'), l3=document.getElementById('ham-line3');
-  if(menu.classList.contains('translate-x-full')){ menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0'); l1.style.transform='rotate(45deg) translate(5px,5px)'; l2.style.opacity='0'; l3.style.transform='rotate(-45deg) translate(5px,-5px)'; document.body.style.overflow='hidden'; }
-  else{ closeMobileMenu(); }
-}
-function closeMobileMenu(){
-  var menu=document.getElementById('mobileMenu'); menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
-  document.getElementById('ham-line1').style.transform=''; document.getElementById('ham-line2').style.opacity=''; document.getElementById('ham-line3').style.transform=''; document.body.style.overflow='';
-}
-function handleLogout(e){ e.stopPropagation(); document.querySelector('.user-menu-wrapper').style.display='none'; }
 function toggleFaq(btn){
   var answer = btn.nextElementSibling, chevron = btn.querySelector('.faq-chevron');
   answer.classList.toggle('open'); chevron.classList.toggle('open');
@@ -1001,8 +954,8 @@ function switchIpSubtab(subtab){
 }
 document.querySelectorAll('.ip-subtab').forEach(function(b){ b.addEventListener('click', function(){ switchIpSubtab(b.dataset.subtab); }); });
 (function(){
-  var p = new URLSearchParams(window.location.search), s = p.get('subtab') || 'trademark';
-  if(['trademark','patent','copyright'].indexOf(s)===-1) s='trademark';
+  var p = new URLSearchParams(window.location.search), s = p.get('subtab') || 'patent';
+  if(['patent','copyright'].indexOf(s)===-1) s='patent';
   switchIpSubtab(s);
 })();
 </script>

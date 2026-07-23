@@ -473,14 +473,7 @@ function handleWhoisSearch() {
   }
 })();
 
-// ===== 退出登录 =====
-function handleLogout(e) {
-  e.stopPropagation();
-  var wrapper = document.querySelector('.user-menu-wrapper');
-  if (wrapper) wrapper.style.display = 'none';
-  var badge = document.querySelector('.cart-badge');
-  if (badge) badge.style.display = 'none';
-}
+
 
 // ===== 咨询弹窗 =====
 function openConsultModal() {
