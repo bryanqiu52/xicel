@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -44,6 +44,36 @@ tailwind.config = {
       <!-- 左侧：域名信息区 -->
       <div class="lg:col-span-8 space-y-6">
 
+        <!-- 步骤条 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="step-item current">
+              <div class="step-num">1</div>
+              <span class="step-text">加入购物车</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">2</div>
+              <span class="step-text">订单确认</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">3</div>
+              <span class="step-text">资料填写</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">4</div>
+              <span class="step-text">付款下单</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">5</div>
+              <span class="step-text">支付完成</span>
+            </div>
+          </div>
+        </div>
+
         <!-- 1. 域名搜索 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
           <h3 class="font-bold text-lg text-body mb-4">查询域名</h3>
@@ -61,17 +91,12 @@ tailwind.config = {
           <!-- 查询结果 -->
           <div id="checkResultArea" class="hidden mt-5">
             <div id="checkResultAvailable" class="hidden bg-green-50 border-2 border-green-400 rounded-2xl p-5">
-              <div class="flex items-start justify-between">
-                <div>
-                  <div class="flex items-center gap-2 mb-1">
-                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-                    <span class="text-green-700 font-semibold text-sm">可注册</span>
-                  </div>
-                  <div id="availableDomainName" class="text-3xl font-bold text-body mb-2">mybrand.com</div>
-                  <div id="availableDomainPrice" class="text-primary font-bold text-xl">¥98/年</div>
-                </div>
-                <button class="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-xl transition-all" onclick="scrollToSummary()">立即注册</button>
+              <div class="flex items-center gap-2 mb-1">
+                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-green-700 font-semibold text-sm">可注册</span>
               </div>
+              <div id="availableDomainName" class="text-3xl font-bold text-body mb-2">mybrand.com</div>
+              <div id="availableDomainPrice" class="text-primary font-bold text-xl">¥98/年</div>
             </div>
             <div id="checkResultUnavailable" class="hidden bg-red-50 border-2 border-red-300 rounded-2xl p-5">
               <div class="flex items-center gap-2 mb-2">
@@ -92,141 +117,174 @@ tailwind.config = {
           </div>
           <p class="text-xs text-muted mb-5">主域名与可选后缀各自独立设定注册年限，灵活组合品牌保护方案</p>
 
-          <div class="overflow-hidden rounded-xl border border-slate-200">
-            <div class="grid grid-cols-12 gap-2 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-muted uppercase tracking-wide">
-              <div class="col-span-5">域名</div>
-              <div class="col-span-2 text-right">单价</div>
-              <div class="col-span-2 text-center">年限</div>
-              <div class="col-span-3 text-right">小计</div>
+          <!-- 表头：一行，批量下拉框在年限列内 -->
+          <div class="grid grid-cols-12 gap-2 px-4 py-2.5 text-[11px] font-semibold text-muted uppercase tracking-wide border-b border-slate-200 bg-slate-50">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" id="selectAllDomains" class="w-4 h-4 accent-primary cursor-pointer" title="全选/取消全选">
             </div>
+            <div class="col-span-4 flex items-center">域名</div>
+            <div class="col-span-2 flex items-center justify-end">单价</div>
+            <div class="col-span-3 flex items-center justify-center gap-2">
+              <span>年限</span>
+              <div class="dropdown-wrapper" style="width:72px;">
+                <div class="dropdown-btn dropdown-btn-sm" id="batchYearsBtn" data-value="0">
+                  <span id="batchYearsText" class="text-[10px]">批量</span>
+                  <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2 flex items-center justify-end">小计</div>
+          </div>
 
-            <div class="grid grid-cols-12 gap-2 px-4 py-3.5 items-center border-b border-slate-200 bg-blue-50/50">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <span class="shrink-0 text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">主域名</span>
-                <span id="mainDomainDisplay" class="font-semibold text-sm text-body truncate">mybrand.com</span>
-              </div>
-              <div id="mainUnitPriceCell" class="col-span-2 text-right text-sm text-muted">¥98/年</div>
-              <div class="col-span-2 flex justify-center">
-                <div class="dropdown-wrapper" id="mainYearsWrapper" style="width:90px;">
-                  <div class="dropdown-btn dropdown-btn-sm" id="mainYearsBtn" data-value="1" data-target="main">
-                    <span id="mainYearsText" class="text-[12px]">1 年</span>
-                    <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                  </div>
+          <div id="mainDomainRow" class="grid grid-cols-12 gap-2 px-4 py-3.5 items-center border-b border-slate-200 transition-colors">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" checked disabled class="w-4 h-4 accent-primary cursor-not-allowed opacity-60" title="主域名必选">
+            </div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <span class="shrink-0 text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">主域名</span>
+              <span id="mainDomainDisplay" class="font-bold text-base text-body truncate">— 请先查询域名 —</span>
+            </div>
+            <div id="mainUnitPriceCell" class="col-span-2 text-right text-sm text-muted">—</div>
+            <div class="col-span-3 flex justify-center">
+              <div class="dropdown-wrapper" id="mainYearsWrapper" style="width:120px;">
+                <div class="dropdown-btn dropdown-btn-sm opacity-40 pointer-events-none" id="mainYearsBtn" data-value="1" data-target="main">
+                  <span id="mainYearsText" class="text-[12px]">1 年</span>
+                  <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
               </div>
-              <div id="mainSubtotal" class="col-span-3 text-right text-sm font-bold text-body">¥98</div>
             </div>
+            <div id="mainSubtotal" class="col-span-2 text-right text-base font-bold text-body">—</div>
+          </div>
 
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".com.cn" data-price="39">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <img src="assets/flags/cn.svg" class="w-6 h-6 rounded object-cover shrink-0" onerror="this.style.display='none'">
-                <div class="min-w-0 leading-tight">
-                  <span class="font-semibold text-sm text-body">.com.cn</span>
-                  <span class="text-[11px] text-muted ml-1.5 hidden sm:inline">中国企业专属域名</span>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".com.cn" data-price="39">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
+            </div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <img src="assets/flags/cn.svg" class="w-6 h-6 rounded object-cover shrink-0" onerror="this.style.display='none'">
+              <div class="min-w-0 leading-tight">
+                <span class="font-semibold text-sm text-body">.com.cn</span>
+                <span class="text-[11px] text-muted ml-1.5 hidden sm:inline">中国企业专属域名</span>
+              </div>
+            </div>
+            <div class="col-span-2 text-right text-sm text-muted">¥39/年</div>
+            <div class="col-span-3 flex justify-center">
+              <div class="dropdown-wrapper tld-years-wrapper" style="width:120px;">
+                <div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld">
+                  <span class="tld-years-text text-[12px]">1 年</span>
+                  <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
               </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥39/年</div>
-              <div class="col-span-2 flex justify-center">
-                <div class="dropdown-wrapper tld-years-wrapper" style="width:90px;">
-                  <div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld">
-                    <span class="tld-years-text text-[12px]">1 年</span>
-                    <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                  </div>
-                </div>
-              </div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".net" data-price="79">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">NE</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.net</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">网络服务机构首选</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥79/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".net" data-price="79">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".org" data-price="85">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-teal-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">OR</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.org</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">非盈利组织专属</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥85/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">NE</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.net</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">网络服务机构首选</span></div>
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".top" data-price="9">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-amber-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">TO</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.top</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">巅峰首选</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥9/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-2 text-right text-sm text-muted">¥79/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".org" data-price="85">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".xyz" data-price="8">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-purple-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">XY</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.xyz</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">新一代通用域名</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥8/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-teal-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">OR</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.org</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">非盈利组织专属</span></div>
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".vip" data-price="29">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-amber-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">VI</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.vip</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">尊贵身份象征</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥29/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-2 text-right text-sm text-muted">¥85/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".top" data-price="9">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".shop" data-price="68">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-orange-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">SH</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.shop</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">电商专属</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥68/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-amber-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">TO</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.top</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">巅峰首选</span></div>
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".site" data-price="15">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">SI</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.site</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">建站首选</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥15/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-2 text-right text-sm text-muted">¥9/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".xyz" data-price="8">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".link" data-price="25">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-indigo-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">LI</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.link</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">链接跳转</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥25/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-purple-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">XY</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.xyz</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">新一代通用域名</span></div>
             </div>
-            <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".cc" data-price="88">
-              <div class="col-span-5 flex items-center gap-2.5 min-w-0">
-                <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary shrink-0">
-                <div class="w-6 h-6 rounded bg-teal-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">CC</span></div>
-                <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.cc</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">创意无限</span></div>
-              </div>
-              <div class="col-span-2 text-right text-sm text-muted">¥88/年</div>
-              <div class="col-span-2 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:90px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
-              <div class="tld-subtotal col-span-3 text-right text-sm text-muted">—</div>
+            <div class="col-span-2 text-right text-sm text-muted">¥8/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".vip" data-price="29">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
             </div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-amber-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">VI</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.vip</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">尊贵身份象征</span></div>
+            </div>
+            <div class="col-span-2 text-right text-sm text-muted">¥29/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".shop" data-price="68">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
+            </div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-orange-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">SH</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.shop</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">电商专属</span></div>
+            </div>
+            <div class="col-span-2 text-right text-sm text-muted">¥68/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".site" data-price="15">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
+            </div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">SI</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.site</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">建站首选</span></div>
+            </div>
+            <div class="col-span-2 text-right text-sm text-muted">¥15/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".link" data-price="25">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
+            </div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-indigo-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">LI</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.link</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">链接跳转</span></div>
+            </div>
+            <div class="col-span-2 text-right text-sm text-muted">¥25/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
+          </div>
+          <div class="tld-row grid grid-cols-12 gap-2 px-4 py-3 items-center border-b border-slate-50 hover:bg-slate-50/50 transition-colors" data-suffix=".cc" data-price="88">
+            <div class="col-span-1 flex items-center justify-center">
+              <input type="checkbox" class="tld-checkbox w-4 h-4 accent-primary cursor-pointer" title="选择此域名">
+            </div>
+            <div class="col-span-4 flex items-center gap-2.5 min-w-0">
+              <div class="w-6 h-6 rounded bg-teal-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-[10px]">CC</span></div>
+              <div class="min-w-0 leading-tight"><span class="font-semibold text-sm text-body">.cc</span><span class="text-[11px] text-muted ml-1.5 hidden sm:inline">创意无限</span></div>
+            </div>
+            <div class="col-span-2 text-right text-sm text-muted">¥88/年</div>
+            <div class="col-span-3 flex justify-center"><div class="dropdown-wrapper tld-years-wrapper" style="width:120px;"><div class="dropdown-btn dropdown-btn-sm tld-years-btn opacity-40 pointer-events-none" data-value="1" data-target="tld"><span class="tld-years-text text-[12px]">1 年</span><svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
+            <div class="tld-subtotal col-span-2 text-right text-sm text-muted">—</div>
           </div>
         </div>
 
@@ -280,33 +338,53 @@ tailwind.config = {
 
       <!-- 右侧：订单摘要 -->
       <div class="lg:col-span-4">
-        <div id="orderSummary" class="bg-white rounded-2xl border border-slate-200 p-6 sticky top-24 shadow-sm">
-          <h3 class="font-bold text-lg text-body mb-5">订单摘要</h3>
-          <div class="space-y-3 text-sm">
-            <div class="flex justify-between">
-              <span class="text-muted">域名费用</span>
-              <span id="summaryDomainFee" class="font-medium text-body">¥98</span>
-            </div>
-            <div id="summaryRelatedRow" class="flex justify-between" style="display:none;">
-              <span class="text-muted">其他后缀</span>
-              <span id="summaryRelatedFee" class="font-medium text-body">¥0</span>
-            </div>
-            <div id="summaryRelatedDetail" class="space-y-1 mb-2" style="display:none;"></div>
-            <div id="summaryAddonSection" class="hidden">
+        <div class="sticky top-24 space-y-4">
+          <div class="cart-summary-card">
+            <h4 class="font-bold text-body text-base mb-4">订单汇总</h4>
+            <div class="space-y-3 text-sm">
               <div class="flex justify-between">
-                <span class="text-muted">增值服务</span>
-                <span id="summaryAddonFee" class="font-medium text-body">¥0</span>
+                <span class="text-muted">域名费用</span>
+                <span id="summaryDomainFee" class="font-medium text-body">¥98</span>
+              </div>
+              <div id="summaryRelatedRow" class="flex justify-between" style="display:none;">
+                <span class="text-muted">其他后缀</span>
+                <span id="summaryRelatedFee" class="font-medium text-body">¥0</span>
+              </div>
+              <div id="summaryRelatedDetail" class="space-y-1 mb-2" style="display:none;"></div>
+              <div id="summaryAddonSection" class="hidden">
+                <div class="flex justify-between">
+                  <span class="text-muted">增值服务</span>
+                  <span id="summaryAddonFee" class="font-medium text-body">¥0</span>
+                </div>
+              </div>
+              <div class="cart-summary-divider"></div>
+              <div class="flex justify-between text-base">
+                <span class="font-semibold text-body">合计</span>
+                <span id="summaryTotal" class="font-bold text-primary text-xl">¥98</span>
               </div>
             </div>
-            <hr class="border-slate-100">
-            <div class="flex justify-between text-base">
-              <span class="font-semibold text-body">合计</span>
-              <span id="summaryTotal" class="font-bold text-primary text-xl">¥98</span>
+            <button onclick="addToCart()" class="w-full py-2.5 border-2 border-primary text-primary hover:bg-primary/5 text-sm font-semibold rounded-xl transition-colors mt-6 mb-3">加入购物车</button>
+            <button onclick="goToRegister()" class="bg-primary hover:bg-primary-dark text-white text-base font-semibold px-8 py-3 rounded-xl w-full transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">立即注册</button>
+            <p class="text-xs text-muted text-center mt-3">注册即表示同意服务条款</p>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h5 class="text-sm font-bold text-body mb-3">服务保障</h5>
+            <div class="space-y-2 text-xs text-muted">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>7×24 小时技术支持</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>未注册成功全额退款</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>实名信息加密传输</span>
+              </div>
             </div>
           </div>
-          <button onclick="addToCart()" class="w-full py-2.5 border-2 border-primary text-primary hover:bg-primary/5 text-sm font-semibold rounded-xl transition-colors mt-6 mb-3">加入购物车</button>
-          <button onclick="goToRegister()" class="bg-primary hover:bg-primary-dark text-white text-base font-semibold px-8 py-3 rounded-xl w-full transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">立即注册</button>
-          <p class="text-xs text-muted text-center mt-3">注册即表示同意服务条款</p>
         </div>
       </div>
 
@@ -472,6 +550,15 @@ document.addEventListener('click', function(e){
 // ===== 年限下拉（自定义下拉） =====
 var YEARS_OPTIONS = [
   {value:'1', label:'1 年'},
+  {value:'2', label:'2 年 省10%'},
+  {value:'3', label:'3 年 省15%'},
+  {value:'5', label:'5 年 省20%'},
+  {value:'10', label:'10 年 省25%'}
+];
+
+// 批量下拉框专用：纯年限，不带折扣文案
+var BATCH_YEARS_OPTIONS = [
+  {value:'1', label:'1 年'},
   {value:'2', label:'2 年'},
   {value:'3', label:'3 年'},
   {value:'5', label:'5 年'},
@@ -498,7 +585,7 @@ function toggleYearsDropdown(btn, target) {
   var rect = btn.getBoundingClientRect();
   dropdown.style.top = (rect.bottom + 4) + 'px';
   dropdown.style.left = rect.left + 'px';
-  dropdown.style.minWidth = '90px';
+  dropdown.style.minWidth = '120px';
   document.body.appendChild(dropdown);
   var arrow = btn.querySelector('.dropdown-arrow');
   if (arrow) arrow.classList.add('open');
@@ -549,11 +636,35 @@ document.getElementById('checkDomainBtn').addEventListener('click', function() {
   unitPrice = domainPriceMap[suffix] || 98;
 
   // 更新主域名行显示
-  document.getElementById('mainDomainDisplay').textContent = fullDomain;
-  document.getElementById('mainUnitPriceCell').textContent = '¥' + unitPrice + '/年';
-  document.getElementById('mainYears').value = 1;
+  var mainRow = document.getElementById('mainDomainRow');
+  var mainDomainDisplay = document.getElementById('mainDomainDisplay');
+  var mainUnitPrice = document.getElementById('mainUnitPriceCell');
+  var mainSubtotal = document.getElementById('mainSubtotal');
+  var mainYearsBtn = document.getElementById('mainYearsBtn');
+
+  mainDomainDisplay.textContent = fullDomain;
+  mainUnitPrice.textContent = '¥' + unitPrice + '/年';
+  mainSubtotal.textContent = '¥' + (unitPrice * selectedYears);
+
+  // 启用年限下拉框
+  mainYearsBtn.classList.remove('opacity-40', 'pointer-events-none');
+
+  // 查询成功高亮动画
+  mainRow.classList.add('domain-found');
+  setTimeout(function() {
+    mainRow.classList.remove('domain-found');
+    mainRow.classList.add('bg-blue-50/50');
+  }, 1200);
 
   document.getElementById('checkResultArea').classList.remove('hidden');
+
+  // 自动滚动到注册方案区域
+  setTimeout(function() {
+    var planSection = document.getElementById('mainDomainRow');
+    if (planSection) {
+      planSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 100);
 
   // 模拟：70% 概率可注册
   var available = Math.random() > 0.3;
@@ -588,6 +699,76 @@ function selectSuggestedDomain(prefix, suffix) {
 document.getElementById('mainYearsBtn').addEventListener('click', function() {
   toggleYearsDropdown(this, 'main');
 });
+
+// ===== 批量设置年限 =====
+document.getElementById('batchYearsBtn').addEventListener('click', function() {
+  var btn = this;
+  var cur = btn.getAttribute('data-value');
+  var dropdown = document.createElement('div');
+  dropdown.className = 'dropdown-panel';
+  var inner = document.createElement('div');
+  inner.className = 'dropdown-panel-inner';
+  inner.innerHTML = BATCH_YEARS_OPTIONS.map(function(o){
+    var sel = o.value === cur;
+    return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.value + '">'
+         +   '<span>' + o.label + '</span>'
+         +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+         + '</div>';
+  }).join('');
+  dropdown.appendChild(inner);
+  var rect = btn.getBoundingClientRect();
+  dropdown.style.top = (rect.bottom + 4) + 'px';
+  dropdown.style.left = rect.left + 'px';
+  dropdown.style.minWidth = '100px';
+  document.body.appendChild(dropdown);
+  var arrow = btn.querySelector('.dropdown-arrow');
+  if (arrow) arrow.classList.add('open');
+  inner.querySelectorAll('.dropdown-option').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var v = el.getAttribute('data-value');
+      btn.setAttribute('data-value', v);
+      document.getElementById('batchYearsText').textContent = BATCH_YEARS_OPTIONS.find(function(o){return o.value===v;}).label;
+      dropdown.remove();
+      if (arrow) arrow.classList.remove('open');
+      applyBatchYears(parseInt(v));
+    });
+  });
+  setTimeout(function(){
+    document.addEventListener('click', function onDoc(ev){
+      if (dropdown && !dropdown.contains(ev.target) && !btn.contains(ev.target)) {
+        dropdown.remove();
+        if (arrow) arrow.classList.remove('open');
+        document.removeEventListener('click', onDoc);
+      }
+    });
+  }, 0);
+});
+
+function applyBatchYears(years) {
+  if (!years || years <= 0) return;
+  var label = YEARS_OPTIONS.find(function(o){return o.value===String(years);}).label;
+  // 更新主域名
+  var mainBtn = document.getElementById('mainYearsBtn');
+  if (mainBtn) {
+    mainBtn.setAttribute('data-value', years);
+    document.getElementById('mainYearsText').textContent = label;
+    selectedYears = years;
+  }
+  // 更新所有已勾选的其他后缀
+  document.querySelectorAll('.tld-row').forEach(function(row) {
+    if (row.style.display === 'none') return;
+    var cb = row.querySelector('.tld-checkbox');
+    if (!cb || !cb.checked) return;
+    var btn = row.querySelector('.tld-years-btn');
+    if (btn) {
+      btn.setAttribute('data-value', years);
+      var textEl = btn.querySelector('.tld-years-text');
+      if (textEl) textEl.textContent = label;
+    }
+  });
+  updateSummary();
+}
 
 // ===== 列：复选框切换 → 启用/禁用年限下拉 =====
 document.querySelectorAll('.tld-checkbox').forEach(function(cb) {
@@ -685,14 +866,73 @@ function addToCart() {
   if (!selectedDomain) {
     selectedDomain = (document.getElementById('domainNameInput').value.trim() || 'mybrand') + document.getElementById('domainSuffixBtn').getAttribute('data-value');
   }
-  // 购物车数量 +1
-  var badge = document.querySelector('.cart-badge');
-  if (badge) {
-    var count = parseInt(badge.textContent) || 0;
-    badge.textContent = count + 1;
-    badge.style.display = '';
+
+  // 1) 收集所有要加入购物车的商品
+  var items = [];
+
+  // 主域名
+  items.push({
+    id: 'domain-main-' + selectedDomain,
+    productType: '域名注册',
+    productName: selectedDomain,
+    year: selectedYears,
+    cycleText: selectedYears + ' 年',
+    price: unitPrice * selectedYears,
+    regService: false
+  });
+
+  // 选中的其他后缀
+  document.querySelectorAll('.tld-row').forEach(function(row) {
+    if (row.style.display === 'none') return;
+    var cb = row.querySelector('.tld-checkbox');
+    if (!cb || !cb.checked) return;
+    var suffix = row.getAttribute('data-suffix');
+    var price = parseInt(row.getAttribute('data-price')) || 0;
+    var btn = row.querySelector('.tld-years-btn');
+    var years = parseInt(btn.getAttribute('data-value')) || 1;
+    var prefix = document.getElementById('domainNameInput').value.trim() || 'mybrand';
+    items.push({
+      id: 'domain-tld-' + prefix + suffix,
+      productType: '域名注册',
+      productName: prefix + suffix,
+      year: years,
+      cycleText: years + ' 年',
+      price: price * years,
+      regService: false
+    });
+  });
+
+  // 选中的增值服务
+  document.querySelectorAll('.addon-checkbox:checked').forEach(function(cb) {
+    var p = parseInt(cb.getAttribute('data-price')) || 0;
+    var n = cb.getAttribute('data-name');
+    if (p <= 0) return; // 免费服务不加入购物车
+    items.push({
+      id: 'addon-' + n.replace(/\s+/g, '-'),
+      productType: '增值服务',
+      productName: n,
+      year: 1,
+      cycleText: '1 年',
+      price: p,
+      regService: false
+    });
+  });
+
+  // 2) 通过 cartUtils 逐条加入 + 播放飞行动画
+  if (!window.cartUtils) {
+    // 兜底：没加载到 navbar.js 时，至少更新角标
+    var badge = document.querySelector('.cart-badge');
+    if (badge) {
+      var count = parseInt(badge.textContent) || 0;
+      badge.textContent = count + items.length;
+    }
+    showToast('已加入购物车');
+    return;
   }
-  showToast('已加入购物车');
+  var btn = document.querySelector('button[onclick="addToCart()"]');
+  items.forEach(function(it) { window.cartUtils.addItem(it); });
+  if (btn) window.cartUtils.flyTo(btn);
+  window.cartUtils.toast('已加入 ' + items.length + ' 项到购物车');
 }
 
 function showToast(msg) {
@@ -718,8 +958,10 @@ function goToRegister() {
   if (!selectedDomain) {
     selectedDomain = (document.getElementById('domainNameInput').value.trim() || 'mybrand') + document.getElementById('domainSuffixBtn').getAttribute('data-value');
   }
-  alert('即将前往订单确认：' + selectedDomain + '，注册 ' + selectedYears + ' 年');
-  window.location.href = 'user.html#panel-orders';
+  // 把当前所选全部加到购物车
+  addToCart();
+  // 跳到购物车确认页进行最后确认
+  window.location.href = 'cart-confirm.html';
 }
 
 function scrollToSummary() {
@@ -755,6 +997,33 @@ document.addEventListener('DOMContentLoaded', function() {
   // 初始化所有 tld-year 下拉 → 默认 1 年
   initTldRows();
   updateSummary();
+
+  // ===== 全选复选框逻辑 =====
+  var selectAllCheckbox = document.getElementById('selectAllDomains');
+  var tldCheckboxes = document.querySelectorAll('.tld-checkbox');
+
+  if (selectAllCheckbox) {
+    // 全选/取消全选
+    selectAllCheckbox.addEventListener('change', function() {
+      var checked = this.checked;
+      tldCheckboxes.forEach(function(cb) {
+        cb.checked = checked;
+        // 触发 change 事件，更新相关状态
+        cb.dispatchEvent(new Event('change'));
+      });
+    });
+
+    // 监听单个复选框变化，更新全选框状态
+    tldCheckboxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var allChecked = true;
+        tldCheckboxes.forEach(function(c) {
+          if (!c.checked) allChecked = false;
+        });
+        selectAllCheckbox.checked = allChecked;
+      });
+    });
+  }
 });
 
 function initTldRows() {

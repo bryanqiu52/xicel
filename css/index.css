@@ -1,0 +1,6 @@
+/* ===== 首页产品卡片 ===== */
+
+/* 知识产权卡片 hover 边框颜色 */
+.card-white.hover\:border-purple-300:hover {
+  border-color: #c084fc;
+}

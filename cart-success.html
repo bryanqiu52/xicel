@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>支付完成 - xicel</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+<style>
+.success-icon-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: successPop 0.6s ease-out;
+}
+@keyframes successPop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.success-icon-wrapper svg {
+  width: 60px;
+  height: 60px;
+  color: #10B981;
+}
+.action-card {
+  background: #F8FAFC;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all 0.2s;
+}
+.action-card:hover {
+  background: #F1F5F9;
+}
+.action-card .action-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.action-card .action-icon.blue {
+  background: #EFF6FF;
+  color: #0A66FF;
+}
+.action-card .action-icon.green {
+  background: #ECFDF5;
+  color: #10B981;
+}
+.action-card .action-icon.orange {
+  background: #FFF7ED;
+  color: #F59E0B;
+}
+.action-card .action-content {
+  flex: 1;
+}
+.action-card .action-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 4px;
+}
+.action-card .action-desc {
+  font-size: 13px;
+  color: #94A3B8;
+}
+.tip-card {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.tip-card .tip-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0A66FF;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+.tip-card .tip-content {
+  flex: 1;
+}
+.tip-card .tip-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1E40AF;
+  margin-bottom: 6px;
+}
+.tip-card .tip-text {
+  font-size: 13px;
+  color: #3B82F6;
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .success-icon-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+  .success-icon-wrapper svg {
+    width: 45px;
+    height: 45px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="navbar-container"></div>
+
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-14">
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">支付完成</h1>
+    <p class="text-white/80 text-sm md:text-base">感谢您的购买，订单已成功提交</p>
+  </div>
+</section>
+
+<section class="py-10" style="background:#fdfdfd">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- 左侧：订单内容 -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- 步骤条 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="step-item completed">
+              <div class="step-num">1</div>
+              <span class="step-text">加入购物车</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item completed">
+              <div class="step-num">2</div>
+              <span class="step-text">订单确认</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item completed">
+              <div class="step-num">3</div>
+              <span class="step-text">资料填写</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item completed">
+              <div class="step-num">4</div>
+              <span class="step-text">付款下单</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item current">
+              <div class="step-num">5</div>
+              <span class="step-text">支付完成</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 成功提示 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm text-center">
+          <div class="success-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2 class="text-2xl font-bold text-body mb-2">支付成功</h2>
+          <p class="text-muted">您的订单已成功提交，我们将尽快为您处理</p>
+        </div>
+
+        <!-- 重要提示 -->
+        <div class="tip-card">
+          <div class="tip-icon">!</div>
+          <div class="tip-content">
+            <div class="tip-title">重要提示</div>
+            <div class="tip-text">
+              域名注册通常需要 1-3 个工作日完成审核。<br>
+              如您选择了"申请资料挂靠"，我们将代为完成实名认证流程。<br>
+              审核结果将通过短信和邮件通知您，请保持联系信息畅通。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧栏 -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-24 space-y-4">
+          <!-- 订单汇总 -->
+          <div class="cart-summary-card">
+            <h4 class="font-bold text-body text-base mb-4">订单汇总</h4>
+            <div class="text-xs text-muted mb-3 border-b border-dashed border-slate-200 pb-3" id="orderMeta">
+              <div class="flex justify-between mb-1.5">
+                <span>订单编号</span>
+                <strong id="summaryOrderNo" class="text-primary font-mono text-xs" style="letter-spacing:0.3px;"></strong>
+              </div>
+              <div class="flex justify-between mb-1.5">
+                <span>支付方式</span>
+                <span id="summaryPayment" class="text-body font-medium"></span>
+              </div>
+              <div class="flex justify-between mb-1.5">
+                <span>注册类型</span>
+                <span id="summaryRegType" class="text-body font-medium"></span>
+              </div>
+              <div class="flex justify-between">
+                <span>下单时间</span>
+                <span id="summaryCreateTime" class="text-body font-medium"></span>
+              </div>
+            </div>
+            <div class="cart-summary-row">
+              <span>商品总数</span>
+              <strong id="sumCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>域名注册</span>
+              <strong id="sumDomainCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>申请资料挂靠</span>
+              <strong id="sumRegOk" class="text-green-600">0 / 0</strong>
+            </div>
+            <div class="cart-summary-divider"></div>
+            <div class="cart-summary-row total">
+              <span>合计金额</span>
+              <span class="total-amount" id="sumTotal">¥0.00</span>
+            </div>
+          </div>
+
+          <!-- 操作卡片 -->
+          <div class="space-y-4">
+            <div class="action-card" onclick="window.location.href='user.html'">
+              <div class="action-icon blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="action-content">
+                <div class="action-title">查看订单</div>
+                <div class="action-desc">在用户中心查看订单状态和详情</div>
+              </div>
+            </div>
+
+            <div class="action-card" onclick="window.location.href='products-domain.html'">
+              <div class="action-icon orange">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <div class="action-content">
+                <div class="action-title">购买更多服务</div>
+                <div class="action-desc">云主机、企业邮箱等产品</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 服务保障 -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h5 class="text-sm font-bold text-body mb-3">服务保障</h5>
+            <div class="space-y-2 text-xs text-muted">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>7×24 小时技术支持</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>未注册成功全额退款</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>实名信息加密传输</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 联系我们 -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="font-bold text-lg text-body mb-4">联系我们</h3>
+            <div style="font-size:13px;color:#64748B;line-height:1.8;">
+              <div>客服热线：400-888-8888</div>
+              <div>工作时间：9:00 - 21:00</div>
+            <div>电子邮箱：support@xicel.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+
+<script>
+var REG_SERVICE_BASE_PRICE = 50;
+
+function initPage() {
+  var orderData = JSON.parse(localStorage.getItem('orderData') || 'null');
+  
+  if (!orderData) {
+    window.location.href = 'cart-confirm.html';
+    return;
+  }
+  
+  renderSummaryMeta(orderData);
+  renderOrderSummary(orderData.items);
+  
+  localStorage.removeItem('cartItems');
+  localStorage.removeItem('registrantInfo');
+}
+
+function renderSummaryMeta(orderData) {
+  var selected = orderData.items || [];
+  var total = selected.reduce(function(s, it) {
+    var itemTotal = it.price * (it.year || 1);
+    if (it.productType === '域名注册' && it.regService) {
+      itemTotal += REG_SERVICE_BASE_PRICE * (it.year || 1);
+    }
+    return s + itemTotal;
+  }, 0);
+
+  document.getElementById('summaryOrderNo').textContent = orderData.orderNo || '';
+  document.getElementById('summaryPayment').textContent = getPaymentMethodText(orderData.paymentMethod);
+  document.getElementById('summaryRegType').textContent = orderData.registrant && orderData.registrant.type === 'personal' ? '个人用户' : '企业用户';
+  document.getElementById('summaryCreateTime').textContent = formatDateTime(orderData.createTime);
+  document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
+}
+
+function renderOrderSummary(items) {
+  var selected = items || [];
+  var count = selected.length;
+  var domainCount = selected.filter(function(it) { return it.productType === '域名注册'; }).length;
+  var regServiceCount = selected.filter(function(it) { return it.productType === '域名注册' && it.regService; }).length;
+  var total = selected.reduce(function(s, it) {
+    var itemTotal = it.price * (it.year || 1);
+    if (it.productType === '域名注册' && it.regService) {
+      itemTotal += REG_SERVICE_BASE_PRICE * (it.year || 1);
+    }
+    return s + itemTotal;
+  }, 0);
+  
+  document.getElementById('sumCount').textContent = count + ' 件';
+  document.getElementById('sumDomainCount').textContent = domainCount + ' 件';
+  document.getElementById('sumRegOk').textContent = regServiceCount + ' / ' + domainCount;
+  document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
+}
+
+function getPaymentMethodText(method) {
+  var map = {
+    alipay: '支付宝',
+    wechat: '微信支付',
+    bank: '银行卡支付'
+  };
+  return map[method] || method;
+}
+
+function formatDateTime(dt) {
+  if (!dt) return '';
+  var date = new Date(dt);
+  return date.toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function formatPrice(price) {
+  return '¥' + parseFloat(price).toFixed(2);
+}
+
+document.addEventListener('DOMContentLoaded', initPage);
+</script>
+</body>
+</html>

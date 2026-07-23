@@ -43,7 +43,7 @@
   /**
    * 判断是否在产品服务相关页面（用于高亮"产品服务"标签）
    */
-  var productPages = ['products.html', 'products-hosting.html', 'products-design.html', 'products-compute.html', 'products-network.html', 'domain-pricing.html'];
+  var productPages = ['products-idc.html', 'products-domain.html', 'products-ip.html', 'products-design.html'];
   var isProductPage = productPages.indexOf(fileName) !== -1;
 
   /* ============================
@@ -52,10 +52,9 @@
 
   /*
    * 桌面端产品菜单排序：
-   *   品牌基石 → 站点构建 → 算力底座 → 全球连接 → 设计服务(col-span-2)
-   *
+   *   IDC服务 → 品牌护城河 → 知识产权 → 设计服务
    * 移动端产品菜单排序：
-   *   品牌基石 → 站点构建 → 设计服务 → 算力底座 → 全球连接
+   *   IDC服务 → 品牌护城河 → 知识产权 → 设计服务
    */
 
   var navbarHTML = [
@@ -76,39 +75,42 @@
     '        <span class="nav-link ' + (isProductPage ? 'text-primary' : 'text-body/70') + ' hover:text-primary cursor-default text-sm font-medium transition-colors">产品服务 ▾</span>',
     '        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">',
 
-    /* 1. 品牌基石 */
-    '          <a href="products.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-primary rounded-full"></div><span class="font-semibold text-sm text-body">品牌基石</span></div>',
-    '            <div class="text-xs text-muted ml-3">域名注册 · 商标注册 · WHOIS · 品牌保护</div>',
+    /* 1. IDC服务 */
+    '          <a href="products-idc.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">',
+    '            <div class="flex items-center gap-2 mb-2">',
+    '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#EFF6FF">🖥️</div>',
+    '              <span class="font-bold text-body">IDC服务</span>',
+    '            </div>',
+    '            <p class="text-xs text-muted leading-relaxed">网站建设 · SSL证书 · 企业邮箱 · 云服务器 · 网络专线 · GPU算力</p>',
     '          </a>',
 
-    /* 2. 站点构建 */
-    '          <a href="products-hosting.html" class="bg-slate-50 rounded-xl p-3 hover:bg-accent/5 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-accent rounded-full"></div><span class="font-semibold text-sm text-body">站点构建</span></div>',
-    '            <div class="text-xs text-muted ml-3">网站建设 · SSL证书 · 企业邮箱</div>',
+    /* 2. 品牌护城河 */
+    '          <a href="products-domain.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">',
+    '            <div class="flex items-center gap-2 mb-2">',
+    '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#EFF6FF">🛡️</div>',
+    '              <span class="font-bold text-body">品牌护城河</span>',
+    '            </div>',
+    '            <p class="text-xs text-muted leading-relaxed">域名注册 · 域名回购 · 域名价格 · 域名争议处理</p>',
     '          </a>',
 
-    /* 3. 算力底座 */
-    '          <a href="products-compute.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-purple-500 rounded-full"></div><span class="font-semibold text-sm text-body">算力底座</span></div>',
-    '            <div class="text-xs text-muted ml-3">云服务器 · GPU算力 · 服务器租用</div>',
+    /* 3. 知识产权 */
+    '          <a href="products-ip.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline">',
+    '            <div class="flex items-center gap-2 mb-2">',
+    '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#F5F3FF">📋</div>',
+    '              <span class="font-bold text-body">知识产权</span>',
+    '            </div>',
+    '            <p class="text-xs text-muted leading-relaxed">商标 · 专利 · 版权</p>',
     '          </a>',
 
-    /* 4. 全球连接 */
-    '          <a href="products-network.html" class="bg-slate-50 rounded-xl p-3 hover:bg-amber-50 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-amber-500 rounded-full"></div><span class="font-semibold text-sm text-body">全球连接</span></div>',
-    '            <div class="text-xs text-muted ml-3">网络专线 · 硬件采购 · 机房托管</div>',
+    /* 4. 设计服务 */
+    '          <a href="products-design.html" class="bg-slate-50 rounded-xl p-3 hover:bg-rose-50 transition-colors cursor-pointer block no-underline">',
+    '            <div class="flex items-center gap-2 mb-2">',
+    '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#FFF1F2">🎨</div>',
+    '              <span class="font-bold text-body">设计服务</span>',
+    '            </div>',
+    '            <p class="text-xs text-muted leading-relaxed">LOGO · VI · UI设计 · 海报 · 包装</p>',
     '          </a>',
 
-    /* 5. 设计服务 (col-span-2，最后一行) */
-    '          <a href="products-design.html" class="bg-slate-50 rounded-xl p-3 hover:bg-rose-50 transition-colors cursor-pointer block no-underline col-span-2">',
-    '            <div class="flex items-center gap-2 mb-1"><div class="w-1 h-4 bg-rose-400 rounded-full"></div><span class="font-semibold text-sm text-body">设计服务</span></div>',
-    '            <div class="text-xs text-muted ml-3">LOGO · VI · UI设计 · 海报 · 包装</div>',
-    '          </a>',
-
-    /* 分隔线 + 域名价格 */
-    '          <div class="col-span-2 border-t border-slate-100 my-1"></div>',
-    '          <a href="domain-pricing.html" class="col-span-2 block px-3 py-2 text-sm text-muted hover:text-primary rounded-lg hover:bg-slate-50 transition-colors text-center">域名价格</a>',
     '        </div>',
     '      </div>',
 
@@ -128,17 +130,16 @@
 
     /* 购物车 */
     '      <div class="cart-wrapper hidden sm:flex">',
-    '        <a href="user.html#panel-orders" class="nav-icon-btn" title="购物车/订单">',
+    '        <a href="cart-confirm.html" class="nav-icon-btn" title="购物车/订单">',
     '          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>',
-    '          <span class="cart-badge">5</span>',
+    '          <span class="cart-badge" data-cart-badge>0</span>',
     '        </a>',
     '        <div class="cart-dropdown">',
-    '          <div class="cart-dropdown-header"><span class="cart-dropdown-title">我的订单</span><span class="cart-dropdown-count">共 5 笔</span></div>',
-    '          <div class="cart-list">',
-    '            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="cart-item-info"><div class="cart-item-name">xicel.com 域名注册</div><div class="cart-item-meta"><span>域名注册</span><span>·</span><span class="text-green-500">已完成</span></div></div><div class="cart-item-price">¥89.00</div></div>',
-    '            <div class="cart-item"><div class="cart-item-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><div class="cart-item-info"><div class="cart-item-name">ECS 通用型 4核8G 云服务器</div><div class="cart-item-meta"><span>云服务器</span><span>·</span><span class="text-red-500">处理中</span></div></div><div class="cart-item-price">¥3,580.00</div></div>',
+    '          <div class="cart-dropdown-header"><span class="cart-dropdown-title">我的订单</span><span class="cart-dropdown-count" data-cart-dropdown-count>共 0 笔</span></div>',
+    '          <div class="cart-list" data-cart-dropdown-list>',
+    '            <div class="cart-empty">暂无待结算订单</div>',
     '          </div>',
-    '          <div class="cart-dropdown-footer"><a href="user.html#panel-orders" class="cart-view-all">查看全部订单 →</a></div>',
+    '          <div class="cart-dropdown-footer"><a href="cart-confirm.html" class="cart-view-all">查看购物车 →</a></div>',
     '        </div>',
     '      </div>',
 
@@ -177,27 +178,21 @@
     '<div id="mobileMenu" class="lg:hidden fixed inset-0 top-[65px] bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto overflow-x-hidden">',
     '  <div class="px-6 py-6 flex flex-col gap-2">',
 
-    /* 产品服务（移动端排序：品牌基石 → 站点构建 → 设计服务 → 算力底座 → 全球连接） */
+    /* 产品服务（移动端：IDC服务 → 品牌护城河 → 知识产权 → 设计服务） */
     '    <div class="py-3 border-b border-slate-100">',
     '      <span class="text-sm font-semibold text-body block mb-3">产品服务</span>',
 
-    /* 1. 品牌基石 */
-    '      <a href="products.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌基石</a>',
+    /* 1. IDC服务 */
+    '      <a href="products-idc.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-idc.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">IDC服务</a>',
 
-    /* 2. 站点构建 */
-    '      <a href="products-hosting.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-hosting.html') ? 'text-accent' : 'text-muted') + ' hover:text-accent border-l-2 border-accent transition-colors" onclick="closeMobileMenu()">站点构建</a>',
+    /* 2. 品牌护城河 */
+    '      <a href="products-domain.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-domain.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌护城河</a>',
 
-    /* 3. 设计服务 */
-    '      <a href="products-design.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-design.html') ? 'text-rose-400' : 'text-muted') + ' hover:text-rose-400 border-l-2 border-rose-400 transition-colors" onclick="closeMobileMenu()">设计服务</a>',
+    /* 3. 知识产权 */
+    '      <a href="products-ip.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-ip.html') ? 'text-purple-500' : 'text-muted') + ' hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">知识产权</a>',
 
-    /* 4. 算力底座 */
-    '      <a href="products-compute.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-compute.html') ? 'text-purple-500' : 'text-muted') + ' hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">算力底座</a>',
-
-    /* 5. 全球连接 */
-    '      <a href="products-network.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-network.html') ? 'text-amber-500' : 'text-muted') + ' hover:text-amber-500 border-l-2 border-amber-500 transition-colors" onclick="closeMobileMenu()">全球连接</a>',
-
-    /* 域名价格 */
-    '      <a href="domain-pricing.html" class="block py-2.5 pl-4 text-sm ' + (isActive('domain-pricing.html') ? 'text-slate-700' : 'text-muted') + ' hover:text-slate-700 border-l-2 border-slate-300 transition-colors" onclick="closeMobileMenu()">域名价格</a>',
+    /* 4. 设计服务 */
+    '      <a href="products-design.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-design.html') ? 'text-rose-500' : 'text-muted') + ' hover:text-rose-500 border-l-2 border-rose-500 transition-colors" onclick="closeMobileMenu()">设计服务</a>',
 
     '    </div>',
 
@@ -213,7 +208,7 @@
     /* 底部快捷入口 */
     '    <div class="flex flex-col gap-3 mt-4">',
     '      <a href="user.html" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>个人中心</a>',
-    '      <a href="user.html#panel-orders" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>我的订单</a>',
+    '      <a href="cart-confirm.html" class="flex items-center gap-2 py-2.5 text-sm text-muted hover:text-primary"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>购物车 <span class="cart-badge" data-cart-badge style="position:static;display:inline-flex;margin-left:4px;">0</span></a>',
     '    </div>',
 
     '  </div>',
@@ -303,8 +298,8 @@
     if (cartWrapper) cartWrapper.classList.add('logged-out');
   }
 
-  /* 挂载到 window */
-  window.handleDomainSearch = handleDomainSearch;
+  /* 挂载到 window（如果页面已有自定义实现则保留，如 index.html 的 WHOIS 标签跳转） */
+  window.handleDomainSearch = window.handleDomainSearch || handleDomainSearch;
   window.toggleMobileMenu = toggleMobileMenu;
   window.closeMobileMenu = closeMobileMenu;
   window.handleLogout = handleLogout;
@@ -315,5 +310,266 @@
     // 此处提供 alert 兜底
     alert('请先在页面中配置咨询弹窗组件');
   };
+
+  /* ============================
+     5. 购物车工具（cartUtils）
+     ============================ */
+
+  var CART_KEY = 'cartItems';
+  var CART_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>';
+
+  function cartRead() {
+    try {
+      var raw = localStorage.getItem(CART_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function cartWrite(items) {
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(items));
+    } catch (e) {}
+  }
+
+  function cartRefreshBadge() {
+    var count = cartRead().length;
+    var badges = document.querySelectorAll('[data-cart-badge]');
+    for (var i = 0; i < badges.length; i++) {
+      badges[i].textContent = count;
+    }
+    var countEl = document.querySelector('[data-cart-dropdown-count]');
+    if (countEl) countEl.textContent = '共 ' + count + ' 笔';
+    var listEl = document.querySelector('[data-cart-dropdown-list]');
+    if (listEl) {
+      if (count === 0) {
+        listEl.innerHTML = '<div class="cart-empty">暂无待结算订单</div>';
+      } else {
+        var items = cartRead();
+        var html = items.slice(0, 3).map(function(it) {
+          return '<div class="cart-item">'
+            + '<div class="cart-item-icon">' + CART_ICON_SVG + '</div>'
+            + '<div class="cart-item-info">'
+            +   '<div class="cart-item-name">' + escapeHtml(it.productName || it.productType) + '</div>'
+            +   '<div class="cart-item-meta"><span>' + escapeHtml(it.productType) + '</span><span>·</span><span class="text-primary">待结算</span></div>'
+            + '</div>'
+            + '<div class="cart-item-price">¥' + formatPrice(it.price) + '</div>'
+            + '</div>';
+        }).join('');
+        if (items.length > 3) {
+          html += '<div class="cart-empty" style="padding:12px;font-size:12px;">还有 ' + (items.length - 3) + ' 件…</div>';
+        }
+        listEl.innerHTML = html;
+      }
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function formatPrice(n) {
+    var num = Number(n) || 0;
+    return num.toLocaleString('zh-CN', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+
+  function ensureFlyHost() {
+    var host = document.getElementById('flyHost');
+    if (!host) {
+      host = document.createElement('div');
+      host.id = 'flyHost';
+      document.body.appendChild(host);
+    }
+    return host;
+  }
+
+  function ensureCartToast() {
+    var toast = document.getElementById('cartToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'cartToast';
+      toast.className = 'cart-toast';
+      toast.innerHTML = '<span class="cart-toast-check">✓</span><span class="cart-toast-text">已加入购物车</span>';
+      document.body.appendChild(toast);
+    }
+    return toast;
+  }
+
+  function showCartToast(text) {
+    var toast = ensureCartToast();
+    var textEl = toast.querySelector('.cart-toast-text');
+    if (textEl && text) textEl.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function() {
+      toast.classList.remove('show');
+    }, 2500);
+  }
+
+  function cartFlyTo(btnEl) {
+    if (!btnEl) return;
+    var badge = document.querySelector('.cart-badge');
+    if (!badge) { showCartToast('已加入购物车'); return; }
+    var host = ensureFlyHost();
+
+    var btnRect = btnEl.getBoundingClientRect();
+    var badgeRect = badge.getBoundingClientRect();
+
+    var startX = btnRect.left + btnRect.width / 2 - 28;
+    var startY = btnRect.top + btnRect.height / 2 - 28;
+    var endX = badgeRect.left + badgeRect.width / 2 - 28;
+    var endY = badgeRect.top + badgeRect.height / 2 - 28;
+
+    var fly = document.createElement('div');
+    fly.className = 'fly-item';
+    fly.innerHTML = CART_ICON_SVG;
+    fly.style.left = startX + 'px';
+    fly.style.top = startY + 'px';
+    fly.style.opacity = '1';
+    host.appendChild(fly);
+
+    // 强制回流再加 transform，触发过渡
+    void fly.offsetWidth;
+    fly.style.transform = 'translate(' + (endX - startX) + 'px, ' + (endY - startY) + 'px) scale(0.2) rotate(360deg)';
+    fly.style.opacity = '0.2';
+
+    setTimeout(function() {
+      fly.remove();
+      badge.classList.remove('cart-badge-pulse');
+      // 强制回流以重启动画
+      void badge.offsetWidth;
+      badge.classList.add('cart-badge-pulse');
+      setTimeout(function() { badge.classList.remove('cart-badge-pulse'); }, 600);
+    }, 600);
+  }
+
+  function cartAddItem(item) {
+    if (!item || !item.id) {
+      item = item || {};
+      item.id = 'item-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+    }
+    var items = cartRead();
+    // 同 id 累加 qty，避免重复行
+    var existing = null;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].id === item.id) { existing = items[i]; break; }
+    }
+    if (existing) {
+      existing.qty = (existing.qty || 1) + (item.qty || 1);
+    } else {
+      item.qty = item.qty || 1;
+      // 申请资料复选框默认不勾选（费用为0）
+      if (typeof item.regService === 'undefined') {
+        item.regService = false;
+      }
+      // 商品默认选中（参与结算）
+      if (typeof item.selected === 'undefined') {
+        item.selected = true;
+      }
+      items.push(item);
+    }
+    cartWrite(items);
+    cartRefreshBadge();
+    return items;
+  }
+
+  function cartRemoveItem(id) {
+    var items = cartRead();
+    items = items.filter(function(it) { return it.id !== id; });
+    cartWrite(items);
+    cartRefreshBadge();
+    return items;
+  }
+
+  function cartClear() {
+    cartWrite([]);
+    cartRefreshBadge();
+  }
+
+  function orderRead() {
+    try {
+      return JSON.parse(localStorage.getItem('orderData') || 'null');
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function orderWrite(data) {
+    try {
+      localStorage.setItem('orderData', JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  function orderClear() {
+    localStorage.removeItem('orderData');
+  }
+
+  function registrantRead() {
+    try {
+      return JSON.parse(localStorage.getItem('registrantInfo') || 'null');
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function registrantWrite(data) {
+    try {
+      localStorage.setItem('registrantInfo', JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  function registrantClear() {
+    localStorage.removeItem('registrantInfo');
+  }
+
+  function registrantTemplatesRead() {
+    try {
+      return JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function registrantTemplatesWrite(data) {
+    try {
+      localStorage.setItem('registrantTemplates', JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  window.cartUtils = {
+    addItem: cartAddItem,
+    removeItem: cartRemoveItem,
+    clear: cartClear,
+    getItems: cartRead,
+    count: function() { return cartRead().length; },
+    flyTo: cartFlyTo,
+    refresh: cartRefreshBadge,
+    toast: showCartToast,
+    order: {
+      read: orderRead,
+      write: orderWrite,
+      clear: orderClear
+    },
+    registrant: {
+      read: registrantRead,
+      write: registrantWrite,
+      clear: registrantClear
+    },
+    registrantTemplates: {
+      read: registrantTemplatesRead,
+      write: registrantTemplatesWrite
+    }
+  };
+
+  // 页面加载时立即刷新角标和浮窗
+  cartRefreshBadge();
+
+  // 监听其他标签页 / 同页修改
+  window.addEventListener('storage', function(e) {
+    if (e.key === CART_KEY) cartRefreshBadge();
+  });
 
 })();

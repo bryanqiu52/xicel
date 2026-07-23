@@ -1,0 +1,6 @@
+/* ===== 知识产权产品页专属样式 ===== */
+.tab-active-ip { color: #7C3AED !important; border-bottom-color: #7C3AED !important; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-answer.open { max-height: 500px; }
+.faq-chevron { transition: transform 0.3s ease; }
+.faq-chevron.open { transform: rotate(180deg); }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -828,6 +828,23 @@ function submitNoResultConsult(e) {
   e.preventDefault();
   alert('感谢您的咨询，我们将尽快联系您！');
 }
+</script>
+<script>
+// 域名卡片点击跳转至详情页（点击"注册 →"链接时不触发）
+(function() {
+  document.querySelectorAll('.text-2xl.font-bold').forEach(function(el) {
+    var text = el.textContent.trim();
+    if (!text.startsWith('.')) return;
+    var card = el.closest('.rounded-2xl');
+    if (!card) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      var key = text.replace(/^\./, '').replace(/\./g, '');
+      window.location.href = 'domain-detail.html?tld=' + encodeURIComponent(key);
+    });
+  });
+})();
 </script>
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>

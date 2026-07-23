@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资料填写 - xicel</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+<style>
+.form-step-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #F1F5F9;
+  margin-bottom: 24px;
+}
+.form-step-tab {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748B;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.form-step-tab:hover {
+  color: #0A66FF;
+}
+.form-step-tab.active {
+  color: #0A66FF;
+  border-bottom-color: #0A66FF;
+  font-weight: 600;
+}
+.form-group-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.form-item {
+  margin-bottom: 16px;
+}
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 6px;
+}
+.form-label .required {
+  color: #EF4444;
+  margin-right: 4px;
+}
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  background: #fff;
+  color: #1E293B;
+  outline: none;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+.form-input:focus {
+  border-color: #0A66FF;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.08);
+}
+.form-input::placeholder {
+  color: #94A3B8;
+}
+.form-input:disabled {
+  background: #F8FAFC;
+  color: #94A3B8;
+  cursor: not-allowed;
+}
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  background: #fff;
+  color: #1E293B;
+  outline: none;
+  transition: all 0.2s;
+  min-height: 80px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.form-textarea:focus {
+  border-color: #0A66FF;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.08);
+}
+.form-tip {
+  display: block;
+  font-size: 12px;
+  color: #94A3B8;
+  margin-top: 6px;
+}
+.template-select-wrapper {
+  margin-bottom: 20px;
+}
+.template-select-wrapper .form-label {
+  margin-bottom: 8px;
+}
+.template-select-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%2364748B' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 14px;
+  padding-right: 2.5rem;
+}
+.info-summary-card {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.info-summary-card h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E40AF;
+  margin-bottom: 10px;
+}
+.info-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px dashed #BFDBFE;
+}
+.info-summary-row:last-child {
+  border-bottom: none;
+}
+.info-summary-row .label {
+  color: #64748B;
+}
+.info-summary-row .value {
+  color: #1E293B;
+  font-weight: 500;
+}
+@media (max-width: 640px) {
+  .form-group-row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="navbar-container"></div>
+
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-14">
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">资料填写</h1>
+    <p class="text-white/80 text-sm md:text-base">填写域名注册人信息，选择模板快速填充</p>
+  </div>
+</section>
+
+<section class="py-10" style="background:#fdfdfd">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- 左侧：表单内容 -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- 步骤条 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="step-item completed">
+              <div class="step-num">1</div>
+              <span class="step-text">加入购物车</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item completed">
+              <div class="step-num">2</div>
+              <span class="step-text">订单确认</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item current">
+              <div class="step-num">3</div>
+              <span class="step-text">资料填写</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">4</div>
+              <span class="step-text">付款下单</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">5</div>
+              <span class="step-text">支付完成</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 表单卡片 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="font-bold text-lg text-body">注册人信息</h3>
+            <span class="text-xs text-muted">* 为必填项</span>
+          </div>
+
+          <div class="template-select-wrapper">
+            <label class="form-label">选择模板（可选）</label>
+            <select class="form-input" id="templateSelect" onchange="applyTemplate(this.value)">
+              <option value="">请选择模板</option>
+            </select>
+          </div>
+
+          <div class="form-step-tabs">
+            <button class="form-step-tab active" onclick="switchRegistrantType('personal', this)">个人用户</button>
+            <button class="form-step-tab" onclick="switchRegistrantType('company', this)">企业用户</button>
+          </div>
+
+          <form id="registrantForm">
+        <div id="personalForm">
+          <div class="form-group-row">
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>域名持有者姓名（中文）</label>
+              <input type="text" class="form-input" id="perHolderCn" placeholder="请输入姓名">
+            </div>
+            <div class="form-item">
+              <label class="form-label">域名持有者姓名（英文）</label>
+              <input type="text" class="form-input" id="perHolderEn" placeholder="请输入英文姓名">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>证件类型</label>
+              <select class="form-input" id="perIdType">
+                <option value="idcard">居民身份证</option>
+                <option value="passport">护照</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>证件号码</label>
+              <input type="text" class="form-input" id="perIdNumber" placeholder="请输入证件号码">
+              <span class="form-tip">请如实填写，将用于域名实名认证</span>
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>国家/地区</label>
+              <input type="text" class="form-input" id="perCountry" placeholder="请输入国家/地区" value="中国">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>省份</label>
+              <input type="text" class="form-input" id="perProvince" placeholder="请输入省份">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>城市</label>
+              <input type="text" class="form-input" id="perCity" placeholder="请输入城市">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>邮政编码</label>
+              <input type="text" class="form-input" id="perZipCode" placeholder="请输入邮政编码">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>联系地址（中文）</label>
+              <textarea class="form-textarea" id="perAddressCn" placeholder="请输入联系地址"></textarea>
+            </div>
+            <div class="form-item">
+              <label class="form-label">联系地址（英文）</label>
+              <textarea class="form-textarea" id="perAddressEn" placeholder="请输入英文地址"></textarea>
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>联系电话</label>
+              <input type="text" class="form-input" id="perPhone" placeholder="请输入联系电话">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>电子邮箱</label>
+              <input type="text" class="form-input" id="perEmail" placeholder="请输入电子邮箱">
+            </div>
+          </div>
+        </div>
+
+        <div id="companyForm" style="display:none;">
+          <div class="form-group-row">
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>企业名称（中文）</label>
+              <input type="text" class="form-input" id="comNameCn" placeholder="请输入企业名称">
+            </div>
+            <div class="form-item">
+              <label class="form-label">企业名称（英文）</label>
+              <input type="text" class="form-input" id="comNameEn" placeholder="请输入英文企业名称">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>证件类型</label>
+              <select class="form-input" id="comIdType">
+                <option value="business">工商营业执照</option>
+                <option value="org">组织机构代码证</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>证件号码</label>
+              <input type="text" class="form-input" id="comIdNumber" placeholder="请输入证件号码">
+              <span class="form-tip">统一社会信用代码或营业执照号码</span>
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>法人姓名</label>
+              <input type="text" class="form-input" id="comLegalPerson" placeholder="请输入法人姓名">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>国家/地区</label>
+              <input type="text" class="form-input" id="comCountry" placeholder="请输入国家/地区" value="中国">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>省份</label>
+              <input type="text" class="form-input" id="comProvince" placeholder="请输入省份">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>城市</label>
+              <input type="text" class="form-input" id="comCity" placeholder="请输入城市">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>邮政编码</label>
+              <input type="text" class="form-input" id="comZipCode" placeholder="请输入邮政编码">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>联系地址（中文）</label>
+              <textarea class="form-textarea" id="comAddressCn" placeholder="请输入联系地址"></textarea>
+            </div>
+            <div class="form-item">
+              <label class="form-label">联系地址（英文）</label>
+              <textarea class="form-textarea" id="comAddressEn" placeholder="请输入英文地址"></textarea>
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>联系人姓名</label>
+              <input type="text" class="form-input" id="comContact" placeholder="请输入联系人姓名">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>联系电话</label>
+              <input type="text" class="form-input" id="comPhone" placeholder="请输入联系电话">
+            </div>
+            <div class="form-item">
+              <label class="form-label"><span class="required">*</span>电子邮箱</label>
+              <input type="text" class="form-input" id="comEmail" placeholder="请输入电子邮箱">
+            </div>
+          </div>
+        </div>
+
+      </form>
+        </div>
+      </div>
+
+      <!-- 右侧栏 -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-24 space-y-4">
+          <div class="cart-summary-card">
+            <h4 class="font-bold text-body text-base mb-4">订单汇总</h4>
+            <div class="cart-summary-row">
+              <span>商品总数</span>
+              <strong id="sumCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>域名注册</span>
+              <strong id="sumDomainCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>申请资料挂靠</span>
+              <strong id="sumRegOk" class="text-green-600">0 / 0</strong>
+            </div>
+            <div class="cart-summary-divider"></div>
+            <div class="cart-summary-row total">
+              <span>合计金额</span>
+              <span class="total-amount" id="sumTotal">¥0.00</span>
+            </div>
+
+            <button class="btn-checkout" onclick="submitForm()">付款下单</button>
+            <a href="cart-confirm.html" class="btn-continue">返回上一步</a>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h5 class="text-sm font-bold text-body mb-3">服务保障</h5>
+            <div class="space-y-2 text-xs text-muted">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>7×24 小时技术支持</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>未注册成功全额退款</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>实名信息加密传输</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+
+<script>
+var currentRegistrantType = 'personal';
+
+function initPage() {
+  var cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  var selectedItems = cartItems.filter(function(it) { return it.selected; });
+
+  // 更新右侧订单汇总
+  updateOrderSummary(selectedItems);
+
+  initDefaultTemplates();
+  loadTemplates();
+
+  var savedRegistrant = JSON.parse(localStorage.getItem('registrantInfo') || 'null');
+  if (savedRegistrant) {
+    fillForm(savedRegistrant.data || savedRegistrant);
+  } else {
+    // 自动填充测试模板，免填写直接下一步
+    var templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
+    var personalTpl = templates.find(function(t) { return t.id === 'tpl-default-1'; });
+    if (personalTpl) {
+      fillForm(personalTpl.data);
+    }
+  }
+}
+
+function updateOrderSummary(items) {
+  var count = items.length;
+  var total = 0;
+  var REG_SERVICE_BASE_PRICE = 50;
+  var domainCount = 0;
+  var regServiceCount = 0;
+  
+  items.forEach(function(it) {
+    total += it.price * (it.year || 1);
+    if (it.productType === '域名注册') {
+      domainCount++;
+      if (it.regService) {
+        regServiceCount++;
+        total += REG_SERVICE_BASE_PRICE * (it.year || 1);
+      }
+    }
+  });
+
+  document.getElementById('sumCount').textContent = count + ' 件';
+  document.getElementById('sumDomainCount').textContent = domainCount + ' 件';
+  document.getElementById('sumRegOk').textContent = regServiceCount + ' / ' + domainCount;
+  document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
+}
+
+function initDefaultTemplates() {
+  var existing = JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
+
+  var personalTpl = {
+    id: 'tpl-default-1',
+    name: '个人模板（测试）',
+    type: 'personal',
+    data: {
+      holderCn: '张三',
+      holderEn: 'Zhang San',
+      idType: 'idcard',
+      idNumber: '110101199001011234',
+      country: '中国',
+      province: '北京市',
+      city: '北京市',
+      zipCode: '100000',
+      addressCn: '北京市朝阳区建国路88号',
+      addressEn: 'No.88 Jianguo Road, Chaoyang District',
+      phone: '13800138000',
+      email: 'zhangsan@example.com'
+    },
+    createdAt: new Date().toISOString()
+  };
+
+  var companyTpl = {
+    id: 'tpl-default-2',
+    name: '企业模板（测试）',
+    type: 'company',
+    data: {
+      nameCn: '北京某某科技有限公司',
+      nameEn: 'Beijing Example Technology Co., Ltd.',
+      idType: 'business',
+      idNumber: '91110108MA00XXXX0X',
+      legalPerson: '李四',
+      country: '中国',
+      province: '北京市',
+      city: '北京市',
+      zipCode: '100000',
+      addressCn: '北京市海淀区中关村大街1号',
+      addressEn: 'No.1 Zhongguancun Street, Haidian District',
+      contact: '王五',
+      phone: '13900139000',
+      email: 'contact@example.com'
+    },
+    createdAt: new Date().toISOString()
+  };
+
+  // 确保测试模板始终存在
+  var hasPersonal = existing.some(function(t) { return t.id === 'tpl-default-1'; });
+  var hasCompany = existing.some(function(t) { return t.id === 'tpl-default-2'; });
+  if (!hasPersonal) existing.push(personalTpl);
+  if (!hasCompany) existing.push(companyTpl);
+
+  localStorage.setItem('registrantTemplates', JSON.stringify(existing));
+}
+
+function loadTemplates() {
+  var templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
+  var select = document.getElementById('templateSelect');
+  select.innerHTML = '<option value="">请选择模板</option>';
+  
+  templates.forEach(function(tpl) {
+    var option = document.createElement('option');
+    option.value = tpl.id;
+    option.textContent = tpl.name + ' (' + (tpl.type === 'personal' ? '个人' : '企业') + ')';
+    select.appendChild(option);
+  });
+}
+
+function switchRegistrantType(type, el) {
+  currentRegistrantType = type;
+  
+  document.querySelectorAll('.form-step-tab').forEach(function(tab) {
+    tab.classList.remove('active');
+  });
+  el.classList.add('active');
+
+  if (type === 'personal') {
+    document.getElementById('personalForm').style.display = 'block';
+    document.getElementById('companyForm').style.display = 'none';
+  } else {
+    document.getElementById('personalForm').style.display = 'none';
+    document.getElementById('companyForm').style.display = 'block';
+  }
+}
+
+function applyTemplate(templateId) {
+  if (!templateId) return;
+  
+  var templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
+  var template = templates.find(function(t) { return t.id === templateId; });
+  
+  if (template && template.data) {
+    switchRegistrantType(template.type, document.querySelector('.form-step-tab:nth-child(' + (template.type === 'personal' ? '1' : '2') + ')'));
+    fillForm(template.data);
+  }
+}
+
+function fillForm(data) {
+  if (!data) return;
+  if (currentRegistrantType === 'personal') {
+    document.getElementById('perHolderCn').value = data.holderCn || '';
+    document.getElementById('perHolderEn').value = data.holderEn || '';
+    document.getElementById('perIdType').value = data.idType || 'idcard';
+    document.getElementById('perIdNumber').value = data.idNumber || '';
+    document.getElementById('perCountry').value = data.country || '中国';
+    document.getElementById('perProvince').value = data.province || '';
+    document.getElementById('perCity').value = data.city || '';
+    document.getElementById('perZipCode').value = data.zipCode || '';
+    document.getElementById('perAddressCn').value = data.addressCn || '';
+    document.getElementById('perAddressEn').value = data.addressEn || '';
+    document.getElementById('perPhone').value = data.phone || '';
+    document.getElementById('perEmail').value = data.email || '';
+  } else {
+    document.getElementById('comNameCn').value = data.nameCn || '';
+    document.getElementById('comNameEn').value = data.nameEn || '';
+    document.getElementById('comIdType').value = data.idType || 'business';
+    document.getElementById('comIdNumber').value = data.idNumber || '';
+    document.getElementById('comLegalPerson').value = data.legalPerson || '';
+    document.getElementById('comCountry').value = data.country || '中国';
+    document.getElementById('comProvince').value = data.province || '';
+    document.getElementById('comCity').value = data.city || '';
+    document.getElementById('comZipCode').value = data.zipCode || '';
+    document.getElementById('comAddressCn').value = data.addressCn || '';
+    document.getElementById('comAddressEn').value = data.addressEn || '';
+    document.getElementById('comContact').value = data.contact || '';
+    document.getElementById('comPhone').value = data.phone || '';
+    document.getElementById('comEmail').value = data.email || '';
+  }
+}
+
+function saveTemplate() {
+  var templateName = prompt('请输入模板名称：');
+  if (!templateName) return;
+  
+  var data = collectFormData();
+  var templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
+  var newTemplate = {
+    id: Date.now().toString(),
+    name: templateName,
+    type: currentRegistrantType,
+    data: data,
+    createdAt: new Date().toISOString()
+  };
+  
+  templates.push(newTemplate);
+  localStorage.setItem('registrantTemplates', JSON.stringify(templates));
+  loadTemplates();
+  alert('模板保存成功！');
+}
+
+function collectFormData() {
+  if (currentRegistrantType === 'personal') {
+    return {
+      holderCn: document.getElementById('perHolderCn').value,
+      holderEn: document.getElementById('perHolderEn').value,
+      idType: document.getElementById('perIdType').value,
+      idNumber: document.getElementById('perIdNumber').value,
+      country: document.getElementById('perCountry').value,
+      province: document.getElementById('perProvince').value,
+      city: document.getElementById('perCity').value,
+      zipCode: document.getElementById('perZipCode').value,
+      addressCn: document.getElementById('perAddressCn').value,
+      addressEn: document.getElementById('perAddressEn').value,
+      phone: document.getElementById('perPhone').value,
+      email: document.getElementById('perEmail').value
+    };
+  } else {
+    return {
+      nameCn: document.getElementById('comNameCn').value,
+      nameEn: document.getElementById('comNameEn').value,
+      idType: document.getElementById('comIdType').value,
+      idNumber: document.getElementById('comIdNumber').value,
+      legalPerson: document.getElementById('comLegalPerson').value,
+      country: document.getElementById('comCountry').value,
+      province: document.getElementById('comProvince').value,
+      city: document.getElementById('comCity').value,
+      zipCode: document.getElementById('comZipCode').value,
+      addressCn: document.getElementById('comAddressCn').value,
+      addressEn: document.getElementById('comAddressEn').value,
+      contact: document.getElementById('comContact').value,
+      phone: document.getElementById('comPhone').value,
+      email: document.getElementById('comEmail').value
+    };
+  }
+}
+
+function validateForm() {
+  if (currentRegistrantType === 'personal') {
+    if (!document.getElementById('perHolderCn').value.trim()) { alert('请填写域名持有者姓名（中文）'); return false; }
+    if (!document.getElementById('perIdNumber').value.trim()) { alert('请填写证件号码'); return false; }
+    if (!document.getElementById('perCountry').value.trim()) { alert('请填写国家/地区'); return false; }
+    if (!document.getElementById('perProvince').value.trim()) { alert('请填写省份'); return false; }
+    if (!document.getElementById('perCity').value.trim()) { alert('请填写城市'); return false; }
+    if (!document.getElementById('perZipCode').value.trim()) { alert('请填写邮政编码'); return false; }
+    if (!document.getElementById('perAddressCn').value.trim()) { alert('请填写联系地址（中文）'); return false; }
+    if (!document.getElementById('perPhone').value.trim()) { alert('请填写联系电话'); return false; }
+    if (!document.getElementById('perEmail').value.trim()) { alert('请填写电子邮箱'); return false; }
+  } else {
+    if (!document.getElementById('comNameCn').value.trim()) { alert('请填写企业名称（中文）'); return false; }
+    if (!document.getElementById('comIdNumber').value.trim()) { alert('请填写证件号码'); return false; }
+    if (!document.getElementById('comLegalPerson').value.trim()) { alert('请填写法人姓名'); return false; }
+    if (!document.getElementById('comCountry').value.trim()) { alert('请填写国家/地区'); return false; }
+    if (!document.getElementById('comProvince').value.trim()) { alert('请填写省份'); return false; }
+    if (!document.getElementById('comCity').value.trim()) { alert('请填写城市'); return false; }
+    if (!document.getElementById('comZipCode').value.trim()) { alert('请填写邮政编码'); return false; }
+    if (!document.getElementById('comAddressCn').value.trim()) { alert('请填写联系地址（中文）'); return false; }
+    if (!document.getElementById('comContact').value.trim()) { alert('请填写联系人姓名'); return false; }
+    if (!document.getElementById('comPhone').value.trim()) { alert('请填写联系电话'); return false; }
+    if (!document.getElementById('comEmail').value.trim()) { alert('请填写电子邮箱'); return false; }
+  }
+  return true;
+}
+
+function submitForm() {
+  if (!validateForm()) return;
+  
+  var registrantInfo = {
+    type: currentRegistrantType,
+    data: collectFormData()
+  };
+  
+  localStorage.setItem('registrantInfo', JSON.stringify(registrantInfo));
+  window.location.href = 'cart-payment.html';
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function formatPrice(price) {
+  return '¥' + parseFloat(price).toFixed(2);
+}
+
+document.addEventListener('DOMContentLoaded', initPage);
+</script>
+</body>
+</html>

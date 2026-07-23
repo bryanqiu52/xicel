@@ -1,0 +1,272 @@
+/* ===== 域名详情页独立样式 ===== */
+
+/* Hero 区域背景纹理 */
+.domain-hero {
+  position: relative;
+  overflow: hidden;
+}
+.domain-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 30%, rgba(0,212,170,0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* 域名大图标容器 */
+.domain-icon-lg {
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.domain-icon-lg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+/* 概览信息卡片 */
+.overview-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: box-shadow 0.2s;
+}
+.overview-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.overview-card .ov-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #EFF6FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0A66FF;
+}
+
+/* 特点卡片 */
+.feature-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0A66FF, #00D4AA);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.feature-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+.feature-card .fc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #EFF6FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A66FF;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+.feature-card:hover .fc-icon {
+  background: #0A66FF;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* 场景卡片 */
+.usecase-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s;
+}
+.usecase-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
+.usecase-card .uc-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ECFDF5, #EFF6FF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A66FF;
+  flex-shrink: 0;
+}
+
+/* 价格表 */
+.price-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+}
+.price-table thead th {
+  background: #F8FAFC;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748B;
+  text-align: center;
+  border-bottom: 1px solid #E2E8F0;
+}
+.price-table thead th:first-child {
+  text-align: left;
+}
+.price-table tbody td {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #1E293B;
+  text-align: center;
+  border-bottom: 1px solid #F1F5F9;
+}
+.price-table tbody td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+.price-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.price-table .price-cell {
+  font-weight: 600;
+  color: #0A66FF;
+}
+.price-table .price-cell .price-unit {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748B;
+}
+
+/* 同类推荐卡片 */
+.related-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.related-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+  border-color: #0A66FF;
+}
+.related-card .rc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.related-card .rc-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* CTA 区域 */
+.domain-cta {
+  position: relative;
+  overflow: hidden;
+}
+.domain-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(10,102,255,0.04) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(0,212,170,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* 未找到提示 */
+.domain-not-found {
+  text-align: center;
+  padding: 80px 20px;
+}
+.domain-not-found svg {
+  margin: 0 auto 24px;
+}
+
+/* 面包屑 */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748B;
+  padding: 16px 0;
+}
+.breadcrumb a {
+  color: #64748B;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb a:hover {
+  color: #0A66FF;
+}
+.breadcrumb .bc-sep {
+  color: #CBD5E1;
+}
+.breadcrumb .bc-current {
+  color: #1E293B;
+  font-weight: 500;
+}
+
+/* 背景纹理 */
+.bg-dots {
+  background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.3;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+}

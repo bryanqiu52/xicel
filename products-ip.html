@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识产权 - xicel</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/products-ip.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="navbar-container"></div>
+
+<!-- ========== Hero ========== -->
+<section class="py-20 lg:py-24" style="background: url('assets/images/ip_hero.jpg') center/cover no-repeat;">
+  <div class="max-w-7xl mx-auto px-6 text-left">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-body mb-4">知识产权</h1>
+    <p class="text-muted text-lg md:text-xl max-w-2xl">商标注册 · 专利申请 · 版权登记，守护创新成果与品牌价值</p>
+  </div>
+</section>
+
+<!-- ========== 子Tab 切换 ========== -->
+<section class="bg-white border-b border-slate-100 sticky top-[65px] z-30">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex overflow-x-auto gap-0 -mb-px">
+      <button class="ip-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="trademark" id="subtab-trademark">商标</button>
+      <button class="ip-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="patent" id="subtab-patent">专利</button>
+      <button class="ip-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="copyright" id="subtab-copyright">版权</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 子Tab 内容 ========== -->
+
+<!-- Tab 1: 商标 -->
+<section class="ip-content py-16 bg-slate-50" id="content-trademark">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-lg text-muted max-w-3xl mb-12">专业商标代理团队，覆盖全球主要国家和地区，为企业品牌提供全方位法律保护。</p>
+    <div class="mb-16">
+      <h3 class="text-xl font-bold text-body mb-8">商标注册流程</h3>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="relative"><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">1</div><h4 class="font-bold text-body mb-2">商标查询</h4><p class="text-sm text-muted">检索商标数据库，评估注册成功率，出具查询报告</p><div class="mt-3 text-xs text-violet-600 font-medium">1-3个工作日</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div class="relative"><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">2</div><h4 class="font-bold text-body mb-2">资料提交</h4><p class="text-sm text-muted">准备商标图样、申请书、委托书等材料提交商标局</p><div class="mt-3 text-xs text-violet-600 font-medium">1-2个工作日</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div class="relative"><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">3</div><h4 class="font-bold text-body mb-2">审查公告</h4><p class="text-sm text-muted">形式审查+实质审查，通过后进入公告期</p><div class="mt-3 text-xs text-violet-600 font-medium">6-9个月</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">4</div><h4 class="font-bold text-body mb-2">公告注册</h4><p class="text-sm text-muted">公告期无异议后核准注册，颁发商标注册证书</p><div class="mt-3 text-xs text-violet-600 font-medium">3个月公告期</div></div></div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🔎</div><h3 class="font-bold text-body mb-2">商标查询</h3><p class="text-sm text-muted mb-4">专业检索商标数据库，评估注册风险</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem] flex items-end">免费</div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即查询</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">📝</div><h3 class="font-bold text-body mb-2">商标注册</h3><p class="text-sm text-muted mb-4">全流程代理注册，专业律师全程跟进</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">¥899<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即办理</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🔄</div><h3 class="font-bold text-body mb-2">商标续展</h3><p class="text-sm text-muted mb-4">到期提醒+续展办理，确保持续有效</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">¥1,599<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即办理</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">⚖️</div><h3 class="font-bold text-body mb-2">商标异议</h3><p class="text-sm text-muted mb-4">针对侵权商标提出异议，维护品牌权益</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">询价</div><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
+    </div>
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>商标注册需要多长时间？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">国内商标从提交到拿到注册证书通常需要12-18个月，包括形式审查(1个月)、实质审查(6-9个月)、公告期(3个月)等阶段。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>商标被驳回怎么办？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">收到驳回通知后可在15日内提交复审申请。我们的专业律师团队会分析驳回理由，制定复审策略，复审成功率可达60%以上。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>商标有效期多久？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">中国注册商标有效期为10年，自核准注册之日起计算。期满前12个月内可办理续展，每次续展有效期也为10年。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tab 2: 专利 -->
+<section class="ip-content hidden py-16 bg-white" id="content-patent">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-lg text-muted max-w-3xl mb-12">专业专利代理团队，覆盖发明、实用新型、外观设计及国际PCT申请，为技术创新保驾护航。</p>
+
+    <!-- 价格卡片 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">💡</div><h3 class="font-bold text-body mb-2">发明专利申请</h3><p class="text-sm text-muted mb-4">含实质审查，保护核心技术方案</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">¥5,000<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即办理</button></div>
+      <div class="bg-white rounded-2xl border-2 border-violet-300 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col relative"><div class="absolute -top-3 left-6 bg-violet-600 text-white text-xs font-bold px-3 py-1 rounded-full">推荐</div><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🔧</div><h3 class="font-bold text-body mb-2">实用新型专利</h3><p class="text-sm text-muted mb-4">审查快、授权率高，适合产品改良</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">¥2,500<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即办理</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🎨</div><h3 class="font-bold text-body mb-2">外观设计专利</h3><p class="text-sm text-muted mb-4">保护产品外观，防山寨抄袭</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">¥1,200<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即办理</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🌐</div><h3 class="font-bold text-body mb-2">国际PCT申请</h3><p class="text-sm text-muted mb-4">一份申请覆盖多国，全球专利布局</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">询价</div><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
+    </div>
+
+    <!-- 专利类型对比表 -->
+    <div class="mb-16">
+      <h3 class="text-xl font-bold text-body mb-8">专利类型对比</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-violet-50">
+              <th class="text-left px-6 py-4 font-semibold text-body rounded-l-xl">对比维度</th>
+              <th class="text-left px-6 py-4 font-semibold text-body">发明专利</th>
+              <th class="text-left px-6 py-4 font-semibold text-body">实用新型专利</th>
+              <th class="text-left px-6 py-4 font-semibold text-body rounded-r-xl">外观设计专利</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-100">
+              <td class="px-6 py-4 text-muted font-medium">保护年限</td>
+              <td class="px-6 py-4 text-body font-semibold">20年</td>
+              <td class="px-6 py-4 text-body font-semibold">10年</td>
+              <td class="px-6 py-4 text-body font-semibold">15年</td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="px-6 py-4 text-muted font-medium">审查周期</td>
+              <td class="px-6 py-4 text-body">18-36个月</td>
+              <td class="px-6 py-4 text-body">6-12个月</td>
+              <td class="px-6 py-4 text-body">4-8个月</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-muted font-medium">适合对象</td>
+              <td class="px-6 py-4 text-body">核心技术、方法创新</td>
+              <td class="px-6 py-4 text-body">产品结构改进、小发明</td>
+              <td class="px-6 py-4 text-body">产品造型、图案设计</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 申请流程 -->
+    <div class="mb-16">
+      <h3 class="text-xl font-bold text-body mb-8">专利申请流程</h3>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="relative"><div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">1</div><h4 class="font-bold text-body mb-2">专利检索</h4><p class="text-sm text-muted">检索现有技术，评估授权前景</p><div class="mt-3 text-xs text-violet-600 font-medium">3-5个工作日</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div class="relative"><div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">2</div><h4 class="font-bold text-body mb-2">材料撰写</h4><p class="text-sm text-muted">撰写申请文件，绘制专利附图</p><div class="mt-3 text-xs text-violet-600 font-medium">5-10个工作日</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div class="relative"><div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">3</div><h4 class="font-bold text-body mb-2">提交申请</h4><p class="text-sm text-muted">向国家知识产权局提交申请文件</p><div class="mt-3 text-xs text-violet-600 font-medium">1-2个工作日</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div class="relative"><div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">4</div><h4 class="font-bold text-body mb-2">审查答复</h4><p class="text-sm text-muted">答复审查意见，争取授权范围</p><div class="mt-3 text-xs text-violet-600 font-medium">依审查进度</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div><div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">5</div><h4 class="font-bold text-body mb-2">授权公告</h4><p class="text-sm text-muted">获得专利证书，享有独占权</p><div class="mt-3 text-xs text-violet-600 font-medium">颁发证书</div></div></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>发明专利和实用新型专利有什么区别？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">发明专利保护技术方案（产品、方法或其改进），需要实质审查，保护期20年；实用新型专利保护产品的形状、构造或其结合，只进行形式审查，授权快但保护期10年。发明专利含金量更高，适合核心技术保护。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>PCT国际专利申请有什么优势？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">PCT（专利合作条约）允许通过一份申请同时向多个成员国申请专利保护，简化了流程，为申请人争取了最多30个月的时间来决定进入哪些国家，大大降低了初期成本和决策压力。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tab 3: 版权 -->
+<section class="ip-content hidden py-16 bg-slate-50" id="content-copyright">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-lg text-muted max-w-3xl mb-12">快速高效的版权登记服务，保护软件著作权与作品著作权，为创意成果提供法律保障。</p>
+
+    <!-- 价格卡片 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-2xl">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">💻</div><h3 class="font-bold text-body mb-2">软件著作权</h3><p class="text-sm text-muted mb-4">App/软件/系统源代码版权登记，高企认定、双软认证必备</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">¥800<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即办理</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">📚</div><h3 class="font-bold text-body mb-2">作品著作权</h3><p class="text-sm text-muted mb-4">文字/美术/音乐/摄影/影视等作品版权登记</p><div class="text-violet-600 font-bold text-xl mb-4 min-h-[2rem]">¥500<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-xl transition-colors">立即办理</button></div>
+    </div>
+
+    <!-- 登记流程 -->
+    <div class="mb-16">
+      <h3 class="text-xl font-bold text-body mb-8">版权登记流程</h3>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="relative"><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">1</div><h4 class="font-bold text-body mb-2">材料准备</h4><p class="text-sm text-muted">整理源代码/作品样本、权属证明等材料</p><div class="mt-3 text-xs text-violet-600 font-medium">1-3个工作日</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div class="relative"><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">2</div><h4 class="font-bold text-body mb-2">提交申请</h4><p class="text-sm text-muted">向版权保护中心提交登记申请与材料</p><div class="mt-3 text-xs text-violet-600 font-medium">即时提交</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div class="relative"><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">3</div><h4 class="font-bold text-body mb-2">受理审查</h4><p class="text-sm text-muted">中心受理并进行形式审查与实质审查</p><div class="mt-3 text-xs text-violet-600 font-medium">30个工作日</div></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-violet-600/30"></div></div>
+        <div><div class="bg-white rounded-2xl border border-slate-200 p-6 text-center"><div class="w-12 h-12 bg-violet-600/10 rounded-full flex items-center justify-center text-violet-600 font-bold text-lg mx-auto mb-4">4</div><h4 class="font-bold text-body mb-2">取得证书</h4><p class="text-sm text-muted">审查通过后颁发著作权登记证书</p><div class="mt-3 text-xs text-violet-600 font-medium">邮寄送达</div></div></div>
+      </div>
+    </div>
+
+    <!-- 服务优势 -->
+    <div class="mb-16">
+      <h3 class="text-xl font-bold text-body mb-8">版权登记优势</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">⚡</div><h4 class="font-bold text-body mb-2">加急通道</h4><p class="text-sm text-muted">支持加急办理，最快5个工作日拿证，满足项目申报紧急需求</p></div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🏛️</div><h4 class="font-bold text-body mb-2">法律效力</h4><p class="text-sm text-muted">著作权登记证书是维权的重要证据，在诉讼中具有初步证明效力</p></div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">📋</div><h4 class="font-bold text-body mb-2">申报必备</h4><p class="text-sm text-muted">高新技术企业认定、双软评估、科技项目申报的必要条件</p></div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300"><div class="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🔄</div><h4 class="font-bold text-body mb-2">全程代办</h4><p class="text-sm text-muted">专业顾问一对一服务，材料准备到证书获取全程跟进</p></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>软件著作权登记需要多长时间？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">普通办理约30个工作日，加急办理最快5-10个工作日即可取得证书。建议提前规划，合理安排时间。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>版权登记和商标注册有什么区别？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">版权保护的是作品的表达形式（如代码、文字、美术作品），自创作完成即自动产生；商标保护的是区分商品/服务来源的标识，需要注册才能获得专用权。两者保护对象不同，建议同时进行以形成全方位保护。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="py-20" style="background: linear-gradient(135deg, #F5F3FF, #EDE9FE);">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-body mb-4">准备好保护您的知识产权了吗？</h2>
+    <p class="text-muted text-lg mb-8 max-w-2xl mx-auto">立即咨询，获取专属知识产权保护方案</p>
+    <button onclick="openConsultModal()" class="bg-white text-body hover:bg-slate-50 font-semibold px-8 py-4 rounded-xl transition-all shadow-lg border border-slate-200 hover:shadow-xl hover:-translate-y-0.5">立即咨询</button>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<!-- ========== 咨询弹窗 ========== -->
+<div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeConsultModal()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-fade-in">
+    <div class="h-2" style="background: linear-gradient(to right, #7C3AED, #A78BFA);"></div>
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-6"><h3 class="text-2xl font-bold text-body">立即咨询</h3><button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+      <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">
+        <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all text-sm resize-none"></textarea></div>
+        <button type="submit" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-violet-600/20 hover:shadow-md hover:shadow-violet-600/30">提交咨询</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
+function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu'), l1=document.getElementById('ham-line1'), l2=document.getElementById('ham-line2'), l3=document.getElementById('ham-line3');
+  if(menu.classList.contains('translate-x-full')){ menu.classList.remove('translate-x-full'); menu.classList.add('translate-x-0'); l1.style.transform='rotate(45deg) translate(5px,5px)'; l2.style.opacity='0'; l3.style.transform='rotate(-45deg) translate(5px,-5px)'; document.body.style.overflow='hidden'; }
+  else{ closeMobileMenu(); }
+}
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu'); menu.classList.add('translate-x-full'); menu.classList.remove('translate-x-0');
+  document.getElementById('ham-line1').style.transform=''; document.getElementById('ham-line2').style.opacity=''; document.getElementById('ham-line3').style.transform=''; document.body.style.overflow='';
+}
+function handleLogout(e){ e.stopPropagation(); document.querySelector('.user-menu-wrapper').style.display='none'; }
+function toggleFaq(btn){
+  var answer = btn.nextElementSibling, chevron = btn.querySelector('.faq-chevron');
+  answer.classList.toggle('open'); chevron.classList.toggle('open');
+  answer.style.maxHeight = answer.classList.contains('open') ? answer.scrollHeight + 'px' : '0';
+}
+function switchIpSubtab(subtab){
+  document.querySelectorAll('.ip-content').forEach(function(c){ c.classList.add('hidden'); });
+  document.getElementById('content-'+subtab).classList.remove('hidden');
+  history.replaceState(null, '', '?subtab='+subtab);
+  document.querySelectorAll('.ip-subtab').forEach(function(b){ b.classList.remove('tab-active-ip'); b.classList.add('border-transparent','text-muted'); });
+  var ab = document.getElementById('subtab-'+subtab);
+  ab.classList.add('tab-active-ip'); ab.classList.remove('border-transparent','text-muted');
+}
+document.querySelectorAll('.ip-subtab').forEach(function(b){ b.addEventListener('click', function(){ switchIpSubtab(b.dataset.subtab); }); });
+(function(){
+  var p = new URLSearchParams(window.location.search), s = p.get('subtab') || 'trademark';
+  if(['trademark','patent','copyright'].indexOf(s)===-1) s='trademark';
+  switchIpSubtab(s);
+})();
+</script>
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>付款下单 - xicel</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+<style>
+.payment-method-card {
+  border: 2px solid #E2E8F0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.payment-method-card:hover {
+  border-color: #0A66FF;
+  background: rgba(10, 102, 255, 0.02);
+}
+.payment-method-card.active {
+  border-color: #0A66FF;
+  background: #EFF6FF;
+}
+.payment-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+.payment-card-expand {
+  display: none;
+  border-top: 1px solid #E2E8F0;
+  padding: 20px 24px 24px;
+}
+.payment-method-card.active .payment-card-expand {
+  display: block;
+}
+.payment-method-card .radio-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.payment-method-card.active .radio-indicator {
+  border-color: #0A66FF;
+}
+.payment-method-card.active .radio-indicator::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0A66FF;
+}
+.payment-method-card .method-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.payment-method-card.alipay .method-icon {
+  background: #1677FF;
+  color: #fff;
+}
+.payment-method-card.wechat .method-icon {
+  background: #07C160;
+  color: #fff;
+}
+.payment-method-card.bank .method-icon {
+  background: #F1F5F9;
+  color: #64748B;
+}
+.payment-method-card .method-info {
+  flex: 1;
+}
+.payment-method-card .method-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1E293B;
+}
+.payment-method-card .method-desc {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-top: 2px;
+}
+.order-summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #F1F5F9;
+}
+.order-summary-item:last-child {
+  border-bottom: none;
+}
+.order-summary-item .label {
+  color: #64748B;
+}
+.order-summary-item .value {
+  color: #1E293B;
+}
+.order-summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: 700;
+  border-top: 2px solid #E2E8F0;
+  margin-top: 8px;
+}
+.order-summary-total .label {
+  color: #334155;
+}
+.order-summary-total .value {
+  color: #0A66FF;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 13px;
+  border-bottom: 1px dashed #E2E8F0;
+}
+.info-row:last-child {
+  border-bottom: none;
+}
+.info-row .label {
+  color: #94A3B8;
+}
+.info-row .value {
+  color: #1E293B;
+  font-weight: 500;
+}
+.order-item-card {
+  background: #F8FAFC;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.order-item-card .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.order-item-card .item-name {
+  font-weight: 600;
+  color: #1E293B;
+}
+.order-item-card .item-price {
+  font-weight: 600;
+  color: #0A66FF;
+}
+.order-item-card .item-meta {
+  font-size: 12px;
+  color: #94A3B8;
+}
+@media (max-width: 640px) {
+  .payment-method-card {
+    padding: 12px;
+  }
+  .payment-method-card .method-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="navbar-container"></div>
+
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-14">
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">付款下单</h1>
+    <p class="text-white/80 text-sm md:text-base">选择支付方式，确认订单信息后完成支付</p>
+  </div>
+</section>
+
+<section class="py-10" style="background:#fdfdfd">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- 左侧：订单内容 -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- 步骤条 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="step-item completed">
+              <div class="step-num">1</div>
+              <span class="step-text">加入购物车</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item completed">
+              <div class="step-num">2</div>
+              <span class="step-text">订单确认</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item completed">
+              <div class="step-num">3</div>
+              <span class="step-text">资料填写</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item current">
+              <div class="step-num">4</div>
+              <span class="step-text">付款下单</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">5</div>
+              <span class="step-text">支付完成</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 订单商品（小票风格） -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold text-lg text-body mb-4">订单商品</h3>
+          <div id="orderItems" class="font-mono text-sm text-body leading-relaxed"></div>
+        </div>
+
+        <!-- 支付方式 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold text-lg text-body mb-5">支付方式</h3>
+          <div class="space-y-3">
+            <div class="payment-method-card active" id="payAlipay" onclick="selectPaymentMethod('alipay')">
+              <div class="payment-card-header">
+                <div class="radio-indicator"></div>
+                <div class="method-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14.5a1.5 1.5 0 010-3h8a1.5 1.5 0 010 3h-3a1 1 0 00-.8 1.6l1.4 1.4a1 1 0 001.6-.8v-4.7a1.5 1.5 0 013 0V12a6 6 0 11-12 0v-.5z"/></svg>
+                </div>
+                <div class="method-info">
+                  <div class="method-name">支付宝</div>
+                  <div class="method-desc">推荐使用，支持花呗、余额宝等多种支付方式</div>
+                </div>
+              </div>
+              <div class="payment-card-expand text-center">
+                <div class="inline-flex items-center justify-center w-44 h-44 bg-white rounded-xl border border-slate-200 mb-4">
+                  <div class="text-center">
+                    <svg class="w-20 h-20 mx-auto text-primary mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    <span class="text-xs text-muted">模拟二维码</span>
+                  </div>
+                </div>
+                <div class="font-semibold text-body text-base">待支付 <span class="total-amount" id="qrAmountAlipay">¥0.00</span></div>
+                <p class="text-xs text-muted mt-1">请打开支付宝扫码完成支付</p>
+              </div>
+            </div>
+            <div class="payment-method-card" id="payWechat" onclick="selectPaymentMethod('wechat')">
+              <div class="payment-card-header">
+                <div class="radio-indicator"></div>
+                <div class="method-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 10.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm6.5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-3 4a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <div class="method-info">
+                  <div class="method-name">微信支付</div>
+                  <div class="method-desc">扫码支付，支持微信零钱、银行卡</div>
+                </div>
+              </div>
+              <div class="payment-card-expand text-center">
+                <div class="inline-flex items-center justify-center w-44 h-44 bg-white rounded-xl border border-slate-200 mb-4">
+                  <div class="text-center">
+                    <svg class="w-20 h-20 mx-auto text-green-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    <span class="text-xs text-muted">模拟二维码</span>
+                  </div>
+                </div>
+                <div class="font-semibold text-body text-base">待支付 <span class="total-amount" id="qrAmountWechat">¥0.00</span></div>
+                <p class="text-xs text-muted mt-1">请打开微信扫码完成支付</p>
+              </div>
+            </div>
+            <div class="payment-method-card" id="payBank" onclick="selectPaymentMethod('bank')">
+              <div class="payment-card-header">
+                <div class="radio-indicator"></div>
+                <div class="method-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="16" rx="2"/><path d="M6 6h12M6 10h12M6 14h8"/></svg>
+                </div>
+                <div class="method-info">
+                  <div class="method-name">银行卡支付</div>
+                  <div class="method-desc">支持各大银行储蓄卡、信用卡</div>
+                </div>
+              </div>
+              <div class="payment-card-expand">
+                <div class="grid grid-cols-1 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-muted mb-1.5">卡号</label>
+                    <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="请输入银行卡号">
+                  </div>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="block text-xs font-medium text-muted mb-1.5">有效期</label>
+                      <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="MM/YY">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-medium text-muted mb-1.5">CVV</label>
+                      <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="***">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-muted mb-1.5">持卡人姓名</label>
+                    <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="请输入持卡人姓名">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧栏 -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-24 space-y-4">
+          <div class="cart-summary-card">
+            <h4 class="font-bold text-body text-base mb-4">订单汇总</h4>
+            <div class="cart-summary-row">
+              <span>商品总数</span>
+              <strong id="sumCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>域名注册</span>
+              <strong id="sumDomainCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>申请资料挂靠</span>
+              <strong id="sumRegOk" class="text-green-600">0 / 0</strong>
+            </div>
+            <div class="cart-summary-divider"></div>
+            <div class="cart-summary-row total">
+              <span>合计金额</span>
+              <span class="total-amount" id="sumTotal">¥0.00</span>
+            </div>
+
+            <button class="btn-checkout" onclick="submitPayment()">立即支付</button>
+            <a href="cart-info.html" class="btn-continue">返回上一步</a>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h5 class="text-sm font-bold text-body mb-3">服务保障</h5>
+            <div class="space-y-2 text-xs text-muted">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>7×24 小时技术支持</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>未注册成功全额退款</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                <span>实名信息加密传输</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+
+<script>
+var selectedPaymentMethod = 'alipay';
+var REG_SERVICE_BASE_PRICE = 50;
+
+function initPage() {
+  var cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  var registrantInfo = JSON.parse(localStorage.getItem('registrantInfo') || 'null');
+  
+  if (cartItems.length === 0) {
+    window.location.href = 'cart-confirm.html';
+    return;
+  }
+  
+  if (!registrantInfo) {
+    window.location.href = 'cart-info.html';
+    return;
+  }
+  
+  renderOrderItems(cartItems);
+  renderOrderSummary(cartItems);
+}
+
+function renderOrderItems(items) {
+  var container = document.getElementById('orderItems');
+  var html = '';
+  var idx = 0;
+  
+  items.forEach(function(item) {
+    if (!item.selected) return;
+    var price = (item.price * (item.year || 1)).toFixed(2);
+    var name = item.productName || item.name || '';
+    var border = idx > 0 ? ' border-t border-dashed border-slate-200' : '';
+    html += '<div class="flex justify-between py-2' + border + '">';
+    html += '<span>' + escapeHtml(name) + ' <span class="text-muted">× ' + (item.year || 1) + '年</span></span>';
+    html += '<span class="font-medium">¥' + price + '</span>';
+    html += '</div>';
+    idx++;
+  });
+  
+  container.innerHTML = html;
+}
+
+function renderOrderSummary(items) {
+  var selected = items.filter(function(it) { return it.selected; });
+  var count = selected.length;
+  var domainCount = selected.filter(function(it) { return it.productType === '域名注册'; }).length;
+  var regServiceCount = selected.filter(function(it) { return it.productType === '域名注册' && it.regService; }).length;
+  var domainFee = selected.filter(function(it) { return it.productType === '域名注册'; })
+    .reduce(function(s, it) { return s + (it.price * (it.year || 1)); }, 0);
+  var otherFee = selected.filter(function(it) { return it.productType !== '域名注册'; })
+    .reduce(function(s, it) { return s + (it.price * (it.year || 1)); }, 0);
+  var regServiceFee = selected.filter(function(it) { return it.productType === '域名注册' && it.regService; })
+    .reduce(function(s, it) { return s + (REG_SERVICE_BASE_PRICE * (it.year || 1)); }, 0);
+  var total = domainFee + otherFee + regServiceFee;
+  
+  document.getElementById('sumCount').textContent = count + ' 件';
+  document.getElementById('sumDomainCount').textContent = domainCount + ' 件';
+  document.getElementById('sumRegOk').textContent = regServiceCount + ' / ' + domainCount;
+  document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
+  
+  // 同步二维码金额
+  var qrAmt = '¥' + total.toFixed(2);
+  var alipayEl = document.getElementById('qrAmountAlipay');
+  var wechatEl = document.getElementById('qrAmountWechat');
+  if (alipayEl) alipayEl.textContent = qrAmt;
+  if (wechatEl) wechatEl.textContent = qrAmt;
+}
+
+function selectPaymentMethod(method) {
+  selectedPaymentMethod = method;
+  
+  document.querySelectorAll('.payment-method-card').forEach(function(card) {
+    card.classList.remove('active');
+  });
+  
+  document.getElementById('pay' + method.charAt(0).toUpperCase() + method.slice(1)).classList.add('active');
+}
+
+function submitPayment() {
+  var cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  var registrantInfo = JSON.parse(localStorage.getItem('registrantInfo') || 'null');
+  
+  var orderData = {
+    orderNo: 'XD' + Date.now(),
+    items: cartItems.filter(function(it) { return it.selected; }),
+    registrant: registrantInfo,
+    paymentMethod: selectedPaymentMethod,
+    createTime: new Date().toISOString()
+  };
+  
+  localStorage.setItem('orderData', JSON.stringify(orderData));
+  
+  window.location.href = 'cart-success.html';
+}
+
+function getCertTypeText(type) {
+  var map = {
+    idcard: '居民身份证',
+    passport: '护照',
+    other: '其他',
+    business: '工商营业执照',
+    org: '组织机构代码证'
+  };
+  return map[type] || type;
+}
+
+function maskIdNumber(id) {
+  if (!id) return '';
+  if (id.length <= 6) return id;
+  return id.substring(0, 3) + '****' + id.substring(id.length - 3);
+}
+
+function maskPhone(phone) {
+  if (!phone) return '';
+  if (phone.length <= 7) return phone;
+  return phone.substring(0, 3) + '****' + phone.substring(phone.length - 4);
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function formatPrice(price) {
+  return '¥' + parseFloat(price).toFixed(2);
+}
+
+document.addEventListener('DOMContentLoaded', initPage);
+</script>
+</body>
+</html>

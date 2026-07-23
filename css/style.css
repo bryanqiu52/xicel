@@ -513,3 +513,509 @@ body .beautified-select-sm:disabled {
   background: #FEF2F2;
   color: #DC2626;
 }
+
+/* ===== 域名查询成功高亮动画 ===== */
+@keyframes domainFoundPulse {
+  0% { background-color: #DBEAFE; }
+  40% { background-color: #93C5FD; }
+  100% { background-color: #EFF6FF; }
+}
+.domain-found {
+  animation: domainFoundPulse 1.2s ease-out;
+}
+
+/* ===== 申请资料复选框样式 ===== */
+.reg-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  background: #F8FAFC;
+  transition: all 0.15s;
+}
+.reg-checkbox-label:hover {
+  border-color: #0A66FF;
+  background: #EFF6FF;
+}
+.reg-service-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #0A66FF;
+  cursor: pointer;
+}
+.reg-checkbox-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748B;
+  white-space: nowrap;
+}
+.reg-checkbox-label:hover .reg-checkbox-text {
+  color: #0A66FF;
+}
+
+/* ===== 购物车飞行动画 ===== */
+#flyHost {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+.fly-item {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(10, 102, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0A66FF;
+  transition: all 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  will-change: transform, opacity;
+}
+.fly-item svg {
+  width: 24px;
+  height: 24px;
+  color: #0A66FF;
+}
+
+@keyframes badgePulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+  50% { transform: scale(1.4); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+.cart-badge-pulse {
+  animation: badgePulse 0.6s ease-out;
+}
+
+/* ===== 购物车 toast ===== */
+.cart-toast {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  z-index: 9999;
+  background: #0F172A;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.cart-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cart-toast .cart-toast-check {
+  width: 18px;
+  height: 18px;
+  background: #00D4AA;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* ===== 购物车确认页专属 ===== */
+.cart-confirm-table {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.cart-confirm-table thead tr {
+  background: #F5F7FA;
+}
+.cart-confirm-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  white-space: nowrap;
+  border-bottom: 1px solid #E2E8F0;
+}
+.cart-confirm-table td {
+  padding: 16px;
+  font-size: 13px;
+  border-bottom: 1px solid #F1F5F9;
+  vertical-align: middle;
+}
+.cart-confirm-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.cart-confirm-table tbody tr {
+  transition: background 0.15s;
+}
+.cart-confirm-table tbody tr:hover {
+  background: #F8FAFC;
+}
+.cart-confirm-table .order-no {
+  color: #0A66FF;
+  font-family: 'SF Mono', Consolas, monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
+.cart-confirm-table .price-cell {
+  font-weight: 700;
+  color: #1E293B;
+  white-space: nowrap;
+}
+.cart-confirm-table .remove-x-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #F5F7FA;
+  border: 1px solid #E2E8F0;
+  color: #94A3B8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  padding: 0;
+}
+.cart-confirm-table .remove-x-btn:hover {
+  color: #EF4444;
+  border-color: #FCA5A5;
+  background: #FEF2F2;
+}
+.cart-confirm-table .remove-x-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* 表格内下拉框微调（与 beautified-select-sm 共存） */
+.cart-confirm-table .beautified-select-sm {
+  margin: 0;
+}
+
+/* 购物车空态 */
+.cart-empty {
+  text-align: center;
+  padding: 80px 20px;
+}
+.cart-empty .cart-empty-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #0A66FF;
+}
+.cart-empty .cart-empty-icon svg {
+  width: 48px;
+  height: 48px;
+}
+.cart-empty h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+.cart-empty p {
+  font-size: 14px;
+  color: #64748B;
+  margin-bottom: 24px;
+}
+.cart-empty .btn-go-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0A66FF;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.cart-empty .btn-go-shop:hover {
+  background: #0047CC;
+  transform: translateY(-1px);
+}
+
+/* 结算摘要卡 */
+.cart-summary-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #64748B;
+  margin-bottom: 12px;
+}
+.cart-summary-row strong {
+  color: #1E293B;
+  font-weight: 600;
+}
+.cart-summary-row.total {
+  font-size: 14px;
+  color: #1E293B;
+  font-weight: 600;
+  margin: 16px 0;
+}
+.cart-summary-row.total .total-amount {
+  color: #0A66FF;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.cart-summary-divider {
+  height: 1px;
+  background: #F1F5F9;
+  margin: 4px 0;
+}
+.cart-summary-card .btn-checkout {
+  width: 100%;
+  background: #0A66FF;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 4px 12px rgba(10, 102, 255, 0.2);
+  margin-bottom: 8px;
+}
+.cart-summary-card .btn-checkout:hover {
+  background: #0047CC;
+  box-shadow: 0 6px 18px rgba(10, 102, 255, 0.3);
+  transform: translateY(-1px);
+}
+.cart-summary-card .btn-continue {
+  width: 100%;
+  background: #F5F7FA;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+.cart-summary-card .btn-continue:hover {
+  background: #E2E8F0;
+  color: #1E293B;
+}
+.cart-summary-tip {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #94A3B8;
+  line-height: 1.5;
+}
+.cart-summary-tip .tip-link {
+  color: #0A66FF;
+  text-decoration: none;
+}
+.cart-summary-tip .tip-link:hover {
+  text-decoration: underline;
+}
+
+/* 结算成功弹窗 */
+.checkout-success-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.checkout-success-modal.show {
+  display: flex;
+}
+.checkout-success-modal .backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+.checkout-success-modal .dialog {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 32px 28px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: dialogIn 0.3s ease;
+}
+@keyframes dialogIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.checkout-success-modal .success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00D4AA, #00A77F);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #fff;
+  font-size: 36px;
+  box-shadow: 0 10px 25px rgba(0, 212, 170, 0.3);
+}
+.checkout-success-modal h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 8px;
+}
+.checkout-success-modal p {
+  font-size: 14px;
+  color: #64748B;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.checkout-success-modal .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.checkout-success-modal .btn-primary {
+  background: #0A66FF;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.checkout-success-modal .btn-primary:hover {
+  background: #0047CC;
+}
+.checkout-success-modal .btn-secondary {
+  background: none;
+  color: #64748B;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.checkout-success-modal .btn-secondary:hover {
+  color: #1E293B;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .cart-confirm-table {
+    font-size: 12px;
+  }
+  .cart-confirm-table th,
+  .cart-confirm-table td {
+    padding: 12px 8px;
+  }
+  .cart-confirm-table .hide-mobile {
+    display: none;
+  }
+  .cart-toast {
+    top: 70px;
+    right: 16px;
+    left: 16px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ===== 下单流程步骤条 ===== */
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: #E2E8F0;
+  transition: background 0.3s;
+}
+.step-line.active {
+  background: #0A66FF;
+}
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.step-item .step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.step-item.completed .step-num {
+  background: #0A66FF;
+  color: #fff;
+}
+.step-item.current .step-num {
+  background: #0A66FF;
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(10, 102, 255, 0.15);
+}
+.step-item.pending .step-num {
+  background: #F1F5F9;
+  color: #94A3B8;
+}
+.step-item .step-text {
+  font-size: 12px;
+  color: #64748B;
+  white-space: nowrap;
+}
+.step-item.completed .step-text,
+.step-item.current .step-text {
+  color: #0A66FF;
+  font-weight: 500;
+}
+@media (max-width: 640px) {
+  .step-item .step-num {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+  .step-item .step-text {
+    font-size: 10px;
+  }
+}

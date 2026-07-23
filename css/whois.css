@@ -1,0 +1,287 @@
+/* ===== Whois 页面专属样式 ===== */
+
+/* --- 搜索区 --- */
+.whois-hero-bg {
+  background: linear-gradient(135deg, #0A66FF 0%, #0047CC 100%);
+  position: relative;
+  overflow: hidden;
+}
+.whois-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0v60M0 30h60' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+.whois-hero-bg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* --- 搜索输入框 --- */
+.whois-search-input {
+  height: 56px;
+  padding-left: 48px;
+  padding-right: 16px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+  width: 100%;
+}
+.whois-search-input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+.whois-search-input:focus {
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.1);
+}
+
+/* --- Whois 结果区域 --- */
+.whois-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.whois-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(180deg, #0A66FF, #00D4AA);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* --- 信息卡片 --- */
+.whois-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.whois-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+/* 信息行 */
+.whois-row {
+  display: flex;
+  padding: 12px 20px;
+  border-bottom: 1px solid #F1F5F9;
+  transition: background 0.15s;
+  gap: 16px;
+}
+.whois-row:last-child {
+  border-bottom: none;
+}
+.whois-row:hover {
+  background: #F8FAFC;
+}
+.whois-label {
+  width: 110px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748B;
+  padding-top: 1px;
+}
+.whois-value {
+  flex: 1;
+  font-size: 12px;
+  color: #1E293B;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* 联系人分组（合并卡片内） */
+.whois-contact-group {
+  border-bottom: 1px solid #F1F5F9;
+}
+.whois-contact-group:last-child {
+  border-bottom: none;
+}
+.whois-contact-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F172A;
+}
+.whois-contact-group .whois-row {
+  padding-left: 44px;
+  padding-right: 20px;
+}
+.whois-contact-group .whois-row:last-child {
+  padding-bottom: 14px;
+}
+.whois-value .highlight {
+  color: #0A66FF;
+  font-weight: 600;
+}
+
+/* --- 域名状态标签 --- */
+.whois-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.whois-status-badge.client-transfer-prohibited {
+  background: #FEF3C7;
+  color: #D97706;
+}
+.whois-status-badge.client-delete-prohibited {
+  background: #FCE7F3;
+  color: #DB2777;
+}
+.whois-status-badge.ok {
+  background: #D1FAE5;
+  color: #059669;
+}
+.whois-status-badge.server-transfer-prohibited {
+  background: #E0E7FF;
+  color: #4338CA;
+}
+
+/* --- 域名概要头 --- */
+.whois-domain-header {
+  background: linear-gradient(135deg, #EFF6FF, #F0FDF4);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.whois-domain-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+}
+.whois-domain-name .tld {
+  color: #0A66FF;
+}
+.whois-header-stats {
+  display: flex;
+  gap: 32px;
+}
+.whois-header-stat {
+  text-align: center;
+}
+.whois-header-stat .stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+}
+.whois-header-stat .stat-label {
+  font-size: 11px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+/* --- 空状态 --- */
+.whois-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #94A3B8;
+}
+.whois-empty svg {
+  width: 80px;
+  height: 80px;
+  color: #CBD5E1;
+  margin-bottom: 20px;
+}
+.whois-empty h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+.whois-empty p {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* --- 加载动画 --- */
+@keyframes whoisSpin {
+  to { transform: rotate(360deg); }
+}
+.whois-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px 20px;
+}
+.whois-loading .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #E2E8F0;
+  border-top-color: #0A66FF;
+  border-radius: 50%;
+  animation: whoisSpin 0.8s linear infinite;
+}
+.whois-loading span {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* --- 响应式 --- */
+@media (max-width: 768px) {
+  .whois-row {
+    flex-direction: column;
+    padding: 10px 16px;
+    gap: 4px;
+  }
+  .whois-label {
+    width: auto;
+    font-size: 11px;
+  }
+  .whois-value {
+    font-size: 12px;
+  }
+  .whois-contact-group .whois-row {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .whois-contact-header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .whois-domain-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .whois-header-stats {
+    gap: 20px;
+    justify-content: center;
+  }
+  .whois-domain-name {
+    font-size: 20px;
+  }
+}

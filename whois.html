@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHOIS 查询 - Xicel</title>
+  <script src="js/tailwindcss.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/whois.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A66FF',
+            'primary-dark': '#0047CC',
+            accent: '#00D4AA',
+            dark: '#0D1117',
+            surface: '#F5F7FA',
+            body: '#1E293B',
+            muted: '#64748B',
+            border: '#E2E8F0'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+
+<div id="navbar-container"></div>
+
+<!-- ========== Hero 搜索区 ========== -->
+<section class="whois-hero-bg py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">WHOIS 查询</h1>
+    <p class="text-white/70 mb-8">查询域名的注册信息、注册商、到期时间、DNS 服务器等详细资料</p>
+    <div class="relative max-w-xl mx-auto">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50 z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="whoisSearchInput" type="text" placeholder="输入完整域名，如 xicel.com" class="whois-search-input pl-12" onkeydown="if(event.key==='Enter')handleWhoisSearch()" />
+      <button onclick="handleWhoisSearch()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white text-sm font-medium px-5 py-2 rounded-xl transition-all backdrop-blur-sm whitespace-nowrap border border-white/20">查询</button>
+    </div>
+    <p class="text-white/50 text-xs mt-4">支持 .com .cn .net .org 等主流顶级域名 Whois 信息查询</p>
+  </div>
+</section>
+
+<!-- ========== 查询结果区 ========== -->
+<section id="whoisResults" class="py-12 bg-surface flex-1">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- 空状态（默认显示） -->
+    <div id="whoisEmpty" class="whois-empty">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path d="M9 12h6m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
+        <path d="M14 3v4a1 1 0 001 1h4"/>
+      </svg>
+      <h3>查询域名 Whois 信息</h3>
+      <p>输入域名后点击查询，即可查看该域名的注册详情</p>
+      <!-- 热门示例 -->
+      <div class="mt-6 pt-5 border-t border-slate-200">
+        <p class="text-sm text-muted mb-3">热门示例（点击直接查询）</p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <button onclick="quickQuery('xicel.com')" class="px-4 py-1.5 bg-white rounded-lg border border-slate-200 text-sm text-body hover:border-primary hover:text-primary transition-all">xicel.com</button>
+          <button onclick="quickQuery('google.com')" class="px-4 py-1.5 bg-white rounded-lg border border-slate-200 text-sm text-body hover:border-primary hover:text-primary transition-all">google.com</button>
+          <button onclick="quickQuery('baidu.com')" class="px-4 py-1.5 bg-white rounded-lg border border-slate-200 text-sm text-body hover:border-primary hover:text-primary transition-all">baidu.com</button>
+          <button onclick="quickQuery('alibaba.com')" class="px-4 py-1.5 bg-white rounded-lg border border-slate-200 text-sm text-body hover:border-primary hover:text-primary transition-all">alibaba.com</button>
+          <button onclick="quickQuery('apple.com')" class="px-4 py-1.5 bg-white rounded-lg border border-slate-200 text-sm text-body hover:border-primary hover:text-primary transition-all">apple.com</button>
+          <button onclick="quickQuery('microsoft.net')" class="px-4 py-1.5 bg-white rounded-lg border border-slate-200 text-sm text-body hover:border-primary hover:text-primary transition-all">microsoft.net</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 加载状态 -->
+    <div id="whoisLoading" class="whois-loading" style="display:none;">
+      <div class="spinner"></div>
+      <span>正在查询域名 Whois 信息...</span>
+    </div>
+
+    <!-- 结果内容 -->
+    <div id="whoisContent" style="display:none;">
+      <!-- 域名概要头 -->
+      <div id="domainHeader" class="whois-domain-header mb-6"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <!-- 注册信息 -->
+        <div class="whois-card">
+          <div class="whois-section-title px-5 pt-5 pb-0">注册信息</div>
+          <div id="whoisRegistryInfo"></div>
+        </div>
+
+        <!-- DNS 服务器 -->
+        <div class="whois-card">
+          <div class="whois-section-title px-5 pt-5 pb-0">DNS 服务器</div>
+          <div id="whoisDnsInfo"></div>
+        </div>
+
+        <!-- 联系人信息（合并为一个卡片） -->
+        <div class="whois-card md:col-span-2">
+          <div class="whois-section-title px-5 pt-5 pb-0">联系人信息</div>
+          
+          <!-- 注册人 -->
+          <div class="whois-contact-group">
+            <div class="whois-contact-header">
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <span>注册人</span>
+            </div>
+            <div id="whoisRegistrantInfo"></div>
+          </div>
+
+          <!-- 管理联系人 -->
+          <div class="whois-contact-group">
+            <div class="whois-contact-header">
+              <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              <span>管理联系人</span>
+            </div>
+            <div id="whoisAdminInfo"></div>
+          </div>
+
+          <!-- 技术联系人 -->
+          <div class="whois-contact-group">
+            <div class="whois-contact-header">
+              <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              <span>技术联系人</span>
+            </div>
+            <div id="whoisTechInfo"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 底部提示 -->
+      <div class="text-center text-xs text-muted mt-8 pt-6 border-t border-slate-200">
+        以上信息仅供参考，实际 Whois 数据以域名注册局为准。
+        <a id="whoisExternalLink" href="#" target="_blank" class="text-primary hover:text-primary-dark ml-1 font-medium">查看原始数据 →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+// ===== 模拟 Whois 数据生成 =====
+function simpleHash(str) {
+  var hash = 5381;
+  for (var i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+}
+
+var REGISTRARS = [
+  'Xicel Inc.',
+  'GoDaddy.com, LLC',
+  'Namecheap, Inc.',
+  'Alibaba Cloud Computing Ltd.',
+  'Tencent Cloud Computing Co., Ltd.',
+  'Amazon Registrar, Inc.',
+  'Google LLC',
+  'HiChina Zhicheng Technology Ltd.'
+];
+
+var NAME_SERVERS = [
+  ['dns1.xicel.com', 'dns2.xicel.com', 'dns3.xicel.com'],
+  ['ns1.domain.com', 'ns2.domain.com'],
+  ['dns1.registrar-servers.com', 'dns2.registrar-servers.com'],
+  ['ns1.aliyun.com', 'ns2.aliyun.com'],
+  ['ns1.cloudflare.com', 'ns2.cloudflare.com', 'ns3.cloudflare.com', 'ns4.cloudflare.com'],
+  ['ns-1.amazon.com', 'ns-2.amazon.com'],
+  ['ns1.google.com', 'ns2.google.com', 'ns3.google.com', 'ns4.google.com']
+];
+
+var STATUS_PROFILES = [
+  ['clientTransferProhibited', 'clientDeleteProhibited'],
+  ['ok'],
+  ['clientTransferProhibited', 'serverTransferProhibited'],
+  ['clientTransferProhibited', 'clientDeleteProhibited', 'clientUpdateProhibited'],
+  ['ok']
+];
+
+var STATUS_LABELS = {
+  clientTransferProhibited: 'clientTransferProhibited',
+  clientDeleteProhibited: 'clientDeleteProhibited',
+  clientUpdateProhibited: 'clientUpdateProhibited',
+  serverTransferProhibited: 'serverTransferProhibited',
+  ok: 'ok'
+};
+
+var STATUS_CLASSES = {
+  clientTransferProhibited: 'client-transfer-prohibited',
+  clientDeleteProhibited: 'client-delete-prohibited',
+  clientUpdateProhibited: 'client-transfer-prohibited',
+  serverTransferProhibited: 'server-transfer-prohibited',
+  ok: 'ok'
+};
+
+var NAMES_MALE = ['Paul', 'James', 'Robert', 'John', 'Michael', 'David', 'William', 'Richard', 'Thomas', 'Kevin'];
+var NAMES_FEMALE = ['Mary', 'Patricia', 'Jennifer', 'Linda', 'Elizabeth', 'Sarah', 'Lisa', 'Amy', 'Susan', 'Carol'];
+var SURNAMES = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez'];
+var COMPANIES = ['Xicel Technology Ltd.', 'Global Digital Solutions', 'CloudBase Inc.', 'NetPro Systems',
+  'Bright Future Tech', 'Apex Domain Services', 'StarLink Networks', 'Pacific Digital Group',
+  'Innovation Labs', 'Talent Cloud Services'];
+var CITIES = ['Beijing', 'Shanghai', 'Shenzhen', 'Guangzhou', 'Hangzhou', 'Chengdu', 'New York', 'San Francisco',
+  'Los Angeles', 'London', 'Singapore', 'Tokyo'];
+var STREETS = ["88 Xi'erqi Road", '1000 Chuanchang Street', 'No.1 Wharf Road', '123 Innovation Drive',
+  '456 Tech Park', '789 Business Avenue', '100 Harbor Boulevard', '2000 Market Street'];
+
+function randFrom(arr, hash) {
+  return arr[hash % arr.length];
+}
+
+function formatDate(date) {
+  var y = date.getFullYear();
+  var m = String(date.getMonth() + 1).padStart(2, '0');
+  var d = String(date.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + d;
+}
+
+function generateWhois(domain) {
+  var h = simpleHash(domain);
+  var h2 = simpleHash(domain + 'suffix');
+  var h3 = simpleHash(domain + 'registrant');
+  var h4 = simpleHash(domain + 'admin');
+  var h5 = simpleHash(domain + 'tech');
+
+  // 拆分域名和后缀
+  var dotIdx = domain.indexOf('.');
+  var prefix = dotIdx > 0 ? domain.substring(0, dotIdx) : domain;
+  var suffix = dotIdx > 0 ? domain.substring(dotIdx) : '.com';
+
+  // 注册日期（随机过去 1-20 年）
+  var yearsAgo = (h % 20) + 1;
+  var createDate = new Date();
+  createDate.setFullYear(createDate.getFullYear() - yearsAgo);
+  createDate.setMonth(h % 12);
+  createDate.setDate((h % 28) + 1);
+
+  // 到期日期（注册 + 1-10 年）
+  var expireYears = (h2 % 9) + 2;
+  var expireDate = new Date(createDate);
+  expireDate.setFullYear(expireDate.getFullYear() + expireYears);
+
+  var today = new Date();
+  var daysLeft = Math.floor((expireDate - today) / (1000 * 60 * 60 * 24));
+  var daysAgo = Math.floor((today - createDate) / (1000 * 60 * 60 * 24));
+
+  // 注册商
+  var registrar = REGISTRARS[h % REGISTRARS.length];
+
+  // 状态
+  var statusProfile = STATUS_PROFILES[h % STATUS_PROFILES.length];
+
+  // DNS 服务器
+  var ns = NAME_SERVERS[h3 % NAME_SERVERS.length];
+
+  // 注册人
+  var gender = h % 2;
+  var firstName = gender === 0 ? NAMES_MALE[h3 % NAMES_MALE.length] : NAMES_FEMALE[h3 % NAMES_FEMALE.length];
+  var lastName = SURNAMES[h4 % SURNAMES.length];
+  var company = COMPANIES[h5 % COMPANIES.length];
+  var city = CITIES[h % CITIES.length];
+  var street = STREETS[h3 % STREETS.length];
+  var email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@' + prefix + suffix.substring(1);
+  var phone = '+86.10' + String(10000000 + (h % 89999999)).padStart(8, '0');
+
+  // 管理联系人（可能与注册人不同）
+  var adminGender = h2 % 2;
+  var adminFirst = adminGender === 0 ? NAMES_MALE[h4 % NAMES_MALE.length] : NAMES_FEMALE[h4 % NAMES_FEMALE.length];
+  var adminLast = SURNAMES[h5 % SURNAMES.length];
+  var adminCompany = COMPANIES[(h + 2) % COMPANIES.length];
+  var adminCity = CITIES[(h + 3) % CITIES.length];
+  var adminEmail = adminFirst.toLowerCase() + '.' + adminLast.toLowerCase() + '@' + adminCompany.toLowerCase().replace(/[^a-z]/g, '') + '.com';
+  var adminPhone = '+86.21' + String(10000000 + ((h2) % 89999999)).padStart(8, '0');
+
+  // 技术联系人
+  var techGender = h3 % 2;
+  var techFirst = techGender === 0 ? NAMES_MALE[(h+5) % NAMES_MALE.length] : NAMES_FEMALE[(h+5) % NAMES_FEMALE.length];
+  var techLast = SURNAMES[(h+3) % SURNAMES.length];
+  var techCompany = COMPANIES[(h + 5) % COMPANIES.length];
+  var techCity = CITIES[(h + 6) % CITIES.length];
+  var techEmail = techFirst.toLowerCase() + '.' + techLast.toLowerCase() + '@' + techCompany.toLowerCase().replace(/[^a-z]/g, '') + '.net';
+  var techPhone = '+86.755' + String(10000000 + ((h3) % 89999999)).padStart(8, '0');
+
+  var domainStatusDisplay = statusProfile.map(function(s) {
+    return { key: s, label: STATUS_LABELS[s], cls: STATUS_CLASSES[s] };
+  });
+
+  // 域名是否过期
+  var isExpired = daysLeft < 0;
+
+  return {
+    domain: domain,
+    prefix: prefix,
+    suffix: suffix,
+    registrar: registrar,
+    createDate: formatDate(createDate),
+    expireDate: formatDate(expireDate),
+    daysLeft: daysLeft,
+    daysAgo: daysAgo,
+    isExpired: isExpired,
+    statuses: domainStatusDisplay,
+    nameServers: ns,
+    registrant: {
+      name: firstName + ' ' + lastName,
+      organization: company,
+      street: street,
+      city: city,
+      stateProvince: city,
+      postalCode: String(100000 + (h % 899999)),
+      country: 'CN',
+      phone: phone,
+      email: email
+    },
+    admin: {
+      name: adminFirst + ' ' + adminLast,
+      organization: adminCompany,
+      street: STREETS[(h+2) % STREETS.length],
+      city: adminCity,
+      stateProvince: adminCity,
+      postalCode: String(200000 + (h2 % 899999)),
+      country: 'CN',
+      phone: adminPhone,
+      email: adminEmail
+    },
+    tech: {
+      name: techFirst + ' ' + techLast,
+      organization: techCompany,
+      street: STREETS[(h+4) % STREETS.length],
+      city: techCity,
+      stateProvince: techCity,
+      postalCode: String(518000 + (h3 % 899999)),
+      country: 'CN',
+      phone: techPhone,
+      email: techEmail
+    }
+  };
+}
+
+// ===== 渲染 Whois 信息 =====
+function renderWhoisResult(domain) {
+  var data = generateWhois(domain);
+
+  // 域名概要头
+  var headerHtml = '<div class="whois-domain-name">' + data.prefix + '<span class="tld">' + data.suffix + '</span></div>' +
+    '<div class="whois-header-stats">' +
+      '<div class="whois-header-stat"><div class="stat-value">' + data.daysAgo + '</div><div class="stat-label">已注册天数</div></div>' +
+      '<div class="whois-header-stat"><div class="stat-value' + (data.isExpired ? ' text-red-500' : ' text-green-600') + '">' + (data.isExpired ? '已过期' : Math.abs(data.daysLeft) + ' 天') + '</div><div class="stat-label">' + (data.isExpired ? '过期' : '距到期') + '</div></div>' +
+    '</div>';
+  document.getElementById('domainHeader').innerHTML = headerHtml;
+
+  // 注册信息
+  var registryRows = [
+    { label: '域名', value: '<span class="highlight">' + data.domain + '</span>' },
+    { label: '注册商', value: data.registrar },
+    { label: '注册日期', value: data.createDate },
+    { label: '到期日期', value: data.expireDate + (data.isExpired ? ' <span class="text-red-500 text-xs font-medium">（已过期）</span>' : ' <span class="text-green-600 text-xs font-medium">（' + Math.abs(data.daysLeft) + '天后到期）</span>') },
+    { label: '域名状态', value: data.statuses.map(function(s) {
+      return '<span class="whois-status-badge ' + s.cls + '">' + s.label + '</span>';
+    }).join(' ') }
+  ];
+  document.getElementById('whoisRegistryInfo').innerHTML = registryRows.map(function(r) {
+    return '<div class="whois-row"><div class="whois-label">' + r.label + '</div><div class="whois-value">' + r.value + '</div></div>';
+  }).join('');
+
+  // 注册人信息
+  var regRows = [
+    { label: '注册人', value: escHtml(data.registrant.name) },
+    { label: '组织', value: escHtml(data.registrant.organization) },
+    { label: '地址', value: escHtml(data.registrant.street + ', ' + data.registrant.city + ', ' + data.registrant.stateProvince + ', ' + data.registrant.country) },
+    { label: '邮政编码', value: data.registrant.postalCode },
+    { label: '电话', value: data.registrant.phone },
+    { label: '电子邮箱', value: '<a href="mailto:' + data.registrant.email + '" class="text-primary hover:text-primary-dark">' + data.registrant.email + '</a>' }
+  ];
+  document.getElementById('whoisRegistrantInfo').innerHTML = regRows.map(function(r) {
+    return '<div class="whois-row"><div class="whois-label">' + r.label + '</div><div class="whois-value">' + r.value + '</div></div>';
+  }).join('');
+
+  // 管理联系人
+  var adminRows = [
+    { label: '联系人', value: escHtml(data.admin.name) },
+    { label: '组织', value: escHtml(data.admin.organization) },
+    { label: '地址', value: escHtml(data.admin.street + ', ' + data.admin.city + ', ' + data.admin.stateProvince + ', ' + data.admin.country) },
+    { label: '邮政编码', value: data.admin.postalCode },
+    { label: '电话', value: data.admin.phone },
+    { label: '电子邮箱', value: '<a href="mailto:' + data.admin.email + '" class="text-primary hover:text-primary-dark">' + data.admin.email + '</a>' }
+  ];
+  document.getElementById('whoisAdminInfo').innerHTML = adminRows.map(function(r) {
+    return '<div class="whois-row"><div class="whois-label">' + r.label + '</div><div class="whois-value">' + r.value + '</div></div>';
+  }).join('');
+
+  // 技术联系人
+  var techRows = [
+    { label: '联系人', value: escHtml(data.tech.name) },
+    { label: '组织', value: escHtml(data.tech.organization) },
+    { label: '地址', value: escHtml(data.tech.street + ', ' + data.tech.city + ', ' + data.tech.stateProvince + ', ' + data.tech.country) },
+    { label: '邮政编码', value: data.tech.postalCode },
+    { label: '电话', value: data.tech.phone },
+    { label: '电子邮箱', value: '<a href="mailto:' + data.tech.email + '" class="text-primary hover:text-primary-dark">' + data.tech.email + '</a>' }
+  ];
+  document.getElementById('whoisTechInfo').innerHTML = techRows.map(function(r) {
+    return '<div class="whois-row"><div class="whois-label">' + r.label + '</div><div class="whois-value">' + r.value + '</div></div>';
+  }).join('');
+
+  // DNS 服务器
+  var dnsRows = data.nameServers.map(function(ns) {
+    return '<div class="whois-row"><div class="whois-label">DNS 服务器</div><div class="whois-value">' + ns + '</div></div>';
+  }).join('');
+  if (data.nameServers.length === 0) {
+    dnsRows = '<div class="whois-row"><div class="whois-value text-muted">暂无 DNS 服务器信息</div></div>';
+  }
+  document.getElementById('whoisDnsInfo').innerHTML = dnsRows;
+}
+
+function escHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+// ===== 快速查询（点击示例域名） =====
+function quickQuery(domain) {
+  document.getElementById('whoisSearchInput').value = domain;
+  handleWhoisSearch();
+}
+
+// ===== 搜索 =====
+function handleWhoisSearch() {
+  var input = document.getElementById('whoisSearchInput');
+  var query = input.value.trim();
+
+  if (!query) {
+    input.focus();
+    return;
+  }
+
+  // 如果用户只输入了前缀，加上 .com
+  if (query.indexOf('.') === -1) {
+    query = query + '.com';
+    input.value = query;
+  }
+
+  // 显示加载
+  document.getElementById('whoisEmpty').style.display = 'none';
+  document.getElementById('whoisContent').style.display = 'none';
+  document.getElementById('whoisLoading').style.display = '';
+
+  // 模拟查询延迟
+  setTimeout(function() {
+    document.getElementById('whoisLoading').style.display = 'none';
+    document.getElementById('whoisContent').style.display = '';
+
+    renderWhoisResult(query);
+
+    // 设置外部链接
+    var extLink = document.getElementById('whoisExternalLink');
+    extLink.href = 'https://whois.icann.org/lookup?name=' + encodeURIComponent(query);
+
+    // 更新标题
+    document.title = query + ' WHOIS 查询结果 - Xicel';
+  }, 800);
+}
+
+// ===== 从 URL 参数自动查询（支持 ?domain=xxx.com） =====
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var domain = params.get('domain') || params.get('q');
+  if (domain) {
+    document.getElementById('whoisSearchInput').value = domain;
+    handleWhoisSearch();
+  }
+})();
+
+// ===== 退出登录 =====
+function handleLogout(e) {
+  e.stopPropagation();
+  var wrapper = document.querySelector('.user-menu-wrapper');
+  if (wrapper) wrapper.style.display = 'none';
+  var badge = document.querySelector('.cart-badge');
+  if (badge) badge.style.display = 'none';
+}
+
+// ===== 咨询弹窗 =====
+function openConsultModal() {
+  var modal = document.getElementById('consultModal');
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  } else {
+    window.location.href = 'about.html#contact';
+  }
+}
+</script>
+
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+
+</body>
+</html>

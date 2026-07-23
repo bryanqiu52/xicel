@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="js/tailwindcss.js"></script>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/index.css">
 <script>
 tailwind.config = {
   theme: {
@@ -31,17 +32,134 @@ tailwind.config = {
 }
 
 // ===== 搜索按钮跳转 =====
-function handleDomainSearch() {
-  var input = document.getElementById('domainSearchInput');
-  var query = input ? input.value.trim() : '';
-  if (!query) { window.location.href = 'domain-search.html'; return; }
+// ===== 域名注册子模式切换 =====
+var currentDomainRegisterMode = 'explore'; // 'explore' | 'batch'
 
-  // 如果用户输入的是域名后缀（以 . 开头，如 .com / .cn），直接跳订单页
+function switchDomainRegisterMode(mode) {
+  currentDomainRegisterMode = mode;
+
+  var tabs = document.querySelectorAll('#domainRegisterSubTabs .search-tab');
+  tabs.forEach(function(tab) {
+    tab.classList.remove('active', 'bg-primary/10', 'text-primary');
+    tab.classList.add('bg-white', 'text-muted');
+  });
+
+  var activeTab = document.getElementById('sub-tab-' + mode);
+  activeTab.classList.add('active', 'bg-primary/10', 'text-primary');
+  activeTab.classList.remove('bg-white', 'text-muted');
+
+  var wrapper = document.querySelector('#searchInputWrapper .search-input-wrapper');
+  if (!wrapper) return;
+
+  if (mode === 'explore') {
+    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input id="domainSearchInput" type="text" placeholder="输入域名前缀（如 mybrand），探索所有后缀的可用性" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" style="transition: padding-right 0.2s;" />';
+    var input = document.getElementById('domainSearchInput');
+    if (input) {
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleDomainSearch();
+        }
+      });
+    }
+  } else {
+    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><textarea id="domainSearchInput" rows="2" placeholder="输入完整域名，支持批量查询，Enter 换行，每行一个" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none resize-none overflow-y-auto overflow-x-hidden" style="min-height:72px;max-height:160px;line-height:1.6;background:transparent;padding-top:calc(36px - 0.8em);"></textarea>';
+    var textarea = document.getElementById('domainSearchInput');
+    if (textarea) {
+      textarea.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            handleDomainSearch();
+          }
+        }
+      });
+    }
+  }
+}
+
+// ===== 图片上传搜索 =====
+function handleImageSearch(input) {
+  if (input && input.files && input.files.length > 0) {
+    window.location.href = 'trademark-search.html?mode=image';
+  }
+}
+
+function handleDomainSearch() {
+  var isBatch = currentDomainRegisterMode === 'batch';
+  var inputEl = document.getElementById('domainSearchInput');
+  var query = inputEl ? inputEl.value.trim() : '';
+
+  // 批量查询域名格式验证
+  if (isBatch && query) {
+    var lines = query.split('\n').filter(function(q) { return q.trim(); });
+    var invalidLines = lines.filter(function(line) {
+      return !line.trim().match(/\.[a-zA-Z0-9]+$/);
+    });
+    if (invalidLines.length > 0) {
+      alert('批量查询模式每行必须包含完整域名（如 mybrand.com）');
+      return;
+    }
+  }
+
+  // 判断当前激活的搜索标签
+  var activeTab = document.querySelector('#searchTabs .search-tab.bg-primary');
+  var activeTabName = activeTab ? activeTab.getAttribute('data-tab') : 'domain-register';
+
+  // 搜索框为空时，按标签跳转对应页面
+  if (!query) {
+    if (activeTabName === 'trademark') {
+      window.location.href = 'trademark-search.html';
+    } else {
+      window.location.href = 'domain-search.html';
+    }
+    return;
+  }
+
+  // WHOIS 查询 → 跳转 whois.html
+  if (activeTabName === 'whois') {
+    // 如果没带后缀，自动补 .com
+    if (query.indexOf('.') === -1) {
+      query = query + '.com';
+    }
+    window.location.href = 'whois.html?domain=' + encodeURIComponent(query);
+    return;
+  }
+
+  // 域名回购 → 跳转 domain-search.html（带回购标识）
+  if (activeTabName === 'domain-trade') {
+    window.location.href = 'domain-search.html?mode=trade&q=' + encodeURIComponent(query);
+    return;
+  }
+
+  // SSL → 跳转 domain-search.html（暂用通用页）
+  if (activeTabName === 'ssl') {
+    window.location.href = 'domain-search.html?mode=' + activeTabName + '&q=' + encodeURIComponent(query);
+    return;
+  }
+
+  // 商标 → 跳转 trademark-search.html
+  if (activeTabName === 'trademark') {
+    window.location.href = 'trademark-search.html?q=' + encodeURIComponent(query);
+    return;
+  }
+
+  // 域名注册：如果用户输入的是域名后缀（以 . 开头，如 .com / .cn），直接跳订单页
   if (query.indexOf('.') === 0) {
     window.location.href = 'domain-order.html?domain=' + encodeURIComponent(query);
   } else {
-    // 否则跳搜索页（前缀搜索）
-    window.location.href = 'domain-search.html?q=' + encodeURIComponent(query);
+    if (currentDomainRegisterMode === 'explore') {
+      // 域名探索模式：判断是否包含完整域名
+      var hasFullDomain = query.match(/\.[a-zA-Z0-9]+$/);
+      if (hasFullDomain) {
+        window.location.href = 'domain-search.html?mode=single&q=' + encodeURIComponent(query);
+      } else {
+        window.location.href = 'domain-search.html?q=' + encodeURIComponent(query);
+      }
+    } else {
+      // 批量查询模式
+      window.location.href = 'domain-search.html?mode=batch&q=' + encodeURIComponent(query);
+    }
   }
 }
 
@@ -65,8 +183,8 @@ function handleDomainSearch() {
         </h1>
         <p class="text-muted text-xl lg:text-2xl mb-10 max-w-xl leading-relaxed">域名 · 商标 · 建站 · 云 · 网络 — 为企业数字化全链路保驾护航，从品牌基石到全球连接</p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <button class="bg-primary hover:bg-primary-dark text-white font-semibold px-10 py-5 rounded-xl text-lg transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5">免费咨询</button>
-          <button class="border-2 border-primary/30 hover:border-primary text-body font-semibold px-10 py-5 rounded-xl text-lg transition-all bg-white/60 hover:bg-white/90 backdrop-blur-sm">查看产品</button>
+          <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white font-semibold px-10 py-5 rounded-xl text-lg transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5">免费咨询</button>
+          <button onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})" class="border-2 border-primary/30 hover:border-primary text-body font-semibold px-10 py-5 rounded-xl text-lg transition-all bg-white/60 hover:bg-white/90 backdrop-blur-sm">查看产品</button>
         </div>
         <div class="flex gap-10 mt-12">
           <div><span class="stat-num text-body font-bold text-2xl" data-target="700" data-suffix="+">0+</span><span class="text-muted text-sm ml-1">域名后缀</span></div>
@@ -87,29 +205,30 @@ function handleDomainSearch() {
     <div class="unified-search relative z-0 bg-white rounded-2xl shadow-sm border border-border p-8">
       <!-- 标签切换栏 -->
       <div class="flex justify-center gap-2 mb-6 flex-wrap" id="searchTabs">
-        <button class="search-tab bg-primary text-white rounded-full px-5 py-2 text-sm font-medium shadow-sm transition-all" data-tab="domain-register" data-placeholder="请输入要查询的域名，支持批量查询，每行一个">域名注册</button>
-        <button class="search-tab bg-white text-muted rounded-full px-5 py-2 text-sm transition-all" data-tab="domain-trade" data-placeholder="请输入想购买的域名">域名交易</button>
+        <button class="search-tab bg-primary text-white rounded-full px-5 py-2 text-sm font-medium shadow-sm transition-all" data-tab="domain-register" data-placeholder="输入域名前缀（如 mybrand），探索所有后缀的可用性">域名注册</button>
+        <button class="search-tab bg-white text-muted rounded-full px-5 py-2 text-sm transition-all" data-tab="domain-trade" data-placeholder="请输入想购买的域名">域名回购</button>
         <button class="search-tab bg-white text-muted rounded-full px-5 py-2 text-sm transition-all" data-tab="whois" data-placeholder="输入域名查询WHOIS信息">WHOIS查询</button>
         <button class="search-tab bg-white text-muted rounded-full px-5 py-2 text-sm transition-all" data-tab="ssl" data-placeholder="输入域名检测SSL证书">SSL证书</button>
         <button class="search-tab bg-white text-muted rounded-full px-5 py-2 text-sm transition-all" data-tab="trademark" data-placeholder="输入商标名称或注册号">商标查询</button>
+      </div>
+
+      <!-- 域名注册子模式标签 -->
+      <div class="flex justify-center gap-2 mb-6 flex-wrap" id="domainRegisterSubTabs">
+        <button id="sub-tab-explore" class="search-tab active bg-primary/10 text-primary rounded-full px-4 py-1.5 text-xs font-medium transition-all" onclick="switchDomainRegisterMode('explore')">域名探索</button>
+        <button id="sub-tab-batch" class="search-tab bg-white text-muted rounded-full px-4 py-1.5 text-xs font-medium transition-all" onclick="switchDomainRegisterMode('batch')">批量查询</button>
       </div>
       <!-- 搜索框行 -->
       <div class="flex items-center gap-2" id="searchRow">
         <div class="flex-1 relative" id="searchInputWrapper">
           <div class="search-input-wrapper relative overflow-hidden rounded-xl border border-border bg-white focus-within:ring-1 focus-within:ring-primary focus-within:border-primary transition-shadow">
             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <textarea id="domainSearchInput" rows="2" placeholder="请输入要查询的域名，支持批量查询，每行一个" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none resize-none overflow-y-auto overflow-x-hidden" style="padding-right:120px;min-height:72px;max-height:160px;line-height:1.6;background:transparent;padding-top:calc(36px - 0.8em);"></textarea>
+            <input id="domainSearchInput" type="text" placeholder="输入域名前缀（如 mybrand），探索所有后缀的可用性" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" style="transition: padding-right 0.2s;" />
           </div>
-          <!-- 筛选模式：下拉框 + 返回按钮 -->
-          <div id="filterMode" class="absolute right-2 top-1/2 -translate-y-1/2 items-center gap-1.5 hidden">
-            <div class="dropdown-wrapper relative z-30" id="domainSuffixWrapper">
-              <button type="button" id="domainSuffixBtn" data-value=".com" class="dropdown-btn w-full h-12 px-4">
-                <span id="domainSuffixText">.com</span>
-                <svg id="domainSuffixArrow" class="dropdown-arrow ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
-            </div>
-            <button id="filterBackBtn" class="text-xs text-muted hover:text-primary px-2 py-1.5 rounded-lg transition-colors whitespace-nowrap flex items-center gap-0.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回</button>
-          </div>
+          <!-- 图片上传按钮（仅商标查询标签显示） -->
+          <input type="file" id="imageSearchInput" accept="image/*" class="hidden" onchange="handleImageSearch(this)">
+          <button type="button" id="imageUploadBtn" onclick="document.getElementById('imageSearchInput').click()" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-lg text-muted hover:text-primary hover:bg-blue-50 transition-all hidden" title="上传图样搜索" style="z-index:10;">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </button>
         </div>
         <button onclick="handleDomainSearch()" class="search-btn relative flex items-center gap-1 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 h-12 rounded-xl transition-colors whitespace-nowrap overflow-visible">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -117,7 +236,6 @@ function handleDomainSearch() {
           <span class="free-ribbon">免费</span>
         </button>
       </div>
-      <div class="text-[10px] text-muted mt-1" id="searchHint">Shift+Enter 换行  ·  Enter 搜索</div>
 
       <div id="domainRecommendSection">
       <!-- 分隔线 -->
@@ -346,7 +464,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥145.50</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -376,7 +494,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥95.40</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -401,7 +519,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥1,074.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -426,7 +544,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥2,236.80</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -451,7 +569,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥850.50</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -475,7 +593,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥3,430.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -499,7 +617,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥270.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -523,61 +641,78 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥30.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- 域名交易表单（仅"域名交易"标签可见） -->
+      <!-- 域名回购表单（仅"域名回购"标签可见） -->
       <div id="domainTradeForm" class="hidden mt-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-xl border border-border p-6">
-            <h3 class="text-lg font-bold text-body mb-4">我要买域名</h3>
-            <div class="space-y-4">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl mx-auto">
+          <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-body mb-8">域名回购申请</h3>
+            <form class="space-y-6">
               <div>
-                <label class="block text-sm text-muted mb-1.5">请输入您想要购买的域名</label>
-                <textarea rows="3" class="trade-textarea w-full border border-border rounded-lg text-sm px-3 py-2.5 text-body placeholder-muted focus:outline-none focus:border-primary focus:shadow-primary/10 resize-none transition-all" placeholder="每行一个域名"></textarea>
+                <label class="block text-sm font-medium text-body mb-2">回购域名 <span class="text-red-400">*</span></label>
+                <textarea rows="4" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请输入您希望回购的域名，Enter 换行，每行一个"></textarea>
               </div>
-              <div>
-                <label class="block text-sm text-muted mb-1.5">您的预算范围</label>
-                <select class="w-full border border-border rounded-lg text-sm px-3 py-2.5 text-body focus:outline-none focus:border-primary focus:shadow-primary/10 bg-white transition-all">
-                  <option>不限</option>
-                  <option>1千以下</option>
-                  <option>1千-5千</option>
-                  <option>5千-1万</option>
-                  <option>1万-5万</option>
-                  <option>5万-10万</option>
-                  <option>10万以上</option>
-                </select>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-body mb-2">企业名称 <span class="text-red-400">*</span></label>
+                  <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入企业名称">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-body mb-2">联系人名称 <span class="text-red-400">*</span></label>
+                  <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入联系人姓名">
+                </div>
               </div>
-              <div>
-                <label class="block text-sm text-muted mb-1.5">您的联系方式（手机号/微信号）</label>
-                <input type="text" class="w-full border border-border rounded-lg text-sm px-3 py-2.5 text-body placeholder-muted focus:outline-none focus:border-primary focus:shadow-primary/10 transition-all" placeholder="请输入手机号或微信号">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-body mb-2">联系人电话 <span class="text-red-400">*</span></label>
+                  <input type="tel" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入手机号">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+                  <input type="email" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+                </div>
               </div>
-              <button class="w-full bg-primary hover:bg-primary-dark text-white text-sm font-medium py-2.5 rounded-lg transition-colors">提交购买需求</button>
-            </div>
+              <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交回购申请</button>
+            </form>
+            <p class="text-xs text-muted text-center mt-6">提交后我们的域名经纪人将在24小时内与您联系</p>
           </div>
-          <div class="bg-white rounded-xl border border-border p-6">
-            <h3 class="text-lg font-bold text-body mb-4">我要卖域名</h3>
-            <div class="space-y-4">
-              <div>
-                <label class="block text-sm text-muted mb-1.5">请输入您要出售的域名</label>
-                <textarea rows="3" class="trade-textarea w-full border border-border rounded-lg text-sm px-3 py-2.5 text-body placeholder-muted focus:outline-none focus:border-primary focus:shadow-primary/10 resize-none transition-all" placeholder="每行一个域名"></textarea>
-              </div>
-              <div>
-                <label class="block text-sm text-muted mb-1.5">期望售价</label>
-                <input type="text" class="w-full border border-border rounded-lg text-sm px-3 py-2.5 text-body placeholder-muted focus:outline-none focus:border-primary focus:shadow-primary/10 transition-all" placeholder="请输入期望售价">
-              </div>
-              <div>
-                <label class="block text-sm text-muted mb-1.5">您的联系方式（手机号/微信号）</label>
-                <input type="text" class="w-full border border-border rounded-lg text-sm px-3 py-2.5 text-body placeholder-muted focus:outline-none focus:border-primary focus:shadow-primary/10 transition-all" placeholder="请输入手机号或微信号">
-              </div>
-              <button class="w-full border-2 border-primary text-primary hover:bg-primary hover:text-white bg-white text-sm font-medium py-2.5 rounded-lg transition-colors">提交出售信息</button>
+        </div>
+
+        <!-- 回购域名说明 -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h4 class="font-bold text-body text-lg mb-2">什么是域名回购？</h4>
+            <p class="text-sm text-muted leading-relaxed">域名回购是指通过专业经纪人，向已注册域名的持有人协商购买该域名的过程。当您心仪的域名已被他人注册时，无需放弃——我们可以帮您促成这笔交易。</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4 class="font-bold text-body text-lg mb-2">为什么要回购域名？</h4>
+            <p class="text-sm text-muted leading-relaxed">品牌域名是企业的核心数字资产。拥有与品牌完全匹配的域名，能提升品牌认知度、增强用户信任、防止流量流失到竞争对手手中，是品牌保护战略的关键一环。</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h4 class="font-bold text-body text-lg mb-2">回购流程</h4>
+            <div class="space-y-2.5 text-sm text-muted">
+              <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-bold shrink-0">1</span> 提交回购需求</div>
+              <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-bold shrink-0">2</span> 经纪人评估域名价值</div>
+              <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-bold shrink-0">3</span> 匿名联系域名持有人</div>
+              <div class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-bold shrink-0">4</span> 协商价格并完成交易</div>
             </div>
           </div>
         </div>
-        <p class="text-xs text-muted text-center mt-4">提交后我们的域名经纪人将在24小时内与您联系</p>
       </div>
     </div>
   </div>
@@ -585,125 +720,78 @@ function handleDomainSearch() {
 
 
 <!-- ========== 4. 产品服务 ========== -->
-<section class="section-bg-surface py-20" style="background: url('assets/images/products_bac.jpg') center/cover no-repeat;">
+<section id="products-section" class="section-bg-surface py-20" style="background: url('assets/images/products_bac.jpg') center/cover no-repeat;">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14">
       <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3"><span class="w-6 h-px bg-primary"></span> PRODUCTS <span class="w-6 h-px bg-primary"></span></div>
       <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">我们的产品与服务</h2>
-      <p class="text-muted-override text-lg">从品牌基石到全球连接，一站式数字化基建</p>
+      <p class="text-muted-override text-lg">从品牌保护到云端部署，全方位数字化解决方案</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
-      <!-- 品牌基石（大卡片 7列） -->
-      <a href="products.html" class="lg:col-span-7 card-white bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-primary/30 relative hover-card block no-underline">
+      <!-- IDC服务（大卡片 6列） -->
+      <a href="products-idc.html" class="lg:col-span-6 card-white bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-primary/30 relative hover-card block no-underline">
         <div class="h-1.5 bg-gradient-to-r from-primary via-primary-dark to-accent"></div>
         <div class="p-8">
           <div class="flex items-start justify-between mb-5">
             <div class="flex items-center gap-4">
               <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+                <span class="text-2xl">🖥️</span>
               </div>
               <div>
                 <div class="flex items-center gap-2 mb-1">
-                  <h3 class="text-2xl font-bold text-body">品牌基石</h3>
+                  <h3 class="text-2xl font-bold text-body">IDC服务</h3>
                   <span class="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full">核心产品</span>
                 </div>
-                <p class="text-muted text-sm">建立企业线上身份与知识产权保护体系</p>
+                <p class="text-muted text-sm">一站式互联网数据中心与云计算解决方案</p>
               </div>
             </div>
             <div class="w-9 h-9 bg-surface rounded-full flex items-center justify-center arrow-circle group-hover:bg-primary group-hover:text-white transition-all text-base shrink-0" style="color:#cbd5e1">→</div>
           </div>
-          <div class="grid grid-cols-3 gap-3 mb-5">
-            <div class="bg-surface rounded-xl p-3.5 text-center">
-              <div class="text-xl font-bold text-primary">700+</div>
-              <div class="text-xs text-muted mt-0.5">域名后缀</div>
-            </div>
-            <div class="bg-surface rounded-xl p-3.5 text-center">
-              <div class="text-xl font-bold text-primary">1198</div>
-              <div class="text-xs text-muted mt-0.5">可注册种类</div>
-            </div>
-            <div class="bg-surface rounded-xl p-3.5 text-center">
-              <div class="text-xl font-bold text-accent">免费</div>
-              <div class="text-xs text-muted mt-0.5">WHOIS保护</div>
-            </div>
-          </div>
           <div class="grid grid-cols-3 gap-2.5">
-            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>域名注册 & 回购</div>
-            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>商标注册 & 监控</div>
-            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>WHOIS 隐私保护</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>网站建设</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>SSL证书</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>企业邮箱</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>云服务器</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>网络专线</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>GPU算力</div>
           </div>
         </div>
       </a>
-      <!-- 算力底座（中卡片 5列） -->
-      <a href="products-compute.html" class="lg:col-span-5 card-white bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-purple-300 relative hover-card block no-underline">
+      <!-- 品牌护城河（中卡片 6列） -->
+      <a href="products-domain.html" class="lg:col-span-6 card-white bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-primary/30 relative hover-card block no-underline">
+        <div class="absolute top-4 right-4 w-9 h-9 bg-surface rounded-full flex items-center justify-center arrow-circle group-hover:bg-primary group-hover:text-white transition-all text-base" style="color:#cbd5e1">→</div>
+        <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <span class="text-xl">🛡️</span>
+        </div>
+        <h3 class="text-xl font-bold text-body mb-2">品牌护城河</h3>
+        <p class="text-muted text-sm mb-5">域名资产管理与企业品牌数字护盾</p>
+        <div class="text-sm text-body space-y-2.5">
+          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>域名注册</div>
+          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>域名回购</div>
+          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>域名价格</div>
+          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>域名争议处理</div>
+        </div>
+      </a>
+      <!-- 知识产权（中卡片 6列） -->
+      <a href="products-ip.html" class="lg:col-span-6 card-white bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-purple-300 relative hover-card block no-underline">
         <div class="absolute top-4 right-4 w-9 h-9 bg-surface rounded-full flex items-center justify-center arrow-circle group-hover:bg-purple-500 group-hover:text-white transition-all text-base" style="color:#cbd5e1">→</div>
         <div class="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+          <span class="text-xl">📋</span>
         </div>
-        <h3 class="text-xl font-bold text-body mb-2">算力底座</h3>
-        <p class="text-muted text-sm mb-5">弹性可扩展的云计算与高性能算力资源</p>
+        <h3 class="text-xl font-bold text-body mb-2">知识产权</h3>
+        <p class="text-muted text-sm mb-5">商标、专利、版权一站式知识产权服务</p>
         <div class="text-sm text-body space-y-2.5">
-          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0"></span>云服务器</div>
-          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0"></span>GPU 算力租用</div>
-          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0"></span>服务器租用</div>
-        </div>
-      </a>
-      <!-- 站点构建（中卡片 5列） -->
-      <a href="products-hosting.html" class="lg:col-span-5 card-white bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-accent/30 relative hover-card block no-underline">
-        <div class="absolute top-4 right-4 w-9 h-9 bg-surface rounded-full flex items-center justify-center arrow-circle group-hover:bg-accent group-hover:text-body transition-all text-base" style="color:#cbd5e1">→</div>
-        <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h3 class="text-xl font-bold text-body mb-2">站点构建</h3>
-        <p class="text-muted text-sm mb-5">品牌官网搭建与安全通信基础设施</p>
-        <div class="text-sm text-body space-y-2.5">
-          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-accent rounded-full shrink-0"></span>网站建设</div>
-          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-accent rounded-full shrink-0"></span>SSL 证书</div>
-          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-accent rounded-full shrink-0"></span>企业邮箱</div>
-        </div>
-      </a>
-      <!-- 全球连接（大卡片 7列） -->
-      <a href="products-network.html" class="lg:col-span-7 card-white bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-amber-300 relative hover-card block no-underline">
-        <div class="h-1.5 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600"></div>
-        <div class="p-8">
-          <div class="flex items-start justify-between mb-5">
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                <svg class="w-7 h-7 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10"/></svg>
-              </div>
-              <div>
-                <h3 class="text-2xl font-bold text-body mb-1">全球连接</h3>
-                <p class="text-muted text-sm">低延迟全球网络互联与硬件基础设施</p>
-              </div>
-            </div>
-            <div class="w-9 h-9 bg-surface rounded-full flex items-center justify-center arrow-circle group-hover:bg-amber-500 group-hover:text-white transition-all text-base shrink-0" style="color:#cbd5e1">→</div>
-          </div>
-          <div class="grid grid-cols-3 gap-3 mb-5">
-            <div class="bg-surface rounded-xl p-3.5 text-center">
-              <div class="text-xl font-bold text-amber-600">&lt;5ms</div>
-              <div class="text-xs text-muted mt-0.5">骨干网延迟</div>
-            </div>
-            <div class="bg-surface rounded-xl p-3.5 text-center">
-              <div class="text-xl font-bold text-amber-600">SD-WAN</div>
-              <div class="text-xs text-muted mt-0.5">智能组网</div>
-            </div>
-            <div class="bg-surface rounded-xl p-3.5 text-center">
-              <div class="text-xl font-bold text-amber-600">Tier1</div>
-              <div class="text-xs text-muted mt-0.5">运营商互联</div>
-            </div>
-          </div>
-          <div class="grid grid-cols-3 gap-2.5">
-            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0"></span>网络专线</div>
-            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0"></span>硬件采购</div>
-            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0"></span>机房托管</div>
-          </div>
+          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0"></span>商标</div>
+          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0"></span>专利</div>
+          <div class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0"></span>版权</div>
         </div>
       </a>
 
-      <!-- 设计服务（大卡片 12列） -->
-      <a href="products-design.html" class="lg:col-span-12 card-white bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-rose-300 relative hover-card block no-underline">
+      <!-- 设计服务（中卡片 6列） -->
+      <a href="products-design.html" class="lg:col-span-6 card-white bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border hover:border-rose-300 relative hover-card block no-underline">
         <div class="h-1.5 bg-gradient-to-r from-rose-400 via-violet-400 to-teal-400"></div>
         <div class="p-8">
-          <div class="flex items-start justify-between mb-6">
+          <div class="flex items-start justify-between mb-5">
             <div class="flex items-center gap-4">
               <div class="w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
                 <svg class="w-7 h-7 text-rose-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
@@ -713,81 +801,16 @@ function handleDomainSearch() {
                   <h3 class="text-2xl font-bold text-body">设计服务</h3>
                   <span class="bg-rose-100 text-rose-500 text-xs font-bold px-2 py-0.5 rounded-full">创意设计</span>
                 </div>
-                <p class="text-muted text-sm">品牌视觉 · UI/UX · 电商 · 线下物料 — 一站式创意解决方案</p>
+                <p class="text-muted text-sm">品牌视觉 · UI/UX · 电商 · 线下物料</p>
               </div>
             </div>
             <div class="w-9 h-9 bg-surface rounded-full flex items-center justify-center arrow-circle group-hover:bg-rose-400 group-hover:text-white transition-all text-base shrink-0" style="color:#cbd5e1">→</div>
           </div>
-          <!-- 子卡片区 -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <!-- 品牌设计 -->
-            <div class="bg-surface rounded-xl p-4 group/sub hover:bg-rose-50 transition-colors">
-              <div class="flex items-center gap-2.5 mb-2.5">
-                <div class="w-8 h-8 bg-rose-100 rounded-lg flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-body text-sm">品牌设计</h4>
-                  <p class="text-xs text-muted">Brand Design</p>
-                </div>
-              </div>
-              <div class="space-y-1 text-xs text-body">
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-400 rounded-full shrink-0"></span>LOGO & VI 视觉系统</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-400 rounded-full shrink-0"></span>品牌命名 & IP 形象</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-rose-400 rounded-full shrink-0"></span>品牌手册 & 规范</div>
-              </div>
-            </div>
-            <!-- UI/UX 设计 -->
-            <div class="bg-surface rounded-xl p-4 group/sub hover:bg-violet-50 transition-colors">
-              <div class="flex items-center gap-2.5 mb-2.5">
-                <div class="w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-body text-sm">UI/UX 设计</h4>
-                  <p class="text-xs text-muted">Interface Design</p>
-                </div>
-              </div>
-              <div class="space-y-1 text-xs text-body">
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-violet-400 rounded-full shrink-0"></span>APP & Web 界面</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-violet-400 rounded-full shrink-0"></span>交互原型 & 设计系统</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-violet-400 rounded-full shrink-0"></span>图标设计 & 落地页</div>
-              </div>
-            </div>
-            <!-- 电商设计 -->
-            <div class="bg-surface rounded-xl p-4 group/sub hover:bg-amber-50 transition-colors">
-              <div class="flex items-center gap-2.5 mb-2.5">
-                <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 3v18"/></svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-body text-sm">电商设计</h4>
-                  <p class="text-xs text-muted">E-commerce</p>
-                </div>
-              </div>
-              <div class="space-y-1 text-xs text-body">
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-amber-500 rounded-full shrink-0"></span>店铺视觉 & 装修</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-amber-500 rounded-full shrink-0"></span>主图详情 & 活动页</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-amber-500 rounded-full shrink-0"></span>社交媒体 & 直通车</div>
-              </div>
-            </div>
-            <!-- 线下物料 -->
-            <div class="bg-surface rounded-xl p-4 group/sub hover:bg-teal-50 transition-colors">
-              <div class="flex items-center gap-2.5 mb-2.5">
-                <div class="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-body text-sm">线下物料</h4>
-                  <p class="text-xs text-muted">Print & Offline</p>
-                </div>
-              </div>
-              <div class="space-y-1 text-xs text-body">
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-teal-500 rounded-full shrink-0"></span>海报 & 画册宣传册</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-teal-500 rounded-full shrink-0"></span>产品包装 & 展会</div>
-                <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-teal-500 rounded-full shrink-0"></span>名片工牌 & 易拉宝</div>
-              </div>
-            </div>
+          <div class="grid grid-cols-2 gap-2.5">
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-rose-400 rounded-full shrink-0"></span>品牌设计</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-violet-400 rounded-full shrink-0"></span>UI/UX 设计</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0"></span>电商设计</div>
+            <div class="flex items-center gap-2 text-sm text-body bg-surface rounded-lg px-3 py-2"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0"></span>线下物料</div>
           </div>
         </div>
       </a>
@@ -1377,204 +1400,82 @@ function handleLogout(e) {
 // ===== 2. 标签切换 =====
 (function(){
   const tabs = document.querySelectorAll('#searchTabs .search-tab');
-  const textarea = document.getElementById('domainSearchInput');
-  const filterMode = document.getElementById('filterMode');
-  const filterBackBtn = document.getElementById('filterBackBtn');
   const recSection = document.getElementById('domainRecommendSection');
   const tradeForm = document.getElementById('domainTradeForm');
   const searchHint = document.getElementById('searchHint');
   const sslCardSection = document.getElementById('sslCardSection');
   const searchRow = document.getElementById('searchRow');
+  const domainRegisterSubTabs = document.getElementById('domainRegisterSubTabs');
+  const imageUploadBtn = document.getElementById('imageUploadBtn');
   tabs.forEach(function(tab){
     tab.addEventListener('click', function(){
-      if (filterMode && filterMode.style.display !== 'none') {
-        filterBackBtn.click();
-      }
       tabs.forEach(function(t){ t.classList.remove('bg-primary','text-white','font-medium','shadow-sm'); t.classList.add('bg-white','text-muted'); });
       tab.classList.add('bg-primary','text-white','font-medium','shadow-sm');
       tab.classList.remove('bg-white','text-muted');
-      textarea.placeholder = tab.dataset.placeholder || '请输入要查询的域名，每行一个\n支持批量查询，Shift+Enter 换行，Enter 搜索';
+      var currentInput = document.getElementById('domainSearchInput');
+      if (currentInput) currentInput.placeholder = tab.dataset.placeholder || '请输入要查询的内容';
       var isDomainTrade = tab.dataset.tab === 'domain-trade';
       var isSSL = tab.dataset.tab === 'ssl';
-      if (recSection) recSection.style.display = (tab.dataset.tab === 'domain-register') ? '' : 'none';
-      if (tradeForm) tradeForm.style.display = isDomainTrade ? '' : 'none';
-      if (searchHint) searchHint.style.display = isSSL ? 'none' : '';
+      var isDomainRegister = tab.dataset.tab === 'domain-register';
+      var isWhois = tab.dataset.tab === 'whois';
+      var isTrademark = tab.dataset.tab === 'trademark';
+      if (recSection) recSection.style.display = isDomainRegister ? '' : 'none';
+      if (tradeForm) tradeForm.style.display = isDomainTrade ? 'block' : 'none';
+      if (searchHint) searchHint.style.display = (isSSL || isDomainTrade || isWhois || isTrademark) ? 'none' : '';
       if (sslCardSection) sslCardSection.style.display = isSSL ? 'block' : 'none';
-      if (searchRow) searchRow.style.display = isSSL ? 'none' : 'flex';
-      if (isDomainTrade) {
-        textarea.style.paddingRight = '16px';
-        adjustTextareaHeight();
-      } else if (isSSL) {
-        // SSL 标签不使用搜索框，跳过 textarea 高度调整
-      } else {
-        textarea.style.paddingRight = '120px';
+      if (searchRow) searchRow.style.display = (isDomainTrade || isSSL) ? 'none' : 'flex';
+      if (domainRegisterSubTabs) domainRegisterSubTabs.style.display = isDomainRegister ? '' : 'none';
+
+      // 非域名注册标签时，切回单行输入框
+      if (!isDomainRegister) {
+        switchDomainRegisterMode('explore');
       }
-      if (typeof selectDomainSuffix === 'function') { selectDomainSuffix('.com'); }
+
+      // 商标查询标签显示图片上传按钮
+      var activeInput = document.getElementById('domainSearchInput');
+      if (imageUploadBtn && activeInput) {
+        if (isTrademark) {
+          imageUploadBtn.classList.remove('hidden');
+          activeInput.style.paddingRight = '44px';
+        } else {
+          imageUploadBtn.classList.add('hidden');
+          activeInput.style.paddingRight = '12px';
+        }
+      }
     });
   });
 })();
 
-// ===== 2.1. Textarea 自适应高度 + Enter 搜索 =====
+// ===== 2.1. 输入框回车搜索 =====
 (function(){
-  var textarea = document.getElementById('domainSearchInput');
-  function adjustTextareaHeight() {
-    textarea.style.height = 'auto';
-    var h = Math.min(textarea.scrollHeight, 160);
-    textarea.style.height = h + 'px';
-  }
-  window.adjustTextareaHeight = adjustTextareaHeight;
-  textarea.addEventListener('input', adjustTextareaHeight);
-  textarea.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      // 触发搜索
-      var val = textarea.value.trim();
-      if (val) {
-        handleDomainSearch();
+  var searchInput = document.getElementById('domainSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (typeof handleDomainSearch === 'function') {
+          handleDomainSearch();
+        }
       }
-    }
-  });
+    });
+  }
 })();
 
-// ===== 2.5. 自定义下拉组件（body 直挂） =====
-function createDropdownHTML() {
-  var btn = document.getElementById('domainSuffixBtn');
-  var currentValue = btn.getAttribute('data-value') || '.com';
-  var suffixes = ['.com','.cn','.net','.com.cn','.org','.top','.xyz','.info','.vip','.club','.work','.link'];
-  var html = '<div class="py-1">';
-  suffixes.forEach(function(s){
-    var isSel = s === currentValue;
-    html += '<div data-value="'+s+'" class="domain-suffix-option flex items-center justify-between px-4 py-2.5 text-sm cursor-pointer hover:bg-primary/5 transition-colors'+
-      (isSel?' text-primary font-medium':' text-body')+
-      '"><span>'+s+'</span><svg class="w-4 h-4 text-primary suffix-check'+
-      (isSel?'':' hidden')+
-      '" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>';
-  });
-  html += '</div>';
-  return html;
-}
-
-// 滚动时自动关闭下拉框（内部滚动不触发）
-function closeOnScroll(e) {
-  var d = document.getElementById('domainSuffixDropdown');
-  if (!d) return;
-  if (d.contains(e.target)) return;
-  d.remove();
-  var arrow = document.getElementById('domainSuffixArrow');
-  if (arrow) { arrow.style.transform = 'rotate(0deg)'; arrow.classList.remove('open'); }
-  window.removeEventListener('scroll', closeOnScroll, true);
-}
-
-function toggleDomainSuffix() {
-  var existing = document.getElementById('domainSuffixDropdown');
-  var arrow = document.getElementById('domainSuffixArrow');
-  if (existing) {
-    existing.remove();
-    arrow.style.transform = '';
-    window.removeEventListener('scroll', closeOnScroll, true);
-    return;
-  }
-  var btn = document.getElementById('domainSuffixBtn');
-  var dropdown = document.createElement('div');
-  dropdown.id = 'domainSuffixDropdown';
-  dropdown.innerHTML = createDropdownHTML();
-  dropdown.className = 'dropdown-panel';
-  var rect = btn.getBoundingClientRect();
-  dropdown.style.top = (rect.bottom + 4) + 'px';
-  dropdown.style.left = rect.left + 'px';
-  dropdown.style.width = rect.width + 'px';
-  document.body.appendChild(dropdown);
-  arrow.style.transform = 'rotate(180deg)';
-  arrow.classList.add('open');
-  // 绑定选项点击
-  dropdown.querySelectorAll('[data-value]').forEach(function(el){
-    el.addEventListener('click', function(){
-      selectDomainSuffix(el.getAttribute('data-value'));
-    });
-  });
-  // 滚动时关闭
-  window.addEventListener('scroll', closeOnScroll, true);
-}
-
-function selectDomainSuffix(value) {
-  var btn = document.getElementById('domainSuffixBtn');
-  var text = document.getElementById('domainSuffixText');
-  var arrow = document.getElementById('domainSuffixArrow');
-  btn.setAttribute('data-value', value);
-  text.textContent = value;
-  // 移除 body 上的下拉框
-  var dropdown = document.getElementById('domainSuffixDropdown');
-  if (dropdown) dropdown.remove();
-  arrow.style.transform = '';
-  window.removeEventListener('scroll', closeOnScroll, true);
-}
-
-// 按钮点击展开/收起
-document.getElementById('domainSuffixBtn').addEventListener('click', function(e){
-  e.stopPropagation();
-  toggleDomainSuffix();
-});
-
-// 点击外部关闭
-document.addEventListener('click', function(e){
-  var wrapper = document.getElementById('domainSuffixWrapper');
-  var dropdown = document.getElementById('domainSuffixDropdown');
-  var arrow = document.getElementById('domainSuffixArrow');
-  if (!dropdown) return;
-  if (wrapper && !wrapper.contains(e.target) && !dropdown.contains(e.target)) {
-    dropdown.remove();
-    arrow.style.transform = '';
-    window.removeEventListener('scroll', closeOnScroll, true);
-  }
-});
-
-// 窗口 resize 关闭（防止位置错乱）
-window.addEventListener('resize', function(){
-  var dropdown = document.getElementById('domainSuffixDropdown');
-  var arrow = document.getElementById('domainSuffixArrow');
-  if (dropdown) {
-    dropdown.remove();
-    if (arrow) arrow.style.transform = '';
-    window.removeEventListener('scroll', closeOnScroll, true);
-  }
-});
-
-// ===== 域名卡片点击筛选 =====
+// ===== 域名卡片点击跳转 =====
 (function(){
-  var filterMode = document.getElementById('filterMode');
-  var filterBackBtn = document.getElementById('filterBackBtn');
-  var textarea = document.getElementById('domainSearchInput');
-  if (!filterMode || !filterBackBtn) return;
-
-  // 域名卡片点击：进入筛选模式
   var recSection = document.getElementById('domainRecommendSection');
-  if (recSection) {
-    recSection.addEventListener('click', function(e) {
-      var card = e.target.closest('[data-domain]');
-      if (!card) return;
-      var domain = card.getAttribute('data-domain');
-      if (!domain) return;
-      // 显示筛选模式
-      filterMode.style.display = 'flex';
-      // 设置下拉框值为对应域名后缀
-      if (typeof selectDomainSuffix === 'function') {
-        selectDomainSuffix(domain);
-      }
-      // 聚焦搜索框
-      var textarea = document.getElementById('domainSearchInput');
-      if (textarea) textarea.focus();
-    });
-  }
+  if (!recSection) return;
 
-  // 返回按钮：退出筛选模式
-  filterBackBtn.addEventListener('click', function() {
-    filterMode.style.display = 'none';
-    // 清理 body 上的下拉框
-    var dropdown = document.getElementById('domainSuffixDropdown');
-    var arrow = document.getElementById('domainSuffixArrow');
-    if (dropdown) dropdown.remove();
-    if (arrow) arrow.style.transform = '';
-    window.removeEventListener('scroll', closeOnScroll, true);
+  recSection.addEventListener('click', function(e) {
+    var card = e.target.closest('[data-domain]');
+    if (!card) return;
+    var domain = card.getAttribute('data-domain');
+    if (!domain) return;
+    // 点击卡片（非注册链接）跳转到域名详情页
+    if (!e.target.closest('a')) {
+      var key = domain.replace(/^\./, '').replace(/\./g, '');
+      window.location.href = 'domain-detail.html?tld=' + encodeURIComponent(key);
+    }
   });
 })();
 
@@ -1634,6 +1535,49 @@ function closeMobileMenu(){
   var l3=document.getElementById('ham-line3'); l3.style.transform='';
   document.body.style.overflow='';
 }
+</script>
+
+<!-- ===== 加入购物车引导动画 ===== -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest && e.target.closest('.add-to-cart-btn');
+    if (!btn) return;
+
+    // 读取卡片信息：商品名称、周期、价格
+    var card = btn.closest('.bg-white');
+    if (!card) return;
+    var nameEl = card.querySelector('h4');
+    var productName = nameEl ? nameEl.textContent.trim() : 'SSL 证书';
+    // 价格：抓 text-[28px] 那个数字
+    var priceEl = card.querySelector('[class*="text-[28px]"]');
+    var price = priceEl ? parseFloat(priceEl.textContent.replace(/,/g,'')) : 0;
+    // 周期：往上找 "6个月" / "1年"
+    var cycleEl = Array.from(card.querySelectorAll('span')).find(function(s){
+      return /(\d+个月|\d+年|个月|年)$/.test(s.textContent.trim());
+    });
+    var year = 1;
+    var cycleText = cycleEl ? cycleEl.textContent.trim() : '1年';
+    if (/(\d+)个月/.test(cycleText)) year = parseInt(RegExp.$1, 10) / 12;
+    else if (/(\d+)年/.test(cycleText)) year = parseInt(RegExp.$1, 10);
+
+    var item = {
+      id: 'ssl-' + productName.replace(/\s+/g, '-'),
+      productType: 'SSL证书',
+      productName: productName,
+      year: year,
+      cycleText: cycleText,
+      price: price,
+      regStatus: '—'
+    };
+
+    if (window.cartUtils) {
+      window.cartUtils.addItem(item);
+      window.cartUtils.flyTo(btn);
+      window.cartUtils.toast('已加入购物车');
+    }
+  });
+})();
 </script>
 
 <!-- ===== 导航栏滚动阴影 ===== -->
@@ -1823,6 +1767,21 @@ function closeMobileMenu(){
   window.addEventListener('resize', updateCarousel);
   updateCarousel();
 })();
+</script>
+<script>
+// 域名卡片点击跳转至详情页
+document.querySelectorAll('.domain-carousel-track .text-2xl.font-bold').forEach(function(el) {
+  var text = el.textContent.trim();
+  if (!text.startsWith('.')) return;
+  var card = el.closest('[data-domain]');
+  if (!card) return;
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('a')) return;
+    var key = text.replace(/^\./, '').replace(/\./g, '');
+    window.location.href = 'domain-detail.html?tld=' + encodeURIComponent(key);
+  });
+});
 </script>
 </body>
 </html>

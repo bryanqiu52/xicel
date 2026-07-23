@@ -1,0 +1,677 @@
+/* ===== 商标查询结果页专属样式 ===== */
+
+/* 顶部搜索区 */
+.trademark-hero {
+  background: linear-gradient(135deg, rgba(10,102,255,0.06) 0%, rgba(0,212,170,0.04) 100%);
+}
+
+/* 搜索框内图片上传按钮 */
+.search-input-image-upload {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #94A3B8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+}
+.search-input-image-upload:hover {
+  background: #EFF6FF;
+  color: #0A66FF;
+}
+.search-input-image-upload svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 商标卡片 */
+.trademark-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+.trademark-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px -12px rgba(10,102,255,0.18);
+  border-color: rgba(10,102,255,0.35);
+}
+.trademark-card:hover .trademark-cover img {
+  transform: scale(1.05);
+}
+
+/* 封面图 */
+.trademark-cover {
+  height: 160px;
+  overflow: hidden;
+  background: #F5F7FA;
+  position: relative;
+}
+.trademark-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* 卡片内容 */
+.trademark-info {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.trademark-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 类号标签 */
+.class-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.class-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #0A66FF;
+  background: #EFF6FF;
+  border: 1px solid rgba(10,102,255,0.12);
+}
+
+/* 法律状态 */
+.legal-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+.legal-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.status-registered {
+  color: #059669;
+  background: #ECFDF5;
+}
+.status-registered::before {
+  background: #10B981;
+}
+.status-pending {
+  color: #0A66FF;
+  background: #EFF6FF;
+}
+.status-pending::before {
+  background: #0A66FF;
+}
+.status-rejected {
+  color: #DC2626;
+  background: #FEF2F2;
+}
+.status-rejected::before {
+  background: #EF4444;
+}
+.status-invalid {
+  color: #64748B;
+  background: #F1F5F9;
+}
+.status-invalid::before {
+  background: #94A3B8;
+}
+
+/* 申请人信息 */
+.trademark-applicant {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #475569;
+}
+.applicant-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.applicant-icon.icon-company {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230A66FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 21h18'/%3E%3Cpath d='M5 21V7l8-4 8 4v14'/%3E%3Cpath d='M9 21v-6h6v6'/%3E%3C/svg%3E");
+}
+.applicant-icon.icon-person {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2300D4AA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+.applicant-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 元信息 */
+.trademark-meta {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748B;
+}
+.trademark-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.trademark-meta .meta-label {
+  color: #94A3B8;
+}
+
+/* 筛选按钮 */
+.trademark-filter-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #E2E8F0;
+  color: #64748B;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.trademark-filter-btn:hover {
+  border-color: #0A66FF;
+  color: #0A66FF;
+  background: #F8FAFC;
+}
+.trademark-filter-btn.active {
+  background: #0A66FF;
+  color: #fff;
+  border-color: #0A66FF;
+}
+
+/* 无结果空态 */
+.trademark-empty {
+  text-align: center;
+  padding: 80px 20px;
+}
+.trademark-empty-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #0A66FF;
+}
+.trademark-empty-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* ===== 商标详情弹窗 ===== */
+.trademark-detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.trademark-detail-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+}
+.trademark-detail-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 85vh;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: detailSlideIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes detailSlideIn {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.trademark-detail-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  background: #fff;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.15s;
+}
+.trademark-detail-close:hover {
+  background: #F1F5F9;
+  color: #1E293B;
+  border-color: #CBD5E1;
+}
+.trademark-detail-close svg {
+  width: 18px;
+  height: 18px;
+}
+.trademark-detail-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+.trademark-detail-scroll::-webkit-scrollbar { width: 4px; }
+.trademark-detail-scroll::-webkit-scrollbar-track { background: transparent; }
+.trademark-detail-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+
+/* 弹窗头部 */
+.trademark-detail-header {
+  padding: 32px 32px 24px;
+  background: linear-gradient(135deg, rgba(10,102,255,0.04) 0%, rgba(0,212,170,0.03) 100%);
+  border-bottom: 1px solid #F1F5F9;
+}
+.detail-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.detail-trademark-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1E293B;
+  line-height: 1.3;
+}
+.detail-header-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.detail-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.detail-status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.detail-status-badge.registered {
+  color: #059669;
+  background: #ECFDF5;
+}
+.detail-status-badge.registered::before { background: #10B981; }
+.detail-status-badge.pending {
+  color: #0A66FF;
+  background: #EFF6FF;
+}
+.detail-status-badge.pending::before { background: #0A66FF; }
+.detail-status-badge.rejected {
+  color: #DC2626;
+  background: #FEF2F2;
+}
+.detail-status-badge.rejected::before { background: #EF4444; }
+.detail-status-badge.invalid {
+  color: #64748B;
+  background: #F1F5F9;
+}
+.detail-status-badge.invalid::before { background: #94A3B8; }
+.detail-intl-class {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #0A66FF;
+  background: #EFF6FF;
+  border: 1px solid rgba(10,102,255,0.12);
+}
+.detail-app-no {
+  font-size: 13px;
+  color: #64748B;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}
+
+/* 商标图样 */
+.detail-image-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 240px;
+}
+.detail-image {
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  display: block;
+}
+
+/* 弹窗信息区 */
+.trademark-detail-body {
+  padding: 24px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.detail-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+.detail-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+.detail-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.detail-info-item .detail-info-label {
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+.detail-info-item .detail-info-value {
+  font-size: 13px;
+  color: #1E293B;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.detail-info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+/* 商品服务列表 */
+.detail-goods-group {
+  border: 1px solid #F1F5F9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.detail-goods-group:last-child { margin-bottom: 0; }
+.detail-goods-group-header {
+  padding: 10px 14px;
+  background: #F8FAFC;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0A66FF;
+  border-bottom: 1px solid #F1F5F9;
+}
+.detail-goods-list {
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+.detail-goods-tag {
+  font-size: 12px;
+  color: #475569;
+  padding: 4px 10px;
+  background: #F8FAFC;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+  line-height: 1.4;
+}
+
+/* 状态流程时间轴 */
+.detail-timeline {
+  position: relative;
+  padding-left: 20px;
+}
+.detail-timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: #E2E8F0;
+  border-radius: 1px;
+}
+.detail-timeline-item {
+  position: relative;
+  padding-bottom: 18px;
+}
+.detail-timeline-item:last-child { padding-bottom: 0; }
+.detail-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #CBD5E1;
+  z-index: 1;
+}
+.detail-timeline-item.latest::before {
+  border-color: #0A66FF;
+  background: #0A66FF;
+  box-shadow: 0 0 0 3px rgba(10,102,255,0.15);
+}
+.detail-timeline-item .timeline-event {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E293B;
+  line-height: 1.4;
+}
+.detail-timeline-item .timeline-date {
+  font-size: 11px;
+  color: #94A3B8;
+  margin-top: 2px;
+}
+
+/* 公告列表 */
+.detail-announcement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #F1F5F9;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  transition: background 0.15s;
+}
+.detail-announcement-item:last-child { margin-bottom: 0; }
+.detail-announcement-item:hover { background: #F8FAFC; }
+.detail-announcement-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(10,102,255,0.08), rgba(0,212,170,0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0A66FF;
+}
+.detail-announcement-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.detail-announcement-info {
+  flex: 1;
+  min-width: 0;
+}
+.detail-announcement-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E293B;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+.detail-announcement-meta {
+  font-size: 11px;
+  color: #94A3B8;
+}
+.detail-announcement-page {
+  font-size: 11px;
+  color: #64748B;
+  font-weight: 500;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* 底部操作按钮 */
+.detail-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #F1F5F9;
+}
+.detail-btn-primary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  background: #0A66FF;
+  color: #fff;
+}
+.detail-btn-primary:hover {
+  background: #0047CC;
+  box-shadow: 0 4px 12px rgba(10,102,255,0.25);
+}
+.detail-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #E2E8F0;
+  background: #fff;
+  color: #475569;
+  transition: all 0.15s;
+}
+.detail-btn-secondary:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #1E293B;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .trademark-cover {
+    height: 140px;
+  }
+  .trademark-info {
+    padding: 14px;
+  }
+  .trademark-name {
+    font-size: 15px;
+  }
+  .trademark-detail-dialog {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 16px 16px 0 0;
+    margin-top: auto;
+  }
+  @keyframes detailSlideIn {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .trademark-detail-header {
+    padding: 24px 20px 20px;
+  }
+  .trademark-detail-body {
+    padding: 20px;
+    gap: 18px;
+  }
+  .detail-info-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .detail-header-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .detail-trademark-name {
+    font-size: 19px;
+  }
+  .detail-actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>购物车 / 订单确认 - xicel</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<!-- 表格内 select 样式兜底：确保覆盖浏览器默认/Tailwind -->
+<style>
+/* 表格内 select 样式兜底：高优先级覆盖浏览器默认/Tailwind/beautified-select-sm */
+table.cart-confirm-table select,
+table.cart-confirm-table select.beautified-select-sm,
+table.cart-confirm-table select.reg-select,
+table.cart-confirm-table select.year-select,
+.cart-confirm-table tbody select,
+.cart-confirm-table tbody select.beautified-select-sm {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%2364748B' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.5rem center !important;
+  background-size: 12px !important;
+  background-color: #fff !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  padding: 8px 30px 8px 12px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #1E293B !important;
+  cursor: pointer !important;
+  outline: none !important;
+  transition: all 0.2s !important;
+  line-height: 1.5 !important;
+  min-height: 36px !important;
+  box-shadow: 0 4px 12px rgba(226,232,240,0.5) !important;
+}
+table.cart-confirm-table select:hover,
+table.cart-confirm-table select.beautified-select-sm:hover,
+table.cart-confirm-table select.reg-select:hover,
+table.cart-confirm-table select.year-select:hover,
+.cart-confirm-table tbody select:hover {
+  border-color: #0A66FF !important;
+  box-shadow: 0 0 0 3px rgba(10,102,255,0.08) !important;
+}
+table.cart-confirm-table select:focus,
+table.cart-confirm-table select.beautified-select-sm:focus,
+table.cart-confirm-table select.reg-select:focus,
+table.cart-confirm-table select.year-select:focus,
+.cart-confirm-table tbody select:focus {
+  border-color: #0A66FF !important;
+  box-shadow: 0 0 0 3px rgba(10,102,255,0.12) !important;
+}
+table.cart-confirm-table select:disabled,
+table.cart-confirm-table select.beautified-select-sm:disabled,
+table.cart-confirm-table select.reg-select:disabled,
+table.cart-confirm-table select.year-select:disabled,
+.cart-confirm-table tbody select:disabled {
+  background-color: #F8FAFC !important;
+  color: #94A3B8 !important;
+  cursor: not-allowed !important;
+  opacity: 0.5 !important;
+  background-image: none !important;
+  padding-right: 12px !important;
+}
+/* IE/Edge 隐藏默认箭头 */
+table.cart-confirm-table select::-ms-expand,
+.cart-confirm-table tbody select::-ms-expand { display: none !important; }
+
+/* 表头复选框样式 */
+.header-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.header-checkbox-label:hover {
+  background: rgba(10, 102, 255, 0.06);
+}
+.header-checkbox-label input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #0A66FF;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.header-checkbox-label span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  white-space: nowrap;
+}
+
+/* 商品名称复选框样式 */
+.item-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.item-checkbox-label input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #0A66FF;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.item-checkbox-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E293B;
+}
+
+/* 未选中行样式 */
+.cart-confirm-table tr.item-unselected {
+  opacity: 0.45;
+}
+.cart-confirm-table tr.item-unselected td {
+  color: #94A3B8;
+}
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="navbar-container"></div>
+
+<!-- ========== Hero ========== -->
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-14">
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">购物车 / 订单确认</h1>
+    <p class="text-white/80 text-sm md:text-base">核对商品信息、申请资料后，一键完成下单</p>
+  </div>
+</section>
+
+<!-- ========== 主内容区 ========== -->
+<section class="py-10" style="background:#fdfdfd">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- 左侧：订单列表 -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- 步骤条 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="step-item completed">
+              <div class="step-num">1</div>
+              <span class="step-text">加入购物车</span>
+            </div>
+            <div class="step-line active"></div>
+            <div class="step-item current">
+              <div class="step-num">2</div>
+              <span class="step-text">订单确认</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">3</div>
+              <span class="step-text">资料填写</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">4</div>
+              <span class="step-text">付款下单</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
+              <div class="step-num">5</div>
+              <span class="step-text">支付完成</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 列表卡片 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-2">
+              <h3 class="font-bold text-lg text-body">待结算商品</h3>
+              <span class="text-xs text-muted" id="cartCountLabel">共 0 件</span>
+            </div>
+          </div>
+
+          <!-- 空态（默认隐藏） -->
+          <div id="cartEmptyState" class="cart-empty hidden">
+            <div class="cart-empty-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            </div>
+            <h3>购物车空空如也</h3>
+            <p>去挑选您感兴趣的商品吧</p>
+            <a href="index.html" class="btn-go-shop">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l3 12h12l2-8H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+              去选购
+            </a>
+          </div>
+
+          <!-- 表格 -->
+          <div id="cartTableWrap" class="overflow-x-auto">
+            <table class="cart-confirm-table" id="cartTable">
+              <thead>
+                <tr>
+                  <th>
+                    <label class="header-checkbox-label">
+                      <input type="checkbox" id="selectAllItems" checked>
+                      <span>商品名称</span>
+                    </label>
+                  </th>
+                  <th style="width:110px;">产品类型</th>
+                  <th style="width:150px;">
+                    <label class="header-checkbox-label">
+                      <input type="checkbox" id="selectAllRegService">
+                      <span>申请资料</span>
+                    </label>
+                  </th>
+                  <th class="hide-mobile" style="width:140px;">
+                    <div class="flex items-center justify-center gap-2">
+                      <span class="text-xs text-muted">年限</span>
+                      <div class="dropdown-wrapper" style="width:72px;">
+                        <div class="dropdown-btn dropdown-btn-sm" id="batchYearsBtn" data-value="0">
+                          <span id="batchYearsText" class="text-[10px]" style="font-weight:400;">批量</span>
+                          <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th style="width:100px;">金额</th>
+                  <th class="hide-mobile" style="width:56px;">操作</th>
+                </tr>
+              </thead>
+              <tbody id="cartTbody">
+                <!-- 动态渲染 -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="cartTableFooter" class="hidden mt-5 flex items-center justify-end text-xs text-muted">
+            <button id="clearAllBtn" class="text-muted hover:text-red-500 transition-colors">清空购物车</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：汇总 -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-24 space-y-4">
+          <div class="cart-summary-card">
+            <h4 class="font-bold text-body text-base mb-4">订单汇总</h4>
+
+            <div class="cart-summary-row">
+              <span>商品总数</span>
+              <strong id="sumCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>域名注册</span>
+              <strong id="sumDomainCount">0 件</strong>
+            </div>
+            <div class="cart-summary-row">
+              <span>申请资料挂靠</span>
+              <strong id="sumRegOk" class="text-green-600">0 / 0</strong>
+            </div>
+
+            <div class="cart-summary-divider"></div>
+
+            <div class="cart-summary-row total">
+              <span>合计金额</span>
+              <span class="total-amount" id="sumTotal">¥0.00</span>
+            </div>
+
+            <button id="checkoutBtn" class="btn-checkout">下一步</button>
+
+            <div class="cart-summary-tip">
+              <p class="mb-1">· 申请资料影响域名注册时效，请如实勾选</p>
+              <p class="mb-1">· 结算后将生成订单号，可在 <a href="user.html#panel-orders" class="tip-link">控制台订单记录</a> 查看</p>
+              <p>· 如有疑问，可联系 <a href="#" class="tip-link" onclick="event.preventDefault(); window.openConsultModal && window.openConsultModal();">在线客服</a></p>
+            </div>
+          </div>
+
+          <!-- 保障卡片 -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h5 class="text-sm font-bold text-body mb-3">服务保障</h5>
+            <div class="space-y-2 text-xs text-muted">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>7×24 小时技术支持</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>未注册成功全额退款</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>实名信息加密传输</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 结算成功弹窗 ===== -->
+<div class="checkout-success-modal" id="successModal">
+  <div class="backdrop" onclick="closeSuccessModal()"></div>
+  <div class="dialog">
+    <div class="success-icon">✓</div>
+    <h3>下单成功</h3>
+    <p id="successTip">您的订单已提交，稍后可在控制台查看处理进度</p>
+    <div class="actions">
+      <button class="btn-primary" onclick="goToOrderList()">去控制台查看 →</button>
+      <button class="btn-secondary" onclick="closeSuccessModal()">继续停留</button>
+    </div>
+  </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+
+<!-- ===== 购物车确认页逻辑 ===== -->
+<script>
+(function(){
+  var PRODUCT_TYPE_META = {
+    '域名注册':   { color: 'linear-gradient(135deg, #0A66FF, #0047CC)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>' },
+    '云服务器':   { color: 'linear-gradient(135deg, #00D4AA, #00A77F)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>' },
+    'SSL证书':    { color: 'linear-gradient(135deg, #F59E0B, #D97706)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>' },
+    '增值服务':   { color: 'linear-gradient(135deg, #8B5CF6, #7C3AED)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>' },
+    '企业邮箱':   { color: 'linear-gradient(135deg, #EC4899, #DB2777)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' }
+  };
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
+  function fmtPrice(n) {
+    n = Number(n) || 0;
+    return n.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function pad3(n) { return n < 10 ? '00' + n : (n < 100 ? '0' + n : '' + n); }
+
+  function genOrderNo(seq) {
+    var d = new Date();
+    var datePart = d.getFullYear() +
+      String(d.getMonth() + 1).padStart(2, '0') +
+      String(d.getDate()).padStart(2, '0');
+    return 'ORD-' + datePart + '-' + pad3(seq);
+  }
+
+  function readCart() {
+    try { return JSON.parse(localStorage.getItem('cartItems') || '[]'); }
+    catch(e) { return []; }
+  }
+  function writeCart(items) {
+    try { localStorage.setItem('cartItems', JSON.stringify(items)); } catch(e) {}
+  }
+
+  function metaOf(type) {
+    return PRODUCT_TYPE_META[type] || {
+      color: 'linear-gradient(135deg, #64748B, #475569)',
+      svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>'
+    };
+  }
+
+  // 年限选项映射（含折扣版本）
+  var YEAR_OPTS = {
+    1: '1 年',
+    2: '2 年',
+    3: '3 年',
+    5: '5 年',
+    10: '10 年'
+  };
+  var YEAR_OPTS_DISCOUNT = {
+    1: '1 年',
+    2: '2 年 省10%',
+    3: '3 年 省15%',
+    5: '5 年 省20%',
+    10: '10 年 省25%'
+  };
+
+  // 挂靠基础费用（按年限翻倍）
+  var REG_SERVICE_BASE_PRICE = 50;
+
+  function renderTable() {
+    var items = readCart();
+    var tbody = document.getElementById('cartTbody');
+    var empty = document.getElementById('cartEmptyState');
+    var table = document.getElementById('cartTable');
+    var footer = document.getElementById('cartTableFooter');
+    var countLabel = document.getElementById('cartCountLabel');
+
+    if (!items.length) {
+      empty.classList.remove('hidden');
+      table.classList.add('hidden');
+      footer.classList.add('hidden');
+      countLabel.textContent = '共 0 件';
+      renderSummary(items);
+      return;
+    }
+    empty.classList.add('hidden');
+    table.classList.remove('hidden');
+    footer.classList.remove('hidden');
+    countLabel.textContent = '共 ' + items.length + ' 件';
+
+    var html = items.map(function(it, idx) {
+      var isDomain = it.productType === '域名注册';
+      var year = Number(it.year) || 1;
+      var cycleText = it.cycleText || (year + ' 年');
+      var itemChecked = it.selected !== false ? ' checked' : '';
+
+      // 商品名称列：复选框 + 名称
+      var nameCell = '<label class="item-checkbox-label">'
+        + '<input type="checkbox" class="item-select-checkbox" data-id="' + esc(it.id) + '"' + itemChecked + '>'
+        + '<span class="item-checkbox-text">' + esc(it.productName) + '</span>'
+        + '</label>';
+
+      // 申请资料：仅非顶级/非中国地区域名需要挂靠
+      var isTopLevelChina = /\.(com|net|org|cn|top|xyz|club|site|vip|shop|store|cc|tv|co|io|me|info|biz|asia)$/i.test(String(it.productName));
+      var needsRegService = isDomain && !isTopLevelChina;
+      var regFee = needsRegService ? (REG_SERVICE_BASE_PRICE * year) : 0;
+      var regChecked = it.regService ? ' checked' : '';
+      var regCell;
+      if (needsRegService) {
+        regCell = '<label class="reg-checkbox-label">'
+          + '<input type="checkbox" class="reg-service-checkbox" data-id="' + esc(it.id) + '"' + regChecked + '>'
+          + '<span class="reg-checkbox-text">挂靠 ¥' + regFee + '</span>'
+          + '</label>';
+      } else if (isDomain) {
+        regCell = '<span class="text-muted text-xs">无需资料</span>';
+      } else {
+        regCell = '<span class="text-muted text-xs">无需资料</span>';
+      }
+
+      // 年限下拉框：同 domain-order 样式
+      var yearOptions = isDomain ? [1, 2, 3, 5, 10] : [1];
+      var yearSel = '<div class="dropdown-wrapper" style="width:120px;">';
+      yearSel += '<div class="dropdown-btn dropdown-btn-sm" data-id="' + esc(it.id) + '" data-value="' + year + '">';
+      yearSel += '<span class="text-[12px]">' + YEAR_OPTS_DISCOUNT[year] + '</span>';
+      yearSel += '<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
+      yearSel += '</div></div>';
+
+      var rowClass = it.selected === false ? ' item-unselected' : '';
+      return '<tr data-id="' + esc(it.id) + '" class="' + rowClass + '">'
+        + '<td>' + nameCell + '</td>'
+        + '<td>' + esc(it.productType) + '</td>'
+        + '<td>' + regCell + '</td>'
+        + '<td class="hide-mobile">' + yearSel + '</td>'
+        + '<td><span class="price-cell" data-price-cell>' + '¥' + fmtPrice(it.price) + '</span></td>'
+        + '<td class="hide-mobile">'
+        +   '<button class="remove-x-btn" data-remove-id="' + esc(it.id) + '" title="移除">'
+        +     '<svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+        +   '</button>'
+        + '</td>'
+        + '</tr>';
+    }).join('');
+    tbody.innerHTML = html;
+    renderSummary(items);
+  }
+
+  function renderSummary(items) {
+    // 只计算选中的商品
+    var selected = items.filter(function(it){ return it.selected !== false; });
+    var count = selected.length;
+    var totalCount = items.length;
+
+    function needsRegService(it) {
+      if (it.productType !== '域名注册') return false;
+      var isTopLevelChina = /\.(com|net|org|cn|top|xyz|club|site|vip|shop|store|cc|tv|co|io|me|info|biz|asia)$/i.test(String(it.productName));
+      return !isTopLevelChina;
+    }
+
+    var domainCount = selected.filter(function(it){ return it.productType === '域名注册'; }).length;
+    var regServiceCount = selected.filter(function(it){ return needsRegService(it) && it.regService; }).length;
+    var regServiceFee = selected.filter(function(it){ return needsRegService(it) && it.regService; })
+      .reduce(function(s, it){ return s + (REG_SERVICE_BASE_PRICE * (Number(it.year) || 1)); }, 0);
+    var domainFee = selected.filter(function(it){ return it.productType === '域名注册'; })
+      .reduce(function(s, it){ return s + (Number(it.price) || 0); }, 0);
+    var otherFee = selected.filter(function(it){ return it.productType !== '域名注册'; })
+      .reduce(function(s, it){ return s + (Number(it.price) || 0); }, 0);
+    var total = domainFee + otherFee + regServiceFee;
+
+    document.getElementById('sumCount').textContent = count + ' / ' + totalCount + ' 件';
+    document.getElementById('sumDomainCount').textContent = domainCount + ' 件';
+    document.getElementById('sumRegOk').textContent = regServiceCount + ' / ' + domainCount;
+    document.getElementById('sumTotal').textContent = '¥' + fmtPrice(total);
+
+    var btn = document.getElementById('checkoutBtn');
+    btn.disabled = count === 0;
+    btn.style.opacity = count === 0 ? '0.5' : '1';
+    btn.style.cursor = count === 0 ? 'not-allowed' : 'pointer';
+
+    // 同步表头全选状态
+    var allCb = document.getElementById('selectAllItems');
+    if (allCb) {
+      allCb.checked = items.length > 0 && items.every(function(it){ return it.selected !== false; });
+    }
+  }
+
+  // ===== 表头复选框全选 =====
+  document.getElementById('selectAllItems').addEventListener('change', function(e) {
+    var checked = e.target.checked;
+    var items = readCart();
+    items.forEach(function(it) { it.selected = checked; });
+    writeCart(items);
+    renderTable();
+  });
+
+  document.getElementById('selectAllRegService').addEventListener('change', function(e) {
+    var checked = e.target.checked;
+    var items = readCart();
+    items.forEach(function(it) {
+      if (it.productType === '域名注册') {
+        var isTopLevelChina = /\.(com|net|org|cn|top|xyz|club|site|vip|shop|store|cc|tv|co|io|me|info|biz|asia)$/i.test(String(it.productName));
+        if (!isTopLevelChina) {
+          it.regService = checked;
+        }
+      }
+    });
+    writeCart(items);
+    renderTable();
+  });
+
+  document.getElementById('batchYearsBtn').addEventListener('click', function() {
+    var btn = this;
+    var cur = btn.getAttribute('data-value');
+    var dropdown = document.createElement('div');
+    dropdown.className = 'dropdown-panel';
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+    inner.innerHTML = [1, 2, 3, 5, 10].map(function(y) {
+      var sel = String(y) === cur;
+      return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
+           +   '<span>' + YEAR_OPTS[y] + '</span>'
+           +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+           + '</div>';
+    }).join('');
+    dropdown.appendChild(inner);
+    var rect = btn.getBoundingClientRect();
+    dropdown.style.top = (rect.bottom + 4) + 'px';
+    dropdown.style.left = rect.left + 'px';
+    dropdown.style.minWidth = '120px';
+    document.body.appendChild(dropdown);
+    var arrow = btn.querySelector('.dropdown-arrow');
+    if (arrow) arrow.classList.add('open');
+    inner.querySelectorAll('.dropdown-option').forEach(function(el){
+      el.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        var v = el.getAttribute('data-value');
+        btn.setAttribute('data-value', v);
+        document.getElementById('batchYearsText').textContent = '批量';
+        dropdown.remove();
+        if (arrow) arrow.classList.remove('open');
+        var year = parseInt(v);
+        var items = readCart();
+        items.forEach(function(it) {
+          if (it.productType === '域名注册') {
+            var oldYear = Number(it.year) || 1;
+            if (oldYear > 0) {
+              var unit = (Number(it.price) || 0) / oldYear;
+              it.year = year;
+              it.price = Math.round(unit * year * 100) / 100;
+              it.cycleText = year + ' 年';
+            }
+          }
+        });
+        writeCart(items);
+        renderTable();
+      });
+    });
+    setTimeout(function(){
+      document.addEventListener('click', function onDoc(ev){
+        if (dropdown && !dropdown.contains(ev.target) && !btn.contains(ev.target)) {
+          dropdown.remove();
+          if (arrow) arrow.classList.remove('open');
+          document.removeEventListener('click', onDoc);
+        }
+      });
+    }, 0);
+  });
+
+  // ===== 事件委托：复选框 / 下拉框 / 移除 =====
+  document.addEventListener('change', function(e){
+    // 商品选中复选框
+    var itemCb = e.target.closest && e.target.closest('.item-select-checkbox[data-id]');
+    if (itemCb) {
+      var idItem = itemCb.getAttribute('data-id');
+      var itemsItem = readCart();
+      for (var iItem = 0; iItem < itemsItem.length; iItem++) {
+        if (itemsItem[iItem].id === idItem) {
+          itemsItem[iItem].selected = itemCb.checked;
+          break;
+        }
+      }
+      writeCart(itemsItem);
+      // 更新行样式
+      var row = itemCb.closest('tr');
+      if (row) {
+        if (itemCb.checked) {
+          row.classList.remove('item-unselected');
+        } else {
+          row.classList.add('item-unselected');
+        }
+      }
+      renderSummary(itemsItem);
+      return;
+    }
+    // 申请资料复选框
+    var regCb = e.target.closest && e.target.closest('.reg-service-checkbox[data-id]');
+    if (regCb) {
+      var id0 = regCb.getAttribute('data-id');
+      var items0 = readCart();
+      for (var i0 = 0; i0 < items0.length; i0++) {
+        if (items0[i0].id === id0) {
+          items0[i0].regService = regCb.checked;
+          break;
+        }
+      }
+      writeCart(items0);
+      renderSummary(items0);
+      return;
+    }
+  });
+
+  // ===== 年限下拉框点击事件 =====
+  document.addEventListener('click', function(e){
+    var yearBtn = e.target.closest && e.target.closest('.dropdown-btn.dropdown-btn-sm[data-id]');
+    if (yearBtn && !yearBtn.hasAttribute('id')) {
+      e.stopPropagation();
+      var id2 = yearBtn.getAttribute('data-id');
+      var curYear = parseInt(yearBtn.getAttribute('data-value')) || 1;
+      var dropdown = document.createElement('div');
+      dropdown.className = 'dropdown-panel';
+      var inner = document.createElement('div');
+      inner.className = 'dropdown-panel-inner';
+      inner.innerHTML = [1, 2, 3, 5, 10].map(function(y) {
+        var sel = y === curYear;
+        return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
+             +   '<span>' + YEAR_OPTS_DISCOUNT[y] + '</span>'
+             +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+             + '</div>';
+      }).join('');
+      dropdown.appendChild(inner);
+      var rect = yearBtn.getBoundingClientRect();
+      dropdown.style.top = (rect.bottom + 4) + 'px';
+      dropdown.style.left = rect.left + 'px';
+      dropdown.style.minWidth = '120px';
+      document.body.appendChild(dropdown);
+      var arrow = yearBtn.querySelector('.dropdown-arrow');
+      if (arrow) arrow.classList.add('open');
+      inner.querySelectorAll('.dropdown-option').forEach(function(el){
+        el.addEventListener('click', function(ev){
+          ev.stopPropagation();
+          var newYear = parseInt(el.getAttribute('data-value'));
+          var items2 = readCart();
+          for (var j = 0; j < items2.length; j++) {
+            if (items2[j].id === id2) {
+              var oldYear = Number(items2[j].year) || 1;
+              if (oldYear > 0) {
+                var unit = (Number(items2[j].price) || 0) / oldYear;
+                items2[j].year = newYear;
+                items2[j].price = Math.round(unit * newYear * 100) / 100;
+                items2[j].cycleText = newYear + ' 年';
+              }
+              break;
+            }
+          }
+          writeCart(items2);
+          dropdown.remove();
+          if (arrow) arrow.classList.remove('open');
+          renderTable();
+        });
+      });
+      setTimeout(function(){
+        document.addEventListener('click', function onDoc(ev){
+          if (dropdown && !dropdown.contains(ev.target) && !yearBtn.contains(ev.target)) {
+            dropdown.remove();
+            if (arrow) arrow.classList.remove('open');
+            document.removeEventListener('click', onDoc);
+          }
+        });
+      }, 0);
+    }
+
+    var rm = e.target.closest && e.target.closest('[data-remove-id]');
+    if (!rm) return;
+    var id = rm.getAttribute('data-remove-id');
+    var items = readCart().filter(function(it){ return it.id !== id; });
+    writeCart(items);
+    if (window.cartUtils) window.cartUtils.refresh();
+    renderTable();
+  });
+
+  document.getElementById('clearAllBtn').addEventListener('click', function(){
+    if (!confirm('确定要清空购物车吗？')) return;
+    writeCart([]);
+    if (window.cartUtils) window.cartUtils.refresh();
+    renderTable();
+  });
+
+  // ===== 立即结算 =====
+  document.getElementById('checkoutBtn').addEventListener('click', function(){
+    var items = readCart();
+    var selectedItems = items.filter(function(it) { return it.selected; });
+    
+    if (!selectedItems.length) {
+      alert('请选择要结算的商品');
+      return;
+    }
+    
+    window.location.href = 'cart-info.html';
+  });
+
+  // 暴露给 inline onclick
+  window.closeSuccessModal = function() {
+    document.getElementById('successModal').classList.remove('show');
+    renderTable();
+  };
+  window.goToOrderList = function() {
+    window.location.href = 'user.html#panel-orders';
+  };
+
+  // 初始化
+  renderTable();
+  // 同步角标
+  if (window.cartUtils) window.cartUtils.refresh();
+})();
+</script>
+
+</body>
+</html>

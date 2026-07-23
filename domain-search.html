@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -33,11 +33,24 @@
   <div class="max-w-3xl mx-auto px-6 text-center">
     <h1 class="text-3xl md:text-4xl font-bold text-body mb-3">域名注册查询</h1>
     <p class="text-muted mb-8">输入您想要的域名前缀，即刻查询全球顶级后缀的注册状态</p>
-    <div class="flex bg-white rounded-2xl shadow-lg shadow-primary/10 border border-slate-200 p-2">
-      <input id="domainSearchInput" type="text" placeholder="输入域名前缀，如 123、mybrand"
-        class="flex-1 px-4 py-3 text-base outline-none rounded-xl" autocomplete="off">
-      <button onclick="handleSearch()"
-        class="bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-3 rounded-xl transition-all ml-2 whitespace-nowrap">
+    <!-- 搜索模式标签 -->
+    <div class="flex justify-center gap-2 mb-6 flex-wrap">
+      <button id="tab-explore" class="search-tab active bg-primary text-white rounded-full px-5 py-2 text-sm font-medium shadow-sm transition-all" onclick="switchSearchMode('explore')">域名探索</button>
+      <button id="tab-batch" class="search-tab bg-white text-muted rounded-full px-5 py-2 text-sm font-medium transition-all" onclick="switchSearchMode('batch')">批量查询</button>
+    </div>
+    <div class="flex items-center gap-2" id="searchRowContainer">
+      <!-- 搜索输入框容器 -->
+      <div class="flex-1 relative" id="searchInputWrapper">
+        <div class="search-input-wrapper relative overflow-hidden rounded-xl border border-border bg-white focus-within:ring-1 focus-within:ring-primary focus-within:border-primary transition-shadow">
+          <!-- 搜索图标 -->
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <!-- 搜索输入框 -->
+          <input id="domainSearchInput" type="text" placeholder="输入域名前缀，探索所有后缀的可用性；支持带后缀精准搜索" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" />
+        </div>
+      </div>
+      <!-- 搜索按钮 -->
+      <button onclick="handleSearch()" class="flex items-center gap-1 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 h-12 rounded-xl transition-colors whitespace-nowrap">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         立即查询
       </button>
     </div>
@@ -48,14 +61,31 @@
 <!-- ========== 初始推荐（无搜索结果时） ========== -->
 <section class="py-12 bg-white" id="initialSuggestions">
   <div class="max-w-7xl mx-auto px-6">
-    <h3 class="text-lg font-semibold text-body mb-6">热门搜索</h3>
-    <div class="flex flex-wrap gap-3">
-      <button onclick="quickSearch('brand')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">brand</button>
-      <button onclick="quickSearch('shop')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">shop</button>
-      <button onclick="quickSearch('my')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">my</button>
-      <button onclick="quickSearch('123')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">123</button>
-      <button onclick="quickSearch('hello')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">hello</button>
-      <button onclick="quickSearch('global')" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-primary hover:text-primary transition-all text-sm">global</button>
+    <div class="flex flex-col items-center justify-center py-16" style="height:400px;">
+      <div class="relative w-48 h-48 mb-8">
+        <svg viewBox="0 0 200 200" class="w-full h-full text-muted">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1"/>
+          <ellipse cx="100" cy="100" rx="80" ry="30" fill="none" stroke="currentColor" stroke-width="1"/>
+          <ellipse cx="100" cy="100" rx="80" ry="30" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(60 100 100)"/>
+          <ellipse cx="100" cy="100" rx="80" ry="30" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(120 100 100)"/>
+          <path d="M30 100 Q100 20 170 100 Q100 180 30 100" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M60 40 Q100 70 140 40" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M60 160 Q100 130 140 160" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="70" cy="70" r="3" fill="currentColor"/>
+          <circle cx="130" cy="60" r="2" fill="currentColor"/>
+          <circle cx="140" cy="110" r="2.5" fill="currentColor"/>
+          <circle cx="110" cy="150" r="2" fill="currentColor"/>
+          <circle cx="50" cy="120" r="2.5" fill="currentColor"/>
+          <circle cx="60" cy="90" r="2" fill="currentColor"/>
+          <g class="search-icon" transform="translate(150, 50)">
+            <circle cx="20" cy="20" r="14" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <path d="M30 30 L45 45" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-body mb-2">暂无搜索记录</h3>
+      <p class="text-sm text-muted mb-6">输入域名开始探索，发现您的专属域名</p>
     </div>
   </div>
 </section>
@@ -94,6 +124,45 @@
     </div>
     <div id="resultsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     </div>
+  </div>
+</section>
+
+<!-- ========== 批量搜索结果表格 ========== -->
+<section id="searchResultsTable" class="py-12 bg-white" style="display:none;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="overflow-hidden rounded-xl border border-slate-200">
+      <!-- 表头 -->
+      <div class="grid grid-cols-12 gap-2 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-muted uppercase tracking-wide">
+        <div class="col-span-3">主机名</div>
+        <div class="col-span-2">域名</div>
+        <div class="col-span-2 text-center">注册状态</div>
+        <div class="col-span-2 text-right">注册价格</div>
+        <div class="col-span-2 text-center">年限</div>
+        <div class="col-span-1 text-center">操作</div>
+      </div>
+
+      <!-- 结果行容器 -->
+      <div id="resultsTableBody">
+        <!-- 动态渲染的结果行 -->
+      </div>
+    </div>
+
+    <!-- 分页控件 -->
+    <div class="flex items-center justify-between mt-6">
+      <div id="tableResultCount" class="text-sm text-muted">共 0 条结果</div>
+      <div class="flex items-center gap-2">
+        <button id="prevPageBtn" class="px-4 py-2 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>上一页</button>
+        <span id="pageInfo" class="text-sm text-muted">第 1 页</span>
+        <button id="nextPageBtn" class="px-4 py-2 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>下一页</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 推荐后缀区域 ========== -->
+<section id="recommendSection" class="py-12 bg-white" style="display:none;">
+  <div id="recommendContent" class="max-w-7xl mx-auto px-6">
+    <!-- 动态渲染推荐内容 -->
   </div>
 </section>
 
@@ -305,6 +374,413 @@ function renderResults(results) {
   }
 }
 
+// ===== 搜索模式切换 =====
+var currentSearchMode = 'explore'; // 'explore' | 'batch'
+
+function switchSearchMode(mode) {
+  currentSearchMode = mode;
+
+  var tabs = document.querySelectorAll('.search-tab');
+  tabs.forEach(function(tab) {
+    tab.classList.remove('active', 'bg-primary', 'text-white');
+    tab.classList.add('bg-white', 'text-muted');
+  });
+
+  var activeTab = document.getElementById('tab-' + mode);
+  activeTab.classList.add('active', 'bg-primary', 'text-white');
+  activeTab.classList.remove('bg-white', 'text-muted');
+
+  var wrapper = document.querySelector('.search-input-wrapper');
+  var inputWrapper = document.getElementById('searchInputWrapper');
+
+  if (mode === 'explore') {
+    // 域名探索模式：单行输入框，禁用换行
+    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input id="domainSearchInput" type="text" placeholder="输入域名前缀，探索所有后缀的可用性；支持带后缀精准搜索" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" />';
+    document.getElementById('searchRowContainer').classList.remove('items-start');
+    document.getElementById('searchRowContainer').classList.add('items-center');
+    // 绑定 Enter 搜索
+    var input = document.getElementById('domainSearchInput');
+    if (input) {
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleSearch();
+        }
+      });
+    }
+  } else {
+    // 批量查询模式：多行输入框，支持换行，按钮垂直居中
+    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><textarea id="domainSearchInput" rows="2" placeholder="输入完整域名，支持批量查询，Enter 换行，每行一个" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none resize-none overflow-y-auto overflow-x-hidden" style="min-height:72px;max-height:160px;line-height:1.6;background:transparent;padding-top:calc(36px - 0.8em);"></textarea>';
+    document.getElementById('searchRowContainer').classList.remove('items-start');
+    document.getElementById('searchRowContainer').classList.add('items-center');
+    // 绑定 Ctrl+Enter 搜索
+    var textarea = document.getElementById('domainSearchInput');
+    if (textarea) {
+      textarea.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            handleSearch();
+          }
+        }
+      });
+    }
+  }
+
+  document.getElementById('initialSuggestions').style.display = '';
+  document.getElementById('searchControls').style.display = 'none';
+  document.getElementById('searchResults').style.display = 'none';
+  document.getElementById('searchResultsTable').style.display = 'none';
+  document.getElementById('noResults').style.display = 'none';
+  var recommendSection = document.getElementById('recommendSection');
+  if (recommendSection) recommendSection.style.display = 'none';
+}
+
+// ===== 批量搜索结果表格渲染 =====
+var tableResultsData = [];
+
+function renderResultRow(result) {
+  var fullDomain = result.hostname + result.domain;
+  
+  if (result.status === 'registered') {
+    return `
+    <div class="grid grid-cols-12 gap-2 px-4 py-3.5 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
+      <!-- 主机名 -->
+      <div class="col-span-3 font-semibold text-sm text-body truncate">${result.hostname}</div>
+      <!-- 域名 -->
+      <div class="col-span-2 text-sm text-body">${result.domain}</div>
+      <!-- 注册状态 -->
+      <div class="col-span-2 text-center">
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-red-50 text-red-700">
+          已注册
+        </span>
+      </div>
+      <!-- 价格（空） -->
+      <div class="col-span-2 text-right text-sm text-muted">-</div>
+      <!-- 年限（空） -->
+      <div class="col-span-2 text-center text-sm text-muted">-</div>
+      <!-- 操作按钮 -->
+      <div class="col-span-1 flex justify-center gap-2">
+        <button onclick="openWhois('${fullDomain}')" class="text-xs text-primary hover:text-primary-dark font-medium transition-colors">Whois</button>
+        <button onclick="openTradeModal('${fullDomain}')" class="text-xs text-accent hover:text-accent/80 font-medium transition-colors">回购</button>
+      </div>
+    </div>
+  `;
+  }
+  
+  return `
+    <div class="grid grid-cols-12 gap-2 px-4 py-3.5 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
+      <!-- 主机名 -->
+      <div class="col-span-3 font-semibold text-sm text-body truncate">${result.hostname}</div>
+
+      <!-- 域名 -->
+      <div class="col-span-2 text-sm text-body">${result.domain}</div>
+
+      <!-- 注册状态 -->
+      <div class="col-span-2 text-center">
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium ${result.status === 'available' ? 'bg-green-50 text-green-700' : 'bg-orange-50 text-orange-700'}">
+          ${result.status === 'available' ? '可注册' : '溢价'}
+        </span>
+      </div>
+
+      <!-- 注册价格 -->
+      <div class="col-span-2 text-right text-sm font-semibold text-body">¥${result.price}</div>
+
+      <!-- 年限下拉 -->
+      <div class="col-span-2 flex justify-center">
+        <div class="dropdown-wrapper" style="width:120px;">
+          <div class="dropdown-btn dropdown-btn-sm years-dropdown-btn" data-value="1" data-result-id="${result.id}">
+            <span class="years-text text-[12px]">1 年</span>
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 操作按钮 -->
+      <div class="col-span-1 text-center">
+        <button onclick="addToCart('${result.id}', this)" class="inline-flex items-center gap-1 bg-primary hover:bg-primary-dark text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-colors">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.39L23 6H6"/></svg>
+          加入
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function renderTableResults(queries) {
+  // 隐藏卡片结果,显示表格结果
+  document.getElementById('initialSuggestions').style.display = 'none';
+  document.getElementById('searchControls').style.display = 'none';
+  document.getElementById('searchResults').style.display = 'none';
+  document.getElementById('noResults').style.display = 'none';
+  document.getElementById('searchResultsTable').style.display = '';
+  var recommendSection = document.getElementById('recommendSection');
+  if (recommendSection) recommendSection.style.display = 'none';
+
+  // 解析每行的域名
+  tableResultsData = [];
+  queries.forEach(function(query, idx) {
+    var line = query.trim();
+    var match = line.match(/^([^.]+)(\.[a-zA-Z0-9]+)$/);
+    var prefix = match ? match[1] : line;
+    var suffix = match ? match[2] : '.com';
+
+    var tld = TLD_DATA.find(function(t) { return t.domain === suffix; }) || { domain: suffix, price: 98, color: 'bg-blue-600', abbr: suffix.replace('.', '').toUpperCase() };
+    
+    var hash = simpleHash(prefix + suffix);
+    var status;
+    if (hash % 7 === 0) status = 'registered';
+    else if (hash % 13 === 0) status = 'premium';
+    else status = 'available';
+
+    tableResultsData.push({
+      id: 'result-' + idx + '-' + suffix.replace('.', ''),
+      hostname: prefix,
+      domain: suffix,
+      status: status,
+      price: status === 'premium' ? tld.price * 15 : tld.price,
+      selectedYears: 1
+    });
+  });
+
+  // 渲染表格
+  var tbody = document.getElementById('resultsTableBody');
+  tbody.innerHTML = tableResultsData.map(renderResultRow).join('');
+
+  // 更新结果计数
+  document.getElementById('tableResultCount').textContent = '共 ' + tableResultsData.length + ' 条结果';
+
+  // 初始化年限下拉事件
+  initYearsDropdowns();
+}
+
+// ===== 单行完整域名详情渲染 =====
+function renderSingleDomainDetail(query) {
+  // 解析域名
+  var match = query.match(/^([^.]+)(\.[a-zA-Z0-9]+)$/);
+  var prefix = match ? match[1] : query;
+  var suffix = match ? match[2] : '.com';
+
+  // 隐藏其他区域
+  document.getElementById('initialSuggestions').style.display = 'none';
+  document.getElementById('searchControls').style.display = 'none';
+  document.getElementById('searchResults').style.display = 'none';
+  document.getElementById('noResults').style.display = 'none';
+  document.getElementById('searchResultsTable').style.display = '';
+  var recommendSection = document.getElementById('recommendSection');
+  if (recommendSection) recommendSection.style.display = '';
+
+  // 获取域名状态
+  var tld = TLD_DATA.find(function(t) { return t.domain === suffix; }) || { domain: suffix, price: 98, color: 'bg-blue-600', abbr: suffix.replace('.', '').toUpperCase() };
+  var hash = simpleHash(prefix + suffix);
+  var status;
+  if (hash % 7 === 0) status = 'registered';
+  else if (hash % 13 === 0) status = 'premium';
+  else status = 'available';
+
+  // 渲染表格（单条记录）
+  tableResultsData = [{
+    id: 'result-' + suffix.replace('.', ''),
+    hostname: prefix,
+    domain: suffix,
+    status: status,
+    price: status === 'premium' ? tld.price * 15 : tld.price,
+    selectedYears: 1
+  }];
+
+  var tbody = document.getElementById('resultsTableBody');
+  tbody.innerHTML = tableResultsData.map(renderResultRow).join('');
+  document.getElementById('tableResultCount').textContent = '共 1 条结果';
+  initYearsDropdowns();
+
+  // 渲染推荐后缀卡片
+  renderRecommendDomains(prefix, suffix);
+}
+
+// ===== 渲染推荐后缀 =====
+function renderRecommendDomains(prefix, excludeSuffix) {
+  var recommendSection = document.getElementById('recommendSection');
+  var recommendContent = document.getElementById('recommendContent');
+  if (!recommendSection || !recommendContent) return;
+  
+  recommendSection.style.display = '';
+  
+  // 过滤掉已查询的后缀，取前8个推荐
+  var recommendTLDs = TLD_DATA.filter(function(t) { return t.domain !== excludeSuffix; }).slice(0, 8);
+  
+  var recommendHTML = recommendTLDs.map(function(t) {
+    var rHash = simpleHash(prefix + t.domain);
+    var rStatus;
+    if (rHash % 7 === 0) rStatus = 'registered';
+    else if (rHash % 13 === 0) rStatus = 'premium';
+    else rStatus = 'available';
+
+    var thumb = t.flag 
+      ? '<img src="' + t.flag + '" alt="" class="w-10 h-10 rounded-lg object-cover shrink-0" onerror="this.style.display=\'none\'" />'
+      : '<div class="w-10 h-10 rounded-lg ' + t.color + ' flex items-center justify-center shrink-0"><span class="text-white font-bold text-xs">' + t.abbr + '</span></div>';
+
+    if (rStatus === 'available') {
+      return '<div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="goToOrder(\'' + t.domain + '\',\'' + prefix + '\')">' +
+        '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-medium mb-3"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> 可注册</span>' +
+        '<div class="flex items-center gap-2.5 mb-3">' + thumb +
+          '<div class="flex-1 min-w-0"><div class="text-lg font-bold text-body truncate">' + prefix + t.domain + '</div><div class="text-[11px] text-muted">' + t.desc + '</div></div>' +
+        '</div>' +
+        '<div class="flex items-center justify-between pt-3 border-t border-slate-100">' +
+          '<div class="text-base font-semibold text-primary">¥' + t.price + '<span class="text-xs font-normal text-muted">/首年</span></div>' +
+          '<span class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</span>' +
+        '</div>' +
+      '</div>';
+    } else if (rStatus === 'registered') {
+      return '<div class="bg-white rounded-2xl border border-slate-200 p-5 opacity-75">' +
+        '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-50 text-red-700 text-xs font-medium mb-3"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> 已注册</span>' +
+        '<div class="flex items-center gap-2.5 mb-3">' + thumb +
+          '<div class="flex-1 min-w-0"><div class="text-lg font-bold text-muted line-through truncate">' + prefix + t.domain + '</div><div class="text-[11px] text-muted">' + t.desc + '</div></div>' +
+        '</div>' +
+        '<div class="flex items-center justify-between pt-3 border-t border-slate-100">' +
+          '<span class="text-xs text-muted">该域名已被注册</span>' +
+          '<span class="text-xs text-primary hover:text-primary-dark font-medium transition-colors cursor-pointer">查看替代 →</span>' +
+        '</div>' +
+      '</div>';
+    } else {
+      var pPrice = t.price * 15;
+      return '<div class="bg-white rounded-2xl border border-amber-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="goToOrder(\'' + t.domain + '\',\'' + prefix + '\')">' +
+        '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-medium mb-3"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> 溢价域名</span>' +
+        '<div class="flex items-center gap-2.5 mb-3">' + thumb +
+          '<div class="flex-1 min-w-0"><div class="text-lg font-bold text-body truncate">' + prefix + t.domain + '</div><div class="text-[11px] text-muted">' + t.desc + '</div></div>' +
+        '</div>' +
+        '<div class="flex items-center justify-between pt-3 border-t border-slate-100">' +
+          '<div class="text-base font-semibold text-amber-600">¥' + pPrice + '<span class="text-xs font-normal text-muted">/首年</span></div>' +
+          '<span class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">查看详情 →</span>' +
+        '</div>' +
+      '</div>';
+    }
+  }).join('');
+
+  recommendContent.innerHTML = '<h3 class="text-lg font-semibold text-body mb-4">相关后缀推荐</h3>' +
+    '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">' + recommendHTML + '</div>';
+}
+
+function initYearsDropdowns() {
+  document.querySelectorAll('.years-dropdown-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      toggleTableYearsDropdown(btn);
+    });
+  });
+}
+
+function toggleTableYearsDropdown(btn) {
+  var existing = document.getElementById('tableYearsDropdown');
+  if (existing) { existing.remove(); return; }
+
+  var YEARS_OPTIONS = [
+    {value:'1', label:'1 年'},
+    {value:'2', label:'2 年 省10%'},
+    {value:'3', label:'3 年 省15%'},
+    {value:'5', label:'5 年 省20%'},
+    {value:'10', label:'10 年 省25%'}
+  ];
+
+  var dropdown = document.createElement('div');
+  dropdown.id = 'tableYearsDropdown';
+  dropdown.className = 'dropdown-panel';
+  var inner = document.createElement('div');
+  inner.className = 'dropdown-panel-inner';
+  var cur = btn.getAttribute('data-value');
+  inner.innerHTML = YEARS_OPTIONS.map(function(o){
+    var sel = o.value === cur;
+    return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.value + '">'
+         +   '<span>' + o.label + '</span>'
+         +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+         + '</div>';
+  }).join('');
+  dropdown.appendChild(inner);
+  var rect = btn.getBoundingClientRect();
+  dropdown.style.top = (rect.bottom + 4) + 'px';
+  dropdown.style.left = rect.left + 'px';
+  dropdown.style.minWidth = '120px';
+  document.body.appendChild(dropdown);
+  var arrow = btn.querySelector('.dropdown-arrow');
+  if (arrow) arrow.classList.add('open');
+
+  inner.querySelectorAll('.dropdown-option').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var v = el.getAttribute('data-value');
+      btn.setAttribute('data-value', v);
+      var textEl = btn.querySelector('.years-text');
+      if (textEl) textEl.textContent = YEARS_OPTIONS.find(function(o){return o.value===v;}).label;
+      dropdown.remove();
+      if (arrow) arrow.classList.remove('open');
+    });
+  });
+
+  setTimeout(function(){
+    document.addEventListener('click', function onDoc(ev){
+      if (dropdown && !dropdown.contains(ev.target) && !btn.contains(ev.target)) {
+        dropdown.remove();
+        if (arrow) arrow.classList.remove('open');
+        document.removeEventListener('click', onDoc);
+      }
+    });
+  }, 0);
+}
+
+function openWhois(domain) {
+  window.open('whois.html?domain=' + encodeURIComponent(domain), '_blank');
+}
+
+function openTradeModal(domain) {
+  var modal = document.getElementById('tradeModal');
+  var domainInput = document.getElementById('tradeDomainInput');
+  if (modal && domainInput) {
+    domainInput.value = domain;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeTradeModal() {
+  var modal = document.getElementById('tradeModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+function addToCart(resultId, btnEl) {
+  // 查找对应结果
+  var result = tableResultsData.find(function(r) { return r.id === resultId; });
+  if (!result) return;
+
+  // 从同行的年限下拉按钮获取年份
+  var yearsBtn = document.querySelector('[data-result-id="' + resultId + '"]') || btnEl;
+  var years = parseInt(yearsBtn ? yearsBtn.getAttribute('data-value') : 1);
+  if (isNaN(years) || years < 1) years = 1;
+
+  // 构造商品
+  var item = {
+    id: 'domain-' + result.hostname + result.domain + '-' + Date.now(),
+    productType: '域名注册',
+    productName: result.hostname + result.domain,
+    year: years,
+    cycleText: years + ' 年',
+    price: (result.price || 0) * years,
+    regService: false
+  };
+
+  // 通过 cartUtils 加入购物车并播放动画
+  if (window.cartUtils) {
+    window.cartUtils.addItem(item);
+    if (btnEl) {
+      window.cartUtils.flyTo(btnEl);
+    }
+    window.cartUtils.toast('已加入购物车：' + result.hostname + result.domain);
+  } else {
+    // 兜底
+    alert('已加入购物车: ' + result.hostname + result.domain + ' (¥' + (item.price.toFixed(2)) + ')');
+  }
+}
+
 // ===== 主搜索函数=====
 function handleSearch() {
   var input = document.getElementById('domainSearchInput');
@@ -312,43 +788,70 @@ function handleSearch() {
 
   if (!query) return;
 
-  currentPrefix = query;
-  currentFilter = 'all';
+  if (currentSearchMode === 'explore') {
+    var hasFullDomain = query.match(/\.[a-zA-Z0-9]+$/);
+    
+    if (hasFullDomain) {
+      // 单行完整域名 → 表格结果 + 推荐后缀
+      renderSingleDomainDetail(query);
+    } else {
+      // 单行主机名 → 卡片结果(原有逻辑)
+      currentPrefix = query;
+      currentFilter = 'all';
 
-  // 重置筛选按钮
-  document.querySelectorAll('.filter-btn').forEach(function(btn) {
-    btn.classList.remove('active', 'bg-primary', 'text-white');
-    btn.classList.add('border', 'border-slate-200', 'text-muted');
-  });
-  document.querySelector('.filter-btn[onclick*="all"]').classList.add('active', 'bg-primary', 'text-white');
-  document.querySelector('.filter-btn[onclick*="all"]').classList.remove('border', 'border-slate-200', 'text-muted');
+      // 重置筛选按钮
+      document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.classList.remove('active', 'bg-primary', 'text-white');
+        btn.classList.add('border', 'border-slate-200', 'text-muted');
+      });
+      document.querySelector('.filter-btn[onclick*="all"]').classList.add('active', 'bg-primary', 'text-white');
+      document.querySelector('.filter-btn[onclick*="all"]').classList.remove('border', 'border-slate-200', 'text-muted');
 
-  // 重置排序
-  // 重置排序下拉按钮显示
-  const sortBtn = document.getElementById('sortBtn');
-  if (sortBtn) {
-    sortBtn.setAttribute('data-value', 'default');
-    const sortText = document.getElementById('sortText');
-    if (sortText) {
-      sortText.textContent = '综合排序';
+      // 重置排序下拉按钮显示
+      const sortBtn = document.getElementById('sortBtn');
+      if (sortBtn) {
+        sortBtn.setAttribute('data-value', 'default');
+        const sortText = document.getElementById('sortText');
+        if (sortText) {
+          sortText.textContent = '综合排序';
+        }
+      }
+
+      currentResults = generateResults(query);
+
+      // 显示/隐藏区域
+      document.getElementById('initialSuggestions').style.display = 'none';
+      document.getElementById('searchControls').style.display = '';
+      document.getElementById('searchResults').style.display = '';
+      document.getElementById('noResults').style.display = 'none';
+      document.getElementById('searchResultsTable').style.display = 'none';
+      var recommendSection = document.getElementById('recommendSection');
+      if (recommendSection) recommendSection.style.display = 'none';
+
+      // 标题
+      document.getElementById('searchQueryTitle').style.display = '';
+      document.getElementById('searchQueryDisplay').textContent = '"' + query + '"';
+      document.getElementById('searchQuerySuffix').textContent = ' \u00d7 ' + currentResults.length + ' 个后缀';
+
+      renderAndCount();
+      updateURL(query);
     }
+  } else {
+    // 批量查询模式
+    var lines = query.split('\n').filter(function(q) { return q.trim(); });
+    
+    // 验证：每行必须包含完整域名
+    var invalidLines = lines.filter(function(line) {
+      return !line.trim().match(/\.[a-zA-Z0-9]+$/);
+    });
+    
+    if (invalidLines.length > 0) {
+      alert('批量查询模式每行必须包含完整域名（如 mybrand.com）');
+      return;
+    }
+    
+    renderTableResults(lines);
   }
-
-  currentResults = generateResults(query);
-
-  // 显示/隐藏区域
-  document.getElementById('initialSuggestions').style.display = 'none';
-  document.getElementById('searchControls').style.display = '';
-  document.getElementById('searchResults').style.display = '';
-  document.getElementById('noResults').style.display = 'none';
-
-  // 标题
-  document.getElementById('searchQueryTitle').style.display = '';
-  document.getElementById('searchQueryDisplay').textContent = '"' + query + '"';
-  document.getElementById('searchQuerySuffix').textContent = ' \u00d7 ' + currentResults.length + ' 个后缀';
-
-  renderAndCount();
-  updateURL(query);
 }
 
 // ===== 渲染 + 计数 =====
@@ -439,19 +942,18 @@ function updateURL(query) {
   }
 }
 
-// ===== 回车触发搜索 =====
-document.getElementById('domainSearchInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    handleSearch();
-  }
-});
-
 // ===== 加载时查 URL 参数 =====
 (function() {
   var params = new URLSearchParams(window.location.search);
   var q = params.get('q');
-  if (q) {
+  var mode = params.get('mode');
+  if (mode === 'batch') {
+    switchSearchMode('batch');
+    if (q) {
+      document.getElementById('domainSearchInput').value = q;
+      handleSearch();
+    }
+  } else if (q) {
     document.getElementById('domainSearchInput').value = q;
     handleSearch();
   }
@@ -560,5 +1062,49 @@ function closeMobileMenu(){
 
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>
+
+<!-- 域名回购弹窗 -->
+<div id="tradeModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden" onclick="if(event.target === this) closeTradeModal()">
+  <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+    <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+    <div class="p-10">
+      <div class="flex items-center justify-between mb-8">
+        <h3 class="text-2xl font-bold text-body">域名回购申请</h3>
+        <button onclick="closeTradeModal()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 text-muted transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-body mb-2">回购域名 <span class="text-red-400">*</span></label>
+          <textarea id="tradeDomainInput" rows="4" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请输入您希望回购的域名，Enter 换行，每行一个"></textarea>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-body mb-2">企业名称 <span class="text-red-400">*</span></label>
+            <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入企业名称">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-body mb-2">联系人名称 <span class="text-red-400">*</span></label>
+            <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入联系人姓名">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-body mb-2">联系人电话 <span class="text-red-400">*</span></label>
+            <input type="tel" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入手机号">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+            <input type="email" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+          </div>
+        </div>
+        <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交回购申请</button>
+      </form>
+      <p class="text-xs text-muted text-center mt-6">提交后我们的域名经纪人将在24小时内与您联系</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
