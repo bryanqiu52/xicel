@@ -1,0 +1,502 @@
+/* ===== 品牌护城河产品页专属样式 ===== */
+
+/* Tab 激活样式 */
+.tab-active-domain {
+  color: #0A66FF !important;
+  border-bottom-color: #0A66FF !important;
+  font-weight: 600;
+}
+
+/* FAQ 展开动画 */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-answer.open {
+  max-height: 500px;
+}
+.faq-chevron {
+  transition: transform 0.3s ease;
+}
+.faq-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* 3W2H 板块标题样式 */
+.ip-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.ip-section-title .line {
+  width: 40px;
+  height: 1px;
+  background: #E2E8F0;
+}
+.ip-section-title .tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0A66FF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* What 卡片样式 */
+.what-card {
+  background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+  border: 1px solid #DBEAFE;
+}
+
+/* IP图标框样式 */
+.ip-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ip-icon-box.what {
+  background: rgba(10, 102, 255, 0.1);
+}
+.ip-icon-box.why {
+  background: rgba(239, 68, 68, 0.1);
+}
+.ip-icon-box.price {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+/* 价值主张卡片 */
+.value-card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+}
+.value-card:hover {
+  border-color: #0A66FF;
+  box-shadow: 0 12px 40px rgba(10, 102, 255, 0.1);
+  transform: translateY(-2px);
+}
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0A66FF, #00D4AA);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.value-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Who 标签样式 */
+.who-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(10, 102, 255, 0.06);
+  border: 1px solid rgba(10, 102, 255, 0.15);
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0A66FF;
+  transition: all 0.3s;
+}
+.who-tag:hover {
+  background: rgba(10, 102, 255, 0.12);
+  border-color: rgba(10, 102, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* 价格卡片样式 */
+.price-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+.price-card:hover {
+  border-color: #0A66FF;
+  box-shadow: 0 12px 40px rgba(10, 102, 255, 0.1);
+  transform: translateY(-3px);
+}
+.price-card.featured {
+  border-color: #0A66FF;
+  border-width: 2px;
+  background: linear-gradient(135deg, #fff 0%, #EFF6FF 100%);
+}
+
+/* 价格卡片推荐标签 */
+.price-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0A66FF;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(10, 102, 255, 0.25);
+}
+
+/* 时间轴样式 */
+.how-timeline {
+  position: relative;
+}
+.how-timeline::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #E2E8F0;
+}
+.how-timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+.how-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* 时间轴步骤编号 */
+.timeline-num {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0A66FF;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.15);
+  z-index: 2;
+}
+
+/* 修复时间轴样式 - 覆盖style.css中的重复圆点 */
+.how-timeline-item::before {
+  display: none !important;
+}
+
+/* 调整时间轴padding，确保编号完整显示 */
+.how-timeline {
+  padding-left: 56px !important;
+}
+
+/* 搜索框标签样式 */
+.search-tab {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.search-tab:hover {
+  background: rgba(10, 102, 255, 0.05);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .ip-section-title .line {
+    width: 24px;
+  }
+  .how-timeline {
+    padding-left: 44px !important;
+  }
+  .how-timeline::before {
+    left: 20px !important;
+  }
+  .timeline-num {
+    left: -33px !important;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+  .who-tag {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+/* 渐变背景动画 */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 悬浮按钮组 */
+.float-actions {
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+.float-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.float-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: #0A66FF;
+}
+.float-action-btn svg {
+  width: 20px;
+  height: 20px;
+  color: #64748B;
+}
+.float-action-btn:hover svg {
+  color: #0A66FF;
+}
+
+/* ===== 域名结构图解 - 三栏卡片 ===== */
+.domain-anno-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px 16px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.domain-anno-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 顶部"标签线"——从卡片向上伸出的连接线，精准指向域名对应片段 */
+.anno-line {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 16px;
+  background: currentColor;
+  opacity: 0.35;
+}
+.anno-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.domain-anno-blue {
+  color: #2563EB;
+  border-color: #BFDBFE;
+}
+.domain-anno-indigo {
+  color: #4F46E5;
+  border-color: #C7D2FE;
+}
+.domain-anno-emerald {
+  color: #059669;
+  border-color: #A7F3D0;
+}
+
+.anno-body { color: #1E293B; }
+.anno-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.anno-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: currentColor;
+  margin-bottom: 6px;
+}
+.anno-frag {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: currentColor;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 2px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.anno-desc {
+  font-size: 12.5px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* 移动端：三卡堆叠，连接线变短 */
+@media (max-width: 768px) {
+  .anno-line { height: 12px; top: -6px; }
+  .anno-icon { font-size: 24px; }
+}
+
+/* ===== 域名结构图解 - Domain Anatomy（克制版 · 横向三段式） ===== */
+
+.domain-anatomy {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 28px 20px 20px;
+}
+
+/* 三列网格 */
+.domain-anatomy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.domain-anatomy-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 标签（前缀 / 主体 / 后缀）*/
+.domain-anatomy-tag {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+/* 域名片段 */
+.domain-anatomy-frag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: 8px 14px;
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0A66FF;
+  background: rgba(10, 102, 255, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(10, 102, 255, 0.15);
+}
+
+/* 垂直连接线 */
+.anatomy-connector {
+  position: relative;
+  height: 28px;
+  width: 2px;
+  background: rgba(10, 102, 255, 0.2);
+  margin: 8px 0 4px;
+}
+.anatomy-connector-dot {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #0A66FF;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(10, 102, 255, 0.12);
+}
+
+/* 解读卡片 */
+.domain-anatomy-card {
+  width: 100%;
+  padding: 22px 14px 18px;
+  border: 1px solid #F1F5F9;
+  border-radius: 14px;
+  background: #FAFBFC;
+  transition: all 0.25s ease;
+}
+.domain-anatomy-card:hover {
+  background: #fff;
+  border-color: rgba(10, 102, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(10, 102, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.anatomy-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+.anatomy-card-desc {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #64748B;
+}
+
+/* 底部完整域名收尾 */
+.domain-anatomy-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed #E2E8F0;
+  font-family: ui-monospace, "SF Mono", monospace;
+  font-size: 14px;
+  font-weight: 600;
+}
+.full-frag {
+  color: #0A66FF;
+  background: rgba(10, 102, 255, 0.06);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.full-dot { color: #CBD5E1; }
+
+/* 移动端：三列变一列 */
+@media (max-width: 768px) {
+  .domain-anatomy { padding: 22px 16px 18px; }
+  .domain-anatomy-grid { grid-template-columns: 1fr; gap: 18px; }
+  .domain-anatomy-frag { font-size: 20px; min-width: 76px; }
+  .anatomy-connector { height: 22px; }
+  .domain-anatomy-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    text-align: left;
+    padding: 16px;
+  }
+  .anatomy-card-icon {
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .anatomy-card-right { flex: 1; }
+}

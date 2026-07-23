@@ -76,40 +76,66 @@
     '        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">',
 
     /* 1. IDC服务 */
-    '          <a href="products-idc.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-2">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer">',
+    '            <a href="products-idc.html" class="flex items-center gap-2 mb-2 block no-underline">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#EFF6FF">🖥️</div>',
     '              <span class="font-bold text-body">IDC服务</span>',
+    '            </a>',
+    '            <div class="flex flex-wrap gap-1.5 mb-2">',
+    '              <a href="products-idc.html?subtab=web" class="text-xs text-muted hover:text-primary transition-colors">网站建设</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-idc.html?subtab=ssl" class="text-xs text-muted hover:text-primary transition-colors">SSL证书</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-idc.html?subtab=cloud" class="text-xs text-muted hover:text-primary transition-colors">云服务器</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-idc.html?subtab=ddos" class="text-xs text-muted hover:text-primary transition-colors">DDoS防护</a>',
     '            </div>',
-    '            <p class="text-xs text-muted leading-relaxed">网站建设 · SSL证书 · 企业邮箱 · 云服务器 · 网络专线 · GPU算力</p>',
-    '          </a>',
+    '          </div>',
 
     /* 2. 品牌护城河 */
-    '          <a href="products-domain.html" class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-2">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer">',
+    '            <a href="products-domain.html" class="flex items-center gap-2 mb-2 block no-underline">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#EFF6FF">🛡️</div>',
     '              <span class="font-bold text-body">品牌护城河</span>',
+    '            </a>',
+    '            <div class="flex flex-wrap gap-1.5 mb-2">',
+    '              <a href="products-domain.html?subtab=domain" class="text-xs text-muted hover:text-primary transition-colors">域名注册</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-domain.html?subtab=buyback" class="text-xs text-muted hover:text-primary transition-colors">域名回购</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-domain.html?subtab=pricing" class="text-xs text-muted hover:text-primary transition-colors">域名价格</a>',
     '            </div>',
-    '            <p class="text-xs text-muted leading-relaxed">域名注册 · 域名回购 · 域名价格 · 域名争议处理</p>',
-    '          </a>',
+    '          </div>',
 
     /* 3. 知识产权 */
-    '          <a href="products-ip.html" class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-2">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer">',
+    '            <a href="products-ip.html" class="flex items-center gap-2 mb-2 block no-underline">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#F5F3FF">📋</div>',
     '              <span class="font-bold text-body">知识产权</span>',
+    '            </a>',
+    '            <div class="flex flex-wrap gap-1.5 mb-2">',
+    '              <a href="products-ip.html?subtab=trademark" class="text-xs text-muted hover:text-primary transition-colors">商标</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-ip.html?subtab=patent" class="text-xs text-muted hover:text-primary transition-colors">专利</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-ip.html?subtab=copyright" class="text-xs text-muted hover:text-primary transition-colors">版权</a>',
     '            </div>',
-    '            <p class="text-xs text-muted leading-relaxed">商标 · 专利 · 版权</p>',
-    '          </a>',
+    '          </div>',
 
     /* 4. 设计服务 */
-    '          <a href="products-design.html" class="bg-slate-50 rounded-xl p-3 hover:bg-rose-50 transition-colors cursor-pointer block no-underline">',
-    '            <div class="flex items-center gap-2 mb-2">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-rose-50 transition-colors cursor-pointer">',
+    '            <a href="products-design.html" class="flex items-center gap-2 mb-2 block no-underline">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#FFF1F2">🎨</div>',
     '              <span class="font-bold text-body">设计服务</span>',
+    '            </a>',
+    '            <div class="flex flex-wrap gap-1.5 mb-2">',
+    '              <a href="products-design.html?subtab=brand-design" class="text-xs text-muted hover:text-rose-500 transition-colors">品牌设计</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-design.html?subtab=ui-design" class="text-xs text-muted hover:text-rose-500 transition-colors">UI/UX设计</a>',
+    '              <span class="text-xs text-slate-300">·</span>',
+    '              <a href="products-design.html?subtab=ecommerce-design" class="text-xs text-muted hover:text-rose-500 transition-colors">电商设计</a>',
     '            </div>',
-    '            <p class="text-xs text-muted leading-relaxed">LOGO · VI · UI设计 · 海报 · 包装</p>',
-    '          </a>',
+    '          </div>',
 
     '        </div>',
     '      </div>',
@@ -183,16 +209,44 @@
     '      <span class="text-sm font-semibold text-body block mb-3">产品服务</span>',
 
     /* 1. IDC服务 */
-    '      <a href="products-idc.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-idc.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">IDC服务</a>',
+    '      <div class="mb-3">',
+    '        <a href="products-idc.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-idc.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">IDC服务</a>',
+    '        <div class="flex flex-wrap gap-2 pl-4 mt-1">',
+    '          <a href="products-idc.html?subtab=web" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">网站建设</a>',
+    '          <a href="products-idc.html?subtab=ssl" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">SSL证书</a>',
+    '          <a href="products-idc.html?subtab=cloud" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">云服务器</a>',
+    '        </div>',
+    '      </div>',
 
     /* 2. 品牌护城河 */
-    '      <a href="products-domain.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-domain.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌护城河</a>',
+    '      <div class="mb-3">',
+    '        <a href="products-domain.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-domain.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌护城河</a>',
+    '        <div class="flex flex-wrap gap-2 pl-4 mt-1">',
+    '          <a href="products-domain.html?subtab=domain" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">域名注册</a>',
+    '          <a href="products-domain.html?subtab=buyback" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">域名回购</a>',
+    '          <a href="products-domain.html?subtab=pricing" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">域名价格</a>',
+    '        </div>',
+    '      </div>',
 
     /* 3. 知识产权 */
-    '      <a href="products-ip.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-ip.html') ? 'text-purple-500' : 'text-muted') + ' hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">知识产权</a>',
+    '      <div class="mb-3">',
+    '        <a href="products-ip.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-ip.html') ? 'text-purple-500' : 'text-muted') + ' hover:text-purple-500 border-l-2 border-purple-500 transition-colors" onclick="closeMobileMenu()">知识产权</a>',
+    '        <div class="flex flex-wrap gap-2 pl-4 mt-1">',
+    '          <a href="products-ip.html?subtab=trademark" class="text-xs text-muted hover:text-purple-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">商标</a>',
+    '          <a href="products-ip.html?subtab=patent" class="text-xs text-muted hover:text-purple-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">专利</a>',
+    '          <a href="products-ip.html?subtab=copyright" class="text-xs text-muted hover:text-purple-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">版权</a>',
+    '        </div>',
+    '      </div>',
 
     /* 4. 设计服务 */
-    '      <a href="products-design.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-design.html') ? 'text-rose-500' : 'text-muted') + ' hover:text-rose-500 border-l-2 border-rose-500 transition-colors" onclick="closeMobileMenu()">设计服务</a>',
+    '      <div>',
+    '        <a href="products-design.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-design.html') ? 'text-rose-500' : 'text-muted') + ' hover:text-rose-500 border-l-2 border-rose-500 transition-colors" onclick="closeMobileMenu()">设计服务</a>',
+    '        <div class="flex flex-wrap gap-2 pl-4 mt-1">',
+    '          <a href="products-design.html?subtab=brand-design" class="text-xs text-muted hover:text-rose-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">品牌设计</a>',
+    '          <a href="products-design.html?subtab=ui-design" class="text-xs text-muted hover:text-rose-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">UI/UX设计</a>',
+    '          <a href="products-design.html?subtab=ecommerce-design" class="text-xs text-muted hover:text-rose-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">电商设计</a>',
+    '        </div>',
+    '      </div>',
 
     '    </div>',
 
@@ -571,5 +625,134 @@
   window.addEventListener('storage', function(e) {
     if (e.key === CART_KEY) cartRefreshBadge();
   });
+
+  /* ============================
+     6. 通用弹窗工具（modalUtils）
+     ============================ */
+
+  var modalOverlay = null;
+  var modalDialog = null;
+  var currentConfirmCallback = null;
+  var currentCloseCallback = null;
+
+  function initModal() {
+    if (document.getElementById('xicelModal')) return;
+
+    var modalHTML = [
+      '<div id="xicelModal" class="xicel-modal-overlay">',
+      '  <div class="xicel-modal-dialog">',
+      '    <div class="xicel-modal-header">',
+      '      <div class="xicel-modal-icon"></div>',
+      '      <div class="xicel-modal-title"></div>',
+      '      <div class="xicel-modal-message"></div>',
+      '    </div>',
+      '    <div class="xicel-modal-body"></div>',
+      '    <div class="xicel-modal-footer"></div>',
+      '  </div>',
+      '</div>'
+    ].join('');
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    modalOverlay = document.getElementById('xicelModal');
+    modalDialog = modalOverlay.querySelector('.xicel-modal-dialog');
+
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+        closeModal();
+      }
+    });
+  }
+
+  function closeModal() {
+    if (!modalOverlay) return;
+    modalOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+    if (currentCloseCallback) {
+      currentCloseCallback();
+      currentCloseCallback = null;
+    }
+    currentConfirmCallback = null;
+  }
+
+  function showAlert(type, message, onClose) {
+    initModal();
+    var iconEl = modalOverlay.querySelector('.xicel-modal-icon');
+    var titleEl = modalOverlay.querySelector('.xicel-modal-title');
+    var msgEl = modalOverlay.querySelector('.xicel-modal-message');
+    var bodyEl = modalOverlay.querySelector('.xicel-modal-body');
+    var footerEl = modalOverlay.querySelector('.xicel-modal-footer');
+
+    iconEl.className = 'xicel-modal-icon ' + type;
+    switch (type) {
+      case 'success':
+        iconEl.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';
+        titleEl.textContent = '操作成功';
+        break;
+      case 'error':
+        iconEl.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+        titleEl.textContent = '操作失败';
+        break;
+      case 'warning':
+        iconEl.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>';
+        titleEl.textContent = '提示';
+        break;
+      default:
+        iconEl.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>';
+        titleEl.textContent = '信息';
+    }
+
+    msgEl.textContent = message;
+    bodyEl.innerHTML = '';
+    footerEl.innerHTML = '<button class="xicel-modal-btn ok" onclick="closeModal()">确定</button>';
+
+    currentCloseCallback = onClose || null;
+    document.body.style.overflow = 'hidden';
+    modalOverlay.classList.add('show');
+  }
+
+  function showConfirm(title, message, onConfirm) {
+    initModal();
+    var iconEl = modalOverlay.querySelector('.xicel-modal-icon');
+    var titleEl = modalOverlay.querySelector('.xicel-modal-title');
+    var msgEl = modalOverlay.querySelector('.xicel-modal-message');
+    var bodyEl = modalOverlay.querySelector('.xicel-modal-body');
+    var footerEl = modalOverlay.querySelector('.xicel-modal-footer');
+
+    iconEl.className = 'xicel-modal-icon warning';
+    iconEl.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>';
+
+    titleEl.textContent = title || '确认操作';
+    msgEl.textContent = message || '';
+    bodyEl.innerHTML = '';
+
+    footerEl.innerHTML = [
+      '<button class="xicel-modal-btn cancel" onclick="closeModal()">取消</button>',
+      '<button class="xicel-modal-btn confirm" onclick="handleModalConfirm()">确认</button>'
+    ].join('');
+
+    currentConfirmCallback = onConfirm || null;
+    currentCloseCallback = null;
+    document.body.style.overflow = 'hidden';
+    modalOverlay.classList.add('show');
+  }
+
+  function handleModalConfirm() {
+    if (currentConfirmCallback) {
+      currentConfirmCallback();
+    }
+    closeModal();
+  }
+
+  window.showAlert = showAlert;
+  window.showConfirm = showConfirm;
+  window.closeModal = closeModal;
+  window.handleModalConfirm = handleModalConfirm;
+  window.initModal = initModal;
 
 })();

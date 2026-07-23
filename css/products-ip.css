@@ -1,6 +1,239 @@
 /* ===== 知识产权产品页专属样式 ===== */
-.tab-active-ip { color: #7C3AED !important; border-bottom-color: #7C3AED !important; }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-.faq-answer.open { max-height: 500px; }
-.faq-chevron { transition: transform 0.3s ease; }
-.faq-chevron.open { transform: rotate(180deg); }
+
+/* Tab 激活样式 */
+.tab-active-ip {
+  color: #0A66FF !important;
+  border-bottom-color: #0A66FF !important;
+  font-weight: 600;
+}
+
+/* FAQ 展开动画 */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-answer.open {
+  max-height: 500px;
+}
+.faq-chevron {
+  transition: transform 0.3s ease;
+}
+.faq-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* 3W2H 板块标题样式 */
+.ip-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.ip-section-title .line {
+  width: 40px;
+  height: 1px;
+  background: #E2E8F0;
+}
+.ip-section-title .tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0A66FF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 价值主张卡片 */
+.value-card {
+  position: relative;
+  overflow: hidden;
+}
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0A66FF, #00D4AA);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.value-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* 价格卡片推荐标签 */
+.price-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0A66FF;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(10, 102, 255, 0.25);
+}
+
+/* 时间轴步骤编号 */
+.timeline-num {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0A66FF;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.15);
+  z-index: 2;
+}
+
+/* 修复时间轴样式 - 覆盖style.css中的重复圆点 */
+.how-timeline-item::before {
+  display: none !important;
+}
+
+/* 调整时间轴padding，确保编号完整显示 */
+.how-timeline {
+  padding-left: 56px !important;
+}
+.how-timeline::before {
+  left: 27px !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .ip-section-title .line {
+    width: 24px;
+  }
+  .how-timeline {
+    padding-left: 44px !important;
+  }
+  .how-timeline::before {
+    left: 20px !important;
+  }
+  .timeline-num {
+    left: -33px !important;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+}
+
+/* 渐变背景动画 */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.ip-hero-bg {
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* 悬浮按钮组 */
+.float-actions {
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+.float-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.float-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: #0A66FF;
+}
+.float-action-btn svg {
+  width: 20px;
+  height: 20px;
+  color: #64748B;
+}
+.float-action-btn:hover svg {
+  color: #0A66FF;
+}
+
+/* 对比表格样式 */
+.ip-compare-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.ip-compare-table th,
+.ip-compare-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #F1F5F9;
+  text-align: left;
+}
+.ip-compare-table th:first-child {
+  border-radius: 12px 0 0 0;
+}
+.ip-compare-table th:last-child {
+  border-radius: 0 12px 0 0;
+}
+.ip-compare-table tr:last-child td:first-child {
+  border-radius: 0 0 0 12px;
+}
+.ip-compare-table tr:last-child td:last-child {
+  border-radius: 0 0 12px 0;
+}
+
+/* 服务优势图标 */
+.advantage-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+.advantage-card:hover .advantage-icon {
+  transform: scale(1.1);
+}
+
+/* 统计数据卡片 */
+.stat-card {
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  color: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+}

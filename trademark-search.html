@@ -65,6 +65,18 @@ tailwind.config = {
         查询
       </button>
     </div>
+
+    <!-- 上传图片预览（仅在上传图样后显示） -->
+    <div id="uploadedImagePreview" class="hidden mt-5 flex items-center gap-3 p-3 bg-white border border-border rounded-xl shadow-sm">
+      <img id="uploadedImageThumb" src="" alt="已上传图样" class="w-14 h-14 object-cover rounded-lg border border-border" />
+      <div class="flex-1 min-w-0 text-left">
+        <div class="text-sm font-medium text-body">已上传图样</div>
+        <div class="text-xs text-muted truncate" id="uploadedImageName">filename</div>
+      </div>
+      <button type="button" onclick="clearUploadedImage()" class="text-muted hover:text-red-500 transition-colors" title="移除">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -577,6 +589,17 @@ function handleSearch() {
   var query = input ? input.value.trim() : '';
   currentQuery = query;
 
+  // 文字搜索时清除图片状态
+  if (query) {
+    isImageSearch = false;
+    var fileInput = document.getElementById('imageSearchInput');
+    if (fileInput) fileInput.value = '';
+    var preview = document.getElementById('uploadedImagePreview');
+    var thumb = document.getElementById('uploadedImageThumb');
+    if (preview) preview.classList.add('hidden');
+    if (thumb) thumb.src = '';
+  }
+
   // 更新 URL，便于刷新和分享
   var url = 'trademark-search.html';
   if (query) {
@@ -592,10 +615,47 @@ function handleSearch() {
 
 // ===== 图片上传搜索 =====
 function handleImageSearch(input) {
-  if (input && input.files && input.files.length > 0) {
-    // 静态站点不实现真实图像识别，上传后直接跳转结果页
-    window.location.href = 'trademark-search.html?mode=image';
-  }
+  if (!input || !input.files || input.files.length === 0) return;
+
+  var file = input.files[0];
+  var reader = new FileReader();
+
+  reader.onload = function(e) {
+    // 显示图片缩略图在搜索框下方
+    var preview = document.getElementById('uploadedImagePreview');
+    var thumb = document.getElementById('uploadedImageThumb');
+    var name = document.getElementById('uploadedImageName');
+    if (thumb) thumb.src = e.target.result;
+    if (name) name.textContent = file.name;
+    if (preview) preview.classList.remove('hidden');
+
+    // 标记为图片搜索模式
+    isImageSearch = true;
+    currentQuery = '';
+
+    // 清空文字搜索框
+    var searchInput = document.getElementById('trademarkSearchInput');
+    if (searchInput) searchInput.value = '';
+
+    // 更新标题、加载结果
+    updateSearchTitle();
+    filterResults(currentFilter);
+  };
+
+  reader.readAsDataURL(file);
+}
+
+// 移除已上传图片
+function clearUploadedImage() {
+  var input = document.getElementById('imageSearchInput');
+  if (input) input.value = '';
+  var preview = document.getElementById('uploadedImagePreview');
+  var thumb = document.getElementById('uploadedImageThumb');
+  if (preview) preview.classList.add('hidden');
+  if (thumb) thumb.src = '';
+  isImageSearch = false;
+  updateSearchTitle();
+  filterResults(currentFilter);
 }
 
 // ===== 商标详情弹窗 =====
@@ -742,7 +802,7 @@ function updateSearchTitle() {
     display.textContent = '"' + currentQuery + '"';
     title.style.display = '';
   } else if (isImageSearch) {
-    display.textContent = '图样';
+    display.textContent = '已上传图样';
     title.style.display = '';
   } else {
     title.style.display = 'none';

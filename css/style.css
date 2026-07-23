@@ -65,6 +65,7 @@ body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   border: 1px solid #E2E8F0;
   max-height: 256px;
+  min-width: 140px;
   overflow: hidden;
 }
 .dropdown-panel-inner {
@@ -81,12 +82,52 @@ body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
   font-size: 14px;
   cursor: pointer;
   color: #1E293B;
+  white-space: nowrap;
   transition: background 0.15s;
 }
 .dropdown-option:hover { background: rgba(10,102,255,0.06); }
 .dropdown-option.selected { color: #0A66FF; font-weight: 500; }
 .dropdown-option .check-icon { width: 16px; height: 16px; color: #0A66FF; flex-shrink: 0; display: none; }
 .dropdown-option.selected .check-icon { display: inline; }
+.dropdown-option-custom {
+  color: #1E293B;
+  font-weight: 500;
+}
+.dropdown-option-custom:hover {
+  background: rgba(30, 41, 59, 0.06);
+}
+.dropdown-option-input {
+  padding: 10px 16px;
+  border-bottom: 1px solid #E2E8F0;
+}
+.dropdown-option-divider {
+  height: 1px;
+  background: #E2E8F0;
+  margin: 4px 0;
+}
+
+/* 按钮内联输入自定义后缀 */
+.dropdown-btn.editing {
+  padding-left: 12px;
+  padding-right: 12px;
+  background: #fff;
+  border-color: #0A66FF;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.1);
+}
+.custom-suffix-inline-input {
+  width: 100%;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E293B;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: left;
+}
+.custom-suffix-inline-input::placeholder {
+  color: #94A3B8;
+}
 
 /* 选项小尺寸变体（如排序下拉） */
 .dropdown-btn-sm {
@@ -1018,4 +1059,275 @@ body .beautified-select-sm:disabled {
   .step-item .step-text {
     font-size: 10px;
   }
+}
+
+/* ===== 3W2H 板块通用样式 ===== */
+.what-card {
+  background: linear-gradient(135deg, rgba(10, 102, 255, 0.06), rgba(0, 212, 170, 0.04));
+  border: 1px solid rgba(10, 102, 255, 0.15);
+}
+.why-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s ease;
+}
+.why-card:hover {
+  border-color: #0A66FF;
+  box-shadow: 0 4px 20px rgba(10, 102, 255, 0.08);
+  transform: translateY(-2px);
+}
+.who-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #F8FAFC;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #64748B;
+  border: 1px solid #E2E8F0;
+  transition: all 0.2s;
+}
+.who-tag:hover {
+  background: #EFF6FF;
+  border-color: #0A66FF;
+  color: #0A66FF;
+}
+.how-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+.how-timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #E2E8F0;
+}
+.how-timeline-item {
+  position: relative;
+  padding-bottom: 32px;
+}
+.how-timeline-item:last-child {
+  padding-bottom: 0;
+}
+.how-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -34px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0A66FF;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.15);
+}
+.price-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.price-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+.price-card.featured {
+  border-color: #0A66FF;
+  background: linear-gradient(135deg, rgba(10, 102, 255, 0.04), transparent);
+}
+.ip-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ip-icon-box.what {
+  background: linear-gradient(135deg, rgba(10, 102, 255, 0.15), rgba(0, 212, 170, 0.1));
+}
+.ip-icon-box.why {
+  background: rgba(239, 68, 68, 0.1);
+}
+.ip-icon-box.who {
+  background: rgba(16, 185, 129, 0.1);
+}
+.ip-icon-box.how {
+  background: rgba(245, 158, 11, 0.1);
+}
+.ip-icon-box.price {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+/* ===== 添加域名下拉面板样式 ===== */
+.domain-category-block {
+  margin-bottom: 24px;
+}
+.domain-category-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  border-left: 3px solid #0A66FF;
+}
+.domain-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (min-width: 640px) {
+  .domain-category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .domain-category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.domain-option-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.domain-option-item:hover {
+  border-color: #0A66FF;
+  background: rgba(10, 102, 255, 0.04);
+}
+.domain-option-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #0A66FF;
+  flex-shrink: 0;
+}
+
+/* ===== 通用确认弹窗 ===== */
+.xicel-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.xicel-modal-overlay.show {
+  display: flex;
+  animation: fadeIn 0.2s ease-out;
+}
+.xicel-modal-dialog {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.25s ease-out;
+  overflow: hidden;
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 弹窗头部 */
+.xicel-modal-header {
+  padding: 24px 24px 0;
+  text-align: center;
+}
+.xicel-modal-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 24px;
+}
+.xicel-modal-icon.success {
+  background: linear-gradient(135deg, #00D4AA, #00A77F);
+  color: #fff;
+}
+.xicel-modal-icon.error {
+  background: linear-gradient(135deg, #EF4444, #DC2626);
+  color: #fff;
+}
+.xicel-modal-icon.warning {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #fff;
+}
+.xicel-modal-icon.info {
+  background: linear-gradient(135deg, #0A66FF, #0047CC);
+  color: #fff;
+}
+.xicel-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 8px;
+}
+.xicel-modal-message {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* 弹窗内容 */
+.xicel-modal-body {
+  padding: 16px 24px;
+}
+
+/* 弹窗底部按钮 */
+.xicel-modal-footer {
+  display: flex;
+  gap: 10px;
+  padding: 16px 24px 24px;
+}
+.xicel-modal-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+  text-align: center;
+}
+.xicel-modal-btn.cancel {
+  background: #F5F7FA;
+  color: #64748B;
+}
+.xicel-modal-btn.cancel:hover {
+  background: #E2E8F0;
+  color: #1E293B;
+}
+.xicel-modal-btn.confirm {
+  background: #0A66FF;
+  color: #fff;
+}
+.xicel-modal-btn.confirm:hover {
+  background: #0047CC;
+}
+.xicel-modal-btn.ok {
+  background: #0A66FF;
+  color: #fff;
+}
+.xicel-modal-btn.ok:hover {
+  background: #0047CC;
 }

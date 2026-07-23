@@ -605,8 +605,38 @@ function fillForm(data) {
 }
 
 function saveTemplate() {
-  var templateName = prompt('请输入模板名称：');
-  if (!templateName) return;
+  initModal();
+  var iconEl = document.getElementById('xicelModal').querySelector('.xicel-modal-icon');
+  var titleEl = document.getElementById('xicelModal').querySelector('.xicel-modal-title');
+  var msgEl = document.getElementById('xicelModal').querySelector('.xicel-modal-message');
+  var bodyEl = document.getElementById('xicelModal').querySelector('.xicel-modal-body');
+  var footerEl = document.getElementById('xicelModal').querySelector('.xicel-modal-footer');
+
+  iconEl.className = 'xicel-modal-icon info';
+  iconEl.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>';
+  titleEl.textContent = '保存模板';
+  msgEl.textContent = '请输入模板名称';
+  
+  bodyEl.innerHTML = '<input type="text" id="templateNameInput" placeholder="如：个人模板" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm">';
+  footerEl.innerHTML = [
+    '<button class="xicel-modal-btn cancel" onclick="closeModal()">取消</button>',
+    '<button class="xicel-modal-btn confirm" onclick="confirmSaveTemplate()">确认</button>'
+  ].join('');
+
+  document.body.style.overflow = 'hidden';
+  document.getElementById('xicelModal').classList.add('show');
+
+  setTimeout(function() {
+    document.getElementById('templateNameInput').focus();
+  }, 100);
+}
+
+function confirmSaveTemplate() {
+  var templateName = document.getElementById('templateNameInput').value.trim();
+  if (!templateName) {
+    showAlert('warning', '请输入模板名称');
+    return;
+  }
   
   var data = collectFormData();
   var templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
@@ -621,7 +651,8 @@ function saveTemplate() {
   templates.push(newTemplate);
   localStorage.setItem('registrantTemplates', JSON.stringify(templates));
   loadTemplates();
-  alert('模板保存成功！');
+  closeModal();
+  showAlert('success', '模板保存成功！');
 }
 
 function collectFormData() {
@@ -662,27 +693,27 @@ function collectFormData() {
 
 function validateForm() {
   if (currentRegistrantType === 'personal') {
-    if (!document.getElementById('perHolderCn').value.trim()) { alert('请填写域名持有者姓名（中文）'); return false; }
-    if (!document.getElementById('perIdNumber').value.trim()) { alert('请填写证件号码'); return false; }
-    if (!document.getElementById('perCountry').value.trim()) { alert('请填写国家/地区'); return false; }
-    if (!document.getElementById('perProvince').value.trim()) { alert('请填写省份'); return false; }
-    if (!document.getElementById('perCity').value.trim()) { alert('请填写城市'); return false; }
-    if (!document.getElementById('perZipCode').value.trim()) { alert('请填写邮政编码'); return false; }
-    if (!document.getElementById('perAddressCn').value.trim()) { alert('请填写联系地址（中文）'); return false; }
-    if (!document.getElementById('perPhone').value.trim()) { alert('请填写联系电话'); return false; }
-    if (!document.getElementById('perEmail').value.trim()) { alert('请填写电子邮箱'); return false; }
+    if (!document.getElementById('perHolderCn').value.trim()) { showAlert('warning', '请填写域名持有者姓名（中文）'); return false; }
+    if (!document.getElementById('perIdNumber').value.trim()) { showAlert('warning', '请填写证件号码'); return false; }
+    if (!document.getElementById('perCountry').value.trim()) { showAlert('warning', '请填写国家/地区'); return false; }
+    if (!document.getElementById('perProvince').value.trim()) { showAlert('warning', '请填写省份'); return false; }
+    if (!document.getElementById('perCity').value.trim()) { showAlert('warning', '请填写城市'); return false; }
+    if (!document.getElementById('perZipCode').value.trim()) { showAlert('warning', '请填写邮政编码'); return false; }
+    if (!document.getElementById('perAddressCn').value.trim()) { showAlert('warning', '请填写联系地址（中文）'); return false; }
+    if (!document.getElementById('perPhone').value.trim()) { showAlert('warning', '请填写联系电话'); return false; }
+    if (!document.getElementById('perEmail').value.trim()) { showAlert('warning', '请填写电子邮箱'); return false; }
   } else {
-    if (!document.getElementById('comNameCn').value.trim()) { alert('请填写企业名称（中文）'); return false; }
-    if (!document.getElementById('comIdNumber').value.trim()) { alert('请填写证件号码'); return false; }
-    if (!document.getElementById('comLegalPerson').value.trim()) { alert('请填写法人姓名'); return false; }
-    if (!document.getElementById('comCountry').value.trim()) { alert('请填写国家/地区'); return false; }
-    if (!document.getElementById('comProvince').value.trim()) { alert('请填写省份'); return false; }
-    if (!document.getElementById('comCity').value.trim()) { alert('请填写城市'); return false; }
-    if (!document.getElementById('comZipCode').value.trim()) { alert('请填写邮政编码'); return false; }
-    if (!document.getElementById('comAddressCn').value.trim()) { alert('请填写联系地址（中文）'); return false; }
-    if (!document.getElementById('comContact').value.trim()) { alert('请填写联系人姓名'); return false; }
-    if (!document.getElementById('comPhone').value.trim()) { alert('请填写联系电话'); return false; }
-    if (!document.getElementById('comEmail').value.trim()) { alert('请填写电子邮箱'); return false; }
+    if (!document.getElementById('comNameCn').value.trim()) { showAlert('warning', '请填写企业名称（中文）'); return false; }
+    if (!document.getElementById('comIdNumber').value.trim()) { showAlert('warning', '请填写证件号码'); return false; }
+    if (!document.getElementById('comLegalPerson').value.trim()) { showAlert('warning', '请填写法人姓名'); return false; }
+    if (!document.getElementById('comCountry').value.trim()) { showAlert('warning', '请填写国家/地区'); return false; }
+    if (!document.getElementById('comProvince').value.trim()) { showAlert('warning', '请填写省份'); return false; }
+    if (!document.getElementById('comCity').value.trim()) { showAlert('warning', '请填写城市'); return false; }
+    if (!document.getElementById('comZipCode').value.trim()) { showAlert('warning', '请填写邮政编码'); return false; }
+    if (!document.getElementById('comAddressCn').value.trim()) { showAlert('warning', '请填写联系地址（中文）'); return false; }
+    if (!document.getElementById('comContact').value.trim()) { showAlert('warning', '请填写联系人姓名'); return false; }
+    if (!document.getElementById('comPhone').value.trim()) { showAlert('warning', '请填写联系电话'); return false; }
+    if (!document.getElementById('comEmail').value.trim()) { showAlert('warning', '请填写电子邮箱'); return false; }
   }
   return true;
 }

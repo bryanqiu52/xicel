@@ -714,10 +714,11 @@ tailwind.config = {
   });
 
   document.getElementById('clearAllBtn').addEventListener('click', function(){
-    if (!confirm('确定要清空购物车吗？')) return;
-    writeCart([]);
-    if (window.cartUtils) window.cartUtils.refresh();
-    renderTable();
+    showConfirm('清空购物车', '确定要清空购物车中的所有商品吗？', function(){
+      writeCart([]);
+      if (window.cartUtils) window.cartUtils.refresh();
+      renderTable();
+    });
   });
 
   // ===== 立即结算 =====
@@ -726,7 +727,7 @@ tailwind.config = {
     var selectedItems = items.filter(function(it) { return it.selected; });
     
     if (!selectedItems.length) {
-      alert('请选择要结算的商品');
+      showAlert('warning', '请选择要结算的商品');
       return;
     }
     
