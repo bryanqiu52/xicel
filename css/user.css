@@ -1,6 +1,6 @@
-/* ===== 全局基础样式 ===== */
-* { font-family: 'Microsoft YaHei','PingFang SC','Helvetica Neue',sans-serif; }
-body { background: #F5F7FA; color: #1E293B; margin: 0; overflow-x: hidden; }
+/* ===== 页面覆盖 ===== */
+/* body 背景/滚动覆盖 style.css 默认值 */
+body { background: #F5F7FA; margin: 0; overflow-x: hidden; }
 
 /* ===== 背景装饰 ===== */
 .bg-glow { position: fixed; pointer-events: none; z-index: 0; }
@@ -60,6 +60,7 @@ body { background: #F5F7FA; color: #1E293B; margin: 0; overflow-x: hidden; }
 .page-subtitle { font-size: 14px; color: #94A3B8; margin: 0; }
 
 /* ===== 面板切换动画 ===== */
+/* 注：fadeIn 在此页覆盖 style.css 同名 keyframes，调整为 6px 微动效果 */
 .tab-panel { display: none; animation: fadeIn 0.25s ease-out; }
 .tab-panel.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -404,7 +405,7 @@ body { background: #F5F7FA; color: #1E293B; margin: 0; overflow-x: hidden; }
 .id-preview-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; animation: fadeIn 0.2s ease-out; }
 .id-preview-modal.show { display: flex; }
 .id-preview-box { position: relative; background: #fff; border-radius: 16px; padding: 24px; min-width: 360px; max-width: 90vw; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: scaleIn 0.25s ease-out; }
-@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+/* scaleIn 定义见下方 @keyframes（L442），此处引用即可 */
 .id-preview-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; border: none; color: #64748B; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
 .id-preview-close:hover { background: #E2E8F0; color: #1E293B; transform: rotate(90deg); }
 .id-preview-title { font-size: 16px; font-weight: 700; color: #0F172A; text-align: center; margin-bottom: 20px; }

@@ -1331,3 +1331,590 @@ body .beautified-select-sm:disabled {
 .xicel-modal-btn.ok:hover {
   background: #0047CC;
 }
+
+/* =================================================================
+   产品页公共样式（从 products-idc/ip/domain.css 提取，消除冗余）
+   ================================================================= */
+
+/* ----- FAQ 展开/折叠动画（3 个产品页共用） ----- */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-answer.open {
+  max-height: 500px;
+}
+.faq-chevron {
+  transition: transform 0.3s ease;
+}
+.faq-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* ===== FAQ 统一样式（与 help.html 一致） ===== */
+.faq-item {
+  border-bottom: 1px solid #E2E8F0;
+}
+.faq-question {
+  cursor: pointer;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  transition: color 0.2s;
+}
+.faq-question:hover {
+  color: #0A66FF;
+}
+.faq-question .arrow {
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.faq-question.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* ----- 3W2H/渐变板块标题（products-ip / products-domain 共用） ----- */
+.ip-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.ip-section-title .tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ip-section-title .line {
+  width: 36px;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #0A66FF, transparent);
+}
+
+/* ----- 通用渐变英文标题（IDC 其他子标签共用） ----- */
+.gradient-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.gradient-section-title .en-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-section-title .line {
+  width: 36px;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #0A66FF, transparent);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .ip-section-title .line,
+  .gradient-section-title .line {
+    width: 24px;
+  }
+}
+
+/* ----- 价值主张卡片 ::before 顶部渐变条（ip/domain 共用基础） ----- */
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0A66FF, #00D4AA);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.value-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ----- 价格卡片推荐标签（ip/domain 共用） ----- */
+.price-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0A66FF;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(10, 102, 255, 0.25);
+}
+
+/* ----- 时间轴步骤编号（ip/domain 共用，覆盖 style.css 默认圆点） ----- */
+.timeline-num {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0A66FF;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.15);
+  z-index: 2;
+}
+.how-timeline-item::before {
+  display: none !important;
+}
+.how-timeline {
+  padding-left: 56px !important;
+}
+.how-timeline::before {
+  left: 27px !important;
+}
+
+/* ----- 渐变背景动画 ----- */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ================================
+   右侧悬浮客服卡片
+   ================================ */
+.float-card {
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  z-index: 100;
+  animation: floatCardIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+.float-card-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(30px) scale(0.95);
+  pointer-events: none;
+}
+@keyframes floatCardIn {
+  from { opacity: 0; transform: translateX(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+.float-card-body {
+  width: 220px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ----- 关闭按钮 ----- */
+.float-card-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #F1F5F9;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 2;
+}
+.float-card-close:hover {
+  background: #E2E8F0;
+}
+.float-card-close svg {
+  width: 16px;
+  height: 16px;
+  color: #94A3B8;
+}
+.float-card-close:hover svg {
+  color: #64748B;
+}
+
+/* ----- 客服头部 ----- */
+.float-agent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 18px 14px;
+}
+.float-avatar {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+.float-avatar svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+}
+.float-agent-info {
+  flex: 1;
+  min-width: 0;
+}
+.float-agent-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E293B;
+  line-height: 1.3;
+}
+.float-agent-desc {
+  font-size: 11px;
+  color: #94A3B8;
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+/* ----- 联系方式列表 ----- */
+.float-contact-list {
+  padding: 4px 8px 8px;
+}
+.float-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.float-contact-item:hover {
+  background: #F8FAFC;
+}
+
+/* 图标 */
+.float-contact-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.float-contact-item:hover .float-contact-icon {
+  transform: scale(1.08);
+}
+.float-contact-icon svg {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+.float-icon-phone {
+  background: linear-gradient(135deg, #0A66FF, #2563EB);
+  box-shadow: 0 3px 10px rgba(10, 102, 255, 0.25);
+}
+.float-icon-chat {
+  background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+  box-shadow: 0 3px 10px rgba(139, 92, 246, 0.25);
+}
+.float-icon-wechat {
+  background: #07C160;
+  box-shadow: 0 3px 10px rgba(7, 193, 96, 0.25);
+}
+
+/* 文字 */
+.float-contact-info {
+  flex: 1;
+  min-width: 0;
+}
+.float-contact-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E293B;
+  line-height: 1.3;
+}
+.float-contact-value {
+  font-size: 11px;
+  color: #94A3B8;
+  margin-top: 1px;
+  line-height: 1.3;
+}
+.float-contact-item:hover .float-contact-label {
+  color: #0A66FF;
+}
+
+/* 右侧箭头 */
+.float-contact-arrow {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s;
+}
+.float-contact-arrow svg {
+  width: 14px;
+  height: 14px;
+  color: #0A66FF;
+}
+.float-contact-item:hover .float-contact-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ----- 微信客服卡片 ----- */
+.float-wechat-card {
+  margin: 6px 10px 4px;
+  background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(7, 193, 96, 0.12);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.float-wechat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 8px;
+}
+.float-wechat-card-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.float-wechat-card-icon svg {
+  width: 100%;
+  height: 100%;
+  color: #07C160;
+}
+.float-wechat-card-header span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1E293B;
+  letter-spacing: 0.3px;
+}
+.float-wechat-card-body {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 4px 14px 12px;
+}
+.float-wechat-card-qr {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+.float-wechat-card-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, rgba(7, 193, 96, 0.15), transparent);
+  margin: 0 12px;
+  flex-shrink: 0;
+}
+.float-wechat-card-text {
+  font-size: 11px;
+  color: #6B7280;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* ----- 回到顶部按钮（独立） ----- */
+.float-backtop-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 48px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+.float-backtop-btn:hover {
+  background: rgba(10, 102, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(10, 102, 255, 0.3);
+}
+.float-backtop-btn svg {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+/* ================================
+   百宝箱图标（折叠时显示）
+   ================================ */
+.float-baobox {
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.float-baobox-show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.float-baobox-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0A66FF, #7C3AED);
+  box-shadow: 0 6px 24px rgba(10, 102, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative;
+}
+.float-baobox-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(10, 102, 255, 0.5);
+}
+.float-baobox-btn svg {
+  width: 26px;
+  height: 26px;
+  color: #fff;
+}
+/* 呼吸光晕 */
+.float-baobox-btn::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 21px;
+  border: 2px solid #0A66FF;
+  opacity: 0;
+  animation: baoboxPulse 2.5s ease-in-out infinite;
+}
+@keyframes baoboxPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* ----- 移动端适配 ----- */
+@media (max-width: 768px) {
+  .float-card {
+    right: 12px;
+    bottom: 80px;
+  }
+  .float-card-body {
+    width: 200px;
+  }
+  .float-agent {
+    padding: 16px 14px 10px;
+  }
+  .float-avatar {
+    width: 42px;
+    height: 42px;
+  }
+  .float-agent-name {
+    font-size: 14px;
+  }
+  .float-contact-item {
+    padding: 8px 8px;
+  }
+  .float-contact-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .float-contact-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  .float-wechat-card-qr {
+    width: 64px;
+    height: 64px;
+  }
+  .float-wechat-card-text {
+    font-size: 10px;
+  }
+
+  .float-baobox {
+    right: 12px;
+    bottom: 80px;
+  }
+  .float-baobox-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+  .float-baobox-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .float-backtop-btn {
+    right: 12px;
+    bottom: 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+  .float-backtop-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ----- 时间轴移动端适配 ----- */
+@media (max-width: 768px) {
+  .ip-section-title .line,
+  .gradient-section-title .line {
+    width: 24px;
+  }
+  .how-timeline {
+    padding-left: 44px !important;
+  }
+  .how-timeline::before {
+    left: 20px !important;
+  }
+  .timeline-num {
+    left: -33px !important;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+}

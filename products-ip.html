@@ -58,9 +58,8 @@ tailwind.config = {
     <!-- What 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
         <span class="tag">What</span>
-        <div class="line"></div>
+        <span class="line"></span>
       </div>
       <h2 class="text-3xl font-bold text-body mb-6">什么是商标？</h2>
       <div class="what-card rounded-2xl p-8">
@@ -95,9 +94,8 @@ tailwind.config = {
     <!-- Why 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
         <span class="tag">Why</span>
-        <div class="line"></div>
+        <span class="line"></span>
       </div>
       <h2 class="text-3xl font-bold text-body mb-6">为什么需要商标？</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,9 +132,8 @@ tailwind.config = {
     <!-- Who 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
         <span class="tag">Who</span>
-        <div class="line"></div>
+        <span class="line"></span>
       </div>
       <h2 class="text-3xl font-bold text-body mb-6">适合谁来注册？</h2>
       <div class="flex flex-wrap gap-3 mb-8">
@@ -214,9 +211,8 @@ tailwind.config = {
     <!-- How 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
         <span class="tag">How</span>
-        <div class="line"></div>
+        <span class="line"></span>
       </div>
       <h2 class="text-3xl font-bold text-body mb-6">如何注册商标？</h2>
       <div class="bg-white rounded-2xl border border-slate-200">
@@ -268,9 +264,8 @@ tailwind.config = {
     <!-- How Much 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
         <span class="tag">How Much</span>
-        <div class="line"></div>
+        <span class="line"></span>
       </div>
       <h2 class="text-3xl font-bold text-body mb-6">服务价格</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -318,9 +313,33 @@ tailwind.config = {
     <div class="max-w-3xl">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
       <div class="space-y-3">
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>商标注册需要多长时间？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">国内商标从提交到拿到注册证书通常需要12-18个月，包括形式审查(1个月)、实质审查(6-9个月)、公告期(3个月)等阶段。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>商标被驳回怎么办？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">收到驳回通知后可在15日内提交复审申请。我们的专业律师团队会分析驳回理由，制定复审策略，复审成功率可达60%以上。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>商标有效期多久？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">中国注册商标有效期为10年，自核准注册之日起计算。期满前12个月内可办理续展，每次续展有效期也为10年。</p></div></div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="text-sm font-medium">商标注册需要多长时间？</span>
+            <svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p class="text-sm text-muted leading-relaxed">国内商标从提交到拿到注册证书通常需要12-18个月，包括形式审查(1个月)、实质审查(6-9个月)、公告期(3个月)等阶段。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="text-sm font-medium">商标被驳回怎么办？</span>
+            <svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p class="text-sm text-muted leading-relaxed">收到驳回通知后可在15日内提交复审申请。我们的专业律师团队会分析驳回理由，制定复审策略，复审成功率可达60%以上。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="text-sm font-medium">商标有效期多久？</span>
+            <svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p class="text-sm text-muted leading-relaxed">中国注册商标有效期为10年，自核准注册之日起计算。期满前12个月内可办理续展，每次续展有效期也为10年。</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -333,10 +352,9 @@ tailwind.config = {
     <!-- What 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">What</span>
-        <div class="line"></div>
-      </div>
+          <span class="tag">What</span>
+          <span class="line"></span>
+        </div>
       <h2 class="text-3xl font-bold text-body mb-6">什么是专利？</h2>
       <div class="what-card rounded-2xl p-8">
         <div class="flex flex-col lg:flex-row gap-8 items-start">
@@ -370,10 +388,9 @@ tailwind.config = {
     <!-- Why 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">Why</span>
-        <div class="line"></div>
-      </div>
+          <span class="tag">Why</span>
+          <span class="line"></span>
+        </div>
       <h2 class="text-3xl font-bold text-body mb-6">为什么需要专利？</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="value-card why-card rounded-2xl p-6">
@@ -409,10 +426,9 @@ tailwind.config = {
     <!-- Who 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">Who</span>
-        <div class="line"></div>
-      </div>
+          <span class="tag">Who</span>
+          <span class="line"></span>
+        </div>
       <h2 class="text-3xl font-bold text-body mb-6">适合谁来申请？</h2>
       <div class="flex flex-wrap gap-3 mb-8">
         <span class="who-tag">
@@ -489,10 +505,9 @@ tailwind.config = {
     <!-- How 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">How</span>
-        <div class="line"></div>
-      </div>
+          <span class="tag">How</span>
+          <span class="line"></span>
+        </div>
       <h2 class="text-3xl font-bold text-body mb-6">如何申请专利？</h2>
       <div class="bg-white rounded-2xl border border-slate-200">
         <div class="how-timeline p-8">
@@ -592,10 +607,9 @@ tailwind.config = {
     <!-- How Much 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">How Much</span>
-        <div class="line"></div>
-      </div>
+          <span class="tag">How Much</span>
+          <span class="line"></span>
+        </div>
       <h2 class="text-3xl font-bold text-body mb-6">服务价格</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="price-card p-6">
@@ -642,8 +656,24 @@ tailwind.config = {
     <div class="max-w-3xl">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
       <div class="space-y-3">
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>发明专利和实用新型专利有什么区别？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">发明专利保护技术方案（产品、方法或其改进），需要实质审查，保护期20年；实用新型专利保护产品的形状、构造或其结合，只进行形式审查，授权快但保护期10年。发明专利含金量更高，适合核心技术保护。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>PCT国际专利申请有什么优势？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">PCT（专利合作条约）允许通过一份申请同时向多个成员国申请专利保护，简化了流程，为申请人争取了最多30个月的时间来决定进入哪些国家，大大降低了初期成本和决策压力。</p></div></div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="text-sm font-medium">发明专利和实用新型专利有什么区别？</span>
+            <svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p class="text-sm text-muted leading-relaxed">发明专利保护技术方案（产品、方法或其改进），需要实质审查，保护期20年；实用新型专利保护产品的形状、构造或其结合，只进行形式审查，授权快但保护期10年。发明专利含金量更高，适合核心技术保护。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="text-sm font-medium">PCT国际专利申请有什么优势？</span>
+            <svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p class="text-sm text-muted leading-relaxed">PCT（专利合作条约）允许通过一份申请同时向多个成员国申请专利保护，简化了流程，为申请人争取了最多30个月的时间来决定进入哪些国家，大大降低了初期成本和决策压力。</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -656,11 +686,10 @@ tailwind.config = {
     <!-- What 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">What</span>
-        <div class="line"></div>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">什么是版权？</h2>
+          <span class="tag">What</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">什么是版权？</h2>
       <div class="what-card rounded-2xl p-8">
         <div class="flex flex-col lg:flex-row gap-8 items-start">
           <div class="ip-icon-box what shrink-0">
@@ -693,9 +722,8 @@ tailwind.config = {
     <!-- Why 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
         <span class="tag">Why</span>
-        <div class="line"></div>
+        <span class="line"></span>
       </div>
       <h2 class="text-3xl font-bold text-body mb-6">为什么需要版权登记？</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -732,11 +760,10 @@ tailwind.config = {
     <!-- Who 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">Who</span>
-        <div class="line"></div>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">适合谁来登记？</h2>
+          <span class="tag">Who</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">适合谁来登记？</h2>
       <div class="flex flex-wrap gap-3 mb-8">
         <span class="who-tag">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
@@ -812,11 +839,10 @@ tailwind.config = {
     <!-- How 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">How</span>
-        <div class="line"></div>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">如何登记版权？</h2>
+          <span class="tag">How</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">如何登记版权？</h2>
       <div class="bg-white rounded-2xl border border-slate-200">
         <div class="how-timeline p-8">
           <div class="how-timeline-item">
@@ -858,11 +884,10 @@ tailwind.config = {
     <!-- How Much 板块 -->
     <div class="mb-20">
       <div class="ip-section-title">
-        <div class="line"></div>
-        <span class="tag">How Much</span>
-        <div class="line"></div>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">服务价格</h2>
+          <span class="tag">How Much</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">服务价格</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="price-card p-6">
           <div class="ip-icon-box price mb-4">
@@ -908,14 +933,31 @@ tailwind.config = {
     <div class="max-w-3xl">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
       <div class="space-y-3">
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>软件著作权登记需要多长时间？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">普通办理约30个工作日，加急办理最快5-10个工作日即可取得证书。建议提前规划，合理安排时间。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>版权登记和商标注册有什么区别？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">版权保护的是作品的表达形式（如代码、文字、美术作品），自创作完成即自动产生；商标保护的是区分商品/服务来源的标识，需要注册才能获得专用权。两者保护对象不同，建议同时进行以形成全方位保护。</p></div></div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="text-sm font-medium">软件著作权登记需要多长时间？</span>
+            <svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p class="text-sm text-muted leading-relaxed">普通办理约30个工作日，加急办理最快5-10个工作日即可取得证书。建议提前规划，合理安排时间。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="text-sm font-medium">版权登记和商标注册有什么区别？</span>
+            <svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p class="text-sm text-muted leading-relaxed">版权保护的是作品的表达形式（如代码、文字、美术作品），自创作完成即自动产生；商标保护的是区分商品/服务来源的标识，需要注册才能获得专用权。两者保护对象不同，建议同时进行以形成全方位保护。</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <div id="footer-container"></div>
+<div id="float-actions-container"></div>
 
 <!-- ========== 咨询弹窗 ========== -->
 <div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
@@ -940,8 +982,9 @@ function openConsultModal(){ document.getElementById('consultModal').style.displ
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
 function toggleFaq(btn){
-  var answer = btn.nextElementSibling, chevron = btn.querySelector('.faq-chevron');
-  answer.classList.toggle('open'); chevron.classList.toggle('open');
+  btn.classList.toggle('open');
+  var answer = btn.nextElementSibling;
+  answer.classList.toggle('open');
   answer.style.maxHeight = answer.classList.contains('open') ? answer.scrollHeight + 'px' : '0';
 }
 function switchIpSubtab(subtab){
@@ -961,5 +1004,6 @@ document.querySelectorAll('.ip-subtab').forEach(function(b){ b.addEventListener(
 </script>
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>
+<script src="components/float-actions.js"></script>
 </body>
 </html>

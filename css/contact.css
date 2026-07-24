@@ -1,0 +1,346 @@
+/* ===== 联系我们页面样式 ===== */
+
+/* ===== 联系方式卡片 ===== */
+.contact-info-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px 24px;
+  border: 1px solid #E2E8F0;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0A66FF, #00D4AA);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.contact-info-card:hover::before {
+  transform: scaleX(1);
+}
+
+.contact-info-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: #0A66FF33;
+}
+
+.contact-info-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  transition: all 0.3s;
+}
+
+.contact-info-card:hover .contact-info-icon {
+  transform: scale(1.1);
+}
+
+.contact-info-icon.email {
+  background: linear-gradient(135deg, rgba(10, 102, 255, 0.12), rgba(10, 102, 255, 0.04));
+  color: #0A66FF;
+}
+
+.contact-info-icon.phone {
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.12), rgba(0, 212, 170, 0.04));
+  color: #00D4AA;
+}
+
+.contact-info-icon.address {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.04));
+  color: #F59E0B;
+}
+
+.contact-info-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748B;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-info-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E293B;
+  line-height: 1.5;
+}
+
+/* ===== 地图区 ===== */
+.contact-map-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.contact-map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+#mapContainer {
+  width: 100%;
+  height: 400px;
+}
+
+/* 高德地图 logo 和版权信息微调 */
+#mapContainer .amap-logo,
+#mapContainer .amap-copyright {
+  display: none;
+}
+
+/* ===== 联系表单区 ===== */
+.contact-form-section {
+  background: #FFFFFF;
+}
+
+.contact-form-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.contact-form-card .subtitle {
+  font-size: 15px;
+  color: #64748B;
+  margin-bottom: 32px;
+}
+
+.contact-form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+
+.contact-form-group label .required {
+  color: #EF4444;
+}
+
+.contact-form-group input,
+.contact-form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  font-size: 14px;
+  color: #1E293B;
+  outline: none;
+  transition: all 0.2s;
+  background: #F8FAFC;
+}
+
+.contact-form-group input:focus,
+.contact-form-group textarea:focus {
+  border-color: #0A66FF;
+  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.1);
+  background: #FFFFFF;
+}
+
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+  color: #94A3B8;
+}
+
+.contact-form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: #0A66FF;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(10, 102, 255, 0.2);
+}
+
+.contact-form-btn:hover {
+  background: #0047CC;
+  box-shadow: 0 6px 18px rgba(10, 102, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.contact-form-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== 侧边信息 ===== */
+.contact-side-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-side-card {
+  background: #F8FAFC;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s;
+}
+
+.contact-side-card:hover {
+  border-color: #0A66FF33;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.contact-side-card .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.contact-side-card .icon.clock {
+  background: rgba(10, 102, 255, 0.1);
+  color: #0A66FF;
+}
+
+.contact-side-card .icon.response {
+  background: rgba(0, 212, 170, 0.1);
+  color: #00D4AA;
+}
+
+.contact-side-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+
+.contact-side-card p {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* ===== 表单成功提示 ===== */
+.contact-form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.contact-form-success.show {
+  display: block;
+}
+
+.contact-form-success .success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00D4AA, #00A77F);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #fff;
+  font-size: 32px;
+  box-shadow: 0 10px 25px rgba(0, 212, 170, 0.3);
+}
+
+.contact-form-success h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.contact-form-success p {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* ===== 响应式适配 ===== */
+@media (max-width: 1024px) {
+  .contact-side-info {
+    margin-top: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .contact-side-card {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-card {
+    padding: 24px 16px;
+  }
+  
+  .contact-info-icon {
+    width: 52px;
+    height: 52px;
+  }
+  
+  #mapContainer {
+    height: 280px;
+  }
+  
+  .contact-form-card {
+    padding: 24px;
+  }
+  
+  .contact-form-card h3 {
+    font-size: 20px;
+  }
+
+  .contact-side-info {
+    flex-direction: column;
+  }
+  
+  .contact-side-card {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-map-address .address {
+    font-size: 15px;
+  }
+  
+  .contact-form-card {
+    padding: 20px;
+  }
+}

@@ -334,9 +334,11 @@ tailwind.config = {
 </div>
 
 <div id="footer-container"></div>
+<div id="float-actions-container"></div>
 
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>
+<script src="components/float-actions.js"></script>
 
 <!-- ===== 购物车确认页逻辑 ===== -->
 <script>
@@ -390,14 +392,24 @@ tailwind.config = {
     1: '1 年',
     2: '2 年',
     3: '3 年',
+    4: '4 年',
     5: '5 年',
+    6: '6 年',
+    7: '7 年',
+    8: '8 年',
+    9: '9 年',
     10: '10 年'
   };
   var YEAR_OPTS_DISCOUNT = {
     1: '1 年',
     2: '2 年 省10%',
     3: '3 年 省15%',
+    4: '4 年',
     5: '5 年 省20%',
+    6: '6 年',
+    7: '7 年',
+    8: '8 年',
+    9: '9 年',
     10: '10 年 省25%'
   };
 
@@ -454,8 +466,7 @@ tailwind.config = {
         regCell = '<span class="text-muted text-xs">无需资料</span>';
       }
 
-      // 年限下拉框：同 domain-order 样式
-      var yearOptions = isDomain ? [1, 2, 3, 5, 10] : [1];
+      // 年限下拉框
       var yearSel = '<div class="dropdown-wrapper" style="width:120px;">';
       yearSel += '<div class="dropdown-btn dropdown-btn-sm" data-id="' + esc(it.id) + '" data-value="' + year + '">';
       yearSel += '<span class="text-[12px]">' + YEAR_OPTS_DISCOUNT[year] + '</span>';
@@ -550,7 +561,7 @@ tailwind.config = {
     dropdown.className = 'dropdown-panel';
     var inner = document.createElement('div');
     inner.className = 'dropdown-panel-inner';
-    inner.innerHTML = [1, 2, 3, 5, 10].map(function(y) {
+    inner.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(y) {
       var sel = String(y) === cur;
       return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
            +   '<span>' + YEAR_OPTS[y] + '</span>'
@@ -655,7 +666,7 @@ tailwind.config = {
       dropdown.className = 'dropdown-panel';
       var inner = document.createElement('div');
       inner.className = 'dropdown-panel-inner';
-      inner.innerHTML = [1, 2, 3, 5, 10].map(function(y) {
+      inner.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(y) {
         var sel = y === curYear;
         return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
              +   '<span>' + YEAR_OPTS_DISCOUNT[y] + '</span>'

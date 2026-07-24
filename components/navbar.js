@@ -70,70 +70,77 @@
     /* -- 桌面端导航链接 -- */
     '    <div class="hidden lg:flex items-center gap-8">',
 
+    /* 首页 */
+    '      <a href="index.html" class="nav-link ' + navClass('index.html', 'text-body/70 hover:text-primary text-sm font-medium transition-colors') + '">首页</a>',
+
     /* 产品服务下拉 */
     '      <div class="relative group">',
     '        <span class="nav-link ' + (isProductPage ? 'text-primary' : 'text-body/70') + ' hover:text-primary cursor-default text-sm font-medium transition-colors">产品服务 ▾</span>',
-    '        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">',
+    '        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[660px] bg-white rounded-2xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 grid grid-cols-2 gap-3 border border-slate-100">',
 
     /* 1. IDC服务 */
-    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer">',
-    '            <a href="products-idc.html" class="flex items-center gap-2 mb-2 block no-underline">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors">',
+    '            <a href="products-idc.html" class="no-underline block">',
+    '            <div class="flex items-center gap-2">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#EFF6FF">🖥️</div>',
     '              <span class="font-bold text-body">IDC服务</span>',
+    '            </div>',
     '            </a>',
-    '            <div class="flex flex-wrap gap-1.5 mb-2">',
-    '              <a href="products-idc.html?subtab=web" class="text-xs text-muted hover:text-primary transition-colors">网站建设</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-idc.html?subtab=ssl" class="text-xs text-muted hover:text-primary transition-colors">SSL证书</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-idc.html?subtab=cloud" class="text-xs text-muted hover:text-primary transition-colors">云服务器</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-idc.html?subtab=ddos" class="text-xs text-muted hover:text-primary transition-colors">DDoS防护</a>',
+    '            <div class="flex flex-wrap gap-1.5 mt-2 px-0.5">',
+    '              <a href="products-idc.html?subtab=network" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">网络专线</a>',
+    '              <a href="products-idc.html?subtab=hosting" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">服务器托管</a>',
+    '              <a href="products-idc.html?subtab=web" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">网站建设</a>',
+    '              <a href="products-idc.html?subtab=ssl" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">SSL证书</a>',
+    '              <a href="products-idc.html?subtab=mail" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">企业邮箱</a>',
+    '              <a href="products-idc.html?subtab=cloud" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">云服务器</a>',
     '            </div>',
     '          </div>',
 
     /* 2. 品牌护城河 */
-    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors cursor-pointer">',
-    '            <a href="products-domain.html" class="flex items-center gap-2 mb-2 block no-underline">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-primary/5 transition-colors">',
+    '            <a href="products-domain.html" class="no-underline block">',
+    '            <div class="flex items-center gap-2">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#EFF6FF">🛡️</div>',
     '              <span class="font-bold text-body">品牌护城河</span>',
+    '            </div>',
     '            </a>',
-    '            <div class="flex flex-wrap gap-1.5 mb-2">',
-    '              <a href="products-domain.html?subtab=domain" class="text-xs text-muted hover:text-primary transition-colors">域名注册</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-domain.html?subtab=buyback" class="text-xs text-muted hover:text-primary transition-colors">域名回购</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-domain.html?subtab=pricing" class="text-xs text-muted hover:text-primary transition-colors">域名价格</a>',
+    '            <div class="flex flex-wrap gap-1.5 mt-2 px-0.5">',
+    '              <a href="products-domain.html?subtab=domain" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">域名注册</a>',
+    '              <a href="products-domain.html?subtab=buyback" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">域名回购</a>',
+    '              <a href="products-domain.html?subtab=dispute" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">域名争议处理</a>',
+    '              <a href="products-domain.html?subtab=takedown" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">域名侵权下架</a>',
+    '              <a href="products-domain.html?subtab=pricing" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline">域名价格</a>',
     '            </div>',
     '          </div>',
 
     /* 3. 知识产权 */
-    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors cursor-pointer">',
-    '            <a href="products-ip.html" class="flex items-center gap-2 mb-2 block no-underline">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-purple-50 transition-colors">',
+    '            <a href="products-ip.html" class="no-underline block">',
+    '            <div class="flex items-center gap-2">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#F5F3FF">📋</div>',
     '              <span class="font-bold text-body">知识产权</span>',
+    '            </div>',
     '            </a>',
-    '            <div class="flex flex-wrap gap-1.5 mb-2">',
-    '              <a href="products-ip.html?subtab=trademark" class="text-xs text-muted hover:text-primary transition-colors">商标</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-ip.html?subtab=patent" class="text-xs text-muted hover:text-primary transition-colors">专利</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-ip.html?subtab=copyright" class="text-xs text-muted hover:text-primary transition-colors">版权</a>',
+    '            <div class="flex flex-wrap gap-1.5 mt-2 px-0.5">',
+    '              <a href="products-ip.html?subtab=trademark" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-purple-100 hover:text-purple-700 transition-colors no-underline">商标</a>',
+    '              <a href="products-ip.html?subtab=patent" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-purple-100 hover:text-purple-700 transition-colors no-underline">专利</a>',
+    '              <a href="products-ip.html?subtab=copyright" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-purple-100 hover:text-purple-700 transition-colors no-underline">版权</a>',
     '            </div>',
     '          </div>',
 
     /* 4. 设计服务 */
-    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-rose-50 transition-colors cursor-pointer">',
-    '            <a href="products-design.html" class="flex items-center gap-2 mb-2 block no-underline">',
+    '          <div class="bg-slate-50 rounded-xl p-3 hover:bg-rose-50 transition-colors">',
+    '            <a href="products-design.html" class="no-underline block">',
+    '            <div class="flex items-center gap-2">',
     '              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-base" style="background:#FFF1F2">🎨</div>',
     '              <span class="font-bold text-body">设计服务</span>',
+    '            </div>',
     '            </a>',
-    '            <div class="flex flex-wrap gap-1.5 mb-2">',
-    '              <a href="products-design.html?subtab=brand-design" class="text-xs text-muted hover:text-rose-500 transition-colors">品牌设计</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-design.html?subtab=ui-design" class="text-xs text-muted hover:text-rose-500 transition-colors">UI/UX设计</a>',
-    '              <span class="text-xs text-slate-300">·</span>',
-    '              <a href="products-design.html?subtab=ecommerce-design" class="text-xs text-muted hover:text-rose-500 transition-colors">电商设计</a>',
+    '            <div class="flex flex-wrap gap-1.5 mt-2 px-0.5">',
+    '              <a href="products-design.html?subtab=brand-design" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline">品牌设计</a>',
+    '              <a href="products-design.html?subtab=ui-design" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline">UI/UX设计</a>',
+    '              <a href="products-design.html?subtab=ecommerce-design" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline">电商设计</a>',
+    '              <a href="products-design.html?subtab=offline-material" class="text-xs px-2 py-0.5 bg-white rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline">线下物料</a>',
     '            </div>',
     '          </div>',
 
@@ -148,6 +155,9 @@
 
     /* 关于我们 */
     '      <a href="about.html" class="nav-link ' + navClass('about.html', 'text-body/70 hover:text-primary text-sm font-medium transition-colors') + '">关于我们</a>',
+
+    /* 联系我们 */
+    '      <a href="contact-us.html" class="nav-link ' + navClass('contact-us.html', 'text-body/70 hover:text-primary text-sm font-medium transition-colors') + '">联系我们</a>',
 
     '    </div>',
 
@@ -211,20 +221,25 @@
     /* 1. IDC服务 */
     '      <div class="mb-3">',
     '        <a href="products-idc.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-idc.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">IDC服务</a>',
-    '        <div class="flex flex-wrap gap-2 pl-4 mt-1">',
-    '          <a href="products-idc.html?subtab=web" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">网站建设</a>',
-    '          <a href="products-idc.html?subtab=ssl" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">SSL证书</a>',
-    '          <a href="products-idc.html?subtab=cloud" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">云服务器</a>',
+    '        <div class="flex flex-wrap gap-1.5 pl-4 mt-1.5">',
+    '          <a href="products-idc.html?subtab=network" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">网络专线</a>',
+    '          <a href="products-idc.html?subtab=hosting" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">服务器托管</a>',
+    '          <a href="products-idc.html?subtab=web" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">网站建设</a>',
+    '          <a href="products-idc.html?subtab=ssl" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">SSL证书</a>',
+    '          <a href="products-idc.html?subtab=mail" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">企业邮箱</a>',
+    '          <a href="products-idc.html?subtab=cloud" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">云服务器</a>',
     '        </div>',
     '      </div>',
 
     /* 2. 品牌护城河 */
     '      <div class="mb-3">',
     '        <a href="products-domain.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-domain.html') ? 'text-primary' : 'text-muted') + ' hover:text-primary border-l-2 border-primary transition-colors" onclick="closeMobileMenu()">品牌护城河</a>',
-    '        <div class="flex flex-wrap gap-2 pl-4 mt-1">',
-    '          <a href="products-domain.html?subtab=domain" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">域名注册</a>',
-    '          <a href="products-domain.html?subtab=buyback" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">域名回购</a>',
-    '          <a href="products-domain.html?subtab=pricing" class="text-xs text-muted hover:text-primary px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">域名价格</a>',
+    '        <div class="flex flex-wrap gap-1.5 pl-4 mt-1.5">',
+    '          <a href="products-domain.html?subtab=domain" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">域名注册</a>',
+    '          <a href="products-domain.html?subtab=buyback" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">域名回购</a>',
+    '          <a href="products-domain.html?subtab=dispute" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">域名争议处理</a>',
+    '          <a href="products-domain.html?subtab=takedown" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">域名侵权下架</a>',
+    '          <a href="products-domain.html?subtab=pricing" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-primary/10 hover:text-primary transition-colors no-underline" onclick="closeMobileMenu()">域名价格</a>',
     '        </div>',
     '      </div>',
 
@@ -241,10 +256,11 @@
     /* 4. 设计服务 */
     '      <div>',
     '        <a href="products-design.html" class="block py-2.5 pl-4 text-sm ' + (isActive('products-design.html') ? 'text-rose-500' : 'text-muted') + ' hover:text-rose-500 border-l-2 border-rose-500 transition-colors" onclick="closeMobileMenu()">设计服务</a>',
-    '        <div class="flex flex-wrap gap-2 pl-4 mt-1">',
-    '          <a href="products-design.html?subtab=brand-design" class="text-xs text-muted hover:text-rose-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">品牌设计</a>',
-    '          <a href="products-design.html?subtab=ui-design" class="text-xs text-muted hover:text-rose-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">UI/UX设计</a>',
-    '          <a href="products-design.html?subtab=ecommerce-design" class="text-xs text-muted hover:text-rose-500 px-2 py-1 rounded bg-slate-50" onclick="closeMobileMenu()">电商设计</a>',
+    '        <div class="flex flex-wrap gap-1.5 pl-4 mt-1.5">',
+    '          <a href="products-design.html?subtab=brand-design" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline" onclick="closeMobileMenu()">品牌设计</a>',
+    '          <a href="products-design.html?subtab=ui-design" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline" onclick="closeMobileMenu()">UI/UX设计</a>',
+    '          <a href="products-design.html?subtab=ecommerce-design" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline" onclick="closeMobileMenu()">电商设计</a>',
+    '          <a href="products-design.html?subtab=offline-material" class="text-xs px-2 py-0.5 bg-slate-100 rounded text-muted hover:bg-rose-100 hover:text-rose-600 transition-colors no-underline" onclick="closeMobileMenu()">线下物料</a>',
     '        </div>',
     '      </div>',
 
@@ -258,6 +274,9 @@
 
     /* 关于我们 */
     '    <a href="about.html" class="block py-3 text-sm font-semibold ' + (isActive('about.html') ? 'text-primary' : 'text-body') + ' border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">关于我们</a>',
+
+    /* 联系我们 */
+    '    <a href="contact-us.html" class="block py-3 text-sm font-semibold ' + (isActive('contact-us.html') ? 'text-primary' : 'text-body') + ' border-b border-slate-100 hover:text-primary transition-colors" onclick="closeMobileMenu()">联系我们</a>',
 
     /* 底部快捷入口 */
     '    <div class="flex flex-col gap-3 mt-4">',

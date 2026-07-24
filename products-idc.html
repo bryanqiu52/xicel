@@ -42,25 +42,617 @@ tailwind.config = {
 <section class="bg-white border-b border-slate-100 sticky top-[65px] z-30">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex overflow-x-auto gap-0 -mb-px">
+      <button class="idc-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="network" id="subtab-network">网络专线</button>
+      <button class="idc-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="hosting" id="subtab-hosting">服务器托管</button>
       <button class="idc-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="web" id="subtab-web">网站建设</button>
       <button class="idc-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="ssl" id="subtab-ssl">SSL证书</button>
       <button class="idc-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="mail" id="subtab-mail">企业邮箱</button>
       <button class="idc-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="cloud" id="subtab-cloud">云服务器</button>
-      <button class="idc-subtab flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 border-transparent text-muted hover:text-body transition-colors" data-subtab="network" id="subtab-network">网络专线</button>
     </div>
   </div>
 </section>
 
-<!-- ========== Tab 1: 网站建设 ========== -->
+<!-- ========== Tab 1: 网络专线（合并4个子区域） ========== -->
+<section class="idc-content hidden py-16 bg-white idc-amber-section" id="content-network">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 子区域1: SD-WAN -->
+    <div class="mb-16">
+      <div class="gradient-section-title"><span class="en-tag">SD-WAN</span><span class="line"></span></div>
+      <h3 class="text-2xl font-bold text-body mb-2">SD-WAN智能专线</h3>
+      <p class="text-lg text-muted max-w-3xl mb-8">智能路由+链路聚合+零信任安全，为企业构建全球私有化高速网络。</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔀</div><h3 class="font-bold text-body mb-2">智能路由</h3><p class="text-sm text-muted">基于应用和链路质量实时调度，自动选择最优传输路径，端到端延迟降低60%</p></div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔗</div><h3 class="font-bold text-body mb-2">链路聚合</h3><p class="text-sm text-muted">多链路捆绑叠加带宽，MPLS/互联网/4G/5G任意组合，单链路故障自动切换</p></div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔐</div><h3 class="font-bold text-body mb-2">零信任安全</h3><p class="text-sm text-muted">应用层微分段+身份认证+流量加密，全网零信任架构确保数据安全</p></div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">📊</div><h3 class="font-bold text-body mb-2">可视化管理</h3><p class="text-sm text-muted">统一管控平台，全局拓扑可视化+流量分析+智能告警，IT运维效率提升80%</p></div>
+      </div>
+      <div class="max-w-3xl">
+        <div class="space-y-3">
+          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>SD-WAN适合多大规模的企业？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">SD-WAN适合有2个及以上分支机构或跨境业务需求的企业，尤其适合跨境电商、出海游戏、全球化SaaS和多地研发团队。</p></div></div>
+          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>部署SD-WAN需要多长时间？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">标准部署通常3-5个工作日，包含设备安装、网络配置和测试验收。也支持零接触部署（ZTP），设备上电自动完成配置。</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 子区域3: 全球加速（5W2H重构 + 申请表） -->
+    <div class="mb-16">
+      <div class="gradient-section-title"><span class="en-tag">Global</span><span class="line"></span></div>
+      <h3 class="text-2xl font-bold text-body mb-2">全球加速</h3>
+      <p class="text-lg text-muted max-w-3xl mb-8">覆盖全球30+国家和地区的智能加速网络，五大核心场景深度优化，企业全球化战略的基础设施级网络保障。</p>
+
+      <!-- ===== What ===== -->
+      <div class="mb-12">
+        <div class="ip-section-title">
+          <span class="tag">What</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">什么是全球加速？</h2>
+        <div class="what-card rounded-2xl p-8 mb-6">
+          <div class="flex flex-col lg:flex-row gap-8 items-start">
+            <div class="ip-icon-box what shrink-0">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-body mb-4">面向企业的全球智能加速网络</h3>
+              <p class="text-muted text-lg leading-relaxed mb-6">
+                全球加速服务是基于自研智能路由和全球骨干网络构建的企业级加速平台。通过部署在全球30+国家和地区的加速节点，结合智能调度、多链路聚合和零信任安全技术，为企业的海外社媒运营、跨国组网、AI工具接入等场景提供高速、稳定、安全的网络加速服务。全线路主备同步在线保障业务永续运行。
+              </p>
+              <div class="grid sm:grid-cols-3 gap-4">
+                <div class="bg-white rounded-xl p-4 border border-slate-100">
+                  <div class="text-primary font-bold text-lg mb-1">🌐 全球节点</div>
+                  <div class="text-sm text-muted">30+国家，3000+边缘节点</div>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-slate-100">
+                  <div class="text-accent font-bold text-lg mb-1">⚡ 智能路由</div>
+                  <div class="text-sm text-muted">毫秒级故障切换，延迟&lt;100ms</div>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-slate-100">
+                  <div class="text-orange-500 font-bold text-lg mb-1">🔒 全线路冗余</div>
+                  <div class="text-sm text-muted">主备同步在线，业务零中断</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5大核心能力 -->
+        <p class="text-base text-body font-medium mb-4">五大核心加速能力，覆盖企业全球化运营关键场景 ↓</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-3 text-xl">📱</div>
+            <h4 class="font-bold text-body text-sm mb-2">海外社媒平台<br/>访问加速</h4>
+            <p class="text-xs text-muted leading-relaxed">TikTok、Instagram、Facebook、YouTube 等海外社媒平台极速访问，社媒运营效率倍增</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 text-xl">🔗</div>
+            <h4 class="font-bold text-body text-sm mb-2">海外点对点<br/>组网加速</h4>
+            <p class="text-xs text-muted leading-relaxed">跨国分支机构高速组网互联，SD-WAN智能调度，数据传输延迟降低60%以上</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mb-3 text-xl">🤖</div>
+            <h4 class="font-bold text-body text-sm mb-2">海外AI工具<br/>访问加速</h4>
+            <p class="text-xs text-muted leading-relaxed">ChatGPT、Claude、Midjourney 及各类AI API流畅调用，AI开发与使用体验全面提升</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-3 text-xl">🏢</div>
+            <h4 class="font-bold text-body text-sm mb-2">国内点对点<br/>组网加速</h4>
+            <p class="text-xs text-muted leading-relaxed">国内多分支机构高速安全互联，支持MPLS/IPSec混合组网，带宽独享按需弹性扩展</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-3 text-xl">🔄</div>
+            <h4 class="font-bold text-body text-sm mb-2">全线路主备<br/>同步在线</h4>
+            <p class="text-xs text-muted leading-relaxed">多链路实时热备，主线路故障时毫秒级自动切换，业务零感知，可用性达99.99%</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Why ===== -->
+      <div class="mb-12">
+        <div class="ip-section-title">
+          <span class="tag">Why</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">为什么需要全球加速？</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="value-card why-card rounded-2xl p-6">
+            <div class="ip-icon-box why mb-4">
+              <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+            </div>
+            <h3 class="font-bold text-body mb-3">突破网络壁垒</h3>
+            <p class="text-sm text-muted">海外社媒平台、AI工具等海外网络资源访问卡顿、不稳定，严重制约业务效率。全球加速通过智能路由和多节点覆盖，让跨境网络访问如本地般流畅。</p>
+          </div>
+          <div class="value-card why-card rounded-2xl p-6">
+            <div class="ip-icon-box why mb-4">
+              <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="font-bold text-body mb-3">业务持续保障</h3>
+            <p class="text-sm text-muted">单链路故障导致业务中断，损失不可估量。全线路主备同步在线架构，任意线路故障毫秒级自动切换，确保业务7×24小时永续运行。</p>
+          </div>
+          <div class="value-card why-card rounded-2xl p-6">
+            <div class="ip-icon-box why mb-4">
+              <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <h3 class="font-bold text-body mb-3">全球化竞争力</h3>
+            <p class="text-sm text-muted">海外市场拓展离不开稳定高速的网络基础设施。无论是社媒运营、跨国协作还是AI应用落地，全球加速是企业全球化战略不可或缺的网络底座。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Who ===== -->
+      <div class="mb-12">
+        <div class="ip-section-title">
+          <span class="tag">Who</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">适合谁使用？</h2>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>跨境电商</span>
+          <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>出海SaaS企业</span>
+          <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>海外社媒运营团队</span>
+          <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>跨国企业</span>
+          <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>AI应用开发者</span>
+          <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>远程研发团队</span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-slate-50 rounded-2xl p-6">
+            <h4 class="font-bold text-body mb-3">典型应用场景</h4>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>海外社媒账号矩阵运营与内容发布</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>跨境分支机构间数据同步与协同办公</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>海外AI工具及API的流畅接入与使用</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>国内多地办公网络互联与资源共享</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>核心业务链路的灾备与高可用保障</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 rounded-2xl p-6">
+            <h4 class="font-bold text-body mb-3">服务优势</h4>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>全球30+国家节点覆盖，就近接入极速体验</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>智能路由+多链路聚合，延迟&lt;100ms</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>全线路主备同步在线，可用性99.99%</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>7×24专业运维团队，无忧托管</li>
+              <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>弹性计费，按需扩展，成本可控</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== How ===== -->
+      <div class="mb-12">
+        <div class="ip-section-title">
+          <span class="tag">How</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">如何使用全球加速？</h2>
+        <div class="bg-white rounded-2xl border border-slate-200">
+          <div class="how-timeline p-8">
+            <div class="how-timeline-item">
+              <div class="timeline-num">1</div>
+              <div class="ml-4">
+                <h4 class="font-bold text-body mb-2">需求沟通</h4>
+                <p class="text-sm text-muted mb-3">专业顾问了解您的业务场景、加速目标和网络现状，提供初步方案建议</p>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">即时响应</span>
+              </div>
+            </div>
+            <div class="how-timeline-item">
+              <div class="timeline-num">2</div>
+              <div class="ml-4">
+                <h4 class="font-bold text-body mb-2">方案设计</h4>
+                <p class="text-sm text-muted mb-3">根据需求定制专属加速方案，包括节点选择、带宽规划、线路冗余策略等</p>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">1-3个工作日</span>
+              </div>
+            </div>
+            <div class="how-timeline-item">
+              <div class="timeline-num">3</div>
+              <div class="ml-4">
+                <h4 class="font-bold text-body mb-2">部署实施</h4>
+                <p class="text-sm text-muted mb-3">快速部署加速节点，完成网络配置与测试，即时生效，业务零中断</p>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">3-5个工作日</span>
+              </div>
+            </div>
+            <div class="how-timeline-item">
+              <div class="timeline-num">4</div>
+              <div class="ml-4">
+                <h4 class="font-bold text-body mb-2">持续运维</h4>
+                <p class="text-sm text-muted mb-3">7×24小时网络监控与运维保障，定期提供加速效果报告，持续优化</p>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">永久保障</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== How Much / 申请表 ===== -->
+      <div class="mb-12">
+        <div class="ip-section-title">
+          <span class="tag">Apply</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="text-3xl font-bold text-body mb-6">申请全球加速服务</h2>
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl">
+          <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-body mb-8">全球加速服务申请表</h3>
+            <form onsubmit="submitGlobalApply(event)" class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium text-body mb-3">加速需求类型 <span class="text-red-400">*</span></label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="accelTypes">
+                  <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-primary hover:bg-blue-50/30 transition-all">
+                    <input type="checkbox" name="accelType" value="海外社媒平台访问加速" class="w-4 h-4 text-primary rounded border-slate-300 accent-primary">
+                    <span class="text-sm text-body">海外社媒平台访问加速</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-primary hover:bg-blue-50/30 transition-all">
+                    <input type="checkbox" name="accelType" value="海外点对点组网加速" class="w-4 h-4 text-primary rounded border-slate-300 accent-primary">
+                    <span class="text-sm text-body">海外点对点组网加速</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-primary hover:bg-blue-50/30 transition-all">
+                    <input type="checkbox" name="accelType" value="海外AI工具访问加速" class="w-4 h-4 text-primary rounded border-slate-300 accent-primary">
+                    <span class="text-sm text-body">海外AI工具访问加速</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-primary hover:bg-blue-50/30 transition-all">
+                    <input type="checkbox" name="accelType" value="国内点对点组网加速" class="w-4 h-4 text-primary rounded border-slate-300 accent-primary">
+                    <span class="text-sm text-body">国内点对点组网加速</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-primary hover:bg-blue-50/30 transition-all sm:col-span-2">
+                    <input type="checkbox" name="accelType" value="全线路主备同步在线" class="w-4 h-4 text-primary rounded border-slate-300 accent-primary">
+                    <span class="text-sm text-body">全线路主备同步在线</span>
+                  </label>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-body mb-2">联系人姓名 <span class="text-red-400">*</span></label>
+                  <input type="text" id="globalName" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的姓名">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-body mb-2">联系电话 <span class="text-red-400">*</span></label>
+                  <input type="tel" id="globalPhone" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的手机号">
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+                <input type="email" id="globalEmail" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
+                <textarea id="globalDesc" rows="4" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请简要描述您的加速需求、业务规模及期望效果..."></textarea>
+              </div>
+              <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交加速申请</button>
+            </form>
+            <p class="text-xs text-muted text-center mt-6">提交后我们的网络专家将在24小时内与您联系，提供专属加速方案</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="max-w-3xl">
+        <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+        <div class="space-y-3">
+          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>全球加速服务覆盖哪些地区？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">覆盖亚太（东南亚、日韩、印度）、北美（美加）、欧洲（德法英荷）、中东（阿联酋）、南美（巴西）等30+国家和地区，3000+边缘节点，中国大陆到海外平均延迟&lt;100ms。</p></div></div>
+          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>全线路主备同步在线如何保障业务不中断？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">采用多链路实时热备架构，主线路和备用线路同时在线同步数据。当主线路出现故障时，系统在毫秒级内自动切换至备用线路，业务层完全无感知，可用性保障99.99%。</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Tab 2: 服务器托管（5W2H重构） ========== -->
+<section class="idc-content hidden py-16 hosting-section" id="content-hosting">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Locations</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">服务器托管</h3>
+    <p class="text-lg text-muted max-w-3xl mb-12">超过16年深厚技术积淀，覆盖中国及海外17个数据中心节点，为企业提供稳如磐石、专业安心的服务器托管服务。</p>
+
+    <!-- ===== What ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">What</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">什么是服务器托管？</h2>
+      <div class="what-card rounded-2xl p-8 mb-8">
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+          <div class="ip-icon-box what shrink-0">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-body mb-4">将您的服务器部署在专业数据中心</h3>
+            <p class="text-muted text-lg leading-relaxed mb-6">
+              服务器托管是指将企业自有的服务器设备放置在专业数据中心（IDC）进行统一管理和运维的服务。数据中心提供稳定电力供应、恒温恒湿环境、多线网络接入、物理安全保障等基础设施，企业无需自建机房，即可享受电信级的运行环境。我们提供中国6个节点和海外11个节点的全球机房覆盖。
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-primary font-bold text-lg mb-1">🏢 17个节点</div>
+                <div class="text-sm text-muted">中国6个 + 海外11个</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-accent font-bold text-lg mb-1">⚡ 电信级环境</div>
+                <div class="text-sm text-muted">恒温恒湿，双路供电</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-orange-500 font-bold text-lg mb-1">🛡️ 物理安全</div>
+                <div class="text-sm text-muted">7×24安防，严格门禁</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 机房节点展示（原 Locations 内容精简） -->
+      <p class="text-base text-body font-medium mb-4">全球数据中心节点分布 ↓</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+        <div class="hosting-region-wrap">
+          <div class="hosting-region-header">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor"/></svg>
+            <span class="text-base font-bold text-body">中国机房</span>
+            <span class="text-xs text-muted ml-auto">6个节点</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇭🇰</span><span class="loc-name">中国香港</span><span class="loc-en">Hong Kong</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇨🇳</span><span class="loc-name">深圳</span><span class="loc-en">Shenzhen</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇨🇳</span><span class="loc-name">上海</span><span class="loc-en">Shanghai</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇨🇳</span><span class="loc-name">北京</span><span class="loc-en">Beijing</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇨🇳</span><span class="loc-name">浙江</span><span class="loc-en">Zhejiang</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇨🇳</span><span class="loc-name">南昌</span><span class="loc-en">Nanchang</span></div>
+          </div>
+        </div>
+        <div class="hosting-region-wrap">
+          <div class="hosting-region-header">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+            <span class="text-base font-bold text-body">海外机房</span>
+            <span class="text-xs text-muted ml-auto">11个节点</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇰🇷</span><span class="loc-name">韩国</span><span class="loc-en">Korea</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇯🇵</span><span class="loc-name">日本</span><span class="loc-en">Japan</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇸🇬</span><span class="loc-name">新加坡</span><span class="loc-en">Singapore</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇹🇭</span><span class="loc-name">泰国</span><span class="loc-en">Thailand</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇻🇳</span><span class="loc-name">越南</span><span class="loc-en">Vietnam</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇵🇭</span><span class="loc-name">菲律宾</span><span class="loc-en">Philippines</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇲🇾</span><span class="loc-name">马来西亚</span><span class="loc-en">Malaysia</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇮🇳</span><span class="loc-name">印度</span><span class="loc-en">India</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇮🇩</span><span class="loc-name">印尼</span><span class="loc-en">Indonesia</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇺🇸</span><span class="loc-name">美国</span><span class="loc-en">USA</span></div>
+            <div class="hosting-loc-card hs-animate"><span class="loc-flag">🇵🇰</span><span class="loc-name">巴基斯坦</span><span class="loc-en">Pakistan</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button onclick="openConsultModal()" class="inline-flex items-center justify-center px-8 py-3 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-all hover:shadow-lg hover:shadow-primary/25">更多节点咨询</button>
+      </div>
+    </div>
+
+    <!-- ===== Why ===== -->
+    <div class="mb-16 hosting-advantage-wrap">
+      <div class="ip-section-title">
+        <span class="tag">Why</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">为什么需要服务器托管？</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="hosting-adv-card hs-animate">
+          <div class="hosting-adv-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);color:#0A66FF;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-body mb-2">极速性能</h4>
+            <p class="text-sm text-muted leading-relaxed">每台服务器均采用最新架构定制构建，支持随时灵活升级性能。多线BGP网络接入，确保用户访问速度最优，业务始终保持领先响应。</p>
+          </div>
+        </div>
+        <div class="hosting-adv-card hs-animate">
+          <div class="hosting-adv-icon" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);color:#059669;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-body mb-2">安全保障</h4>
+            <p class="text-sm text-muted leading-relaxed">专用机房禁止公众访问，严格门禁+7×24视频监控。物理与环境安全双保障，服务器存放在专用机柜中，只有授权人员才能接触设备。</p>
+          </div>
+        </div>
+        <div class="hosting-adv-card hs-animate">
+          <div class="hosting-adv-icon" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);color:#D97706;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-body mb-2">高可靠性</h4>
+            <p class="text-sm text-muted leading-relaxed">7×24自动监控+硬件冗余容错。双路供电、UPS不间断电源、柴油发电机三级备电，配合专业运维团队，保障服务永不间断。</p>
+          </div>
+        </div>
+        <div class="hosting-adv-card hs-animate">
+          <div class="hosting-adv-icon" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);color:#7C3AED;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-body mb-2">独占带宽</h4>
+            <p class="text-sm text-muted leading-relaxed">100%保证带宽，支持100M~10Gbps端口。独占互联网带宽资源，不与他人共享，确保峰值时段业务依然流畅稳定。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Who ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">Who</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">适合谁来托管？</h2>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>高功耗计算企业</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>定制化需求企业</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>DNS/域名服务商</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>集群部署企业</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>电商平台</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>游戏/直播平台</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-2xl p-6">
+          <h4 class="font-bold text-body mb-3">典型应用场景</h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>高功耗GPU服务器托管，AI训练与渲染</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>定制化硬件配置，满足特殊业务需求</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>DNS解析集群部署，保障域名服务稳定</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>分布式架构集群，支撑高并发业务</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-accent rounded-full"></span>电商大促/游戏开服，弹性扩容保障</li>
+          </ul>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-6">
+          <h4 class="font-bold text-body mb-3">托管优势</h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>省去自建机房高昂成本，轻资产运营</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>专业运维团队7×24值守，无需自配IT</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>独占带宽+多线BGP，网络质量有保障</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>硬件可随时升级，灵活应对业务增长</li>
+            <li class="flex items-center gap-3 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>全球节点就近部署，本地化用户体验</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== How ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">How</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">如何托管服务器？</h2>
+      <div class="bg-white rounded-2xl border border-slate-200">
+        <div class="how-timeline p-8">
+          <div class="how-timeline-item">
+            <div class="timeline-num">1</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">需求评估</h4>
+              <p class="text-sm text-muted mb-3">评估服务器规格（U数/功耗/带宽需求），推荐最优机房和托管方案</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">即时响应</span>
+            </div>
+          </div>
+          <div class="how-timeline-item">
+            <div class="timeline-num">2</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">机房选择</h4>
+              <p class="text-sm text-muted mb-3">根据目标用户分布选择最佳数据中心节点，确定机柜位置与网络配置</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">1个工作日</span>
+            </div>
+          </div>
+          <div class="how-timeline-item">
+            <div class="timeline-num">3</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">上架部署</h4>
+              <p class="text-sm text-muted mb-3">服务器运输至机房，完成上架、通电、网络配置，技术团队协助调试</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">1-2个工作日</span>
+            </div>
+          </div>
+          <div class="how-timeline-item">
+            <div class="timeline-num">4</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-body mb-2">持续运维</h4>
+              <p class="text-sm text-muted mb-3">7×24网络监控+硬件巡检，定期提供运行报告，故障即时响应处理</p>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">永久保障</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== How Much / 申请表 ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">Apply</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">申请服务器托管</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-10">
+          <h3 class="text-2xl font-bold text-body mb-8">服务器托管申请表</h3>
+          <form onsubmit="submitHostingApply(event)" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">服务器规格 <span class="text-red-400">*</span></label>
+                <select id="hostingSpec" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
+                  <option value="">请选择服务器规格</option>
+                  <option value="1U">1U 标准服务器</option>
+                  <option value="2U">2U 标准服务器</option>
+                  <option value="4U">4U 高配服务器</option>
+                  <option value="定制">定制化/机柜租赁</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">带宽需求 <span class="text-red-400">*</span></label>
+                <select id="hostingBandwidth" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
+                  <option value="">请选择带宽需求</option>
+                  <option value="100M">100M 共享</option>
+                  <option value="100M独占">100M 独占</option>
+                  <option value="1G">1G 独占</option>
+                  <option value="10G">10G 独占</option>
+                  <option value="定制">按需定制</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">首选机房 <span class="text-xs text-muted">（非必填）</span></label>
+              <select id="hostingLocation" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
+                <option value="">请选择首选机房节点</option>
+                <option value="中国香港">🇭🇰 中国香港</option>
+                <option value="深圳">🇨🇳 深圳</option>
+                <option value="上海">🇨🇳 上海</option>
+                <option value="北京">🇨🇳 北京</option>
+                <option value="新加坡">🇸🇬 新加坡</option>
+                <option value="日本">🇯🇵 日本</option>
+                <option value="韩国">🇰🇷 韩国</option>
+                <option value="美国">🇺🇸 美国</option>
+              </select>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系人姓名 <span class="text-red-400">*</span></label>
+                <input type="text" id="hostingName" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的姓名">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系电话 <span class="text-red-400">*</span></label>
+                <input type="tel" id="hostingPhone" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的手机号">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+              <input type="email" id="hostingEmail" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
+              <textarea id="hostingDesc" rows="4" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请描述您的服务器配置、业务规模及特殊需求..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交托管申请</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-6">提交后我们的IDC专家将在24小时内与您联系，提供专属托管方案</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="max-w-3xl">
+      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+      <div class="space-y-3">
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>服务器托管需要自己准备设备吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">是的，服务器托管需要企业自备服务器设备，我们提供机房机柜、电力、网络带宽、恒温恒湿环境和运维服务。如需服务器租赁，可同时选择我们的云服务器方案。</p></div></div>
+        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>托管服务器出现硬件故障如何处理？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">我们提供7×24硬件巡检和故障告警服务。一旦发现硬件故障，会第一时间通知您，并配合进行故障排查。如需紧急恢复，我们可提供备件或协助联系厂商维修。</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== Tab 3: 网站建设 ========== -->
 <section class="idc-content py-16 bg-white" id="content-web">
   <div class="max-w-7xl mx-auto px-6">
     <p class="text-lg text-muted max-w-3xl mb-12">专业设计师+智能模板，快速搭建品牌官网、电商平台。</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🎨</div><h3 class="font-bold text-body mb-2">模板建站</h3><p class="text-sm text-muted mb-4">500+行业模板，拖拽编辑快速上线</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥3,999<span class="text-sm font-normal text-muted">起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🎨</div><h3 class="font-bold text-body mb-2">模板建站</h3><p class="text-sm text-muted mb-4">500+行业模板，拖拽编辑快速上线</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥3,999<span class="text-sm font-normal text-muted">起</span></div><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
       <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group border-[#10B981] relative flex flex-col"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#059669] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">💎</div><h3 class="font-bold text-body mb-2">定制建站</h3><p class="text-sm text-muted mb-4">专属设计，量身打造企业官网</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥9,999<span class="text-sm font-normal text-muted">起</span></div><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
       <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🛒</div><h3 class="font-bold text-body mb-2">电商建站</h3><p class="text-sm text-muted mb-4">全功能电商平台，支持多语言多币种</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥19,999<span class="text-sm font-normal text-muted">起</span></div><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
     </div>
     <div class="mb-16">
+      <div class="gradient-section-title"><span class="en-tag">Process</span><span class="line"></span></div>
       <h3 class="text-xl font-bold text-body mb-8">建站流程</h3>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="relative"><div class="bg-slate-50 rounded-2xl p-6 text-center"><div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-lg mx-auto mb-4">1</div><h4 class="font-bold text-body mb-2">需求沟通</h4><p class="text-sm text-muted">了解品牌定位与功能需求，提供方案建议</p></div><div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-primary/30"></div></div>
@@ -71,26 +663,39 @@ tailwind.config = {
     </div>
     <div class="max-w-3xl">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
-      <div class="space-y-3">
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>网站建设需要多长时间？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">模板建站3-7个工作日，定制建站15-30个工作日，电商建站30-60个工作日，具体时间取决于页面数量和功能复杂度。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>网站支持移动端吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">所有建站方案均默认支持响应式设计，自动适配PC、平板和手机屏幕，确保移动端浏览体验一致。</p></div></div>
+      <div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">网站建设需要多长时间？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">模板建站3-7个工作日，定制建站15-30个工作日，电商建站30-60个工作日，具体时间取决于页面数量和功能复杂度。</p></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">网站支持移动端吗？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">所有建站方案均默认支持响应式设计，自动适配PC、平板和手机屏幕，确保移动端浏览体验一致。</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== Tab 2: SSL证书 ========== -->
+<!-- ========== Tab 4: SSL证书 ========== -->
 <section class="idc-content hidden py-16 bg-slate-50" id="content-ssl">
   <div class="max-w-7xl mx-auto px-6">
     <p class="text-lg text-muted max-w-3xl mb-12">DV/OV/EV全类型SSL证书，保障网站数据传输安全，提升用户信任度。</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔒</div><h3 class="font-bold text-body mb-2">DV证书</h3><p class="text-sm text-muted mb-4">域名验证，快速签发，适合个人网站和博客</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥299<span class="text-sm font-normal text-muted">/年</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group border-[#10B981] relative flex flex-col"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#059669] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🛡️</div><h3 class="font-bold text-body mb-2">OV证书</h3><p class="text-sm text-muted mb-4">企业验证，适合企业官网和电商网站</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥1,299<span class="text-sm font-normal text-muted">/年</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🏦</div><h3 class="font-bold text-body mb-2">EV证书</h3><p class="text-sm text-muted mb-4">扩展验证，最高信任级别，适合金融机构</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥3,999<span class="text-sm font-normal text-muted">/年</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
+
+    <div class="ip-section-title">
+        <span class="tag">Plans</span>
+        <span class="line"></span>
     </div>
-    <div class="mb-16">
-      <h3 class="text-xl font-bold text-body mb-6">证书对比</h3>
-      <div class="overflow-x-auto">
+    <h2 class="text-3xl font-bold text-body mb-8">套餐选择</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 ssl-plan-cards">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔒</div><h3 class="font-bold text-body mb-2">DV证书</h3><p class="text-sm text-muted mb-4">域名验证，快速签发，适合个人网站和博客</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥299<span class="text-sm font-normal text-muted">/年</span></div><button onclick="addSslToCart('DV证书', 299, this)" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">加入购物车</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group border-[#10B981] relative flex flex-col"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#059669] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🛡️</div><h3 class="font-bold text-body mb-2">OV证书</h3><p class="text-sm text-muted mb-4">企业验证，适合企业官网和电商网站</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥1,299<span class="text-sm font-normal text-muted">/年</span></div><button onclick="addSslToCart('OV证书', 1299, this)" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">加入购物车</button></div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🏦</div><h3 class="font-bold text-body mb-2">EV证书</h3><p class="text-sm text-muted mb-4">扩展验证，最高信任级别，适合金融机构</p><div class="text-[#059669] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥3,999<span class="text-sm font-normal text-muted">/年</span></div><button onclick="addSslToCart('EV证书', 3999, this)" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">加入购物车</button></div>
+    </div>
+
+    <!-- ===== 套餐对比 ===== -->
+    <div class="mb-16 ssl-compare-wrap">
+      <div class="ip-section-title">
+        <span class="tag">Compare</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">套餐对比</h2>
+      <div class="overflow-x-auto ssl-compare-table">
         <table class="w-full min-w-[600px] text-sm border-collapse">
           <thead><tr class="border-b border-slate-200"><th class="text-left py-3 px-4 font-semibold text-body w-1/4">对比项</th><th class="text-center py-3 px-4 font-semibold">DV证书</th><th class="text-center py-3 px-4 font-semibold text-[#059669]">OV证书</th><th class="text-center py-3 px-4 font-semibold">EV证书</th></tr></thead>
           <tbody class="divide-y divide-slate-100">
@@ -102,78 +707,630 @@ tailwind.config = {
         </table>
       </div>
     </div>
-    <div class="max-w-3xl">
-      <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
-      <div class="space-y-3">
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>SSL证书部署需要多久？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">DV证书验证域名所有权后几分钟内签发；OV/EV证书需要企业资质审核，通常1-5个工作日。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>证书到期前会提醒吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">会在到期前30天、15天、7天、1天通过邮件和短信提醒，也可开启自动续费避免证书过期。</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ========== Tab 3: 企业邮箱 ========== -->
-<section class="idc-content hidden py-16 bg-white" id="content-mail">
-  <div class="max-w-7xl mx-auto px-6">
-    <p class="text-lg text-muted max-w-3xl mb-12">以企业域名为后缀的专业邮箱，安全加密、多端同步，为企业形象加分。</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">📧</div><h3 class="font-bold text-body mb-2">基础版</h3><p class="text-sm text-muted mb-4">5GB/用户，适合初创团队</p><div class="text-primary font-bold text-xl mb-4 min-h-[2rem]">¥99<span class="text-sm font-normal text-muted">/年起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">💼</div><h3 class="font-bold text-body mb-2">专业版</h3><p class="text-sm text-muted mb-4">50GB/用户，适合中小企业</p><div class="text-primary font-bold text-xl mb-4 min-h-[2rem]">¥199<span class="text-sm font-normal text-muted">/年起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🏢</div><h3 class="font-bold text-body mb-2">企业版</h3><p class="text-sm text-muted mb-4">无限容量，适合中大型企业</p><div class="text-primary font-bold text-xl mb-4 min-h-[2rem]">¥399<span class="text-sm font-normal text-muted">/年起</span></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">⚙️</div><h3 class="font-bold text-body mb-2">定制版</h3><p class="text-sm text-muted mb-4">专属架构，满足个性化需求</p><div class="text-primary font-bold text-xl mb-4 min-h-[2rem]">询价</div><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
-    </div>
+    <!-- ===== SSL 3W2H：What ===== -->
     <div class="mb-16">
-      <h3 class="text-xl font-bold text-body mb-8">功能亮点</h3>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">♾️</div><h4 class="font-bold text-body mb-2">无限容量</h4><p class="text-sm text-muted">专业版起享超大存储空间，企业版无限容量，邮件附件随心收发</p></div>
-        <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🔐</div><h4 class="font-bold text-body mb-2">安全加密</h4><p class="text-sm text-muted">SSL/TLS全程加密传输，AES-256存储加密，保障企业数据安全</p></div>
-        <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">📱</div><h4 class="font-bold text-body mb-2">多端同步</h4><p class="text-sm text-muted">Webmail/Outlook/手机客户端实时同步，随时随地高效办公</p></div>
-        <div class="bg-slate-50 rounded-2xl p-6"><div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-2xl">🛡️</div><h4 class="font-bold text-body mb-2">反垃圾病毒</h4><p class="text-sm text-muted">智能反垃圾引擎+病毒查杀，过滤率99.9%，保障邮箱安全纯净</p></div>
+      <div class="ip-section-title">
+        <span class="tag">What</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">什么是SSL证书？</h2>
+      <div class="what-card rounded-2xl p-8">
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+          <div class="ip-icon-box what shrink-0">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-body mb-4">网站数据传输的加密盾牌</h3>
+            <p class="text-muted text-lg leading-relaxed mb-6">
+              SSL证书（Secure Sockets Layer）是一种数字证书，用于在网站服务器和用户浏览器之间建立加密连接，确保数据传输的安全性。它通过SSL/TLS协议将普通HTTP升级为HTTPS，保护用户隐私和敏感信息不被窃取或篡改。
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-primary font-bold text-lg mb-1">🔐 数据加密</div>
+                <div class="text-sm text-muted">防止中间人攻击窃取信息</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-accent font-bold text-lg mb-1">🆔 身份验证</div>
+                <div class="text-sm text-muted">验证网站真实身份</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-slate-100">
+                <div class="text-orange-500 font-bold text-lg mb-1">📈 信任提升</div>
+                <div class="text-sm text-muted">浏览器🔒安全锁增强信心</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- ===== SSL 3W2H：Why ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">Why</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">为什么需要SSL证书？</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">数据加密防窃取</h3>
+          <p class="text-sm text-muted">SSL加密确保用户提交的信用卡号、密码、个人信息等敏感数据在传输过程中不会被第三方窃取或篡改。</p>
+        </div>
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">防钓鱼欺诈</h3>
+          <p class="text-sm text-muted">OV/EV证书需验证企业资质，确保网站真实可信，防止仿冒网站进行钓鱼欺诈，保护用户财产安全。</p>
+        </div>
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">提升搜索引擎排名</h3>
+          <p class="text-sm text-muted">Google等主流搜索引擎将HTTPS作为搜索排名信号，部署SSL证书有助于提升网站在搜索结果中的排名位置。</p>
+        </div>
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">合规要求必备</h3>
+          <p class="text-sm text-muted">支付行业PCI DSS标准强制要求部署SSL/TLS加密，电商平台、金融网站必须部署SSL证书才能通过合规审计。</p>
+        </div>
+        <div class="value-card why-card rounded-2xl p-6">
+          <div class="ip-icon-box why mb-4">
+            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
+          </div>
+          <h3 class="font-bold text-body mb-3">增强用户信任</h3>
+          <p class="text-sm text-muted">浏览器地址栏显示🔒安全锁和企业名称，让访客放心浏览和填写信息，提升转化率和品牌信誉度。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SSL 3W2H：Who ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">Who</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">适合谁来部署？</h2>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>电商网站</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>企业官网</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>金融机构</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>个人站长</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></svg>登录/支付页面</span>
+        <span class="who-tag"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>SaaS平台</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-2xl p-6">
+          <h4 class="font-bold text-body mb-3">典型应用场景</h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              电商网站购物车与支付页面加密
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              企业官网提升专业形象与用户信任
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              银行/金融平台满足合规安全要求
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-accent rounded-full"></span>
+              政府/教育机构信息安全管理
+            </li>
+          </ul>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-6">
+          <h4 class="font-bold text-body mb-3">不部署SSL的风险</h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-red-400 rounded-full"></span>
+              浏览器标记为"不安全"，用户迅速离开
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-red-400 rounded-full"></span>
+              用户信息可能被中间人攻击窃取
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-red-400 rounded-full"></span>
+              搜索引擎排名下降，流失自然流量
+            </li>
+            <li class="flex items-center gap-3 text-sm text-muted">
+              <span class="w-2 h-2 bg-red-400 rounded-full"></span>
+              无法通过支付行业合规审计
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SSL 3W2H：How ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">How</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">如何获取SSL证书？</h2>
+      <div class="how-timeline">
+        <div class="how-timeline-item">
+          <h4 class="font-bold text-body mb-2">选择证书类型</h4>
+          <p class="text-sm text-muted">根据网站需求选择DV（域名验证）、OV（企业验证）或EV（扩展验证）证书，不同级别对应不同验证深度和信任等级。</p>
+        </div>
+        <div class="how-timeline-item">
+          <h4 class="font-bold text-body mb-2">提交申请并验证</h4>
+          <p class="text-sm text-muted">提交证书申请信息：DV证书验证域名所有权（数分钟），OV/EV证书需额外提交企业资质文件审核（1-5个工作日）。</p>
+        </div>
+        <div class="how-timeline-item">
+          <h4 class="font-bold text-body mb-2">下载证书文件</h4>
+          <p class="text-sm text-muted">审核通过后即可下载证书文件包，包含证书文件（.crt）、私钥（.key）和中间证书链，支持主流服务器格式。</p>
+        </div>
+        <div class="how-timeline-item">
+          <h4 class="font-bold text-body mb-2">部署到服务器</h4>
+          <p class="text-sm text-muted">将证书文件部署到Nginx/Apache/IIS等Web服务器上，根据服务器类型选择对应配置方式，我们提供一键部署工具和技术支持。</p>
+        </div>
+        <div class="how-timeline-item">
+          <h4 class="font-bold text-body mb-2">配置HTTPS跳转</h4>
+          <p class="text-sm text-muted">部署完成后配置HTTP自动跳转HTTPS，确保所有流量通过加密通道传输，同时可开启HSTS增强安全性。</p>
+        </div>
+      </div>
+    </div>
+
     <div class="max-w-3xl">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
-      <div class="space-y-3">
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>企业邮箱支持哪些客户端？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">支持Outlook、Foxmail、Mac Mail等主流邮件客户端，同时支持iOS/Android手机自带邮件应用和微信小程序收发。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>如何创建企业邮箱账号？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">需要先拥有域名，然后选择套餐购买。购买后通过管理后台批量创建员工账号，配置DNS解析后即可使用，全程约10分钟。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>可以绑定多个域名吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">专业版及以上支持绑定多个域名，方便拥有多个品牌域名的企业统一管理邮箱服务。</p></div></div>
+      <div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">SSL证书部署需要多久？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">DV证书验证域名所有权后几分钟内签发；OV/EV证书需要企业资质审核，通常1-5个工作日。</p></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">证书到期前会提醒吗？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">会在到期前30天、15天、7天、1天通过邮件和短信提醒，也可开启自动续费避免证书过期。</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== Tab 4: 云服务器（合并两套方案） ========== -->
+<!-- ========== Tab 5: 企业邮箱 ========== -->
+<section class="idc-content hidden py-16 bg-white" id="content-mail">
+
+  <!-- ========== 卖点横幅（数据卡片 + 点阵纹理背景） ========== -->
+  <div class="max-w-7xl mx-auto px-6 mb-16">
+    <div class="mail-selling-wrap">
+      <div class="mail-selling-banner">
+        <div class="mail-selling-item mail-animate-in">
+          <div class="mail-selling-icon">🏗️</div>
+          <div class="mail-selling-num">28年</div>
+          <div class="mail-selling-label">专业技术沉淀</div>
+        </div>
+        <div class="mail-selling-item mail-animate-in">
+          <div class="mail-selling-icon">🔍</div>
+          <div class="mail-selling-num">外贸洞察</div>
+          <div class="mail-selling-label">AI提效与客户背调</div>
+        </div>
+        <div class="mail-selling-item mail-animate-in">
+          <div class="mail-selling-icon">📨</div>
+          <div class="mail-selling-num">邮件收发无阻</div>
+          <div class="mail-selling-label">秒触达更省心</div>
+        </div>
+        <div class="mail-selling-item mail-animate-in">
+          <div class="mail-selling-icon">🌍</div>
+          <div class="mail-selling-num">覆盖全球市场</div>
+          <div class="mail-selling-label">服务超100000+客户</div>
+        </div>
+        <div class="mail-selling-item mail-animate-in">
+          <div class="mail-selling-icon">🛡️</div>
+          <div class="mail-selling-num">99.99%</div>
+          <div class="mail-selling-label">垃圾邮件拦截</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 邮箱版本选择（渐入对比卡片） ========== -->
+  <div class="max-w-7xl mx-auto px-6 mb-16">
+    <div class="mail-version-wrap">
+      <div class="mail-section-title"><span class="en-tag">Version</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-2">邮箱版本选择</h2>
+      <p class="text-lg text-muted mb-10">各个版本，每升一级，获得更多功能更好体验</p>
+      <div class="mail-version-grid">
+        <!-- 外贸版（推荐） -->
+        <div class="mail-version-card recommended mail-animate-in">
+          <span class="mail-version-badge">推荐</span>
+          <div class="mail-version-title">全球邮外贸版</div>
+          <div class="mail-version-desc">助力外贸 · 无限容量 · 海外一触即达</div>
+          <div class="mail-version-specs">
+            <div class="spec-item"><div class="spec-val">无限容量</div><div class="spec-label">每账户容量</div></div>
+            <div class="spec-item"><div class="spec-val">20GB</div><div class="spec-label">大附件中转站</div></div>
+            <div class="spec-item"><div class="spec-val">超大容量</div><div class="spec-label">企业云盘</div></div>
+          </div>
+          <div class="mail-version-features">
+            <div class="feat-item"><span class="feat-check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>邮件追踪、阅读统计功能</div>
+            <div class="feat-item"><span class="feat-check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>海外邮件到达率99%</div>
+            <div class="feat-item"><span class="feat-check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>邮件审核 · 邮件监控 · 保障订单安全</div>
+          </div>
+          <div class="mail-version-price">
+            <div class="price-original">划线价：179元/用户/年</div>
+            <div class="price-main">¥120<span>/用户/年</span></div>
+            <div class="price-min">5个用户起售</div>
+          </div>
+          <button class="buy-btn buy-btn-primary" onclick="openMailOrderModal('global-trade', this)">立即购买</button>
+        </div>
+        <!-- 标准版 -->
+        <div class="mail-version-card mail-animate-in">
+          <div class="mail-version-title">全球邮标准版</div>
+          <div class="mail-version-desc">适用中小企业 · 收发稳定 · 赢得客户信任</div>
+          <div class="mail-version-specs">
+            <div class="spec-item"><div class="spec-val">365G</div><div class="spec-label">每账户容量</div></div>
+            <div class="spec-item"><div class="spec-val">20GB</div><div class="spec-label">大附件中转站</div></div>
+            <div class="spec-item"><div class="spec-val">10G</div><div class="spec-label">企业云盘</div></div>
+          </div>
+          <div class="mail-version-features">
+            <div class="feat-item"><span class="feat-check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>待办事项 · 企业云盘 · 协同办公</div>
+            <div class="feat-item"><span class="feat-check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>安全保障，7×24小时人工监控</div>
+            <div class="feat-item"><span class="feat-check"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>多线路机房 · 云存储 · 高速又安全</div>
+          </div>
+          <div class="mail-version-price">
+            <div class="price-original">划线价：159元/用户/年</div>
+            <div class="price-main">¥100<span>/用户/年</span></div>
+            <div class="price-min">5个用户起售</div>
+          </div>
+          <button class="buy-btn buy-btn-outline" onclick="openMailOrderModal('global-standard', this)">立即购买</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 邮箱优势（8大核心） ========== -->
+  <div class="mail-advantage-wrap py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mail-section-title"><span class="en-tag">Advantage</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-2">邮箱优势</h2>
+      <p class="text-lg text-muted mb-10">让邮件畅通全球，凭借稳定邮箱和贴心服务，助力企业把生意扎根五湖四海。</p>
+      <div class="mail-advantage-grid">
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(10,102,255,0.08);">📊</div>
+          <div class="adv-title">外贸洞察</div>
+          <ul class="adv-list">
+            <li>企业信息背调，防范合作风险</li>
+            <li>AI生成母语级邮件，提高沟通效率</li>
+            <li>海关数据分析，定位高潜力市场</li>
+            <li>追踪邮件发送及阅读情况，动态优化跟进策略</li>
+          </ul>
+        </div>
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(0,212,170,0.1);">🌐</div>
+          <div class="adv-title">全球畅游</div>
+          <ul class="adv-list">
+            <li>海外部署多个转发节点</li>
+            <li>高信誉度外发IP资源</li>
+            <li>邮件组织白名单成员，信任度高</li>
+          </ul>
+        </div>
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(249,115,22,0.08);">⚙️</div>
+          <div class="adv-title">专业稳定</div>
+          <ul class="adv-list">
+            <li>多年邮件服务经验</li>
+            <li>100万以上企业用户的运营能力</li>
+            <li>分布式集群部署，保障服务不间断</li>
+            <li>高扩展能力的CACHE系统</li>
+          </ul>
+        </div>
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(139,92,246,0.08);">👥</div>
+          <div class="adv-title">企业协同管理</div>
+          <ul class="adv-list">
+            <li>邮件审核，敏感信息先审核后发送</li>
+            <li>智能列表，支持多种商机分发方式</li>
+            <li>企业通讯录，随时找到同事联系方式</li>
+            <li>分级管理，不同管理岗位不同权限</li>
+          </ul>
+        </div>
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(239,68,68,0.08);">🔒</div>
+          <div class="adv-title">安全保障</div>
+          <ul class="adv-list">
+            <li>专业反垃圾防病毒网关</li>
+            <li>垃圾病毒邮件过滤 > 99.9%</li>
+            <li>云存储，随时资源扩展，故障转移</li>
+          </ul>
+        </div>
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(236,72,153,0.08);">💝</div>
+          <div class="adv-title">贴心服务</div>
+          <ul class="adv-list">
+            <li>全国多家分支机构</li>
+            <li>365天，7×24小时客户服务</li>
+            <li>在线客服、热线客服、工单全方位服务</li>
+          </ul>
+        </div>
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(10,102,255,0.08);">📱</div>
+          <div class="adv-title">多终端使用</div>
+          <ul class="adv-list">
+            <li>基于H5技术的webmail和手机邮箱</li>
+            <li>绑定微信，可在微信中收发邮件</li>
+            <li>电脑、手机、PAD随时随地工作</li>
+            <li>支持个性化定制登录页</li>
+          </ul>
+        </div>
+        <div class="mail-advantage-card">
+          <div class="adv-icon" style="background:rgba(0,212,170,0.1);">⚡</div>
+          <div class="adv-title">高效办公</div>
+          <ul class="adv-list">
+            <li>记录待办事项，避免工作遗漏</li>
+            <li>企业网盘存储共享内部文件</li>
+            <li>跨时区定时邮件，轻松搞定时差问题</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 应用行业场景（沉浸式带插图） ========== -->
+  <div class="mail-industry-fullwrap">
+    <!-- 顶部装饰SVG -->
+    <div class="mail-industry-decor-top">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="width:100%;height:80px;display:block;" aria-hidden="true">
+        <path d="M0 80 C 200 20, 400 60, 720 30 C 1040 0, 1240 50, 1440 30 L 1440 80 Z" fill="rgba(10,102,255,0.03)"/>
+        <path d="M0 80 C 300 40, 600 70, 900 50 C 1100 35, 1300 55, 1440 45 L 1440 80 Z" fill="rgba(0,212,170,0.02)"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="mail-section-title"><span class="en-tag">Industry</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-2">应用行业场景</h2>
+      <p class="text-lg text-muted mb-10">打造专业企业邮箱，树立稳定可信赖的品牌沟通渠道，助力企业精准触达客户。</p>
+      
+      <div class="mail-industry-panel" id="mailIndustryWrap">
+        <!-- 左侧Tab — 带行业图标 -->
+        <div class="mail-industry-tabs-new" role="tablist">
+          <button class="mail-industry-tab-new active" data-industry="0" role="tab" aria-selected="true" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+            <span class="itab-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/><circle cx="20" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 12 L20 20 M14 26 L26 26" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+            </span>
+            <div><strong>国际贸易</strong><small>Cross-border Trade</small></div>
+          </button>
+          <button class="mail-industry-tab-new" data-industry="1" role="tab" aria-selected="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+            <span class="itab-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><rect x="8" y="8" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="22" y="8" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="8" y="22" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="22" y="22" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="13" r="2" fill="currentColor"/><circle cx="27" cy="13" r="2" fill="currentColor"/></svg>
+            </span>
+            <div><strong>制造业</strong><small>Manufacturing</small></div>
+          </button>
+          <button class="mail-industry-tab-new" data-industry="2" role="tab" aria-selected="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+            <span class="itab-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><rect x="6" y="14" width="28" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="14" x2="20" y2="30" stroke="currentColor" stroke-width="1"/><line x1="6" y1="22" x2="34" y2="22" stroke="currentColor" stroke-width="1"/><circle cx="20" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="22" text-anchor="middle" font-size="5" fill="currentColor">¥</text></svg>
+            </span>
+            <div><strong>金融行业</strong><small>Financial Services</small></div>
+          </button>
+          <button class="mail-industry-tab-new" data-industry="3" role="tab" aria-selected="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+            <span class="itab-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><rect x="6" y="20" width="8" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="14" width="8" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="26" y="24" width="8" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="10" y="8" width="4" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+            </span>
+            <div><strong>物流运输</strong><small>Logistics</small></div>
+          </button>
+          <button class="mail-industry-tab-new" data-industry="4" role="tab" aria-selected="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
+            <span class="itab-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><rect x="10" y="6" width="20" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="10" width="12" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="20" cy="15" r="3" fill="currentColor"/><line x1="14" y1="24" x2="26" y2="24" stroke="currentColor" stroke-width="1"/><line x1="14" y1="27" x2="22" y2="27" stroke="currentColor" stroke-width="1"/></svg>
+            </span>
+            <div><strong>文化传媒</strong><small>Media &amp; Culture</small></div>
+          </button>
+        </div>
+
+        <!-- 右侧内容 — 带插图和背景 -->
+        <div class="mail-industry-panel-content" id="mailIndustryContent">
+          <!-- 默认：国际贸易 -->
+          <div class="mail-industry-inner">
+            <div class="mail-industry-illust">
+              <svg viewBox="0 0 300 200"><rect width="300" height="200" rx="12" fill="#F0F4FF"/><circle cx="80" cy="100" r="50" fill="none" stroke="#0A66FF" stroke-width="0.8" stroke-dasharray="5 5" opacity="0.4"/><circle cx="180" cy="60" r="35" fill="none" stroke="#0A66FF" stroke-width="0.8" stroke-dasharray="5 5" opacity="0.3"/><circle cx="230" cy="140" r="30" fill="none" stroke="#0A66FF" stroke-width="0.8" stroke-dasharray="5 5" opacity="0.3"/><path d="M100 100 Q140 60 180 60 Q210 100 230 140" fill="none" stroke="#0A66FF" stroke-width="1.5" opacity="0.5"/><path d="M100 100 Q140 140 180 140 Q210 100 230 60" fill="none" stroke="#00D4AA" stroke-width="1" opacity="0.4"/><circle cx="100" cy="100" r="6" fill="#0A66FF"/><circle cx="180" cy="60" r="5" fill="#00D4AA"/><circle cx="230" cy="140" r="4" fill="#0A66FF"/><text x="150" y="170" text-anchor="middle" font-size="9" fill="#94A3B8" font-family="sans-serif">Global Trade Network</text></svg>
+            </div>
+            <p class="ind-desc">在跨境业务拓展中，企业邮箱全球畅游，并且通过AI翻译消除语言歧义，海关数据分析掌握行业海外市场分布情况，结合时区管理确保报价精准触达；客户背调拦截高风险企业，邮件追踪实时跟踪报价邮件动态，助力外贸企业提升商机转化。</p>
+            <div class="ind-points">
+              <div class="ind-point"><span class="point-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>海外邮件收发畅通无阻，避免通信不稳定</div>
+              <div class="ind-point"><span class="point-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>破除语言文化壁垒，提升国际客户信任度</div>
+              <div class="ind-point"><span class="point-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>精准锁定高潜市场，避免无效拓客成本</div>
+              <div class="ind-point"><span class="point-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>规避跨境交易风险，保障资金安全</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部装饰SVG -->
+    <div class="mail-industry-decor-bottom">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="width:100%;height:80px;display:block;" aria-hidden="true">
+        <path d="M0 0 C 200 60, 400 20, 720 50 C 1040 80, 1240 30, 1440 50 L 1440 0 Z" fill="rgba(10,102,255,0.03)"/>
+      </svg>
+    </div>
+  </div>
+
+
+  <!-- ========== 邮箱使用功能 ========== -->
+  <div class="py-16" style="background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mail-section-title"><span class="en-tag">Features</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-2">邮箱使用功能</h2>
+      <p class="text-lg text-muted mb-10">丰富的邮件功能，让商务沟通更专业、更高效。</p>
+      <div class="mail-func-grid">
+        <div class="mail-func-card">
+          <div class="func-icon">📬</div>
+          <div class="func-title">邮件追踪</div>
+          <div class="func-desc">随时查阅您邮件的送达和被客户阅读的情况</div>
+        </div>
+        <div class="mail-func-card">
+          <div class="func-icon">✅</div>
+          <div class="func-title">邮件审核</div>
+          <div class="func-desc">对重要账号设置条件进行审核，高效办公，安全无纰漏</div>
+        </div>
+        <div class="mail-func-card">
+          <div class="func-icon">💬</div>
+          <div class="func-title">微信收发邮件</div>
+          <div class="func-desc">无需安装APP，绑定微信公众号直接收发邮件，新邮件实时提醒</div>
+        </div>
+        <div class="mail-func-card">
+          <div class="func-icon">🏷️</div>
+          <div class="func-title">客户信息管理</div>
+          <div class="func-desc">针对不同客户设置不同标签，实现分类管理</div>
+        </div>
+        <div class="mail-func-card">
+          <div class="func-icon">🌍</div>
+          <div class="func-title">邮件翻译</div>
+          <div class="func-desc">支持将英文、日文、韩文、德语类邮件内容翻译成中文</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 管理员功能 ========== -->
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="mail-section-title"><span class="en-tag">Admin</span><span class="line"></span></div>
+    <h2 class="text-3xl font-bold text-body mb-2">管理员功能</h2>
+    <p class="text-lg text-muted mb-10">全面的后台管理能力，让企业邮箱运维轻松高效。</p>
+    <!-- 亮点功能 -->
+    <div class="mail-admin-highlight-grid">
+      <div class="mail-admin-hl-card">
+        <div class="hl-icon" style="background:rgba(10,102,255,0.08);">👤</div>
+        <span class="hl-badge">亮点功能</span>
+        <div class="hl-title">分权管理</div>
+        <div class="hl-desc">根据公司不同岗位需求，可分别设置不同管理权限，各司其事</div>
+      </div>
+      <div class="mail-admin-hl-card">
+        <div class="hl-icon" style="background:rgba(0,212,170,0.1);">📋</div>
+        <span class="hl-badge">亮点功能</span>
+        <div class="hl-title">智能列表</div>
+        <div class="hl-desc">开启智能列表，接收询盘邮件按规则分发给业务人员，不漏商机</div>
+      </div>
+      <div class="mail-admin-hl-card">
+        <div class="hl-icon" style="background:rgba(249,115,22,0.08);">🎨</div>
+        <span class="hl-badge">亮点功能</span>
+        <div class="hl-title">企业信息定制</div>
+        <div class="hl-desc">支持个性化定制：企业LOGO、企业登录页、企业签名档等</div>
+      </div>
+      <div class="mail-admin-hl-card">
+        <div class="hl-icon" style="background:rgba(139,92,246,0.08);">📍</div>
+        <span class="hl-badge">亮点功能</span>
+        <div class="hl-title">登录IP/地区限制</div>
+        <div class="hl-desc">设置IP/地区登录权限后，域下所有账号只能在指定IP或指定地区登录</div>
+      </div>
+    </div>
+    <!-- 普通功能 -->
+    <div class="mail-admin-grid">
+      <div class="mail-admin-card"><div class="admin-title">邮件监控</div><div class="admin-desc">管理者可以监控所有的收发邮件，保障企业重要信息不泄露</div></div>
+      <div class="mail-admin-card"><div class="admin-title">邮件归档</div><div class="admin-desc">长期保存企业的往来邮件，帮助企业快速准确归档信息</div></div>
+      <div class="mail-admin-card"><div class="admin-title">邮件列表</div><div class="admin-desc">可根据业务需要，快速创建邮件列表，方便业务的沟通开展</div></div>
+      <div class="mail-admin-card"><div class="admin-title">企业公告</div><div class="admin-desc">管理员支持给所有人发送公告或者群发邮件，方便企业下达重要通知</div></div>
+      <div class="mail-admin-card"><div class="admin-title">收发管控</div><div class="admin-desc">可对成员收发外部邮件的范围与条件进行精细化控制，确保信息安全</div></div>
+      <div class="mail-admin-card"><div class="admin-title">邮件搬家</div><div class="admin-desc">可以将其他邮箱里的邮件完整收取过来，实现邮件统一管理及数据备份</div></div>
+      <div class="mail-admin-card"><div class="admin-title">多域管理</div><div class="admin-desc">支持同一个企业，绑定多个域名的业务需求</div></div>
+      <div class="mail-admin-card"><div class="admin-title">离职员工交接</div><div class="admin-desc">支持将离职员工的邮件交接给企业内其他成员</div></div>
+    </div>
+  </div>
+
+  <!-- ========== 常见问题 ========== -->
+  <div class="max-w-3xl">
+    <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
+    <div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">邮箱转入xicel流程？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">首先购买企业邮箱并完成开通，绑定您的域名；并根据开通信的域名解析指向记录进行域名解析配置（添加CNAME、MX及TXT记录）；通过登录webmail端后台创建员工邮箱账号；若原有邮件需迁移，可通过客户端同步或使用"邮箱搬家"功能转移历史邮件，修改解析指向后即可正常使用新邮箱服务。</p></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">邮箱怎么进行DKIM/DMARC设置？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">1、管理员在webmail端查看域名的配置信息，获取SPF、DKIM、DMARC的解析记录值；2、在域名解析平台添加webmail端获取到的对应解析记录值（TXT解析类型），确保添加正确；3、管理员在webmail端就DKIM/DMARC设置进行校验，校验通过即代表该设置已启用，可防止您的邮箱域名被冒用发送邮件。</p></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">更多问题？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed flex flex-wrap gap-3">
+            <a href="help.html" class="inline-flex items-center px-4 py-2 bg-slate-100 hover:bg-primary/10 text-body hover:text-primary rounded-lg text-sm transition-colors">邮箱域名解析设置</a>
+            <a href="help.html" class="inline-flex items-center px-4 py-2 bg-slate-100 hover:bg-primary/10 text-body hover:text-primary rounded-lg text-sm transition-colors">海外使用企业邮箱</a>
+            <a href="help.html" class="inline-flex items-center px-4 py-2 bg-slate-100 hover:bg-primary/10 text-body hover:text-primary rounded-lg text-sm transition-colors">邮箱客户端配置</a>
+            <a href="help.html" class="inline-flex items-center px-4 py-2 bg-slate-100 hover:bg-primary/10 text-body hover:text-primary rounded-lg text-sm transition-colors">使用手册</a>
+          </p></div></div>
+      </div>
+    </div>
+
+</section>
+
+<!-- 行业场景切换JS（增强版 — 含插图切换 + 内容动画） -->
+<script>
+(function(){
+  var industryData = [
+    {
+      desc: '在跨境业务拓展中，企业邮箱全球畅游，并且通过AI翻译消除语言歧义，海关数据分析掌握行业海外市场分布情况，结合时区管理确保报价精准触达；客户背调拦截高风险企业，邮件追踪实时跟踪报价邮件动态，助力外贸企业提升商机转化。',
+      points: ['海外邮件收发畅通无阻，避免通信不稳定','破除语言文化壁垒，提升国际客户信任度','精准锁定高潜市场，避免无效拓客成本','规避跨境交易风险，保障资金安全'],
+      illust: '<svg viewBox="0 0 300 200"><rect width="300" height="200" rx="12" fill="#F0F4FF"/><circle cx="80" cy="100" r="50" fill="none" stroke="#0A66FF" stroke-width="0.8" stroke-dasharray="5 5" opacity="0.4"/><circle cx="180" cy="60" r="35" fill="none" stroke="#0A66FF" stroke-width="0.8" stroke-dasharray="5 5" opacity="0.3"/><circle cx="230" cy="140" r="30" fill="none" stroke="#0A66FF" stroke-width="0.8" stroke-dasharray="5 5" opacity="0.3"/><path d="M100 100 Q140 60 180 60 Q210 100 230 140" fill="none" stroke="#0A66FF" stroke-width="1.5" opacity="0.5"/><path d="M100 100 Q140 140 180 140 Q210 100 230 60" fill="none" stroke="#00D4AA" stroke-width="1" opacity="0.4"/><circle cx="100" cy="100" r="6" fill="#0A66FF"/><circle cx="180" cy="60" r="5" fill="#00D4AA"/><circle cx="230" cy="140" r="4" fill="#0A66FF"/><text x="150" y="170" text-anchor="middle" font-size="9" fill="#94A3B8" font-family="sans-serif">Global Trade Network</text></svg>'
+    },
+    {
+      desc: '针对供应链协同与研发机密保护，邮件审核确保生产指令传输可追溯，加密文件夹守护图纸专利；双因素认证阻断非法访问，邮件撤回追回误发文件，使技术泄露风险归零，提升生产协同效率。',
+      points: ['核心知识产权防泄密，满足等保合规','供应链指令可审计，杜绝合同篡改','误操作瞬时挽回，减少事故损失'],
+      illust: '<svg viewBox="0 0 300 200"><rect width="300" height="200" rx="12" fill="#FFF7ED"/><rect x="30" y="40" width="60" height="40" rx="4" fill="none" stroke="#F97316" stroke-width="1.2"/><rect x="120" y="30" width="80" height="50" rx="4" fill="none" stroke="#F97316" stroke-width="1.2"/><rect x="230" y="50" width="40" height="30" rx="4" fill="none" stroke="#F97316" stroke-width="1.2"/><rect x="80" y="110" width="100" height="50" rx="4" fill="none" stroke="#F97316" stroke-width="1.2"/><rect x="210" y="100" width="60" height="60" rx="4" fill="none" stroke="#F97316" stroke-width="1.2"/><circle cx="70" cy="55" r="2" fill="#F97316"/><circle cx="180" cy="45" r="2" fill="#F97316"/><circle cx="140" cy="135" r="2" fill="#F97316"/><path d="M70 60 L140 60 L140 110" fill="none" stroke="#F97316" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.5"/><path d="M180 55 L230 55 L230 105" fill="none" stroke="#F97316" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.5"/><text x="150" y="185" text-anchor="middle" font-size="9" fill="#94A3B8" font-family="sans-serif">Supply Chain &amp; IP Protection</text></svg>'
+    },
+    {
+      desc: '在银行、证券等机构日常运营中，企业邮箱通过邮件归档实现邮件实时存证与无限期保存，支持按收发件人/关键词/时间段快速检索历史记录；双保险纠错机制确保误发敏感信息5秒内撤回、14天内自助恢复，降低存储成本的同时满足内部审计与风险追溯要求。',
+      points: ['邮件全生命周期可追溯，满足内部审计举证需求','误发敏感信息5秒内撤回、14天内自助恢复','快速检索历史记录，提升合规效率'],
+      illust: '<svg viewBox="0 0 300 200"><rect width="300" height="200" rx="12" fill="#F0FDF4"/><rect x="20" y="20" width="120" height="70" rx="6" fill="none" stroke="#059669" stroke-width="1.2"/><rect x="160" y="20" width="120" height="70" rx="6" fill="none" stroke="#059669" stroke-width="1.2"/><rect x="20" y="110" width="120" height="70" rx="6" fill="none" stroke="#059669" stroke-width="1.2"/><rect x="160" y="110" width="120" height="70" rx="6" fill="none" stroke="#059669" stroke-width="1.2"/><rect x="60" y="35" width="40" height="12" rx="2" fill="#D1FAE5"/><rect x="60" y="52" width="30" height="8" rx="2" fill="#D1FAE5"/><rect x="60" y="135" width="50" height="12" rx="2" fill="#D1FAE5"/><rect x="200" y="35" width="40" height="12" rx="2" fill="#D1FAE5"/><rect x="200" y="135" width="40" height="12" rx="2" fill="#D1FAE5"/><text x="150" y="195" text-anchor="middle" font-size="9" fill="#94A3B8" font-family="sans-serif">Audit Trail &amp; Compliance Archive</text></svg>'
+    },
+    {
+      desc: '在覆盖全国的快递网点协同管理中，企业邮箱通过多级权限管理实现总部、大区、网点的分层自治，区域总监自主管理辖区账号密码重置与风控；详细运维日志实时追踪异常邮件与登录行为，快速定位问题网点并推送应急方案。',
+      points: ['全国网点权限精细化管理，释放总部运维压力','邮件问题快速定位，保障运输指令准时触达','协作效能可视化，优化人力成本投入'],
+      illust: '<svg viewBox="0 0 300 200"><rect width="300" height="200" rx="12" fill="#EFF6FF"/><rect x="80" y="30" width="140" height="30" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.2"/><rect x="20" y="85" width="80" height="40" rx="4" fill="none" stroke="#3B82F6" stroke-width="1"/><rect x="110" y="80" width="80" height="45" rx="4" fill="none" stroke="#3B82F6" stroke-width="1"/><rect x="200" y="85" width="80" height="40" rx="4" fill="none" stroke="#3B82F6" stroke-width="1"/><rect x="50" y="145" width="60" height="30" rx="4" fill="none" stroke="#3B82F6" stroke-width="0.8"/><rect x="120" y="140" width="60" height="35" rx="4" fill="none" stroke="#3B82F6" stroke-width="0.8"/><rect x="190" y="145" width="60" height="30" rx="4" fill="none" stroke="#3B82F6" stroke-width="0.8"/><path d="M150 60 L40 85" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/><path d="M150 60 L150 80" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/><path d="M150 60 L240 85" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/><text x="150" y="190" text-anchor="middle" font-size="9" fill="#94A3B8" font-family="sans-serif">Distributed Hub Network</text></svg>'
+    },
+    {
+      desc: '在高度依赖创意与内容版权的传媒领域，企业邮箱凭借自研反垃圾网关精密过滤海量推广与垃圾邮件，保障创意人员专注力；更通过灵活的黑白名单与收发信管控严防剧本、提案在传递中泄露，全面守护创意资产与商业机密。',
+      points: ['严防商业间谍与黑客攻击，守护核心创意资产','精细化管控邮件流向，杜绝机密内容外泄','高效过滤垃圾邮件，保障创意团队专注力','灵活定制收发策略，满足多样化项目管理需求'],
+      illust: '<svg viewBox="0 0 300 200"><rect width="300" height="200" rx="12" fill="#FAF5FF"/><rect x="40" y="25" width="100" height="80" rx="4" fill="none" stroke="#8B5CF6" stroke-width="1.2"/><rect x="160" y="25" width="100" height="80" rx="4" fill="none" stroke="#8B5CF6" stroke-width="1.2"/><rect x="40" y="120" width="70" height="55" rx="4" fill="none" stroke="#8B5CF6" stroke-width="1"/><rect x="125" y="120" width="70" height="55" rx="4" fill="none" stroke="#8B5CF6" stroke-width="1"/><rect x="210" y="120" width="50" height="55" rx="4" fill="none" stroke="#8B5CF6" stroke-width="1"/><circle cx="70" cy="55" r="8" fill="none" stroke="#A78BFA" stroke-width="1"/><circle cx="190" cy="55" r="8" fill="none" stroke="#A78BFA" stroke-width="1"/><path d="M78 55 L182 55" stroke="#A78BFA" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.5"/><text x="150" y="190" text-anchor="middle" font-size="9" fill="#94A3B8" font-family="sans-serif">Content &amp; Creative IP Protection</text></svg>'
+    }
+  ];
+
+  var tabs = document.querySelectorAll('#mailIndustryWrap .mail-industry-tab-new');
+  var content = document.getElementById('mailIndustryContent');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      this.classList.add('active');
+      this.setAttribute('aria-selected','true');
+      var idx = parseInt(this.getAttribute('data-industry'));
+      var d = industryData[idx];
+      var html = '<div class="mail-industry-inner fade-in">'+
+        '<div class="mail-industry-illust">'+d.illust+'</div>'+
+        '<p class="ind-desc">'+d.desc+'</p>'+
+        '<div class="ind-points">';
+      d.points.forEach(function(p){
+        html += '<div class="ind-point"><span class="point-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>'+p+'</div>';
+      });
+      html += '</div></div>';
+      content.innerHTML = html;
+    });
+  });
+})();</script>
+
+<!-- ========== Tab 6: 云服务器（合并两套方案） ========== -->
 <section class="idc-content hidden py-16 bg-white idc-cloud-section" id="content-cloud">
   <div class="max-w-7xl mx-auto px-6">
 
-    <!-- 子区域一：月付方案（5档 + 对比表） -->
+    <!-- 子区域一：年付方案（5档 + 对比表） -->
     <div class="mb-16">
-      <h3 class="idc-subsection-title text-2xl font-bold text-body mb-2">月付方案</h3>
+      <div class="gradient-section-title"><span class="en-tag">Monthly</span><span class="line"></span></div>
+      <h3 class="text-2xl font-bold text-body mb-2">年付方案</h3>
       <p class="text-lg text-muted max-w-3xl mb-8">弹性云服务器，覆盖轻量到旗舰全规格，按需选择、灵活升降。</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
         <!-- 轻量型 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col">
           <div class="text-sm font-semibold text-body mb-2">轻量型</div>
-          <div class="text-2xl font-bold text-body mb-1">¥68<span class="text-sm font-normal text-muted">/月</span></div>
+          <div class="text-2xl font-bold text-body mb-1">¥68<span class="text-sm font-normal text-muted">/年</span></div>
           <div class="text-xs text-muted mb-3"><span class="line-through">¥100</span> <span class="text-[#059669] font-medium">省32%</span></div>
           <div class="text-sm text-body font-medium mb-3">1核 · 2GB内存</div>
           <div class="border-t border-slate-100 pt-3 space-y-1.5 text-xs text-muted">
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>40GB SSD系统盘</div>
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>3Mbps带宽</div>
-            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>500GB月流量</div>
+            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>无限月流量</div>
           </div>
           <button class="mt-auto w-full h-11 flex items-center justify-center border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-medium rounded-xl transition-colors">立即开通</button>
         </div>
         <!-- 基础型 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col">
           <div class="text-sm font-semibold text-body mb-2">基础型</div>
-          <div class="text-2xl font-bold text-body mb-1">¥168<span class="text-sm font-normal text-muted">/月</span></div>
+          <div class="text-2xl font-bold text-body mb-1">¥168<span class="text-sm font-normal text-muted">/年</span></div>
           <div class="text-xs text-muted mb-3"><span class="line-through">¥268</span> <span class="text-[#059669] font-medium">省37%</span></div>
           <div class="text-sm text-body font-medium mb-3">2核 · 4GB内存</div>
           <div class="border-t border-slate-100 pt-3 space-y-1.5 text-xs text-muted">
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>60GB SSD系统盘</div>
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>5Mbps带宽</div>
-            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>1TB月流量</div>
+            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>无限月流量</div>
           </div>
           <button class="mt-auto w-full h-11 flex items-center justify-center border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-medium rounded-xl transition-colors">立即开通</button>
         </div>
@@ -181,39 +1338,39 @@ tailwind.config = {
         <div class="bg-white rounded-2xl border-2 border-[#10B981] p-5 hover:shadow-lg transition-all duration-300 relative flex flex-col">
           <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#059669] text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div>
           <div class="text-sm font-semibold text-body mb-2">通用型</div>
-          <div class="text-2xl font-bold text-body mb-1">¥368<span class="text-sm font-normal text-muted">/月</span></div>
+          <div class="text-2xl font-bold text-body mb-1">¥368<span class="text-sm font-normal text-muted">/年</span></div>
           <div class="text-xs text-muted mb-3"><span class="line-through">¥635</span> <span class="text-[#059669] font-medium">省42%</span></div>
           <div class="text-sm text-body font-medium mb-3">4核 · 8GB内存</div>
           <div class="border-t border-slate-100 pt-3 space-y-1.5 text-xs text-muted">
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>80GB SSD系统盘</div>
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>8Mbps带宽</div>
-            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>2TB月流量</div>
+            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>无限月流量</div>
           </div>
           <button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button>
         </div>
         <!-- 性能型 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col">
           <div class="text-sm font-semibold text-body mb-2">性能型</div>
-          <div class="text-2xl font-bold text-body mb-1">¥728<span class="text-sm font-normal text-muted">/月</span></div>
+          <div class="text-2xl font-bold text-body mb-1">¥728<span class="text-sm font-normal text-muted">/年</span></div>
           <div class="text-xs text-muted mb-3"><span class="line-through">¥1,200</span> <span class="text-[#059669] font-medium">省39%</span></div>
           <div class="text-sm text-body font-medium mb-3">8核 · 16GB内存</div>
           <div class="border-t border-slate-100 pt-3 space-y-1.5 text-xs text-muted">
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>120GB SSD系统盘</div>
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>12Mbps带宽</div>
-            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>4TB月流量</div>
+            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>无限月流量</div>
           </div>
           <button class="mt-auto w-full h-11 flex items-center justify-center border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-medium rounded-xl transition-colors">立即开通</button>
         </div>
         <!-- 旗舰型 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col">
           <div class="text-sm font-semibold text-body mb-2">旗舰型</div>
-          <div class="text-2xl font-bold text-body mb-1">¥1,488<span class="text-sm font-normal text-muted">/月</span></div>
+          <div class="text-2xl font-bold text-body mb-1">¥1,488<span class="text-sm font-normal text-muted">/年</span></div>
           <div class="text-xs text-muted mb-3"><span class="line-through">¥2,480</span> <span class="text-[#059669] font-medium">省40%</span></div>
           <div class="text-sm text-body font-medium mb-3">16核 · 32GB内存</div>
           <div class="border-t border-slate-100 pt-3 space-y-1.5 text-xs text-muted">
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>200GB SSD系统盘</div>
             <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>20Mbps带宽</div>
-            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>8TB月流量</div>
+            <div class="flex items-center gap-1.5"><span class="w-1 h-1 bg-[#10B981] rounded-full shrink-0"></span>无限月流量</div>
           </div>
           <button class="mt-auto w-full h-11 flex items-center justify-center border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-medium rounded-xl transition-colors">立即开通</button>
         </div>
@@ -221,7 +1378,7 @@ tailwind.config = {
 
       <!-- 功能对比表 -->
       <div class="mb-8">
-        <h4 class="text-lg font-bold text-body mb-4">月付方案功能对比</h4>
+        <h4 class="text-lg font-bold text-body mb-4">年付方案功能对比</h4>
         <div class="overflow-x-auto">
           <table class="w-full min-w-[800px] text-sm border-collapse">
             <thead>
@@ -238,7 +1395,7 @@ tailwind.config = {
               <tr><td class="py-3 px-4 text-muted">CPU & 内存</td><td class="text-center py-3 px-4">1核 2GB</td><td class="text-center py-3 px-4">2核 4GB</td><td class="text-center py-3 px-4 recommended-col font-medium">4核 8GB</td><td class="text-center py-3 px-4">8核 16GB</td><td class="text-center py-3 px-4">16核 32GB</td></tr>
               <tr><td class="py-3 px-4 text-muted">系统盘(SSD)</td><td class="text-center py-3 px-4">40GB</td><td class="text-center py-3 px-4">60GB</td><td class="text-center py-3 px-4 recommended-col">80GB</td><td class="text-center py-3 px-4">120GB</td><td class="text-center py-3 px-4">200GB</td></tr>
               <tr><td class="py-3 px-4 text-muted">带宽</td><td class="text-center py-3 px-4">3Mbps</td><td class="text-center py-3 px-4">5Mbps</td><td class="text-center py-3 px-4 recommended-col">8Mbps</td><td class="text-center py-3 px-4">12Mbps</td><td class="text-center py-3 px-4">20Mbps</td></tr>
-              <tr><td class="py-3 px-4 text-muted">月流量</td><td class="text-center py-3 px-4">500GB</td><td class="text-center py-3 px-4">1TB</td><td class="text-center py-3 px-4 recommended-col">2TB</td><td class="text-center py-3 px-4">4TB</td><td class="text-center py-3 px-4">8TB</td></tr>
+              <tr><td class="py-3 px-4 text-muted">月流量</td><td class="text-center py-3 px-4">无限</td><td class="text-center py-3 px-4">无限</td><td class="text-center py-3 px-4 recommended-col">无限</td><td class="text-center py-3 px-4">无限</td><td class="text-center py-3 px-4">无限</td></tr>
               <tr><td class="py-3 px-4 text-muted">快照备份</td><td class="text-center py-3 px-4">2次</td><td class="text-center py-3 px-4">5次</td><td class="text-center py-3 px-4 recommended-col">10次</td><td class="text-center py-3 px-4">20次</td><td class="text-center py-3 px-4">50次</td></tr>
               <tr><td class="py-3 px-4 text-muted">安全组</td><td class="text-center py-3 px-4 text-[#059669]">✓</td><td class="text-center py-3 px-4 text-[#059669]">✓</td><td class="text-center py-3 px-4 recommended-col text-[#059669]">✓</td><td class="text-center py-3 px-4 text-[#059669]">✓</td><td class="text-center py-3 px-4 text-[#059669]">✓</td></tr>
               <tr><td class="py-3 px-4 text-muted">7×24技术支持</td><td class="text-center py-3 px-4 text-[#059669]">✓</td><td class="text-center py-3 px-4 text-[#059669]">✓</td><td class="text-center py-3 px-4 recommended-col text-[#059669]">✓</td><td class="text-center py-3 px-4 text-[#059669]">✓</td><td class="text-center py-3 px-4 text-[#059669]">✓</td></tr>
@@ -250,7 +1407,7 @@ tailwind.config = {
       </div>
 
       <div class="max-w-3xl">
-        <h4 class="text-lg font-bold text-body mb-4">月付方案常见问题</h4>
+        <h4 class="text-lg font-bold text-body mb-4">年付方案常见问题</h4>
         <div class="space-y-3">
           <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>云服务器支持哪些操作系统？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">支持CentOS、Ubuntu、Debian、Windows Server等主流操作系统，可在控制台随时重装切换，系统盘数据会被清除请提前备份。</p></div></div>
           <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>如何升级配置？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">支持在线升降配，CPU/内存/带宽/磁盘均可扩容。升级过程中可能需要短暂重启，建议在业务低峰期操作。</p></div></div>
@@ -262,69 +1419,11 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ========== Tab 5: 网络专线（合并4个子区域） ========== -->
-<section class="idc-content hidden py-16 bg-white idc-amber-section" id="content-network">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- 子区域1: SD-WAN -->
-    <div class="mb-16">
-      <h3 class="idc-subsection-title text-2xl font-bold text-body mb-2">SD-WAN智能专线</h3>
-      <p class="text-lg text-muted max-w-3xl mb-8">智能路由+链路聚合+零信任安全，为企业构建全球私有化高速网络。</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔀</div><h3 class="font-bold text-body mb-2">智能路由</h3><p class="text-sm text-muted">基于应用和链路质量实时调度，自动选择最优传输路径，端到端延迟降低60%</p></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔗</div><h3 class="font-bold text-body mb-2">链路聚合</h3><p class="text-sm text-muted">多链路捆绑叠加带宽，MPLS/互联网/4G/5G任意组合，单链路故障自动切换</p></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🔐</div><h3 class="font-bold text-body mb-2">零信任安全</h3><p class="text-sm text-muted">应用层微分段+身份认证+流量加密，全网零信任架构确保数据安全</p></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">📊</div><h3 class="font-bold text-body mb-2">可视化管理</h3><p class="text-sm text-muted">统一管控平台，全局拓扑可视化+流量分析+智能告警，IT运维效率提升80%</p></div>
-      </div>
-      <div class="max-w-3xl">
-        <div class="space-y-3">
-          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>SD-WAN适合多大规模的企业？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">SD-WAN适合有2个及以上分支机构或跨境业务需求的企业，尤其适合跨境电商、出海游戏、全球化SaaS和多地研发团队。</p></div></div>
-          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>部署SD-WAN需要多长时间？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">标准部署通常3-5个工作日，包含设备安装、网络配置和测试验收。也支持零接触部署（ZTP），设备上电自动完成配置。</p></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 子区域3: 全球加速 -->
-    <div class="mb-16">
-      <h3 class="idc-subsection-title text-2xl font-bold text-body mb-2">全球加速</h3>
-      <p class="text-lg text-muted max-w-3xl mb-8">全球30+国家和地区节点覆盖，跨境访问延迟&lt;100ms。</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">基础版</div><div class="text-2xl font-bold text-body mb-2">按量计费</div><p class="text-xs text-muted mb-4">¥0.60/GB · 20个加速区域</p><ul class="text-xs text-muted space-y-1 mb-4"><li>HTTP/HTTPS加速</li><li>基础监控</li><li>5个加速域名</li></ul><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 border-amber-300 relative"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="text-sm font-semibold text-body mb-2">高级版</div><div class="text-2xl font-bold text-body mb-2">¥0.40/GB</div><p class="text-xs text-muted mb-4">100个加速区域 · 阶梯价格</p><ul class="text-xs text-muted space-y-1 mb-4"><li>全协议加速</li><li>实时监控+告警</li><li>20个加速域名</li></ul><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">企业版</div><div class="text-2xl font-bold text-body mb-2">¥0.25/GB</div><p class="text-xs text-muted mb-4">500个加速区域 · 大客户价格</p><ul class="text-xs text-muted space-y-1 mb-4"><li>专线+公网混合加速</li><li>自定义路由策略</li><li>不限域名数量</li></ul><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="text-sm font-semibold text-body mb-2">全球专线</div><div class="text-2xl font-bold text-body mb-2">按需定制</div><p class="text-xs text-muted mb-4">端到端专线 · SLA保障</p><ul class="text-xs text-muted space-y-1 mb-4"><li>MPLS/IPLC/IEPL</li><li>99.99%可用性</li><li>7×24专属运维</li></ul><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
-      </div>
-      <div class="max-w-3xl">
-        <div class="space-y-3">
-          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>全球加速支持哪些地区？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">覆盖亚太、北美、欧洲、中东、南美等30+国家和地区，3000+边缘节点，中国大陆到海外平均延迟&lt;100ms。</p></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="border-t border-slate-200 my-12"></div>
-
-    <!-- 子区域4: DDoS防护 -->
-    <div>
-      <h3 class="idc-subsection-title text-2xl font-bold text-body mb-2">DDoS防护</h3>
-      <p class="text-lg text-muted max-w-3xl mb-8">全网防护+AI清洗，TB级攻击防御能力，保障业务连续性。</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🛡️</div><h3 class="font-bold text-body mb-2">基础防护</h3><p class="text-sm text-muted mb-4">默认提供5Gbps DDoS防护</p><div class="text-[#B45309] font-bold text-xl mb-4 min-h-[2rem] flex items-end">免费</div><div class="text-xs text-muted space-y-1 mb-4"><div>5Gbps清洗能力</div><div>自动检测+秒级响应</div><div>适合个人网站/博客</div></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">免费获取</button></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 border-amber-300 relative"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">推荐</div><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🛡️</div><h3 class="font-bold text-body mb-2">高级防护</h3><p class="text-sm text-muted mb-4">100Gbps弹性防护+AI清洗</p><div class="text-[#B45309] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥2,800<span class="text-sm font-normal text-muted">/月起</span></div><div class="text-xs text-muted space-y-1 mb-4"><div>100Gbps清洗能力</div><div>AI智能清洗+特征学习</div><div>CC攻击防护</div><div>适合电商/游戏/金融</div></div><button class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即开通</button></div>
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300 flex flex-col"><div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-2xl">🏰</div><h3 class="font-bold text-body mb-2">企业防护</h3><p class="text-sm text-muted mb-4">TB级防护+专属安全专家</p><div class="text-[#B45309] font-bold text-xl mb-4 min-h-[2rem] flex items-end">¥8,800<span class="text-sm font-normal text-muted">/月起</span></div><div class="text-xs text-muted space-y-1 mb-4"><div>TB级清洗能力</div><div>7×24安全专家值守</div><div>定制化防护策略</div><div>适合大型企业/政府机构</div></div><button onclick="openConsultModal()" class="mt-auto w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button></div>
-      </div>
-      <div class="max-w-3xl">
-        <div class="space-y-3">
-          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>DDoS攻击会影响网站正常访问吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">开启DDoS防护后，攻击流量在清洗中心被过滤，正常业务流量不受影响。秒级检测+自动清洗，无感知切换。</p></div></div>
-          <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>防护升级需要中断业务吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">不需要。防护升级在线完成，不中断业务运行。支持弹性防护，突发超大流量攻击时自动扩大清洗能力。</p></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
 <div id="footer-container"></div>
+<div id="float-actions-container"></div>
 
 <!-- ========== 咨询弹窗 ========== -->
 <div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
@@ -344,12 +1443,163 @@ tailwind.config = {
   </div>
 </div>
 
+<!-- ========== 企业邮箱购买弹窗 ========== -->
+<div id="mailOrderModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeMailOrderModal()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden mail-order-dialog">
+    <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+    <div class="p-6 md:p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-body">企业邮箱申请</h3>
+        <button onclick="closeMailOrderModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="mailOrderForm" class="space-y-5">
+        <!-- 类型套餐 -->
+        <div class="mail-order-row">
+          <label class="mail-order-label"><span class="text-red-400">*</span> 类型套餐</label>
+          <div class="mail-order-select-row">
+            <select id="mailVersion" class="mail-order-select" onchange="calcMailTotal()">
+              <option value="global-trade">全球邮外贸版</option>
+              <option value="global-standard">全球邮标准版</option>
+            </select>
+            <select id="mailCapacity" class="mail-order-select" disabled>
+              <option value="unlimited">无限容量</option>
+              <option value="365G">365G/用户</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 公司名称 -->
+        <div class="mail-order-row">
+          <label class="mail-order-label"><span class="text-red-400">*</span> 公司名称</label>
+          <input type="text" id="mailCompany" required placeholder="请输入公司名称" class="mail-order-input">
+        </div>
+
+        <!-- 联系电话 -->
+        <div class="mail-order-row">
+          <label class="mail-order-label"><span class="text-red-400">*</span> 联系电话</label>
+          <input type="tel" id="mailPhone" required placeholder="请输入联系电话" class="mail-order-input">
+        </div>
+
+        <!-- 绑定域名 -->
+        <div class="mail-order-row">
+          <label class="mail-order-label">绑定域名</label>
+          <input type="text" id="mailDomain" placeholder="例如：yourcompany.com" class="mail-order-input">
+        </div>
+
+        <!-- 用户量 -->
+        <div class="mail-order-row">
+          <label class="mail-order-label"><span class="text-red-400">*</span> 用户量</label>
+          <div class="mail-qty-stepper">
+            <button type="button" class="qty-btn qty-minus" onclick="changeMailQty(-1)" aria-label="减少用户数">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" class="w-4 h-4"><path d="M5 12h14"/></svg>
+            </button>
+            <input type="number" id="mailQty" value="5" min="5" class="qty-input" readonly>
+            <button type="button" class="qty-btn qty-plus" onclick="changeMailQty(1)" aria-label="增加用户数">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" class="w-4 h-4"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <span class="qty-tip">5个起售</span>
+          </div>
+        </div>
+
+        <!-- 使用年份 -->
+        <div class="mail-order-row">
+          <label class="mail-order-label"><span class="text-red-400">*</span> 使用年份</label>
+          <div class="mail-years-row" id="mailYearsRow">
+            <button type="button" class="year-btn active" data-year="1">1年</button>
+            <button type="button" class="year-btn" data-year="2">2年</button>
+            <button type="button" class="year-btn" data-year="3">3年</button>
+            <button type="button" class="year-btn" data-year="4">4年</button>
+            <button type="button" class="year-btn" data-year="5">5年</button>
+            <button type="button" class="year-btn" data-year="6">6年</button>
+            <button type="button" class="year-btn" data-year="7">7年</button>
+            <button type="button" class="year-btn" data-year="8">8年</button>
+            <button type="button" class="year-btn" data-year="9">9年</button>
+            <button type="button" class="year-btn" data-year="10">10年</button>
+          </div>
+        </div>
+
+        <!-- 总价 -->
+        <div class="mail-order-total">
+          <span class="total-label">总价</span>
+          <span class="total-price" id="mailTotalPrice">¥600</span>
+        </div>
+
+        <!-- 按钮 -->
+        <div class="mail-order-actions">
+          <button type="button" onclick="closeMailOrderModal()" class="mail-order-btn mail-order-btn-cancel">返回</button>
+          <button type="submit" id="mailOrderSubmitBtn" class="mail-order-btn mail-order-btn-primary">加入购物车</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
 
-function toggleFaq(btn){ var a=btn.nextElementSibling,c=btn.querySelector('.faq-chevron'); a.classList.toggle('open');c.classList.toggle('open'); a.style.maxHeight=a.classList.contains('open')?a.scrollHeight+'px':'0'; }
+/* ========== 全球加速服务申请表 ========== */
+function submitGlobalApply(e){
+  e.preventDefault();
+  var types = document.querySelectorAll('input[name="accelType"]:checked');
+  if (types.length === 0) { alert('请至少选择一项加速需求类型'); return; }
+  var name = document.getElementById('globalName').value.trim();
+  var phone = document.getElementById('globalPhone').value.trim();
+  var desc = document.getElementById('globalDesc').value.trim();
+  if (!name) { alert('请输入联系人姓名'); return; }
+  if (!phone) { alert('请输入联系电话'); return; }
+  if (!desc) { alert('请输入需求描述'); return; }
+  alert('感谢您的申请，我们的网络专家将在24小时内与您联系，提供专属加速方案！');
+  e.target.reset();
+}
+
+/* ========== 服务器托管申请表 ========== */
+function submitHostingApply(e){
+  e.preventDefault();
+  var spec = document.getElementById('hostingSpec').value;
+  var bw = document.getElementById('hostingBandwidth').value;
+  var name = document.getElementById('hostingName').value.trim();
+  var phone = document.getElementById('hostingPhone').value.trim();
+  var desc = document.getElementById('hostingDesc').value.trim();
+  if (!spec) { alert('请选择服务器规格'); return; }
+  if (!bw) { alert('请选择带宽需求'); return; }
+  if (!name) { alert('请输入联系人姓名'); return; }
+  if (!phone) { alert('请输入联系电话'); return; }
+  if (!desc) { alert('请输入需求描述'); return; }
+  alert('感谢您的申请，我们的IDC专家将在24小时内与您联系，提供专属托管方案！');
+  e.target.reset();
+}
+
+/* ========== SSL 证书加入购物车 ========== */
+function addSslToCart(name, price, btn){
+  if (!window.cartUtils) {
+    alert('购物车组件未加载，请稍后重试');
+    return;
+  }
+  var item = {
+    id: 'ssl-' + name + '-' + Date.now(),
+    productType: 'SSL证书',
+    productName: name,
+    price: price,
+    quantity: 1,
+    selected: true,
+    category: 'ssl'
+  };
+  window.cartUtils.addItem(item);
+  window.cartUtils.flyTo(btn);
+  window.cartUtils.toast('已加入购物车');
+}
+function toggleFaq(btn){
+  btn.classList.toggle('open');
+  var answer = btn.nextElementSibling;
+  answer.classList.toggle('open');
+  answer.style.maxHeight = answer.classList.contains('open') ? answer.scrollHeight + 'px' : '0';
+}
 function switchIdcSubtab(s){
   document.querySelectorAll('.idc-content').forEach(function(c){c.classList.add('hidden');});
   document.getElementById('content-'+s).classList.remove('hidden');
@@ -358,9 +1608,117 @@ function switchIdcSubtab(s){
   var ab=document.getElementById('subtab-'+s);ab.classList.add('tab-active-idc');ab.classList.remove('border-transparent','text-muted');
 }
 document.querySelectorAll('.idc-subtab').forEach(function(b){b.addEventListener('click',function(){switchIdcSubtab(b.dataset.subtab);});});
-(function(){var p=new URLSearchParams(window.location.search),s=p.get('subtab')||'web';if(['web','ssl','mail','cloud','network'].indexOf(s)===-1)s='web';switchIdcSubtab(s);})();
+(function(){var p=new URLSearchParams(window.location.search),s=p.get('subtab')||'network';if(['network','hosting','web','ssl','mail','cloud'].indexOf(s)===-1)s='network';switchIdcSubtab(s);})();
+
+/* ========== 企业邮箱购买弹窗 ========== */
+var MAIL_PRICE = {
+  'global-trade': { name: '全球邮外贸版', capacity: '无限容量', pricePerYear: 120 },
+  'global-standard': { name: '全球邮标准版', capacity: '365G/用户', pricePerYear: 100 }
+};
+var mailCurrentVersion = 'global-trade';
+var mailCurrentYears = 1;
+var mailLastBtn = null;
+
+function openMailOrderModal(version, btnEl){
+  mailCurrentVersion = version || 'global-trade';
+  mailLastBtn = btnEl || null;
+  var versionSel = document.getElementById('mailVersion');
+  var capacitySel = document.getElementById('mailCapacity');
+  if(versionSel) versionSel.value = mailCurrentVersion;
+  if(capacitySel) capacitySel.value = MAIL_PRICE[mailCurrentVersion].capacity === '无限容量' ? 'unlimited' : '365G';
+  document.getElementById('mailOrderModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  calcMailTotal();
+}
+function closeMailOrderModal(){
+  document.getElementById('mailOrderModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function changeMailQty(delta){
+  var input = document.getElementById('mailQty');
+  var val = parseInt(input.value) || 5;
+  val += delta;
+  if(val < 5) val = 5;
+  if(val > 999) val = 999;
+  input.value = val;
+  calcMailTotal();
+}
+
+document.addEventListener('click', function(e){
+  var yearBtn = e.target.closest('.year-btn');
+  if(yearBtn && document.getElementById('mailYearsRow')){
+    var btns = document.querySelectorAll('#mailYearsRow .year-btn');
+    for(var i=0;i<btns.length;i++) btns[i].classList.remove('active');
+    yearBtn.classList.add('active');
+    mailCurrentYears = parseInt(yearBtn.getAttribute('data-year')) || 1;
+    calcMailTotal();
+  }
+});
+
+document.addEventListener('change', function(e){
+  if(e.target.id === 'mailVersion'){
+    mailCurrentVersion = e.target.value;
+    var capacitySel = document.getElementById('mailCapacity');
+    if(capacitySel){
+      capacitySel.value = MAIL_PRICE[mailCurrentVersion].capacity === '无限容量' ? 'unlimited' : '365G';
+    }
+    calcMailTotal();
+  }
+});
+
+function calcMailTotal(){
+  var qty = parseInt(document.getElementById('mailQty').value) || 5;
+  var info = MAIL_PRICE[mailCurrentVersion] || MAIL_PRICE['global-trade'];
+  var total = info.pricePerYear * qty * mailCurrentYears;
+  document.getElementById('mailTotalPrice').textContent = '¥' + total.toLocaleString('zh-CN');
+}
+
+document.getElementById('mailOrderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var version = mailCurrentVersion;
+  var info = MAIL_PRICE[version];
+  var qty = parseInt(document.getElementById('mailQty').value) || 5;
+  var years = mailCurrentYears;
+  var company = document.getElementById('mailCompany').value.trim();
+  var phone = document.getElementById('mailPhone').value.trim();
+  var domain = document.getElementById('mailDomain').value.trim();
+
+  if(!company){ showAlert('warning','请输入公司名称'); return; }
+  if(!phone){ showAlert('warning','请输入联系电话'); return; }
+
+  var price = info.pricePerYear * qty * years;
+  var item = {
+    id: 'mail-' + version + '-' + qty + 'u-' + years + 'y-' + Date.now(),
+    productType: '企业邮箱',
+    productName: info.name + ' · ' + qty + '用户',
+    version: info.name,
+    capacity: info.capacity,
+    qty: 1,
+    quantity: qty,
+    year: years,
+    price: price,
+    unitPrice: info.pricePerYear,
+    company: company,
+    phone: phone,
+    domain: domain || '未填写',
+    selected: true,
+    category: 'mail'
+  };
+
+  cartUtils.addItem(item);
+
+  var submitBtn = document.getElementById('mailOrderSubmitBtn');
+  cartUtils.flyTo(submitBtn || mailLastBtn);
+  cartUtils.toast('已加入购物车');
+
+  setTimeout(function(){
+    closeMailOrderModal();
+  }, 600);
+});
 </script>
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>
+<script src="components/float-actions.js"></script>
 </body>
 </html>

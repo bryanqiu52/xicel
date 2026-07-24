@@ -1,7 +1,7 @@
 (function() {
   var footerHTML = `
 <!-- ========== 页脚 ========== -->
-<footer class="bg-slate-50 border-t border-slate-100">
+<footer class="bg-white border-t border-slate-200">
   <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-10">
 

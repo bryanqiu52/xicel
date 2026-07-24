@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系我们 - xicel 希赛乐科技</title>
+<script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/contact.css">
+<script src="https://webapi.amap.com/maps?v=2.0&key=e08608592f69d993861358be2c1f8cee&plugin=AMap.Geocoder"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0A66FF',
+        'primary-dark': '#0047CC',
+        accent: '#00D4AA',
+        dark: '#0D1117',
+        surface: '#F5F7FA',
+        body: '#1E293B',
+        muted: '#64748B',
+        border: '#E2E8F0'
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="navbar-container"></div>
+
+<!-- ========== 顶部横幅 ========== -->
+<section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-20 lg:py-24" style="background: url('assets/images/news_hero.jpg') center/cover no-repeat;">
+  <div class="max-w-7xl mx-auto px-6 text-left">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E293B] mb-4">联系我们</h1>
+    <p class="text-muted text-lg">无论您有任何疑问或需求，我们随时为您提供专业支持</p>
+  </div>
+</section>
+
+<!-- ========== 联系方式卡片 ========== -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- 邮箱 -->
+      <div class="contact-info-card">
+        <div class="contact-info-icon email">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <div class="contact-info-title">电子邮箱</div>
+        <div class="contact-info-value">
+          <a href="mailto:sales01@xicel.com" class="text-primary hover:underline">sales01@xicel.com</a>
+        </div>
+      </div>
+      
+      <!-- 电话 -->
+      <div class="contact-info-card">
+        <div class="contact-info-icon phone">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div class="contact-info-title">联系电话</div>
+        <div class="contact-info-value">
+          <a href="tel:18475488381" class="text-body hover:text-primary transition-colors">184-7548-8381</a>
+        </div>
+      </div>
+      
+      <!-- 地址 -->
+      <div class="contact-info-card">
+        <div class="contact-info-icon address">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <div class="contact-info-title">公司地址</div>
+        <div class="contact-info-value">深圳市龙华区汇隆大厦</div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ========== 地图区 ========== -->
+<section class="py-20 contact-map-section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3">
+        <span class="w-6 h-px bg-primary"></span> OUR LOCATION <span class="w-6 h-px bg-primary"></span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">公司位置</h2>
+      <p class="text-muted-override text-lg">欢迎莅临我们公司参观交流</p>
+    </div>
+    
+    <div class="contact-map-container">
+      <div id="mapContainer" style="width:100%;height:400px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 联系表单区 ========== -->
+<section class="py-20 contact-form-section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3">
+        <span class="w-6 h-px bg-primary"></span> SEND MESSAGE <span class="w-6 h-px bg-primary"></span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">给我们留言</h2>
+      <p class="text-muted-override text-lg">填写以下表单，我们将尽快与您联系</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <!-- 表单 -->
+      <div class="lg:col-span-2">
+        <div class="contact-form-card">
+          <div id="contactFormWrapper">
+            <h3>发送消息</h3>
+            <p class="subtitle">请填写您的联系信息和需求，我们会在24小时内回复</p>
+            <form id="contactForm" onsubmit="submitContactForm(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                <div class="contact-form-group">
+                  <label>姓名 <span class="required">*</span></label>
+                  <input type="text" required placeholder="请输入您的姓名">
+                </div>
+                <div class="contact-form-group">
+                  <label>电话 <span class="required">*</span></label>
+                  <input type="tel" required placeholder="请输入您的手机号">
+                </div>
+              </div>
+              <div class="contact-form-group">
+                <label>邮箱</label>
+                <input type="email" placeholder="请输入您的邮箱">
+              </div>
+              <div class="contact-form-group">
+                <label>需求描述 <span class="required">*</span></label>
+                <textarea required placeholder="请简要描述您的需求或问题..." rows="5"></textarea>
+              </div>
+              <button type="submit" class="contact-form-btn">提交留言</button>
+            </form>
+          </div>
+          <div id="contactFormSuccess" class="contact-form-success">
+            <div class="success-icon">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h4>提交成功！</h4>
+            <p>感谢您的留言，我们将尽快与您联系。</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 侧边信息 -->
+      <div class="contact-side-info">
+        <div class="contact-side-card">
+          <div class="icon clock">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h4>工作时间</h4>
+          <p>周一至周五：09:00 - 18:00<br>周末及法定节假日：休息</p>
+        </div>
+        <div class="contact-side-card">
+          <div class="icon response">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <h4>快速响应</h4>
+          <p>我们承诺在工作时间内<br>24小时内回复您的咨询</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+<div id="float-actions-container"></div>
+
+<script>
+function submitContactForm(e) {
+  e.preventDefault();
+  document.getElementById('contactFormWrapper').style.display = 'none';
+  document.getElementById('contactFormSuccess').classList.add('show');
+}
+
+// 高德地图初始化
+function initMap() {
+  // 汇隆中心坐标（用户已验证正确）
+  var center = [114.032, 22.610];
+
+  var map = new AMap.Map('mapContainer', {
+    zoom: 16,
+    center: center,
+    resizeEnable: true
+  });
+
+  // 添加定位标记
+  var marker = new AMap.Marker({
+    position: center,
+    title: '希赛乐科技'
+  });
+  marker.setMap(map);
+
+  // 信息窗体
+  var info = new AMap.InfoWindow({
+    content: '<div style="padding:10px 14px;font-size:14px;line-height:1.6;"><strong style="font-size:16px;color:#1E293B;">希赛乐科技</strong><br><span style="color:#64748B;">深圳市龙华区汇隆大厦</span></div>',
+    offset: new AMap.Pixel(0, -30)
+  });
+  AMap.event.addListener(marker, 'click', function() {
+    info.open(map, center);
+  });
+  info.open(map, center);
+}
+
+// 等 AMap 加载完再初始化
+if (typeof AMap !== 'undefined') {
+  initMap();
+} else {
+  window.addEventListener('load', function() {
+    if (typeof AMap !== 'undefined') {
+      initMap();
+    }
+  });
+}
+</script>
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+<script src="components/float-actions.js"></script>
+</body>
+</html>
