@@ -265,11 +265,11 @@ body { background: #F5F7FA; margin: 0; overflow-x: hidden; }
 .custom-select.open .custom-select-arrow { transform: translateY(-50%) rotate(180deg); }
 .custom-select-panel { display: none; position: absolute; top: calc(100% + 4px); left: 0; width: 100%; background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); z-index: 100; overflow: hidden; }
 .custom-select.open .custom-select-panel { display: block; }
-.custom-select-option { padding: 9px 14px; font-size: 13px; color: #1E293B; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.12s; }
+.custom-select-option { padding: 9px 14px; font-size: 13px; color: #1E293B; cursor: pointer; display: flex; align-items: center; justify-content: flex-start; gap: 8px; transition: background 0.12s; }
 .custom-select-option:hover { background: rgba(10,102,255,0.06); }
 .custom-select-option.selected { color: #0A66FF; font-weight: 600; }
 .custom-select-option .check { display: none; }
-.custom-select-option.selected .check { display: inline; }
+.custom-select-option.selected .check { display: inline-flex; align-items: center; justify-content: center; }
 
 /* ===== 操作按钮组 ===== */
 .action-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -293,11 +293,11 @@ body { background: #F5F7FA; margin: 0; overflow-x: hidden; }
 .page-size-dropdown.open .custom-select-arrow { transform: translateY(-50%) rotate(180deg); }
 .page-size-dropdown .custom-select-panel { display: none; position: absolute; top: auto; bottom: calc(100% + 4px); right: 0; min-width: 100%; background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); z-index: 100; overflow: hidden; }
 .page-size-dropdown.open .custom-select-panel { display: block; }
-.page-size-dropdown .custom-select-option { padding: 9px 14px; font-size: 13px; color: #1E293B; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.12s; white-space: nowrap; }
+.page-size-dropdown .custom-select-option { padding: 9px 14px; font-size: 13px; color: #1E293B; cursor: pointer; display: flex; align-items: center; justify-content: flex-start; gap: 8px; transition: background 0.12s; white-space: nowrap; }
 .page-size-dropdown .custom-select-option:hover { background: rgba(10,102,255,0.06); }
 .page-size-dropdown .custom-select-option.selected { color: #0A66FF; font-weight: 600; }
 .page-size-dropdown .custom-select-option .check { display: none; }
-.page-size-dropdown .custom-select-option.selected .check { display: inline; }
+.page-size-dropdown .custom-select-option.selected .check { display: inline-flex; align-items: center; justify-content: center; }
 /* ===== 下拉 ===== */
 .dropdown-wrap { position: relative; display: inline-flex; }
 .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; margin-top: 6px; background: #fff; border: 1px solid #E2E8F0; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); padding: 6px; min-width: 140px; z-index: 50; }
@@ -321,10 +321,6 @@ body { background: #F5F7FA; margin: 0; overflow-x: hidden; }
 /* ===== 操作链接 ===== */
 .action-link { font-size: 12px; cursor: pointer; transition: color 0.15s; padding: 2px 8px; border-radius: 6px; }
 .action-link:hover { background: #F1F5F9; }
-
-/* ===== 客服浮窗 ===== */
-.float-btn { position: fixed; bottom: 32px; right: 32px; width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg,#0A66FF,#4F46E5); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 24px rgba(10,102,255,0.35); transition: all 0.2s; z-index: 50; border: none; }
-.float-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(10,102,255,0.45); }
 
 /* ===== 账户信息页面 ===== */
 .account-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }

@@ -469,7 +469,7 @@ tailwind.config = {
       // 年限下拉框
       var yearSel = '<div class="dropdown-wrapper" style="width:120px;">';
       yearSel += '<div class="dropdown-btn dropdown-btn-sm" data-id="' + esc(it.id) + '" data-value="' + year + '">';
-      yearSel += '<span class="text-[12px]">' + YEAR_OPTS_DISCOUNT[year] + '</span>';
+      yearSel += '<span class="text-[12px]">' + YEAR_OPTS[year] + '</span>';
       yearSel += '<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
       yearSel += '</div></div>';
 
@@ -587,14 +587,12 @@ tailwind.config = {
         var year = parseInt(v);
         var items = readCart();
         items.forEach(function(it) {
-          if (it.productType === '域名注册') {
-            var oldYear = Number(it.year) || 1;
-            if (oldYear > 0) {
-              var unit = (Number(it.price) || 0) / oldYear;
-              it.year = year;
-              it.price = Math.round(unit * year * 100) / 100;
-              it.cycleText = year + ' 年';
-            }
+          var oldYear = Number(it.year) || 1;
+          if (oldYear > 0) {
+            var unit = (Number(it.price) || 0) / oldYear;
+            it.year = year;
+            it.price = Math.round(unit * year * 100) / 100;
+            it.cycleText = year + ' 年';
           }
         });
         writeCart(items);
@@ -669,7 +667,7 @@ tailwind.config = {
       inner.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(y) {
         var sel = y === curYear;
         return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
-             +   '<span>' + YEAR_OPTS_DISCOUNT[y] + '</span>'
+             +   '<span>' + YEAR_OPTS[y] + '</span>'
              +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
              + '</div>';
       }).join('');

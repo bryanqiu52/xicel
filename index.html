@@ -167,7 +167,7 @@ function handleDomainSearch() {
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-body leading-tight mb-6 tracking-tight">
           全球品牌基建<br><span class="gradient-text">一站就绪</span>
         </h1>
-        <p class="text-muted text-xl lg:text-2xl mb-10 max-w-xl leading-relaxed">域名 · 商标 · 建站 · 云 · 网络 — 为企业数字化全链路保驾护航，从品牌基石到全球连接</p>
+        <p class="text-muted text-xl lg:text-2xl mb-10 max-w-xl leading-relaxed">域名 · 商标 · 设计 · 建站 · 云 · 网络 — 从品牌保护到全球基建，企业数字化全链路一站式服务</p>
         <div class="flex flex-col sm:flex-row gap-4">
           <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white font-semibold px-10 py-5 rounded-xl text-lg transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5">免费咨询</button>
           <button onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})" class="border-2 border-primary/30 hover:border-primary text-body font-semibold px-10 py-5 rounded-xl text-lg transition-all bg-white/60 hover:bg-white/90 backdrop-blur-sm">查看产品</button>
@@ -777,13 +777,13 @@ function handleDomainSearch() {
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="text-center mb-14">
       <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3"><span class="w-6 h-px bg-primary"></span> PRODUCTS <span class="w-6 h-px bg-primary"></span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">我们的产品与服务</h2>
-      <p class="text-muted-override text-lg">从品牌保护到云端部署，全方位数字化解决方案</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">产品与服务</h2>
+      <p class="text-muted-override text-lg">从域名品牌到云端基建，从知识产权到创意设计，企业数字化全链路覆盖</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
       
       <!-- IDC服务 -->
-      <a href="products-idc.html" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-primary/30 relative block no-underline" style="--primary-color:#0A66FF;--secondary-color:#00D4AA;">
+      <div onclick="window.location.href='products-idc.html'" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-primary/30 relative block no-underline" style="--primary-color:#0A66FF;--secondary-color:#00D4AA;">
         <div class="product-card-gradient-bar"></div>
         <div class="p-8">
           <div class="flex items-start justify-between mb-6">
@@ -816,17 +816,18 @@ function handleDomainSearch() {
             </div>
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="product-feature-tag">网站建设</span>
-            <span class="product-feature-tag">SSL证书</span>
-            <span class="product-feature-tag">云服务器</span>
-            <span class="product-feature-tag">网络专线</span>
-            <span class="product-feature-tag">GPU算力</span>
+            <a href="products-idc.html?subtab=network" class="product-feature-tag">网络专线</a>
+            <a href="products-idc.html?subtab=hosting" class="product-feature-tag">服务器托管</a>
+            <a href="products-idc.html?subtab=web" class="product-feature-tag">网站建设</a>
+            <a href="products-idc.html?subtab=ssl" class="product-feature-tag">SSL证书</a>
+            <a href="products-idc.html?subtab=mail" class="product-feature-tag">企业邮箱</a>
+            <a href="products-idc.html?subtab=cloud" class="product-feature-tag">云服务器</a>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- 品牌护城河 -->
-      <a href="products-domain.html" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-accent/30 relative block no-underline" style="--primary-color:#00D4AA;--secondary-color:#0A66FF;">
+      <div onclick="window.location.href='products-domain.html'" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-accent/30 relative block no-underline" style="--primary-color:#00D4AA;--secondary-color:#0A66FF;">
         <div class="product-card-gradient-bar"></div>
         <div class="p-8">
           <div class="flex items-start justify-between mb-6">
@@ -859,16 +860,17 @@ function handleDomainSearch() {
             </div>
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="product-feature-tag">域名注册</span>
-            <span class="product-feature-tag">域名回购</span>
-            <span class="product-feature-tag">域名价格</span>
-            <span class="product-feature-tag">争议处理</span>
+            <a href="products-domain.html?subtab=domain" class="product-feature-tag">域名注册</a>
+            <a href="products-domain.html?subtab=buyback" class="product-feature-tag">域名回购</a>
+            <a href="products-domain.html?subtab=pricing" class="product-feature-tag">域名价格</a>
+            <a href="products-domain.html?subtab=dispute" class="product-feature-tag">域名争议处理</a>
+            <a href="products-domain.html?subtab=takedown" class="product-feature-tag">域名侵权下架</a>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- 知识产权 -->
-      <a href="products-ip.html" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-purple-300 relative block no-underline" style="--primary-color:#7C3AED;--secondary-color:#EC4899;">
+      <div onclick="window.location.href='products-ip.html'" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-purple-300 relative block no-underline" style="--primary-color:#7C3AED;--secondary-color:#EC4899;">
         <div class="product-card-gradient-bar"></div>
         <div class="p-8">
           <div class="flex items-start justify-between mb-6">
@@ -901,16 +903,15 @@ function handleDomainSearch() {
             </div>
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="product-feature-tag">商标注册</span>
-            <span class="product-feature-tag">专利申请</span>
-            <span class="product-feature-tag">版权登记</span>
-            <span class="product-feature-tag">知识产权咨询</span>
+            <a href="products-ip.html?subtab=trademark" class="product-feature-tag">商标</a>
+            <a href="products-ip.html?subtab=patent" class="product-feature-tag">专利</a>
+            <a href="products-ip.html?subtab=copyright" class="product-feature-tag">版权</a>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- 设计服务 -->
-      <a href="products-design.html" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-rose-300 relative block no-underline" style="--primary-color:#F43F5E;--secondary-color:#8B5CF6;">
+      <div onclick="window.location.href='products-design.html'" class="lg:col-span-6 product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-border hover:border-rose-300 relative block no-underline" style="--primary-color:#F43F5E;--secondary-color:#8B5CF6;">
         <div class="product-card-gradient-bar"></div>
         <div class="p-8">
           <div class="flex items-start justify-between mb-6">
@@ -943,13 +944,14 @@ function handleDomainSearch() {
             </div>
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="product-feature-tag">品牌设计</span>
-            <span class="product-feature-tag">UI/UX设计</span>
-            <span class="product-feature-tag">电商设计</span>
-            <span class="product-feature-tag">线下物料</span>
+            <a href="products-design.html?subtab=brand" class="product-feature-tag">品牌设计</a>
+            <a href="products-design.html?subtab=packaging" class="product-feature-tag">包装设计</a>
+            <a href="products-design.html?subtab=ecommerce" class="product-feature-tag">电商设计</a>
+            <a href="products-design.html?subtab=material" class="product-feature-tag">线下物料</a>
+            <a href="products-design.html?subtab=ui" class="product-feature-tag">UI/UX 设计</a>
           </div>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -1068,7 +1070,7 @@ function handleDomainSearch() {
 
     <div class="solutions-bento-grid">
       <!-- 主卡片：企业出海（航海背景 + 黑色遮罩） -->
-      <a href="solutions.html" class="bento-card bento-main col-span-8" style="grid-column: span 8; background: url('assets/images/boat.jpg') center/cover no-repeat; position: relative; overflow: hidden;">
+      <a href="solutions.html" class="bento-card bento-main col-span-8" style="grid-column: span 8; background: url('assets/images/solutions.jpg') center/cover no-repeat; position: relative; overflow: hidden;">
         <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,10,40,0.82) 0%, rgba(0,10,40,0.60) 50%, rgba(0,10,40,0.75) 100%);"></div>
         <div class="relative z-10 p-7 md:p-10 h-full flex flex-col">
           <div class="flex items-center justify-between mb-6">
@@ -1194,10 +1196,7 @@ function handleDomainSearch() {
           </div>
           <h3 class="text-base font-bold text-body mb-1">更多行业方案</h3>
           <p class="text-muted-override text-[11px] leading-relaxed mb-3 flex-1">教育 · 医疗 · 政企 · 媒体</p>
-          <span class="arrow-pill text-sky-600">
-            联系顾问
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
+
         </div>
       </a>
     </div>

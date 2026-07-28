@@ -42,7 +42,7 @@ tailwind.config = {
 <section class="py-20 lg:py-24" style="background: url('assets/images/domain_hero.jpg') center/cover no-repeat;">
   <div class="max-w-7xl mx-auto px-6 text-left">
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-body mb-4">品牌护城河</h1>
-    <p class="text-muted text-lg md:text-xl max-w-2xl">域名注册 · 域名回购 · 域名价格 · 域名争议处理，全方位品牌资产保护</p>
+    <p class="text-muted text-lg md:text-xl max-w-2xl">域名注册 · 域名回购 · 域名价格 · 域名争议处理 · 域名侵权下架，全方位品牌资产保护</p>
   </div>
 </section>
 
@@ -64,6 +64,11 @@ tailwind.config = {
 <!-- Tab 1: 域名注册 -->
 <section class="brand-content py-20 bg-white" id="content-domain">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Domain</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">域名注册</h3>
+    <p class="text-lg text-muted mb-8">全球200+域名后缀，实时查询注册状态，批量搜索一键下单，域名安全管家全程守护。</p>
 
     <!-- ========== 域名搜索模块 ========== -->
     <div class="mb-20">
@@ -398,12 +403,12 @@ tailwind.config = {
         </div>
       </div>
       <div class="text-center mt-6">
-        <a href="domain-pricing.html" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-6 py-3 rounded-xl transition-colors">查看完整价格表 →</a>
+        <a href="domain-pricing.html" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-6 py-3 rounded-xl transition-colors">更多域名价格 →</a>
       </div>
     </div>
 
     <!-- FAQ 板块 -->
-    <div class="max-w-3xl">
+    <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
       <div>
         <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">域名注册需要哪些资料？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">国内域名(.cn/.com.cn等)需要企业营业执照或个人身份证；国际域名(.com/.net等)无需证件，但建议填写真实信息以便Whois管理。</p></div></div>
@@ -552,6 +557,55 @@ tailwind.config = {
 <!-- Tab 2: 域名回购 -->
 <section class="brand-content hidden py-20 bg-slate-50" id="content-buyback">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Buyback</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">域名回购</h3>
+    <p class="text-lg text-muted mb-8">专业经纪团队全程代理，匿名谈判保护买家身份，资金托管安全保障交易。</p>
+
+    <!-- How Much 板块 - 置顶 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <span class="tag">How Much</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">域名回购价格？</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-body mb-6">域名回购申请</h3>
+          <form id="buybackForm" onsubmit="submitBuybackApply(event)" class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">回购域名 <span class="text-red-400">*</span></label>
+              <textarea rows="2" name="domains" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请输入您希望回购的域名，Enter 换行，每行一个"></textarea>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">企业名称 <span class="text-red-400">*</span></label>
+                <input type="text" name="company" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入企业名称">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系人 <span class="text-red-400">*</span></label>
+                <input type="text" name="contact" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入联系人姓名">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">电话 <span class="text-red-400">*</span></label>
+                <input type="tel" name="phone" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入手机号">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+                <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+              </div>
+              <div></div>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交回购申请</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-4">提交后我们的域名经纪人将在24小时内与您联系</p>
+        </div>
+      </div>
+    </div>
 
     <!-- What 板块 -->
     <div class="mb-20">
@@ -741,52 +795,8 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- How Much 板块 -->
-    <div class="mb-20">
-      <div class="ip-section-title">
-        <span class="tag">How Much</span>
-        <span class="line"></span>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">域名回购价格？</h2>
-      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl">
-        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
-        <div class="p-10">
-          <h3 class="text-2xl font-bold text-body mb-8">域名回购申请</h3>
-          <form class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-body mb-2">回购域名 <span class="text-red-400">*</span></label>
-              <textarea rows="4" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请输入您希望回购的域名，Enter 换行，每行一个"></textarea>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-body mb-2">企业名称 <span class="text-red-400">*</span></label>
-                <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入企业名称">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-body mb-2">联系人名称 <span class="text-red-400">*</span></label>
-                <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入联系人姓名">
-              </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-body mb-2">联系人电话 <span class="text-red-400">*</span></label>
-                <input type="tel" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入手机号">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
-                <input type="email" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
-              </div>
-            </div>
-            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交回购申请</button>
-          </form>
-          <p class="text-xs text-muted text-center mt-6">提交后我们的域名经纪人将在24小时内与您联系</p>
-        </div>
-      </div>
-
-    </div>
-
     <!-- FAQ 板块 -->
-    <div class="max-w-3xl">
+    <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
       <div>
         <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">域名回购成功率高吗？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">取决于域名持有者的出售意愿和价格预期。我们的专业经纪团队会通过多种策略与持有者沟通，历史回购成功率约65%。对于明确不出售的情况，我们也会如实反馈。</p></div></div>
@@ -799,6 +809,11 @@ tailwind.config = {
 <!-- Tab 3: 域名价格 -->
 <section class="brand-content hidden py-20 bg-slate-50" id="content-pricing">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Price</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">域名价格</h3>
+    <p class="text-lg text-muted mb-8">透明定价体系，涵盖全球主流域名后缀首年注册、续费和转入价格，实时更新。</p>
 
     <!-- What 板块 -->
     <div class="mb-20">
@@ -908,6 +923,37 @@ tailwind.config = {
 <!-- Tab 4: 域名争议处理 -->
 <section class="brand-content hidden py-20 bg-white" id="content-dispute">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Dispute</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">域名争议处理</h3>
+    <p class="text-lg text-muted mb-8">UDRP/CNDRP官方争议解决程序，专业律师团队全程代理，裁决结果全球认可执行。</p>
+
+    <!-- How Much 板块 - 置顶 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <span class="tag">Consult Now</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">立即咨询</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-body mb-6">争议处理咨询</h3>
+          <form id="disputeConsultForm" onsubmit="submitConsult(event)" class="space-y-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+              <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+              <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            </div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">争议域名</label><input type="text" placeholder="如 xicel.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="2" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-4">提交后我们的专业律师团队将在24小时内与您联系</p>
+        </div>
+      </div>
+    </div>
 
     <!-- What 板块 -->
     <div class="mb-20">
@@ -1093,32 +1139,8 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- How Much 板块 -->
-    <div class="mb-20">
-      <div class="ip-section-title">
-        <span class="tag">How Much</span>
-        <span class="line"></span>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">立即咨询</h2>
-      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl">
-        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
-        <div class="p-8">
-          <h3 class="text-2xl font-bold text-body mb-6">争议处理咨询</h3>
-          <form id="disputeConsultForm" onsubmit="submitConsult(event)" class="space-y-4">
-            <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">争议域名</label><input type="text" placeholder="如 xicel.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
-            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
-          </form>
-          <p class="text-xs text-muted text-center mt-6">提交后我们的专业律师团队将在24小时内与您联系</p>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ 板块 -->
-    <div class="max-w-3xl">
+    <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
       <div>
         <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">UDRP投诉需要满足什么条件？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">需要同时满足三个条件：1)争议域名与您拥有的商标相同或混淆性相似；2)域名持有者对域名没有合法权利或利益；3)域名被恶意注册和使用。我们的律师团队会帮您评估是否满足条件。</p></div></div>
@@ -1131,6 +1153,37 @@ tailwind.config = {
 <!-- Tab 5: 域名侵权下架 -->
 <section class="brand-content hidden py-20 bg-white" id="content-takedown">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Takedown</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">域名侵权下架</h3>
+    <p class="text-lg text-muted mb-8">专业移除侵权内容，保护品牌权益，未下架成功全额退款，企业零风险。</p>
+
+    <!-- How Much 板块 - 置顶 -->
+    <div class="mb-20">
+      <div class="ip-section-title">
+        <span class="tag">Consult Now</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">立即咨询</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-body mb-6">侵权下架咨询</h3>
+          <form id="takedownConsultForm" onsubmit="submitConsult(event)" class="space-y-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+              <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+              <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            </div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">侵权域名</label><input type="text" placeholder="如 fake-xicel.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+            <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="2" placeholder="请描述侵权情况..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-4">提交后我们的专业团队将在24小时内与您联系</p>
+        </div>
+      </div>
+    </div>
 
     <!-- What 板块 -->
     <div class="mb-20">
@@ -1316,38 +1369,14 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- How Much 板块 -->
-    <div class="mb-20">
-      <div class="ip-section-title">
-        <span class="tag">How Much</span>
-        <span class="line"></span>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">立即咨询</h2>
-      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl">
-        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
-        <div class="p-8">
-          <h3 class="text-2xl font-bold text-body mb-6">侵权下架咨询</h3>
-          <form id="takedownConsultForm" onsubmit="submitConsult(event)" class="space-y-4">
-            <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">侵权域名</label><input type="text" placeholder="如 fake-xicel.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-            <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请描述侵权情况..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
-            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
-          </form>
-          <p class="text-xs text-muted text-center mt-6">提交后我们的专业团队将在24小时内与您联系</p>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ 板块 -->
-    <div class="max-w-3xl">
+    <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
-      <div class="space-y-3">
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>下架侵权内容需要多久？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">一般情况下需要7~15天。因侵权类型、涉及的注册局或平台不同，处理时间可能有所差异。复杂案件可能需要更长时间，我们会及时反馈处理进度。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>需要提供什么资料？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">需要提供证明企业拥有相关权益的证明文件。如涉及商标权侵权，需提供商标注册证；涉及版权侵权，需提供版权登记证书。我们的团队会指导您准备完整的材料清单。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>下架不成功会退费吗？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">我们承诺未下架成功将全额退款，免除客户的后顾之忧，确保客户零风险。具体退费政策请在咨询时与我们的团队确认。</p></div></div>
-        <div class="border border-slate-200 rounded-xl overflow-hidden"><button class="w-full flex items-center justify-between px-5 py-4 text-left text-sm font-medium text-body hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)"><span>色情、赌博内容是否可以处理？</span><svg class="faq-chevron w-4 h-4 text-muted shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-answer px-5"><p class="pb-4 text-sm text-muted leading-relaxed">域名侵权下架服务主要处理侵犯企业商标权、外观专利权、网站版权等相关侵权内容，色情和赌博内容不在处理范围。此类情况建议通过UDRP域名争议解决程序处理。</p></div></div>
+      <div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">下架侵权内容需要多久？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">一般情况下需要7~15天。因侵权类型、涉及的注册局或平台不同，处理时间可能有所差异。复杂案件可能需要更长时间，我们会及时反馈处理进度。</p></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">需要提供什么资料？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">需要提供证明企业拥有相关权益的证明文件。如涉及商标权侵权，需提供商标注册证；涉及版权侵权，需提供版权登记证书。我们的团队会指导您准备完整的材料清单。</p></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">下架不成功会退费吗？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">我们承诺未下架成功将全额退款，免除客户的后顾之忧，确保客户零风险。具体退费政策请在咨询时与我们的团队确认。</p></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">色情、赌博内容是否可以处理？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div><div class="faq-answer"><p class="text-sm text-muted leading-relaxed">域名侵权下架服务主要处理侵犯企业商标权、外观专利权、网站版权等相关侵权内容，色情和赌博内容不在处理范围。此类情况建议通过UDRP域名争议解决程序处理。</p></div></div>
       </div>
     </div>
   </div>
@@ -1378,6 +1407,19 @@ tailwind.config = {
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+function submitBuybackApply(e){
+  e.preventDefault();
+  var company = document.querySelector('#buybackForm input[name="company"]').value.trim();
+  var contact = document.querySelector('#buybackForm input[name="contact"]').value.trim();
+  var phone = document.querySelector('#buybackForm input[name="phone"]').value.trim();
+  var domainsText = document.querySelector('#buybackForm textarea[name="domains"]').value.trim();
+  if (!domainsText) { alert('请输入您希望回购的域名'); return; }
+  if (!company) { alert('请输入企业名称'); return; }
+  if (!contact) { alert('请输入联系人名称'); return; }
+  if (!phone) { alert('请输入联系人电话'); return; }
+  alert('感谢您的申请，我们的域名经纪人将在24小时内与您联系！');
+  e.target.reset();
+}
 
 function toggleFaq(btn){
   btn.classList.toggle('open');
@@ -1396,7 +1438,7 @@ function switchBrandSubtab(subtab){
 document.querySelectorAll('.brand-subtab').forEach(function(b){ b.addEventListener('click', function(){ switchBrandSubtab(b.dataset.subtab); }); });
 (function(){
   var p = new URLSearchParams(window.location.search), s = p.get('subtab') || 'domain';
-  if(['domain','buyback','dispute','pricing'].indexOf(s)===-1) s='domain';
+  if(['domain','buyback','pricing','dispute','takedown'].indexOf(s)===-1) s='domain';
   switchBrandSubtab(s);
 })();
 </script>

@@ -62,9 +62,11 @@
   color: #64748B;
   border: 1px solid #E2E8F0;
   transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.product-card:hover .product-feature-tag {
+.product-feature-tag:hover {
   background: rgba(10, 102, 255, 0.06);
   border-color: rgba(10, 102, 255, 0.2);
   color: #0A66FF;
@@ -93,6 +95,7 @@
 /* 产品卡片悬停效果 */
 .product-card {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -648,16 +651,6 @@
   border: 1px solid rgba(226,232,240,0.8);
 }
 .bento-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -20px rgba(10,102,255,0.25); }
-.bento-card .arrow-pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 600;
-  padding: 6px 12px; border-radius: 999px;
-  background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);
-  transition: all .35s ease;
-}
-.bento-card:hover .arrow-pill { background: #fff; transform: translateX(4px); }
-.bento-card .arrow-pill svg { transition: transform .35s ease; }
-.bento-card:hover .arrow-pill svg { transform: translateX(2px); }
 
 /* 主卡：赛博蓝 */
 .bento-main {
@@ -709,7 +702,6 @@
 .bento-sm-2 { background: linear-gradient(150deg, #FFF1F2 0%, #FFE4E6 100%); }
 .bento-sm-2::after { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 90% 10%, rgba(244,63,94,0.12) 0px, transparent 1.5px) 0 0/14px 14px; }
 .bento-sm-3 { background: linear-gradient(150deg, #F0F9FF 0%, #E0F2FE 100%); }
-.bento-sm-3::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(0deg, transparent 0 19px, rgba(14,165,233,0.08) 19px 20px); }
 
 .bento-icon-box {
   width: 48px; height: 48px; border-radius: 14px;

@@ -2,36 +2,12 @@
 .recommended-col { background-color: #ECFDF5; }
 
 /* 云服务器区域 - 保留emerald绿色内部装饰 */
-.idc-cloud-section .cloud-badge-green { color: #059669; }
+.idc-cloud-section .cloud-badge-green { color: #00D4AA; }
 .idc-cloud-section .cloud-icon-bg { background-color: #ECFDF5; }
 
 /* 网络专线区域 - 保留amber琥珀色内部装饰 */
 .idc-amber-section .amber-badge { color: #B45309; }
 .idc-amber-section .amber-icon-bg { background-color: #FFF7ED; }
-
-/* 通用渐变标题（与 style.css .gradient-section-title 一致，确保加载顺序不冲突） */
-.gradient-section-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-.gradient-section-title .en-tag {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #0A66FF, #00D4AA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.gradient-section-title .line {
-  width: 36px;
-  height: 2px;
-  border-radius: 1px;
-  background: linear-gradient(90deg, #0A66FF, transparent);
-}
 
 /* 咨询弹窗动画 */
 /* 注：fadeIn 在此页覆盖 style.css 同名 keyframes，调整为 0.2s 快速淡入 */
@@ -56,113 +32,64 @@
   --mail-hover-shadow: 0 12px 40px rgba(10,102,255,0.12);
 }
 
-/* ===== 赛道标题（统一） ===== */
-.mail-section-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-.mail-section-title .en-tag {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background: var(--mail-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.mail-section-title .line {
-  width: 36px;
-  height: 2px;
-  border-radius: 1px;
-  background: linear-gradient(90deg, #0A66FF, transparent);
-}
-
 /* ===== 卖点横幅 — 数据卡片 ===== */
 .mail-selling-wrap {
   position: relative;
-  padding: 48px 0;
-  background:
-    var(--mail-bg-dot),
-    linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%);
-  background-size: 20px 20px, 100% 100%;
-  border-radius: 24px;
+  padding: 24px 0;
+  background: transparent;
+  border-radius: 0;
   overflow: hidden;
-}
-.mail-selling-wrap::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 240px; height: 240px;
-  background: radial-gradient(circle, rgba(10,102,255,0.06), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.mail-selling-wrap::after {
-  content: '';
-  position: absolute;
-  bottom: -60px; left: -60px;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(0,212,170,0.06), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
 }
 .mail-selling-banner {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 12px;
   position: relative;
   z-index: 1;
 }
 .mail-selling-item {
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(226,232,240,0.6);
-  border-radius: 20px;
-  padding: 28px 12px;
-  text-align: center;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s, border-color 0.4s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   cursor: default;
-  position: relative;
-  overflow: hidden;
-}
-.mail-selling-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(10,102,255,0.03), rgba(0,212,170,0.03));
-  opacity: 0;
-  transition: opacity 0.4s;
 }
 .mail-selling-item:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: var(--mail-hover-shadow);
-  border-color: rgba(10,102,255,0.25);
-}
-.mail-selling-item:hover::after {
-  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(10,102,255,0.08);
+  border-color: rgba(10,102,255,0.2);
 }
 .mail-selling-item .mail-selling-icon {
-  width: 52px;
-  height: 52px;
-  margin: 0 auto 14px;
-  border-radius: 16px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  position: relative;
   background: linear-gradient(135deg, rgba(10,102,255,0.08), rgba(0,212,170,0.06));
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s;
+  color: #0A66FF;
 }
 .mail-selling-item:hover .mail-selling-icon {
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.1);
+}
+.mail-selling-item .mail-selling-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.mail-selling-item .mail-selling-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 .mail-selling-item .mail-selling-num {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   background: var(--mail-gradient);
   -webkit-background-clip: text;
@@ -173,9 +100,8 @@
   z-index: 1;
 }
 .mail-selling-item .mail-selling-label {
-  font-size: 13px;
+  font-size: 12px;
   color: #64748B;
-  margin-top: 4px;
   position: relative;
   z-index: 1;
 }
@@ -345,7 +271,7 @@
 .mail-version-features .feat-check svg {
   width: 10px;
   height: 10px;
-  color: #059669;
+  color: #00D4AA;
 }
 .mail-version-price {
   margin-bottom: 24px;
@@ -500,173 +426,170 @@
   margin-top: 8px;
 }
 
-/* ===== 应用行业场景（沉浸式 — 带SVG插图+背景装饰） ===== */
+/* ===== 应用行业场景（左图右文布局） ===== */
 .mail-industry-fullwrap {
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 30%, #FFFFFF 70%, #F0F4FF 100%);
-}
-.mail-industry-decor-top,
-.mail-industry-decor-bottom {
-  pointer-events: none;
-  position: relative;
-  z-index: 0;
+  background: #fff;
 }
 
 .mail-industry-panel {
   display: flex;
-  gap: 32px;
-  align-items: stretch;
-  position: relative;
-  z-index: 1;
+  gap: 24px;
+  align-items: flex-start;
 }
 
 /* 左侧Tab */
 .mail-industry-tabs-new {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 200px;
+  gap: 6px;
+  min-width: 180px;
   flex-shrink: 0;
 }
 .mail-industry-tab-new {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 20px;
-  border-radius: 14px;
-  font-size: 15px;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s, border-color 0.35s, box-shadow 0.35s;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s;
   border: 1px solid transparent;
   background: #fff;
   position: relative;
 }
 .mail-industry-tab-new:hover {
   background: #F8FAFC;
-  transform: translateX(6px);
+  transform: translateX(4px);
   border-color: #E2E8F0;
 }
 .mail-industry-tab-new.active {
   background: linear-gradient(135deg, rgba(10,102,255,0.06), rgba(0,212,170,0.04));
   border-color: rgba(10,102,255,0.15);
-  box-shadow: 0 4px 16px rgba(10,102,255,0.06);
-  transform: translateX(8px);
+  box-shadow: 0 2px 12px rgba(10,102,255,0.06);
+  transform: translateX(6px);
 }
 .mail-industry-tab-new.active::before {
   content: '';
   position: absolute;
-  left: 0; top: 8px; bottom: 8px;
+  left: 0; top: 6px; bottom: 6px;
   width: 3px;
   border-radius: 2px;
   background: linear-gradient(180deg, #0A66FF, #00D4AA);
 }
 .mail-industry-tab-new .itab-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: rgba(10,102,255,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   color: #64748B;
-  transition: background 0.35s, color 0.35s;
+  transition: background 0.3s, color 0.3s;
 }
 .mail-industry-tab-new.active .itab-icon {
   background: linear-gradient(135deg, rgba(10,102,255,0.12), rgba(0,212,170,0.08));
   color: #0A66FF;
 }
 .mail-industry-tab-new .itab-icon svg {
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
+}
+.mail-industry-tab-new > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  height: 32px;
 }
 .mail-industry-tab-new strong {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: #1E293B;
-  margin-bottom: 2px;
+  line-height: 1.3;
 }
 .mail-industry-tab-new.active strong {
   color: #0A66FF;
 }
 .mail-industry-tab-new small {
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   color: #94A3B8;
   letter-spacing: 0.5px;
+  line-height: 1.2;
 }
 
-/* 右侧面板 */
+/* 右侧面板 — 上图下文布局 */
 .mail-industry-panel-content {
   flex: 1;
   background: #fff;
   border: 1px solid #E2E8F0;
-  border-radius: 24px;
+  border-radius: 16px;
   overflow: hidden;
-  position: relative;
 }
 .mail-industry-inner {
-  padding: 36px;
+  padding: 24px;
   animation: fadeUpIn 0.4s ease-out;
 }
 @keyframes fadeUpIn {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .mail-industry-illust {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-.mail-industry-illust svg {
   width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 14px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(10,102,255,0.06);
+  margin-bottom: 20px;
+}
+.mail-industry-illust img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .mail-industry-inner .ind-desc {
-  font-size: 15px;
+  font-size: 14px;
   color: #475569;
-  line-height: 1.9;
-  margin-bottom: 24px;
+  line-height: 1.7;
+  margin-bottom: 16px;
 }
 
 .mail-industry-inner .ind-points {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 .mail-industry-inner .ind-point {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 13px;
   color: #475569;
-  line-height: 1.6;
-  transition: transform 0.2s, color 0.2s;
-}
-.mail-industry-inner .ind-point:hover {
-  transform: translateX(4px);
-  color: #1E293B;
+  line-height: 1.5;
 }
 .mail-industry-inner .ind-point .point-dot {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 .mail-industry-inner .ind-point .point-dot svg {
-  width: 10px;
-  height: 10px;
-  color: #059669;
+  width: 9px;
+  height: 9px;
+  color: #00D4AA;
 }
 
 /* ===== 行业场景响应式 ===== */
@@ -677,14 +600,15 @@
     flex-wrap: wrap;
     gap: 6px;
     min-width: auto;
+    justify-content: flex-start;
   }
   .mail-industry-tab-new {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     padding: 12px 14px;
     font-size: 13px;
     gap: 8px;
     min-width: 100px;
-    justify-content: center;
+    justify-content: flex-start;
   }
   .mail-industry-tab-new .itab-icon { width: 32px; height: 32px; }
   .mail-industry-tab-new .itab-icon svg { width: 24px; height: 24px; }
@@ -697,10 +621,10 @@
   .mail-industry-inner { padding: 24px; }
 }
 @media (max-width: 768px) {
-  .mail-industry-tabs-new { gap: 4px; }
-  .mail-industry-tab-new { flex: 1; min-width: 70px; padding: 10px 8px; border-radius: 10px; }
+  .mail-industry-tabs-new { gap: 4px; justify-content: flex-start; }
+  .mail-industry-tab-new { flex: 0 0 auto; min-width: 70px; padding: 10px 8px; border-radius: 10px; justify-content: flex-start; }
   .mail-industry-tab-new .itab-icon { display: none; }
-  .mail-industry-tab-new strong { font-size: 12px; }
+  .mail-industry-tab-new strong { font-size: 12px; text-align: left; }
   .mail-industry-inner { padding: 20px; }
 }
 
@@ -811,6 +735,11 @@
   font-size: 22px;
   margin-bottom: 12px;
   transition: transform 0.3s;
+  color: #0A66FF;
+}
+.mail-admin-hl-card .hl-icon svg {
+  width: 22px;
+  height: 22px;
 }
 .mail-admin-hl-card:hover .hl-icon {
   transform: scale(1.08);
@@ -904,7 +833,6 @@
   .mail-func-grid { grid-template-columns: repeat(2, 1fr); }
   .mail-admin-highlight-grid { grid-template-columns: 1fr; }
   .mail-admin-grid { grid-template-columns: 1fr; }
-  .faq-question { padding: 14px 16px; font-size: 14px; }
 }
 
 /* ===================================================
@@ -1137,6 +1065,63 @@
 }
 
 /* ===================================================
+   统一产品卡片基类
+   =================================================== */
+.product-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.08);
+}
+
+/* ===================================================
+   IDC 子标签响应式补齐
+   =================================================== */
+
+/* 网络专线：卡片 4列→2列→1列 / SD-WAN FAQ 适应 */
+@media (max-width: 1024px) {
+  .idc-amber-section .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .idc-amber-section .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 网站建设：价格卡片 3列→1列 */
+@media (max-width: 768px) {
+  #content-web .grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SSL证书：计划卡片 3列→1列 */
+@media (max-width: 768px) {
+  .ssl-plan-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 云服务器：年付方案 5列→3列→1列 / 对比表水平滚动 */
+@media (max-width: 1024px) {
+  #content-cloud .grid-cols-1.md\:grid-cols-3.lg\:grid-cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  #content-cloud .grid-cols-1.md\:grid-cols-3.lg\:grid-cols-5 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================
    SSL 板块 — Security-Tech Premium 美学
    深蓝安全感 + 精密细节传递信任价值
    =================================================== */
@@ -1202,7 +1187,7 @@
 
 /* 推荐卡片的特殊装饰条 */
 .ssl-plan-cards .bg-white.border-\[#10B981\]::before {
-  background: linear-gradient(90deg, transparent, #059669, transparent);
+  background: linear-gradient(90deg, transparent, #00D4AA, transparent);
   opacity: 0.6;
   left: 0;
   right: 0;
@@ -1210,7 +1195,7 @@
 
 .ssl-plan-cards .bg-white.border-\[#10B981\]:hover::before {
   opacity: 1;
-  background: linear-gradient(90deg, #059669, #10B981);
+  background: linear-gradient(90deg, #00D4AA, #00D4AA);
 }
 
 /* 卡片 Hover 增强 */
@@ -1423,27 +1408,30 @@
   box-shadow: var(--hosting-hover-shadow);
   border-color: rgba(10,102,255,0.2);
 }
+.hosting-loc-card .loc-name {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E293B;
+  order: 1;
+}
 .hosting-loc-card .loc-flag {
   font-size: 24px;
   display: block;
-  margin-bottom: 6px;
+  margin: 6px 0;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  order: 2;
 }
 .hosting-loc-card:hover .loc-flag {
   transform: scale(1.15);
-}
-.hosting-loc-card .loc-name {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1E293B;
-  margin-bottom: 2px;
 }
 .hosting-loc-card .loc-en {
   display: block;
   font-size: 10px;
   color: #94A3B8;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  order: 3;
 }
 
 /* ===== 服务优势 — 水平布局卡片 ===== */
@@ -1593,7 +1581,7 @@
 @media (max-width: 768px) {
   .hosting-loc-card { padding: 14px 8px; }
   .hosting-loc-card .loc-flag { font-size: 20px; }
-  .hosting-loc-card .loc-name { font-size: 12px; }
+  .hosting-loc-card .loc-name { font-size: 14px; }
   .hosting-adv-card { flex-direction: column; gap: 14px; }
   .hosting-scenario-card { padding: 24px 20px; }
 }

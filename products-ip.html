@@ -34,7 +34,7 @@ tailwind.config = {
 <section class="py-20 lg:py-24" style="background: url('assets/images/ip_hero.jpg') center/cover no-repeat;">
   <div class="max-w-7xl mx-auto px-6 text-left">
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-body mb-4">知识产权</h1>
-    <p class="text-muted text-lg md:text-xl max-w-2xl">商标注册 · 专利申请 · 版权登记，一站式知识产权保护解决方案</p>
+    <p class="text-muted text-lg md:text-xl max-w-2xl">商标 · 专利 · 版权，一站式知识产权保护解决方案</p>
   </div>
 </section>
 
@@ -54,6 +54,69 @@ tailwind.config = {
 <!-- Tab 1: 商标 -->
 <section class="ip-content py-20 bg-white" id="content-trademark">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">TM</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">商标</h3>
+    <p class="text-lg text-muted mb-8">专业商标注册、续展、查询全链条服务，保护品牌资产。</p>
+
+    <!-- ===== Apply / 申请表 ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">Apply</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">申请商标服务</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-body mb-6">商标注册咨询表</h3>
+          <form onsubmit="submitTmApply(event)" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">服务类型 <span class="text-red-400">*</span></label>
+                <div class="ip-form-select" id="tmTypeSelect">
+                  <div class="ip-form-select-trigger placeholder" tabindex="0">
+                    <span class="ip-form-select-text">请选择服务类型</span>
+                    <svg class="ip-form-select-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                  <div class="ip-form-select-panel">
+                    <div class="ip-form-select-option" data-value="">请选择服务类型</div>
+                    <div class="ip-form-select-option" data-value="商标注册">商标注册</div>
+                    <div class="ip-form-select-option" data-value="商标续展">商标续展</div>
+                    <div class="ip-form-select-option" data-value="商标查询">商标查询</div>
+                  </div>
+                  <select id="tmType" required class="hidden">
+                    <option value="">请选择服务类型</option>
+                    <option value="商标注册">商标注册</option>
+                    <option value="商标续展">商标续展</option>
+                    <option value="商标查询">商标查询</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系人姓名 <span class="text-red-400">*</span></label>
+                <input type="text" id="tmName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的姓名">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系电话 <span class="text-red-400">*</span></label>
+                <input type="tel" id="tmPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的手机号">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+              <input type="email" id="tmEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
+              <textarea id="tmDesc" rows="2" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请描述您的商标注册需求及商品/服务类别..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-4">提交后我们的知识产权专家将在24小时内与您联系</p>
+        </div>
+      </div>
+    </div>
 
     <!-- What 板块 -->
     <div class="mb-20">
@@ -253,7 +316,7 @@ tailwind.config = {
             <div class="timeline-num">5</div>
             <div class="ml-4">
               <h4 class="font-bold text-body mb-2">核准注册与发证</h4>
-              <p class="text-sm text-muted mb-3">公告期无异议后核准注册，颁发商标注册证书</p>
+              <p class="text-sm text-muted mb-3">公告期无异议后核准注册，颁发商标注册证书。费用参考：商标注册 ¥899 起</p>
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">约1个月</span>
             </div>
           </div>
@@ -261,58 +324,10 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- How Much 板块 -->
-    <div class="mb-20">
-      <div class="ip-section-title">
-        <span class="tag">How Much</span>
-        <span class="line"></span>
-      </div>
-      <h2 class="text-3xl font-bold text-body mb-6">服务价格</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">商标查询</h3>
-          <p class="text-sm text-muted mb-4">专业检索商标数据库，评估注册风险</p>
-          <div class="text-primary font-bold text-xl mb-4">免费</div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即查询</button>
-        </div>
-        <div class="price-card featured p-6 relative">
-          <div class="price-badge">推荐</div>
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">商标注册</h3>
-          <p class="text-sm text-muted mb-4">全流程代理注册，专业律师全程跟进</p>
-          <div class="text-primary font-bold text-xl mb-4">¥899<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">商标续展</h3>
-          <p class="text-sm text-muted mb-4">到期提醒+续展办理，确保持续有效</p>
-          <div class="text-primary font-bold text-xl mb-4">¥1,599<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">商标异议</h3>
-          <p class="text-sm text-muted mb-4">针对侵权商标提出异议，维护品牌权益</p>
-          <div class="text-primary font-bold text-xl mb-4">询价</div>
-          <button onclick="openConsultModal()" class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ 板块 -->
-    <div class="max-w-3xl">
+    <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
-      <div class="space-y-3">
+      <div>
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
             <span class="text-sm font-medium">商标注册需要多长时间？</span>
@@ -348,6 +363,71 @@ tailwind.config = {
 <!-- Tab 2: 专利 -->
 <section class="ip-content hidden py-20 bg-slate-50" id="content-patent">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Patent</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">专利</h3>
+    <p class="text-lg text-muted mb-8">发明、实用新型、外观设计全类型专利申请，PCT国际申请助您布局全球。</p>
+
+    <!-- ===== Apply / 申请表 ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">Apply</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">申请专利服务</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-body mb-6">专利申请咨询表</h3>
+          <form onsubmit="submitPatentApply(event)" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">专利类型 <span class="text-red-400">*</span></label>
+                <div class="ip-form-select" id="patentTypeSelect">
+                  <div class="ip-form-select-trigger placeholder" tabindex="0">
+                    <span class="ip-form-select-text">请选择专利类型</span>
+                    <svg class="ip-form-select-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                  <div class="ip-form-select-panel">
+                    <div class="ip-form-select-option" data-value="">请选择专利类型</div>
+                    <div class="ip-form-select-option" data-value="发明专利">发明专利</div>
+                    <div class="ip-form-select-option" data-value="实用新型">实用新型专利</div>
+                    <div class="ip-form-select-option" data-value="外观设计">外观设计专利</div>
+                    <div class="ip-form-select-option" data-value="PCT">PCT国际申请</div>
+                  </div>
+                  <select id="patentType" required class="hidden">
+                    <option value="">请选择专利类型</option>
+                    <option value="发明专利">发明专利</option>
+                    <option value="实用新型">实用新型专利</option>
+                    <option value="外观设计">外观设计专利</option>
+                    <option value="PCT">PCT国际申请</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系人姓名 <span class="text-red-400">*</span></label>
+                <input type="text" id="patentName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的姓名">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系电话 <span class="text-red-400">*</span></label>
+                <input type="tel" id="patentPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的手机号">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+              <input type="email" id="patentEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
+              <textarea id="patentDesc" rows="2" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请描述您的专利申请需求及技术领域..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-4">提交后我们的知识产权专家将在24小时内与您联系</p>
+        </div>
+      </div>
+    </div>
 
     <!-- What 板块 -->
     <div class="mb-20">
@@ -547,7 +627,7 @@ tailwind.config = {
             <div class="timeline-num">5</div>
             <div class="ml-4">
               <h4 class="font-bold text-body mb-2">授权公告与发证</h4>
-              <p class="text-sm text-muted mb-3">审查通过后予以授权公告，颁发专利证书</p>
+              <p class="text-sm text-muted mb-3">审查通过后予以授权公告，颁发专利证书。费用参考：发明 ¥5,000 起 / 实用新型 ¥2,500 起</p>
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">约1个月</span>
             </div>
           </div>
@@ -604,58 +684,10 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- How Much 板块 -->
-    <div class="mb-20">
-      <div class="ip-section-title">
-          <span class="tag">How Much</span>
-          <span class="line"></span>
-        </div>
-      <h2 class="text-3xl font-bold text-body mb-6">服务价格</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">发明专利申请</h3>
-          <p class="text-sm text-muted mb-4">含实质审查，保护核心技术方案</p>
-          <div class="text-primary font-bold text-xl mb-4">¥5,000<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card featured p-6 relative">
-          <div class="price-badge">推荐</div>
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">实用新型专利</h3>
-          <p class="text-sm text-muted mb-4">审查快、授权率高，适合产品改良</p>
-          <div class="text-primary font-bold text-xl mb-4">¥2,500<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">外观设计专利</h3>
-          <p class="text-sm text-muted mb-4">保护产品外观，防山寨抄袭</p>
-          <div class="text-primary font-bold text-xl mb-4">¥1,200<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">国际PCT申请</h3>
-          <p class="text-sm text-muted mb-4">一份申请覆盖多国，全球专利布局</p>
-          <div class="text-primary font-bold text-xl mb-4">询价</div>
-          <button onclick="openConsultModal()" class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ 板块 -->
-    <div class="max-w-3xl">
+    <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
-      <div class="space-y-3">
+      <div>
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
             <span class="text-sm font-medium">发明专利和实用新型专利有什么区别？</span>
@@ -682,6 +714,69 @@ tailwind.config = {
 <!-- Tab 3: 版权 -->
 <section class="ip-content hidden py-20 bg-white" id="content-copyright">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- 标题 -->
+    <div class="gradient-section-title"><span class="en-tag">Copyright</span><span class="line"></span></div>
+    <h3 class="text-2xl font-bold text-body mb-2">版权</h3>
+    <p class="text-lg text-muted mb-8">软件著作权、作品著作权、图形版权登记，让原创有据可依。</p>
+
+    <!-- ===== Apply / 申请表 ===== -->
+    <div class="mb-16">
+      <div class="ip-section-title">
+        <span class="tag">Apply</span>
+        <span class="line"></span>
+      </div>
+      <h2 class="text-3xl font-bold text-body mb-6">申请版权登记</h2>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="h-2 bg-gradient-to-r from-primary to-accent"></div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-body mb-6">版权登记申请表</h3>
+          <form onsubmit="submitCopyrightApply(event)" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">版权类型 <span class="text-red-400">*</span></label>
+                <div class="ip-form-select" id="copyrightTypeSelect">
+                  <div class="ip-form-select-trigger placeholder" tabindex="0">
+                    <span class="ip-form-select-text">请选择版权类型</span>
+                    <svg class="ip-form-select-arrow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                  <div class="ip-form-select-panel">
+                    <div class="ip-form-select-option" data-value="">请选择版权类型</div>
+                    <div class="ip-form-select-option" data-value="软件著作权">软件著作权</div>
+                    <div class="ip-form-select-option" data-value="作品著作权">作品著作权</div>
+                    <div class="ip-form-select-option" data-value="图形版权">图形版权</div>
+                  </div>
+                  <select id="copyrightType" required class="hidden">
+                    <option value="">请选择版权类型</option>
+                    <option value="软件著作权">软件著作权</option>
+                    <option value="作品著作权">作品著作权</option>
+                    <option value="图形版权">图形版权</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系人姓名 <span class="text-red-400">*</span></label>
+                <input type="text" id="copyrightName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的姓名">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-body mb-2">联系电话 <span class="text-red-400">*</span></label>
+                <input type="tel" id="copyrightPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的手机号">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
+              <input type="email" id="copyrightEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
+              <textarea id="copyrightDesc" rows="2" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请描述您的版权登记需求及作品类型..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交申请</button>
+          </form>
+          <p class="text-xs text-muted text-center mt-4">提交后我们的知识产权专家将在24小时内与您联系</p>
+        </div>
+      </div>
+    </div>
 
     <!-- What 板块 -->
     <div class="mb-20">
@@ -873,7 +968,7 @@ tailwind.config = {
             <div class="timeline-num">4</div>
             <div class="ml-4">
               <h4 class="font-bold text-body mb-2">取得证书</h4>
-              <p class="text-sm text-muted mb-3">审查通过后颁发著作权登记证书</p>
+              <p class="text-sm text-muted mb-3">审查通过后颁发著作权登记证书。费用参考：软著 ¥800 起 / 作品著作权 ¥500 起</p>
               <span class="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">邮寄送达</span>
             </div>
           </div>
@@ -881,58 +976,10 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- How Much 板块 -->
-    <div class="mb-20">
-      <div class="ip-section-title">
-          <span class="tag">How Much</span>
-          <span class="line"></span>
-        </div>
-        <h2 class="text-3xl font-bold text-body mb-6">服务价格</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">软件著作权</h3>
-          <p class="text-sm text-muted mb-4">App/软件/系统源代码版权登记</p>
-          <div class="text-primary font-bold text-xl mb-4">¥800<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card featured p-6 relative">
-          <div class="price-badge">推荐</div>
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">作品著作权</h3>
-          <p class="text-sm text-muted mb-4">文字/美术/音乐/摄影等作品版权登记</p>
-          <div class="text-primary font-bold text-xl mb-4">¥500<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">版权加急</h3>
-          <p class="text-sm text-muted mb-4">最快5个工作日拿证，满足紧急需求</p>
-          <div class="text-primary font-bold text-xl mb-4">¥1,500<span class="text-sm font-normal text-muted">起</span></div>
-          <button class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即办理</button>
-        </div>
-        <div class="price-card p-6">
-          <div class="ip-icon-box price mb-4">
-            <svg class="w-7 h-7 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <h3 class="font-bold text-body mb-2">版权维权</h3>
-          <p class="text-sm text-muted mb-4">专业律师代理版权侵权诉讼</p>
-          <div class="text-primary font-bold text-xl mb-4">询价</div>
-          <button onclick="openConsultModal()" class="w-full h-11 flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-xl transition-colors">立即咨询</button>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ 板块 -->
-    <div class="max-w-3xl">
+    <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
-      <div class="space-y-3">
+      <div>
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
             <span class="text-sm font-medium">软件著作权登记需要多长时间？</span>
@@ -981,12 +1028,114 @@ tailwind.config = {
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+
+/* ========== 商标咨询表 ========== */
+function submitTmApply(e){
+  e.preventDefault();
+  var type = document.getElementById('tmType').value;
+  var name = document.getElementById('tmName').value.trim();
+  var phone = document.getElementById('tmPhone').value.trim();
+  var desc = document.getElementById('tmDesc').value.trim();
+  if (!type) { alert('请选择服务类型'); return; }
+  if (!name) { alert('请输入联系人姓名'); return; }
+  if (!phone) { alert('请输入联系电话'); return; }
+  if (!desc) { alert('请输入需求描述'); return; }
+  alert('感谢您的申请，我们的知识产权专家将在24小时内与您联系！');
+  e.target.reset();
+}
+
+/* ========== 专利申请表 ========== */
+function submitPatentApply(e){
+  e.preventDefault();
+  var type = document.getElementById('patentType').value;
+  var name = document.getElementById('patentName').value.trim();
+  var phone = document.getElementById('patentPhone').value.trim();
+  var desc = document.getElementById('patentDesc').value.trim();
+  if (!type) { alert('请选择专利类型'); return; }
+  if (!name) { alert('请输入联系人姓名'); return; }
+  if (!phone) { alert('请输入联系电话'); return; }
+  if (!desc) { alert('请输入需求描述'); return; }
+  alert('感谢您的申请，我们的知识产权专家将在24小时内与您联系！');
+  e.target.reset();
+}
+
+/* ========== 版权登记表 ========== */
+function submitCopyrightApply(e){
+  e.preventDefault();
+  var type = document.getElementById('copyrightType').value;
+  var name = document.getElementById('copyrightName').value.trim();
+  var phone = document.getElementById('copyrightPhone').value.trim();
+  var desc = document.getElementById('copyrightDesc').value.trim();
+  if (!type) { alert('请选择版权类型'); return; }
+  if (!name) { alert('请输入联系人姓名'); return; }
+  if (!phone) { alert('请输入联系电话'); return; }
+  if (!desc) { alert('请输入需求描述'); return; }
+  alert('感谢您的申请，我们的知识产权专家将在24小时内与您联系！');
+  e.target.reset();
+}
+
 function toggleFaq(btn){
   btn.classList.toggle('open');
   var answer = btn.nextElementSibling;
   answer.classList.toggle('open');
   answer.style.maxHeight = answer.classList.contains('open') ? answer.scrollHeight + 'px' : '0';
 }
+
+/* ========== 自定义下拉组件 ========== */
+function initIpFormSelect(selectId){
+  var wrap = document.getElementById(selectId);
+  if (!wrap) return;
+  var trigger = wrap.querySelector('.ip-form-select-trigger');
+  var panel = wrap.querySelector('.ip-form-select-panel');
+  var textEl = wrap.querySelector('.ip-form-select-text');
+  var select = wrap.querySelector('select');
+  var options = wrap.querySelectorAll('.ip-form-select-option');
+
+  function openSelect(){
+    closeAllIpSelects();
+    wrap.classList.add('open');
+  }
+  function closeSelect(){ wrap.classList.remove('open'); }
+  function toggleSelect(){ wrap.classList.contains('open') ? closeSelect() : openSelect(); }
+
+  trigger.addEventListener('click', function(e){ e.stopPropagation(); toggleSelect(); });
+  trigger.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSelect(); }
+    if (e.key === 'Escape') closeSelect();
+  });
+
+  options.forEach(function(opt){
+    opt.addEventListener('click', function(e){
+      e.stopPropagation();
+      var val = opt.dataset.value;
+      var label = opt.textContent;
+      select.value = val;
+      textEl.textContent = label;
+      if (val === '') {
+        textEl.classList.add('placeholder');
+        trigger.classList.add('placeholder');
+      } else {
+        textEl.classList.remove('placeholder');
+        trigger.classList.remove('placeholder');
+      }
+      options.forEach(function(o){ o.classList.remove('selected'); });
+      if (val !== '') opt.classList.add('selected');
+      closeSelect();
+      select.dispatchEvent(new Event('change'));
+    });
+  });
+}
+
+function closeAllIpSelects(){
+  document.querySelectorAll('.ip-form-select.open').forEach(function(s){ s.classList.remove('open'); });
+}
+
+document.addEventListener('click', function(){ closeAllIpSelects(); });
+
+initIpFormSelect('tmTypeSelect');
+initIpFormSelect('patentTypeSelect');
+initIpFormSelect('copyrightTypeSelect');
+
 function switchIpSubtab(subtab){
   document.querySelectorAll('.ip-content').forEach(function(c){ c.classList.add('hidden'); });
   document.getElementById('content-'+subtab).classList.remove('hidden');
@@ -998,7 +1147,7 @@ function switchIpSubtab(subtab){
 document.querySelectorAll('.ip-subtab').forEach(function(b){ b.addEventListener('click', function(){ switchIpSubtab(b.dataset.subtab); }); });
 (function(){
   var p = new URLSearchParams(window.location.search), s = p.get('subtab') || 'patent';
-  if(['patent','copyright'].indexOf(s)===-1) s='patent';
+  if(['trademark','patent','copyright'].indexOf(s)===-1) s='patent';
   switchIpSubtab(s);
 })();
 </script>

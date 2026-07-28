@@ -1,0 +1,40 @@
+/* ===== 设计服务页专属样式 ===== */
+/* 所有通用组件复用 style.css 中的 .what-card .why-card .who-tag .how-timeline .price-card .price-badge .faq-item 等 */
+
+.tab-active-design { color: #0A66FF !important; border-bottom-color: #0A66FF !important; }
+.design-content.hidden { display: none; }
+
+/* 电商平台按钮 */
+.design-platform-btn.active {
+  border-color: #0A66FF !important;
+  color: #0A66FF !important;
+  background-color: #EFF6FF !important;
+}
+
+/* 瀑布流 */
+.masonry-grid { columns: 2; column-gap: 16px; }
+.masonry-item { transition: all 0.3s ease; margin-bottom: 16px; }
+.masonry-item:hover { transform: scale(1.02); }
+
+/* 咨询标签 */
+.consult-tag {
+  font-size: 12px;
+  color: #0A66FF;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 2px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.consult-tag:hover { background: #0A66FF; color: #fff; }
+
+/* FAQ 折叠 */
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-answer.open { max-height: 600px; }
+
+@media (min-width: 768px) {
+  .masonry-grid { columns: 3; }
+}
+@media (max-width: 640px) {
+  .masonry-grid { columns: 1; }
+}
