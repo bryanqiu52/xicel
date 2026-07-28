@@ -1872,7 +1872,7 @@ body .beautified-select-sm:disabled {
 @media (max-width: 768px) {
   .float-card {
     right: 12px;
-    bottom: 80px;
+    bottom: 152px;
   }
   .float-card-body {
     width: 200px;
@@ -1908,7 +1908,7 @@ body .beautified-select-sm:disabled {
 
   .float-baobox {
     right: 12px;
-    bottom: 80px;
+    bottom: 152px;
   }
   .float-baobox-btn {
     width: 46px;
@@ -1930,6 +1930,64 @@ body .beautified-select-sm:disabled {
   .float-backtop-btn svg {
     width: 16px;
     height: 16px;
+  }
+}
+
+/* ----- 浮动购物车按钮（手机版） ----- */
+.float-cart-btn {
+  display: none;
+}
+@media (max-width: 768px) {
+  .float-cart-btn {
+    display: block;
+    position: fixed;
+    right: 12px;
+    bottom: 90px;
+    z-index: 99;
+  }
+  .float-cart-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0A66FF, #2563EB);
+    box-shadow: 0 4px 16px rgba(10, 102, 255, 0.35);
+    transition: all 0.25s;
+    position: relative;
+    text-decoration: none;
+  }
+  .float-cart-link:active {
+    transform: scale(0.92);
+  }
+  .float-cart-link svg {
+    width: 22px;
+    height: 22px;
+    color: #fff;
+  }
+  .float-cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: #EF4444;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+  }
+  .float-cart-badge.cart-badge-pulse {
+    animation: badgePulse 0.6s ease-out;
   }
 }
 

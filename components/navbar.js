@@ -490,17 +490,34 @@
 
   function cartFlyTo(btnEl) {
     if (!btnEl) return;
-    var badge = document.querySelector('.cart-badge');
-    if (!badge) { showCartToast('已加入购物车'); return; }
-    var host = ensureFlyHost();
 
+    var isMobile = window.innerWidth <= 768;
+    var badge, floatCartBtn;
+
+    if (isMobile) {
+      // 手机版：飞向浮动购物车按钮
+      floatCartBtn = document.getElementById('floatCartBtn');
+      if (!floatCartBtn) { showCartToast('已加入购物车'); return; }
+      badge = floatCartBtn.querySelector('.float-cart-badge');
+    } else {
+      // 桌面版：飞向导航栏购物车角标
+      badge = document.querySelector('.cart-badge');
+      if (!badge) { showCartToast('已加入购物车'); return; }
+    }
+
+    var host = ensureFlyHost();
     var btnRect = btnEl.getBoundingClientRect();
-    var badgeRect = badge.getBoundingClientRect();
+    var targetRect;
+    if (isMobile) {
+      targetRect = floatCartBtn.getBoundingClientRect();
+    } else {
+      targetRect = badge.getBoundingClientRect();
+    }
 
     var startX = btnRect.left + btnRect.width / 2 - 28;
     var startY = btnRect.top + btnRect.height / 2 - 28;
-    var endX = badgeRect.left + badgeRect.width / 2 - 28;
-    var endY = badgeRect.top + badgeRect.height / 2 - 28;
+    var endX = targetRect.left + targetRect.width / 2 - 28;
+    var endY = targetRect.top + targetRect.height / 2 - 28;
 
     var fly = document.createElement('div');
     fly.className = 'fly-item';
@@ -517,8 +534,8 @@
 
     setTimeout(function() {
       fly.remove();
+      if (!badge) return;
       badge.classList.remove('cart-badge-pulse');
-      // 强制回流以重启动画
       void badge.offsetWidth;
       badge.classList.add('cart-badge-pulse');
       setTimeout(function() { badge.classList.remove('cart-badge-pulse'); }, 600);

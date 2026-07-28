@@ -138,6 +138,20 @@
   ].join('\n');
 
   /* ============================
+     浮动购物车按钮 HTML（手机版专用）
+     ============================ */
+  var floatCartHTML = [
+    '<div class="float-cart-btn" id="floatCartBtn" title="购物车">',
+    '  <a href="cart-confirm.html" class="float-cart-link">',
+    '    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+    '      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>',
+    '    </svg>',
+    '    <span class="float-cart-badge" data-cart-badge>0</span>',
+    '  </a>',
+    '</div>'
+  ].join('\n');
+
+  /* ============================
      初始化
      ============================ */
   document.addEventListener('DOMContentLoaded', function () {
@@ -147,8 +161,13 @@
     // ---- 限制条件：用户关闭过一次客服弹窗后不自动再次打开 ----
     var userClosedBefore = localStorage.getItem('xicel_kefu_closed') === 'true';
 
-    // 默认显示卡片 + 回到顶部
-    container.innerHTML = baoboxHTML + cardHTML + backtopHTML;
+    // 默认显示卡片 + 回到顶部 + 浮动购物车
+    container.innerHTML = baoboxHTML + cardHTML + floatCartHTML + backtopHTML;
+
+    // 浮动购物车已渲染，同步刷新角标数字
+    if (typeof window.cartUtils !== 'undefined' && window.cartUtils.refresh) {
+      window.cartUtils.refresh();
+    }
 
     if (userClosedBefore) {
       document.getElementById('floatCard').classList.add('float-card-hidden');
