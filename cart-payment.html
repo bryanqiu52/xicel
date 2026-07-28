@@ -84,16 +84,36 @@ tailwind.config = {
   flex-shrink: 0;
 }
 .payment-method-card.alipay .method-icon {
-  background: #1677FF;
-  color: #fff;
+  background: #fff;
+  color: #1677FF;
+  border: 1px solid #E2E8F0;
 }
 .payment-method-card.wechat .method-icon {
-  background: #07C160;
-  color: #fff;
+  background: #fff;
+  color: #07C160;
+  border: 1px solid #E2E8F0;
 }
-.payment-method-card.bank .method-icon {
+.payment-method-card.balance .method-icon {
   background: #F1F5F9;
+  color: #0A66FF;
+}
+.balance-tab-btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #E2E8F0;
+  background: #fff;
   color: #64748B;
+}
+.balance-tab-btn.active {
+  background: #EFF6FF;
+  border-color: #0A66FF;
+  color: #0A66FF;
 }
 .payment-method-card .method-info {
   flex: 1;
@@ -254,7 +274,7 @@ tailwind.config = {
               <div class="payment-card-header">
                 <div class="radio-indicator"></div>
                 <div class="method-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14.5a1.5 1.5 0 010-3h8a1.5 1.5 0 010 3h-3a1 1 0 00-.8 1.6l1.4 1.4a1 1 0 001.6-.8v-4.7a1.5 1.5 0 013 0V12a6 6 0 11-12 0v-.5z"/></svg>
+                  <img src="https://cdn.simpleicons.org/alipay" width="24" height="24" alt="支付宝">
                 </div>
                 <div class="method-info">
                   <div class="method-name">支付宝</div>
@@ -276,7 +296,7 @@ tailwind.config = {
               <div class="payment-card-header">
                 <div class="radio-indicator"></div>
                 <div class="method-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 10.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm6.5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-3 4a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><circle cx="12" cy="12" r="10"/></svg>
+                  <img src="https://cdn.simpleicons.org/wechat" width="24" height="24" alt="微信支付">
                 </div>
                 <div class="method-info">
                   <div class="method-name">微信支付</div>
@@ -294,36 +314,43 @@ tailwind.config = {
                 <p class="text-xs text-muted mt-1">请打开微信扫码完成支付</p>
               </div>
             </div>
-            <div class="payment-method-card" id="payBank" onclick="selectPaymentMethod('bank')">
+            <div class="payment-method-card" id="payBalance" onclick="selectPaymentMethod('balance')">
               <div class="payment-card-header">
                 <div class="radio-indicator"></div>
                 <div class="method-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="16" rx="2"/><path d="M6 6h12M6 10h12M6 14h8"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="13" rx="2" fill="currentColor" opacity="0.15"/><path d="M2 8l4-5h12l4 5" fill="currentColor" opacity="0.25"/><circle cx="16" cy="13" r="2" fill="currentColor"/></svg>
                 </div>
                 <div class="method-info">
-                  <div class="method-name">银行卡支付</div>
-                  <div class="method-desc">支持各大银行储蓄卡、信用卡</div>
+                  <div class="method-name">余额支付</div>
+                  <div class="method-desc">使用账户余额支付，快捷安全</div>
                 </div>
               </div>
               <div class="payment-card-expand">
-                <div class="grid grid-cols-1 gap-4">
-                  <div>
-                    <label class="block text-xs font-medium text-muted mb-1.5">卡号</label>
-                    <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="请输入银行卡号">
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between p-4 bg-blue-50 rounded-xl border border-blue-200">
+                    <span class="text-sm text-blue-800">当前账户余额</span>
+                    <span class="text-xl font-bold text-blue-600" id="balanceAmount">¥0.00</span>
                   </div>
-                  <div class="grid grid-cols-2 gap-3">
-                    <div>
-                      <label class="block text-xs font-medium text-muted mb-1.5">有效期</label>
-                      <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="MM/YY">
-                    </div>
-                    <div>
-                      <label class="block text-xs font-medium text-muted mb-1.5">CVV</label>
-                      <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="***">
-                    </div>
+                  <!-- 验证方式切换 -->
+                  <div class="flex gap-2" id="balanceTabBar">
+                    <div class="balance-tab-btn active" data-mode="code" onclick="switchBalanceMode('code')">短信验证码</div>
+                    <div class="balance-tab-btn" data-mode="password" onclick="switchBalanceMode('password')">支付密码</div>
                   </div>
-                  <div>
-                    <label class="block text-xs font-medium text-muted mb-1.5">持卡人姓名</label>
-                    <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="请输入持卡人姓名">
+                  <!-- 短信验证码 -->
+                  <div id="balanceModeCode" class="space-y-3">
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs text-muted">验证码将发送至已绑定手机</span>
+                      <button class="px-4 py-2 text-xs font-medium text-white bg-primary rounded-xl hover:bg-primary-dark transition-colors whitespace-nowrap" onclick="sendBalanceCode()">获取验证码</button>
+                    </div>
+                    <input type="text" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="请输入短信验证码" id="balanceCode">
+                  </div>
+                  <!-- 支付密码 -->
+                  <div id="balanceModePassword" class="space-y-3" style="display:none">
+                    <input type="password" class="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" placeholder="请输入支付密码" id="payPassword">
+                  </div>
+                  <div class="flex items-center gap-2 text-xs text-muted">
+                    <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                    <span>余额不足？请选择其他支付方式</span>
                   </div>
                 </div>
               </div>
@@ -341,14 +368,7 @@ tailwind.config = {
               <span>商品总数</span>
               <strong id="sumCount">0 件</strong>
             </div>
-            <div class="cart-summary-row">
-              <span>域名注册</span>
-              <strong id="sumDomainCount">0 件</strong>
-            </div>
-            <div class="cart-summary-row">
-              <span>申请资料挂靠</span>
-              <strong id="sumRegOk" class="text-green-600">0 / 0</strong>
-            </div>
+            <div id="productTypeSummary"></div>
             <div class="cart-summary-divider"></div>
             <div class="cart-summary-row total">
               <span>合计金额</span>
@@ -434,8 +454,6 @@ function renderOrderItems(items) {
 function renderOrderSummary(items) {
   var selected = items.filter(function(it) { return it.selected; });
   var count = selected.length;
-  var domainCount = selected.filter(function(it) { return it.productType === '域名注册'; }).length;
-  var regServiceCount = selected.filter(function(it) { return it.productType === '域名注册' && it.regService; }).length;
   var domainFee = selected.filter(function(it) { return it.productType === '域名注册'; })
     .reduce(function(s, it) { return s + (it.price * (it.year || 1)); }, 0);
   var otherFee = selected.filter(function(it) { return it.productType !== '域名注册'; })
@@ -445,9 +463,33 @@ function renderOrderSummary(items) {
   var total = domainFee + otherFee + regServiceFee;
   
   document.getElementById('sumCount').textContent = count + ' 件';
-  document.getElementById('sumDomainCount').textContent = domainCount + ' 件';
-  document.getElementById('sumRegOk').textContent = regServiceCount + ' / ' + domainCount;
   document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
+
+  // 动态按商品类型生成汇总行
+  var typeMap = {};
+  selected.forEach(function(it) {
+    var type = it.productType || '其他';
+    if (!typeMap[type]) typeMap[type] = { count: 0, regCount: 0 };
+    typeMap[type].count++;
+    if (type === '域名注册' && it.regService) {
+      typeMap[type].regCount++;
+    }
+  });
+  var summaryHtml = '';
+  Object.keys(typeMap).forEach(function(type) {
+    var info = typeMap[type];
+    summaryHtml += '<div class="cart-summary-row">'
+      + '<span>' + escapeHtml(type) + '</span>'
+      + '<strong>' + info.count + ' 件</strong>'
+      + '</div>';
+    if (type === '域名注册') {
+      summaryHtml += '<div class="cart-summary-row">'
+        + '<span>申请资料挂靠</span>'
+        + '<strong class="text-green-600">' + info.regCount + ' / ' + info.count + '</strong>'
+        + '</div>';
+    }
+  });
+  document.getElementById('productTypeSummary').innerHTML = summaryHtml;
   
   // 同步二维码金额
   var qrAmt = '¥' + total.toFixed(2);
@@ -455,6 +497,9 @@ function renderOrderSummary(items) {
   var wechatEl = document.getElementById('qrAmountWechat');
   if (alipayEl) alipayEl.textContent = qrAmt;
   if (wechatEl) wechatEl.textContent = qrAmt;
+  // 同步余额显示
+  var balanceEl = document.getElementById('balanceAmount');
+  if (balanceEl) balanceEl.textContent = qrAmt;
 }
 
 function selectPaymentMethod(method) {
@@ -482,6 +527,18 @@ function submitPayment() {
   localStorage.setItem('orderData', JSON.stringify(orderData));
   
   window.location.href = 'cart-success.html';
+}
+
+function switchBalanceMode(mode) {
+  document.querySelectorAll('.balance-tab-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.mode === mode);
+  });
+  document.getElementById('balanceModeCode').style.display = mode === 'code' ? '' : 'none';
+  document.getElementById('balanceModePassword').style.display = mode === 'password' ? '' : 'none';
+}
+
+function sendBalanceCode() {
+  alert('验证码已发送至您的绑定手机，请注意查收');
 }
 
 function getCertTypeText(type) {

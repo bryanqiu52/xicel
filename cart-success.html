@@ -239,14 +239,7 @@ tailwind.config = {
               <span>商品总数</span>
               <strong id="sumCount">0 件</strong>
             </div>
-            <div class="cart-summary-row">
-              <span>域名注册</span>
-              <strong id="sumDomainCount">0 件</strong>
-            </div>
-            <div class="cart-summary-row">
-              <span>申请资料挂靠</span>
-              <strong id="sumRegOk" class="text-green-600">0 / 0</strong>
-            </div>
+            <div id="productTypeSummary"></div>
             <div class="cart-summary-divider"></div>
             <div class="cart-summary-row total">
               <span>合计金额</span>
@@ -355,8 +348,6 @@ function renderSummaryMeta(orderData) {
 function renderOrderSummary(items) {
   var selected = items || [];
   var count = selected.length;
-  var domainCount = selected.filter(function(it) { return it.productType === '域名注册'; }).length;
-  var regServiceCount = selected.filter(function(it) { return it.productType === '域名注册' && it.regService; }).length;
   var total = selected.reduce(function(s, it) {
     var itemTotal = it.price * (it.year || 1);
     if (it.productType === '域名注册' && it.regService) {
@@ -366,9 +357,33 @@ function renderOrderSummary(items) {
   }, 0);
   
   document.getElementById('sumCount').textContent = count + ' 件';
-  document.getElementById('sumDomainCount').textContent = domainCount + ' 件';
-  document.getElementById('sumRegOk').textContent = regServiceCount + ' / ' + domainCount;
   document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
+
+  // 动态按商品类型生成汇总行
+  var typeMap = {};
+  selected.forEach(function(it) {
+    var type = it.productType || '其他';
+    if (!typeMap[type]) typeMap[type] = { count: 0, regCount: 0 };
+    typeMap[type].count++;
+    if (type === '域名注册' && it.regService) {
+      typeMap[type].regCount++;
+    }
+  });
+  var summaryHtml = '';
+  Object.keys(typeMap).forEach(function(type) {
+    var info = typeMap[type];
+    summaryHtml += '<div class="cart-summary-row">'
+      + '<span>' + escapeHtml(type) + '</span>'
+      + '<strong>' + info.count + ' 件</strong>'
+      + '</div>';
+    if (type === '域名注册') {
+      summaryHtml += '<div class="cart-summary-row">'
+        + '<span>申请资料挂靠</span>'
+        + '<strong class="text-green-600">' + info.regCount + ' / ' + info.count + '</strong>'
+        + '</div>';
+    }
+  });
+  document.getElementById('productTypeSummary').innerHTML = summaryHtml;
 }
 
 function getPaymentMethodText(method) {

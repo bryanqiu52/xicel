@@ -134,12 +134,12 @@
   position: relative;
   overflow: hidden;
 }
-.mail-version-card::before {
+.mail-version-card.recommended::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #CBD5E1, #E2E8F0);
+  background: var(--mail-gradient);
   transition: background 0.4s;
 }
 .mail-version-card:hover {
@@ -149,9 +149,6 @@
 .mail-version-card.recommended {
   border-color: rgba(10,102,255,0.2);
   box-shadow: 0 8px 32px rgba(10,102,255,0.08);
-}
-.mail-version-card.recommended::before {
-  background: var(--mail-gradient);
 }
 .mail-version-card.recommended::after {
   content: '';
@@ -331,9 +328,11 @@
   border: 2px solid rgba(10,102,255,0.2);
 }
 .mail-version-card .buy-btn-outline:hover {
-  background: rgba(10,102,255,0.04);
+  background: #0A66FF;
+  color: #fff;
   border-color: #0A66FF;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.35);
 }
 
 /* ===== 邮箱优势卡片（带拓扑装饰） ===== */
@@ -836,88 +835,9 @@
 }
 
 /* ===================================================
-   企业邮箱购买弹窗
+   企业邮箱购买弹窗 - 用户量步进器（保留）
    =================================================== */
-.mail-order-dialog {
-  animation: mailOrderIn 0.3s ease-out;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-@keyframes mailOrderIn {
-  from { opacity: 0; transform: translateY(20px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.mail-order-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-.mail-order-label {
-  flex-shrink: 0;
-  width: 90px;
-  padding-top: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #1E293B;
-  text-align: right;
-}
-.mail-order-input {
-  flex: 1;
-  padding: 10px 14px;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  font-size: 14px;
-  color: #1E293B;
-  outline: none;
-  transition: all 0.2s;
-  background: #fff;
-}
-.mail-order-input:focus {
-  border-color: #0A66FF;
-  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.1);
-}
-.mail-order-input::placeholder {
-  color: #94A3B8;
-}
-
-.mail-order-select-row {
-  flex: 1;
-  display: flex;
-  gap: 8px;
-}
-.mail-order-select {
-  flex: 1;
-  padding: 10px 36px 10px 14px;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  font-size: 14px;
-  color: #1E293B;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.2s;
-  background-color: #fff;
-  background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 stroke=%22%2364748B%22 stroke-width=%222%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E');
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 14px;
-  appearance: none;
-  -webkit-appearance: none;
-}
-.mail-order-select:hover:not(:disabled) { border-color: #0A66FF; }
-.mail-order-select:focus:not(:disabled) {
-  border-color: #0A66FF;
-  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.1);
-}
-.mail-order-select:disabled {
-  background-color: #F8FAFC;
-  color: #94A3B8;
-  cursor: not-allowed;
-}
-
-/* 用户量步进器 */
 .mail-qty-stepper {
-  flex: 1;
   display: flex;
   align-items: center;
   gap: 0;
@@ -957,111 +877,6 @@
   margin-left: 12px;
   font-size: 12px;
   color: #94A3B8;
-}
-
-/* 年份选择按钮组 */
-.mail-years-row {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.year-btn {
-  flex: 1;
-  min-width: 52px;
-  padding: 8px 0;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  background: #F8FAFC;
-  color: #64748B;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.year-btn:hover {
-  border-color: #0A66FF;
-  background: #EFF6FF;
-  color: #0A66FF;
-}
-.year-btn.active {
-  background: #0A66FF;
-  border-color: #0A66FF;
-  color: #fff;
-}
-
-/* 总价 */
-.mail-order-total {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  padding: 16px 0;
-  border-top: 1px dashed #E2E8F0;
-  margin-top: 4px;
-}
-.mail-order-total .total-label {
-  font-size: 14px;
-  color: #64748B;
-}
-.mail-order-total .total-price {
-  font-size: 28px;
-  font-weight: 800;
-  color: #0A66FF;
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-
-/* 底部按钮 */
-.mail-order-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-}
-.mail-order-btn {
-  padding: 10px 28px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-  border: none;
-}
-.mail-order-btn-primary {
-  background: #0A66FF;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(10, 102, 255, 0.25);
-}
-.mail-order-btn-primary:hover {
-  background: #0047CC;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(10, 102, 255, 0.35);
-}
-.mail-order-btn-cancel {
-  background: #F5F7FA;
-  color: #64748B;
-  border: 1px solid #E2E8F0;
-}
-.mail-order-btn-cancel:hover {
-  background: #E2E8F0;
-  color: #1E293B;
-}
-
-/* 弹窗滚动条 */
-.mail-order-dialog::-webkit-scrollbar { width: 6px; }
-.mail-order-dialog::-webkit-scrollbar-track { background: transparent; }
-.mail-order-dialog::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
-
-/* 移动端适配 */
-@media (max-width: 640px) {
-  .mail-order-row { flex-direction: column; gap: 6px; }
-  .mail-order-label { width: auto; text-align: left; padding-top: 0; }
-  .mail-order-select-row { flex-direction: column; width: 100%; }
-  .mail-order-select { width: 100%; }
-  .year-btn { min-width: 44px; font-size: 12px; padding: 6px 0; }
-  .mail-order-total .total-price { font-size: 24px; }
-  .mail-order-actions { flex-direction: column-reverse; }
-  .mail-order-btn { width: 100%; padding: 12px; }
 }
 
 /* ===================================================
@@ -1123,15 +938,7 @@
 
 /* ===================================================
    SSL 板块 — Security-Tech Premium 美学
-   深蓝安全感 + 精密细节传递信任价值
    =================================================== */
-
-:root {
-  --ssl-grad: linear-gradient(135deg, #0A66FF, #0055DD);
-  --ssl-grad-soft: linear-gradient(135deg, rgba(10,102,255,0.06), rgba(0,85,221,0.03));
-  --ssl-card-shadow: 0 4px 20px rgba(10,102,255,0.06);
-  --ssl-hover-shadow: 0 16px 48px rgba(10,102,255,0.14);
-}
 
 /* ===== 板块背景 ===== */
 #content-ssl {
@@ -1155,96 +962,297 @@
   line-height: 1;
 }
 
-/* ===== SSL 套餐卡片 ===== */
-.ssl-plan-cards .bg-white {
+/* ===== SSL 套餐卡片（对齐邮箱版本选择卡片风格） ===== */
+.ssl-card {
   position: relative;
-  overflow: hidden;
+  background: #fff;
   border: 1px solid #E2E8F0;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFF 100%);
+  border-radius: 24px;
+  padding: 36px 32px 32px;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s, border-color 0.4s;
+  overflow: hidden;
 }
-
-/* 顶部渐变装饰条 */
-.ssl-plan-cards .bg-white::before {
+.ssl-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(10,102,255,0.12);
+}
+.ssl-card.recommended {
+  border-color: rgba(10,102,255,0.2);
+  box-shadow: 0 8px 32px rgba(10,102,255,0.08);
+}
+.ssl-card.recommended::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 12px;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  z-index: 1;
+}
+.ssl-card.recommended::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 100%; height: 200%;
+  background: linear-gradient(135deg, transparent 40%, rgba(10,102,255,0.02) 50%, transparent 60%);
+  animation: sslCardShimmer 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes sslCardShimmer {
+  0%, 100% { transform: translateX(-30%) rotate(25deg); }
+  50% { transform: translateX(30%) rotate(25deg); }
+}
+
+/* 推荐徽章（右上角） */
+.ssl-card-badge {
+  position: absolute;
+  top: 12px;
   right: 12px;
-  height: 3px;
-  border-radius: 0 0 3px 3px;
-  background: linear-gradient(90deg, transparent, #CBD5E1, transparent);
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(10,102,255,0.25);
+  z-index: 2;
 }
 
-.ssl-plan-cards .bg-white:hover::before {
-  opacity: 1;
-  left: 0;
-  right: 0;
-  background: linear-gradient(90deg, #0A66FF, #00D4AA);
+/* 标题 */
+.ssl-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1E293B;
+  margin-bottom: 4px;
 }
 
-/* 推荐卡片的特殊装饰条 */
-.ssl-plan-cards .bg-white.border-\[#10B981\]::before {
-  background: linear-gradient(90deg, transparent, #00D4AA, transparent);
-  opacity: 0.6;
-  left: 0;
-  right: 0;
+/* 描述 */
+.ssl-card-desc {
+  font-size: 14px;
+  color: #64748B;
+  margin-bottom: 28px;
+  line-height: 1.5;
 }
 
-.ssl-plan-cards .bg-white.border-\[#10B981\]:hover::before {
-  opacity: 1;
-  background: linear-gradient(90deg, #00D4AA, #00D4AA);
+/* 特性列表 */
+.ssl-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.ssl-card-features .feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+}
+.ssl-card-features .feat-check {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ssl-card-features .feat-check svg {
+  width: 10px;
+  height: 10px;
+  color: #00D4AA;
 }
 
-/* 卡片 Hover 增强 */
-.ssl-plan-cards .bg-white:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--ssl-hover-shadow);
-  border-color: rgba(10,102,255,0.2);
+/* 价格区 */
+.ssl-card-price {
+  margin-bottom: 24px;
+}
+.ssl-card-price .price-main {
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.ssl-card-price .price-main span {
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-text-fill-color: #64748B;
+  color: #64748B;
+}
+.ssl-card-price .price-main .ssl-price {
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 30px;
+  font-weight: 800;
 }
 
-.ssl-plan-cards .bg-white.border-\[#10B981\]:hover {
-  border-color: rgba(16,185,129,0.35);
-  box-shadow: 0 16px 48px rgba(16,185,129,0.14);
+/* SSL 卡片按钮 */
+.ssl-plan-cards .ssl-btn {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+  cursor: pointer;
+}
+.ssl-plan-cards .ssl-btn-primary {
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(10,102,255,0.25);
+}
+.ssl-plan-cards .ssl-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.35);
+}
+.ssl-plan-cards .ssl-btn-outline {
+  background: transparent;
+  color: #0A66FF;
+  border: 2px solid rgba(10,102,255,0.2);
+}
+.ssl-plan-cards .ssl-btn-outline:hover {
+  background: #0A66FF;
+  color: #fff;
+  border-color: #0A66FF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.35);
 }
 
-/* 图标容器增强 */
-.ssl-plan-cards .bg-white .w-12.h-12 {
+/* ===== 云服务器方案卡片（对齐邮箱版本选择卡片风格） ===== */
+.cloud-card {
   position: relative;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s, border-color 0.4s;
+  overflow: hidden;
+}
+.cloud-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(10,102,255,0.12);
+}
+.cloud-card.recommended {
+  border-color: rgba(10,102,255,0.2);
+  box-shadow: 0 8px 32px rgba(10,102,255,0.08);
+}
+.cloud-card.recommended::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  z-index: 1;
+}
+.cloud-card.recommended::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 100%; height: 200%;
+  background: linear-gradient(135deg, transparent 40%, rgba(10,102,255,0.02) 50%, transparent 60%);
+  animation: cloudCardShimmer 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes cloudCardShimmer {
+  0%, 100% { transform: translateX(-30%) rotate(25deg); }
+  50% { transform: translateX(30%) rotate(25deg); }
 }
 
-.ssl-plan-cards .bg-white:hover .w-12.h-12 {
-  transform: scale(1.12);
-  box-shadow: 0 6px 20px rgba(10,102,255,0.15);
+/* 推荐徽章（右上角） */
+.cloud-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(10,102,255,0.25);
+  z-index: 2;
 }
 
-.ssl-plan-cards .bg-white.border-\[#10B981\]:hover .w-12.h-12 {
-  box-shadow: 0 6px 20px rgba(16,185,129,0.15);
+/* 标题 */
+.cloud-card-title { font-size: 22px; font-weight: 800; color: #1E293B; margin-bottom: 4px; letter-spacing: -0.3px; }
+
+/* 描述 */
+.cloud-card-desc { font-size: 14px; color: #64748B; margin-bottom: 28px; line-height: 1.5; }
+
+/* 特性列表 */
+.cloud-card-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.cloud-card-features .feat-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #475569; line-height: 1.5; }
+.cloud-card-features .feat-check {
+  width: 20px; height: 20px;
+  background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+}
+.cloud-card-features .feat-check svg { width: 10px; height: 10px; color: #00D4AA; }
+
+/* 价格区 */
+.cloud-card-price { margin-bottom: 24px; }
+.cloud-card-price .price-original { font-size: 13px; color: #94A3B8; text-decoration: line-through; margin-bottom: 4px; }
+.cloud-card-price .price-main {
+  font-size: 30px; font-weight: 800;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;
+}
+.cloud-card-price .price-main span { font-size: 14px; font-weight: 400; -webkit-text-fill-color: #64748B; color: #64748B; }
+.cloud-card-price .price-main .cloud-price {
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 30px;
+  font-weight: 800;
 }
 
-/* 卡片渐入动画 */
-.ssl-plan-cards .bg-white {
-  animation: sslCardIn 0.6s ease-out both;
+/* ===== 云服务器卡片按钮样式（参考邮箱版本选择卡片） ===== */
+.idc-cloud-section .cloud-btn {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
 }
-.ssl-plan-cards .bg-white:nth-child(1) { animation-delay: 0s; }
-.ssl-plan-cards .bg-white:nth-child(2) { animation-delay: 0.1s; }
-.ssl-plan-cards .bg-white:nth-child(3) { animation-delay: 0.2s; }
-
-@keyframes sslCardIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+.idc-cloud-section .cloud-btn-primary {
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(10,102,255,0.25);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .ssl-plan-cards .bg-white { animation: none; }
+.idc-cloud-section .cloud-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.35);
 }
-
-/* 推荐徽章阴影增强 */
-.ssl-plan-cards .bg-white.border-\[#10B981\] .absolute.-top-3 {
-  box-shadow: 0 2px 12px rgba(16,185,129,0.3);
+.idc-cloud-section .cloud-btn-outline {
+  background: transparent;
+  color: #0A66FF;
+  border: 2px solid rgba(10,102,255,0.2);
+}
+.idc-cloud-section .cloud-btn-outline:hover {
+  background: #0A66FF;
+  color: #fff;
+  border-color: #0A66FF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.35);
 }
 
 /* ===== 证书对比表增强 ===== */

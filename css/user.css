@@ -367,7 +367,7 @@ body { background: #F5F7FA; margin: 0; overflow-x: hidden; }
 .realname-success-icon { width: 56px; height: 56px; border-radius: 50%; background: #F0FDF4; color: #22C55E; display: flex; align-items: center; justify-content: center; }
 .realname-status-text { font-size: 16px; font-weight: 600; color: #1E293B; }
 
-.realname-info-box { display: grid; grid-template-columns: auto 1fr 1fr; gap: 30px; padding: 24px; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 24px; align-items: start; }
+.realname-info-box { display: grid; grid-template-columns: auto 1fr; gap: 40px; padding: 24px; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 24px; align-items: start; }
 .realname-icon-col { display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 8px; }
 .realname-type-icon { color: #3B82F6; }
 .realname-type-icon.company { color: #10B981; }
@@ -397,16 +397,7 @@ body { background: #F5F7FA; margin: 0; overflow-x: hidden; }
 .notif-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
 .notif-dot.unread { background: #EF4444; }
 
-/* ===== 证件照预览模态框 ===== */
-.id-preview-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; animation: fadeIn 0.2s ease-out; }
-.id-preview-modal.show { display: flex; }
-.id-preview-box { position: relative; background: #fff; border-radius: 16px; padding: 24px; min-width: 360px; max-width: 90vw; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: scaleIn 0.25s ease-out; }
-/* scaleIn 定义见下方 @keyframes（L442），此处引用即可 */
-.id-preview-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; border: none; color: #64748B; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
-.id-preview-close:hover { background: #E2E8F0; color: #1E293B; transform: rotate(90deg); }
-.id-preview-title { font-size: 16px; font-weight: 700; color: #0F172A; text-align: center; margin-bottom: 20px; }
-.id-preview-img { width: 320px; height: 200px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-.preview-svg { width: 180px; height: 120px; color: #0A66FF; }
+
 
 /* ===== 空数据状态 ===== */
 .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94A3B8; }
@@ -486,6 +477,14 @@ body { background: #F5F7FA; margin: 0; overflow-x: hidden; }
 .password-input-wrap .form-input { width: 100%; padding-right: 40px; box-sizing: border-box; }
 .password-toggle { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #94A3B8; cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center; }
 .password-toggle:hover { color: #0A66FF; }
+
+/* 复制按钮 */
+.copy-btn { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #E2E8F0; background: #fff; color: #94A3B8; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; }
+.copy-btn:hover { border-color: #0A66FF; color: #0A66FF; background: #EFF6FF; }
+
+/* 复制提示 Toast */
+.copy-toast { position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(20px); background: #0F172A; color: #fff; font-size: 13px; font-weight: 500; padding: 10px 24px; border-radius: 10px; z-index: 10001; opacity: 0; transition: all 0.3s; pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+.copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* 弹窗下拉框美化 */
 .form-select-btn {

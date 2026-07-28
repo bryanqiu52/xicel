@@ -143,8 +143,18 @@
   document.addEventListener('DOMContentLoaded', function () {
     var container = document.getElementById('float-actions-container');
     if (!container) return;
+
+    // ---- 限制条件：用户关闭过一次客服弹窗后不自动再次打开 ----
+    var userClosedBefore = localStorage.getItem('xicel_kefu_closed') === 'true';
+
     // 默认显示卡片 + 回到顶部
     container.innerHTML = baoboxHTML + cardHTML + backtopHTML;
+
+    if (userClosedBefore) {
+      document.getElementById('floatCard').classList.add('float-card-hidden');
+      document.getElementById('floatBaobox').classList.add('float-baobox-show');
+    }
+
     initFloatActions();
   });
 
@@ -157,19 +167,23 @@
     var chatBtn = document.getElementById('floatChatBtn');
     var backTop = document.getElementById('floatBackTopBtn');
 
-    // --- 关闭卡片 → 显示百宝箱 ---
+    // --- 关闭卡片 → 显示百宝箱，并记录关闭状态 ---
     if (closeBtn) {
       closeBtn.addEventListener('click', function () {
         card.classList.add('float-card-hidden');
         baobox.classList.add('float-baobox-show');
+        // 记录用户已关闭，其他页面不再自动打开
+        localStorage.setItem('xicel_kefu_closed', 'true');
       });
     }
 
-    // --- 点击百宝箱 → 显示卡片 ---
+    // --- 点击百宝箱 → 显示卡片，清除关闭记录 ---
     if (baoboxBtn) {
       baoboxBtn.addEventListener('click', function () {
         card.classList.remove('float-card-hidden');
         baobox.classList.remove('float-baobox-show');
+        // 用户主动打开，清除关闭记录
+        localStorage.removeItem('xicel_kefu_closed');
       });
     }
 

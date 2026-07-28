@@ -108,6 +108,10 @@ tailwind.config = {
               <input type="email" id="tmEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
             </div>
             <div>
+              <label class="block text-sm font-medium text-body mb-2">公司名称</label>
+              <input type="text" id="tmCompany" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称（选填）">
+            </div>
+            <div>
               <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
               <textarea id="tmDesc" rows="2" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请描述您的商标注册需求及商品/服务类别..."></textarea>
             </div>
@@ -417,6 +421,10 @@ tailwind.config = {
             <div>
               <label class="block text-sm font-medium text-body mb-2">联系邮箱 <span class="text-xs text-muted">（非必填）</span></label>
               <input type="email" id="patentEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-body mb-2">公司名称</label>
+              <input type="text" id="patentCompany" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称（选填）">
             </div>
             <div>
               <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
@@ -768,6 +776,10 @@ tailwind.config = {
               <input type="email" id="copyrightEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
             </div>
             <div>
+              <label class="block text-sm font-medium text-body mb-2">公司名称</label>
+              <input type="text" id="copyrightCompany" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称（选填）">
+            </div>
+            <div>
               <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
               <textarea id="copyrightDesc" rows="2" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请描述您的版权登记需求及作品类型..."></textarea>
             </div>
@@ -1017,6 +1029,7 @@ tailwind.config = {
         <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">公司名称</label><input type="text" placeholder="请输入您的公司名称（选填）" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
         <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
       </form>
