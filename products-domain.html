@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -378,28 +378,28 @@ tailwind.config = {
             <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">CO</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.com</div><div class="text-xs text-muted">全球用户注册首选域名</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥98<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.com" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥98<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.com" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=cn'">
           <div class="flex items-start gap-3 mb-4">
             <img src="assets/flags/cn.svg" alt="CN" class="w-12 h-12 rounded-xl object-cover shrink-0" />
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.cn</div><div class="text-xs text-muted">中国国家顶级域名<span class="text-xs bg-red-50 text-[#EF4444] px-1.5 py-0.5 rounded ml-1.5">促销</span></div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-[#EF4444]">¥35<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-[#EF4444]">¥35<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=net'">
           <div class="flex items-start gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">NE</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.net</div><div class="text-xs text-muted">网络服务机构首选</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥79<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.net" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥79<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.net" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=top'">
           <div class="flex items-start gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-amber-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">TO</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.top</div><div class="text-xs text-muted">巅峰首选</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥9<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.top" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥9<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.top" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
       </div>
       <div class="text-center mt-6">
@@ -510,9 +510,9 @@ tailwind.config = {
         return;
       }
 
-      // 域名注册：如果用户输入的是域名后缀（以 . 开头，如 .com / .cn），直接跳订单页
+      // 域名注册：如果输入后缀，跳搜索页并填入输入框
       if (query.indexOf('.') === 0) {
-        window.location.href = 'domain-order.html?domain=' + encodeURIComponent(query);
+        window.location.href = 'domain-search.html?suffix=' + encodeURIComponent(query);
       } else {
         if (currentDomainRegisterMode === 'explore') {
           // 域名探索模式：判断是否包含完整域名
@@ -860,56 +860,56 @@ tailwind.config = {
             <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">CO</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.com</div><div class="text-xs text-muted">全球用户注册首选域名</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥98<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.com" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥98<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.com" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=cn'">
           <div class="flex items-start gap-3 mb-4">
             <img src="assets/flags/cn.svg" alt="CN" class="w-12 h-12 rounded-xl object-cover shrink-0" />
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.cn</div><div class="text-xs text-muted">中国国家顶级域名<span class="text-xs bg-red-50 text-[#EF4444] px-1.5 py-0.5 rounded ml-1.5">促销</span></div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-[#EF4444]">¥35<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-[#EF4444]">¥35<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=net'">
           <div class="flex items-start gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">NE</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.net</div><div class="text-xs text-muted">网络服务机构首选</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥79<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.net" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥79<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.net" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=com.cn'">
           <div class="flex items-start gap-3 mb-4">
             <img src="assets/flags/cn.svg" alt="CN" class="w-12 h-12 rounded-xl object-cover shrink-0" />
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.com.cn</div><div class="text-xs text-muted">中国企业专属域名<span class="text-xs bg-red-50 text-[#EF4444] px-1.5 py-0.5 rounded ml-1.5">促销</span></div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-[#EF4444]">¥39<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.com.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-[#EF4444]">¥39<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.com.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=top'">
           <div class="flex items-start gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-amber-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">TO</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.top</div><div class="text-xs text-muted">巅峰首选</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥9<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.top" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥9<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.top" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=xyz'">
           <div class="flex items-start gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-purple-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">XY</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.xyz</div><div class="text-xs text-muted">新一代通用</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥8<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.xyz" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥8<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.xyz" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=site'">
           <div class="flex items-start gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">SI</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.site</div><div class="text-xs text-muted">建站首选</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥15<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.site" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥15<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.site" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
         <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer" onclick="window.location.href='domain-detail.html?tld=shop'">
           <div class="flex items-start gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-orange-600 flex items-center justify-center shrink-0"><span class="text-white font-bold text-sm">SH</span></div>
             <div class="flex-1 min-w-0"><div class="text-2xl font-bold text-body mb-0.5">.shop</div><div class="text-xs text-muted">电商专属</div></div>
           </div>
-          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥68<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-order.html?domain=.shop" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
+          <div class="flex items-center justify-between"><div class="text-base font-semibold text-primary">¥68<span class="text-xs font-normal text-muted">/首年</span></div><a href="domain-search.html?suffix=.shop" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors" onclick="event.stopPropagation()">注册 →</a></div>
         </div>
       </div>
       <div class="text-center">
@@ -1407,8 +1407,8 @@ tailwind.config = {
 </div>
 
 <script>
-function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
-function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
+function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; lockBodyScroll(); }
+function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; unlockBodyScroll(); }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
 function submitBuybackApply(e){
   e.preventDefault();

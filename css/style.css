@@ -1,6 +1,6 @@
 /* ===== 全局基础样式 ===== */
 * { font-family: 'Microsoft YaHei','PingFang SC','Helvetica Neue',sans-serif; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
 
 /* ===== 导航栏固定定位 ===== */
@@ -40,6 +40,10 @@ body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
 
 /* ===== 通用自定义下拉组件 ===== */
 
+/* 下拉包裹层（提供相对定位，子面板 absolute/fixed 定位的参考） */
+.dropdown-wrapper { position: relative; display: inline-flex; }
+.page-size-dropdown { position: relative; display: inline-flex; }
+
 /* 触发按钮 */
 .dropdown-btn {
   display: flex; align-items: center; justify-content: space-between;
@@ -56,6 +60,11 @@ body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
 }
 .dropdown-btn:hover { border-color: #0A66FF; }
 .dropdown-btn:focus { border-color: #0A66FF; box-shadow: 0 0 0 3px rgba(10,102,255,0.1); }
+/* 全宽变体（用于筛选栏、表单等场景） */
+.dropdown-btn.is-full { width: 100%; padding: 9px 14px; font-size: 13px; }
+/* 禁用态 */
+.dropdown-btn.is-disabled,
+.dropdown-btn[disabled] { opacity: 0.4; pointer-events: none; }
 
 /* 表单下拉框触发按钮（匹配表单输入框样式） */
 .form-dropdown-trigger {
@@ -254,6 +263,66 @@ body .beautified-select-sm:disabled {
 #domainSearchInput::-webkit-scrollbar-track { background: transparent; }
 #domainSearchInput::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
 #domainSearchInput::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* ===== 状态筛选按钮（统一 pill 风格） ===== */
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 1px solid #E2E8F0;
+  background: #fff;
+  color: #64748B;
+  transition: all 0.2s ease;
+  outline: none;
+  white-space: nowrap;
+}
+.filter-btn:hover {
+  border-color: #0A66FF;
+  color: #0A66FF;
+  background: rgba(10,102,255,0.04);
+}
+.filter-btn.active {
+  background: #0A66FF;
+  color: #fff;
+  border-color: #0A66FF;
+  box-shadow: 0 4px 12px rgba(10,102,255,0.25);
+}
+.filter-btn.active:hover {
+  background: #0047CC;
+  border-color: #0047CC;
+}
+
+/* 表格复选框列 — 缩小占用宽度 */
+.table-grid-cb { min-width: 36px; width: 36px; flex-shrink: 0; }
+/* Grid 表格容器 — 横向滚动用 */
+.table-grid-inner { min-width: 640px; }
+
+/* 批量操作下拉按钮 — 内容居中 + 文本溢出省略 */
+.batch-dropdown-btn {
+  justify-content: center !important;
+  gap: 6px;
+  width: 100%;
+}
+.batch-dropdown-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  max-width: 90px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* 表格内注册人/年限下拉按钮内容居中（与表头 text-center 对齐） */
+.registrant-dropdown-btn,
+.years-dropdown-btn {
+  justify-content: center;
+  gap: 6px;
+}
 
 /* ===== 导航栏图标按钮 ===== */
 .nav-icon-btn {
@@ -850,6 +919,8 @@ body .beautified-select-sm:disabled {
   color: #1E293B;
   font-weight: 600;
   margin: 16px 0;
+  padding-top: 14px;
+  border-top: 1px dashed #D1D5DB;
 }
 .cart-summary-row.total .total-amount {
   color: #0A66FF;
@@ -859,7 +930,9 @@ body .beautified-select-sm:disabled {
 }
 .cart-summary-divider {
   height: 1px;
-  background: #F1F5F9;
+  background: transparent;
+  border: none;
+  border-top: 1px dashed #E2E8F0;
   margin: 4px 0;
 }
 .cart-summary-card .btn-checkout {
@@ -912,6 +985,99 @@ body .beautified-select-sm:disabled {
 }
 .cart-summary-tip .tip-link:hover {
   text-decoration: underline;
+}
+
+/* ===== 详情弹窗卡片布局 ===== */
+.detail-section-card {
+  background: #F8FAFC;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.detail-section-card:last-child {
+  margin-bottom: 0;
+}
+.detail-section-card .section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #E2E8F0;
+}
+.detail-info-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 6px 0;
+}
+.detail-label {
+  width: 80px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748B;
+}
+.detail-value {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E293B;
+  word-break: break-all;
+}
+.detail-price-blue {
+  color: #0A66FF;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.detail-domain-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0A66FF;
+  letter-spacing: -0.01em;
+}
+.detail-registrant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+}
+.detail-registrant-grid .detail-info-row {
+  padding: 4px 0;
+}
+.detail-registrant-grid .detail-label {
+  width: 70px;
+  font-size: 11px;
+}
+.detail-registrant-grid .detail-value {
+  font-size: 12px;
+}
+
+/* 弹窗内下拉框 */
+.detail-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  color: #1E293B;
+  transition: all 0.2s;
+  outline: none;
+  white-space: nowrap;
+}
+.detail-dropdown-btn:hover {
+  border-color: #0A66FF;
+}
+.detail-dropdown-btn .dropdown-arrow {
+  transition: transform 0.2s;
+}
+.detail-dropdown-btn .dropdown-arrow.open {
+  transform: rotate(180deg);
 }
 
 /* 结算成功弹窗 */

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>购物车 / 订单确认 - xicel</title>
+<title>购物车订单 - xicel</title>
 <script src="js/tailwindcss.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <!-- 表格内 select 样式兜底：确保覆盖浏览器默认/Tailwind -->
@@ -123,6 +123,223 @@ table.cart-confirm-table select::-ms-expand,
 .cart-confirm-table tr.item-unselected td {
   color: #94A3B8;
 }
+
+/* ===== 独立复选框列 ===== */
+.cart-confirm-table .cart-checkbox-col {
+  width: 36px !important;
+  max-width: 36px !important;
+  min-width: 36px !important;
+  text-align: center !important;
+  padding: 14px 8px !important;
+}
+.cart-confirm-table .cart-checkbox-col input[type="checkbox"] {
+  width: 15px !important;
+  height: 15px !important;
+  accent-color: #0A66FF !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+/* ===== 操作列 ===== */
+.cart-confirm-table .cart-op-col {
+  width: 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+  text-align: center !important;
+  padding: 8px 8px !important;
+}
+
+/* ===== 注册人下拉按钮 ===== */
+.cart-confirm-table .registrant-dropdown-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  width: 130px !important;
+  padding: 5px 8px !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  color: #1E293B !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+  box-shadow: 0 4px 12px rgba(226,232,240,0.5) !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+}
+.cart-confirm-table .registrant-dropdown-btn:hover {
+  border-color: #0A66FF !important;
+}
+.cart-confirm-table .registrant-dropdown-btn .registrant-text {
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ===== 批量操作栏 ===== */
+.cart-batch-bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 12px 16px !important;
+  background: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  margin-bottom: 16px !important;
+}
+.cart-batch-bar .batch-label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #1E293B !important;
+  white-space: nowrap !important;
+}
+
+/* ===== 分页控件 ===== */
+.cart-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-top: 20px !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+.cart-pagination.hidden {
+  display: none !important;
+}
+
+/* ===== 详情弹窗 ===== */
+.detail-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+.detail-modal.show {
+  display: flex;
+}
+.detail-modal .backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+}
+.detail-modal .dialog {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 20px;
+  max-width: 600px;
+  width: calc(100% - 32px);
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.detail-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #E2E8F0;
+}
+.detail-modal-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E293B;
+  line-height: 1.4;
+  padding-right: 12px;
+}
+.detail-modal-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  background: #F1F5F9;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.detail-modal-close:hover {
+  background: #E2E8F0;
+  color: #1E293B;
+}
+.detail-modal-body {
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+  max-height: calc(80vh - 80px);
+}
+.detail-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.detail-info-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+.detail-info-row:last-child {
+  border-bottom: none;
+}
+.detail-label {
+  width: 100px;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748B;
+}
+.detail-value {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E293B;
+  word-break: break-all;
+}
+
+/* ===== 详情按钮 ===== */
+.detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+  background: #fff;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+.detail-btn:hover {
+  border-color: #0A66FF;
+  color: #0A66FF;
+  background: rgba(10, 102, 255, 0.06);
+}
+
+/* ===== 移除按钮调整 ===== */
+.cart-op-col .remove-x-btn {
+  width: 28px !important;
+  height: 28px !important;
+}
 </style>
 <script>
 tailwind.config = {
@@ -150,8 +367,8 @@ tailwind.config = {
 <!-- ========== Hero ========== -->
 <section class="bg-gradient-to-r from-[#0A66FF] to-[#0047CC] py-14">
   <div class="max-w-7xl mx-auto px-6">
-    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">购物车 / 订单确认</h1>
-    <p class="text-white/80 text-sm md:text-base">核对商品信息、申请资料后，一键完成下单</p>
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">购物车订单</h1>
+    <p class="text-white/80 text-sm md:text-base">核对商品信息，确认无误后进入付款</p>
   </div>
 </section>
 
@@ -166,28 +383,18 @@ tailwind.config = {
         <!-- 步骤条 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
           <div class="flex items-center justify-between">
-            <div class="step-item completed">
-              <div class="step-num">1</div>
-              <span class="step-text">加入购物车</span>
-            </div>
-            <div class="step-line active"></div>
             <div class="step-item current">
+              <div class="step-num">1</div>
+              <span class="step-text">购物车订单</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item pending">
               <div class="step-num">2</div>
-              <span class="step-text">订单确认</span>
-            </div>
-            <div class="step-line"></div>
-            <div class="step-item pending">
-              <div class="step-num">3</div>
-              <span class="step-text">资料填写</span>
-            </div>
-            <div class="step-line"></div>
-            <div class="step-item pending">
-              <div class="step-num">4</div>
               <span class="step-text">付款下单</span>
             </div>
             <div class="step-line"></div>
             <div class="step-item pending">
-              <div class="step-num">5</div>
+              <div class="step-num">3</div>
               <span class="step-text">支付完成</span>
             </div>
           </div>
@@ -200,6 +407,19 @@ tailwind.config = {
               <h3 class="font-bold text-lg text-body">待结算商品</h3>
               <span class="text-xs text-muted" id="cartCountLabel">共 0 件</span>
             </div>
+          </div>
+
+          <!-- 批量操作栏 -->
+          <div id="cartBatchBar" class="cart-batch-bar">
+            <span class="batch-label">批量操作：</span>
+            <div class="dropdown-wrapper">
+              <div class="dropdown-btn dropdown-btn-sm batch-years-btn" data-value="">
+                <span class="text-[11px] text-muted">选择年限</span>
+                <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+            </div>
+            <span class="mx-1 w-px h-4 bg-slate-200"></span>
+            <button id="clearAllBtn" class="inline-flex items-center gap-1 text-xs font-medium text-muted border border-slate-200 hover:border-primary hover:text-primary bg-white px-3 py-1.5 rounded-lg transition-all">清空购物车</button>
           </div>
 
           <!-- 空态（默认隐藏） -->
@@ -215,47 +435,43 @@ tailwind.config = {
             </a>
           </div>
 
-          <!-- 表格 -->
-          <div id="cartTableWrap" class="overflow-x-auto">
-            <table class="cart-confirm-table" id="cartTable">
-              <thead>
-                <tr>
-                  <th>
-                    <label class="header-checkbox-label">
-                      <input type="checkbox" id="selectAllItems" checked>
-                      <span>商品名称</span>
-                    </label>
-                  </th>
-                  <th style="width:110px;">产品类型</th>
-                  <th style="width:150px;">
-                    <label class="header-checkbox-label">
-                      <input type="checkbox" id="selectAllRegService">
-                      <span>申请资料</span>
-                    </label>
-                  </th>
-                  <th class="hide-mobile" style="width:140px;">
-                    <div class="flex items-center justify-center gap-2">
-                      <span class="text-xs text-muted">年限</span>
-                      <div class="dropdown-wrapper" style="width:72px;">
-                        <div class="dropdown-btn dropdown-btn-sm" id="batchYearsBtn" data-value="0">
-                          <span id="batchYearsText" class="text-[10px]" style="font-weight:400;">批量</span>
-                          <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                      </div>
-                    </div>
-                  </th>
-                  <th style="width:100px;">金额</th>
-                  <th class="hide-mobile" style="width:56px;">操作</th>
-                </tr>
-              </thead>
-              <tbody id="cartTbody">
+          <!-- 表格（Grid 布局） -->
+          <div id="cartTableWrap" class="overflow-x-auto rounded-xl border border-slate-200">
+            <div class="table-grid-inner" style="min-width:640px;">
+              <!-- 表头 -->
+              <div class="grid grid-cols-12 gap-1 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-muted uppercase tracking-wide border-b border-slate-200">
+                <div class="col-span-1 table-grid-cb flex items-center justify-center"><input type="checkbox" id="selectAllItems" checked class="w-3 h-3 accent-primary cursor-pointer"></div>
+                <div class="col-span-3">商品名称</div>
+                <div class="col-span-2 text-center">产品类型</div>
+                <div class="col-span-2 text-center">年限</div>
+                <div class="col-span-2 text-center">金额</div>
+                <div class="col-span-2 text-center">操作</div>
+              </div>
+              <div id="cartTbody">
                 <!-- 动态渲染 -->
-              </tbody>
-            </table>
+              </div>
+            </div>
           </div>
 
-          <div id="cartTableFooter" class="hidden mt-5 flex items-center justify-end text-xs text-muted">
-            <button id="clearAllBtn" class="text-muted hover:text-red-500 transition-colors">清空购物车</button>
+          <!-- 分页控件 -->
+          <div id="cartPagination" class="cart-pagination hidden">
+            <div class="flex items-center gap-3">
+              <span class="text-xs text-muted" id="pagTotalCount">共 0 件</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs text-muted">每页</span>
+                <div class="dropdown-wrapper" style="min-width:0;">
+                  <div class="dropdown-btn dropdown-btn-sm page-size-btn" data-value="10">
+                    <span class="text-[12px]">10 条</span>
+                    <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                </div>
+              </div>
+              <button id="prevPageBtn" class="px-4 py-2 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>上一页</button>
+              <span id="pageInfo" class="text-sm text-muted">第 0/0 页</span>
+              <button id="nextPageBtn" class="px-4 py-2 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>下一页</button>
+            </div>
           </div>
         </div>
       </div>
@@ -271,8 +487,6 @@ tailwind.config = {
               <strong id="sumCount">0 件</strong>
             </div>
             <div id="productTypeSummary"></div>
-
-            <div class="cart-summary-divider"></div>
 
             <div class="cart-summary-row total">
               <span>合计金额</span>
@@ -311,6 +525,22 @@ tailwind.config = {
     </div>
   </div>
 </section>
+
+<!-- ===== 商品详情弹窗 ===== -->
+<div class="detail-modal" id="detailModal">
+  <div class="backdrop" onclick="closeDetailModal()"></div>
+  <div class="dialog" id="detailDialog">
+    <div class="detail-modal-header">
+      <h3 id="detailTitle">商品详情</h3>
+      <button class="detail-modal-close" onclick="closeDetailModal()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="detail-modal-body" id="detailBody">
+      <!-- 动态渲染 -->
+    </div>
+  </div>
+</div>
 
 <!-- ===== 结算成功弹窗 ===== -->
 <div class="checkout-success-modal" id="successModal">
@@ -380,142 +610,388 @@ tailwind.config = {
     };
   }
 
-  // 年限选项映射（含折扣版本）
+  // 年限选项映射
   var YEAR_OPTS = {
-    1: '1 年',
-    2: '2 年',
-    3: '3 年',
-    4: '4 年',
-    5: '5 年',
-    6: '6 年',
-    7: '7 年',
-    8: '8 年',
-    9: '9 年',
-    10: '10 年'
-  };
-  var YEAR_OPTS_DISCOUNT = {
-    1: '1 年',
-    2: '2 年 省10%',
-    3: '3 年 省15%',
-    4: '4 年',
-    5: '5 年 省20%',
-    6: '6 年',
-    7: '7 年',
-    8: '8 年',
-    9: '9 年',
-    10: '10 年 省25%'
+    1: '1 年', 2: '2 年', 3: '3 年', 4: '4 年', 5: '5 年',
+    6: '6 年', 7: '7 年', 8: '8 年', 9: '9 年', 10: '10 年'
   };
 
-  // 挂靠基础费用（按年限翻倍）
-  var REG_SERVICE_BASE_PRICE = 50;
+  // ===== 分页变量 =====
+  var currentPage = 1;
+  var pageSize = 10;
+  var PAGE_SIZES = [10, 20, 30, 50];
+  var cardMinHeight = 0;
 
+  // ===== 批量操作下拉 =====
+  function initCartBatchDropdowns() {
+    document.querySelectorAll('#cartBatchBar .batch-years-btn').forEach(function(btn) {
+      if (btn.hasAttribute('data-toggle-bound')) return;
+      btn.setAttribute('data-toggle-bound', '1');
+      btn.addEventListener('click', function(e) { e.stopPropagation(); toggleBatchCartYearsDropdown(btn); });
+    });
+  }
+
+  function toggleBatchCartYearsDropdown(btn) {
+    var existing = document.getElementById('cartBatchYearsDropdown');
+    if (existing) { if (existing._cleanup) existing._cleanup(); existing.remove(); return; }
+    closeAllCartDropdownPanels();
+    var YEARS_OPTIONS = [
+      {value:'1', label:'1'}, {value:'2', label:'2'}, {value:'3', label:'3'},
+      {value:'4', label:'4'}, {value:'5', label:'5'}, {value:'6', label:'6'},
+      {value:'7', label:'7'}, {value:'8', label:'8'}, {value:'9', label:'9'},
+      {value:'10', label:'10'}
+    ];
+    var dropdown = document.createElement('div');
+    dropdown.id = 'cartBatchYearsDropdown';
+    dropdown.className = 'dropdown-panel';
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+    var cur = btn.getAttribute('data-value') || '1';
+    inner.innerHTML = YEARS_OPTIONS.map(function(o){
+      var sel = o.value === cur;
+      return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.value + '"><span>' + o.label + ' 年</span><svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>';
+    }).join('');
+    dropdown.appendChild(inner);
+    inner.addEventListener('wheel', function(ev) { ev.stopPropagation(); }, { passive: true });
+    var rect = btn.getBoundingClientRect();
+    dropdown.style.top = (rect.bottom + 4) + 'px';
+    dropdown.style.left = rect.left + 'px';
+    dropdown.style.minWidth = '120px';
+    document.body.appendChild(dropdown);
+    var arrow = btn.querySelector('.dropdown-arrow');
+    if (arrow) arrow.classList.add('open');
+    function closeOnScroll() { cleanupBatchYears(); }
+    window.addEventListener('scroll', closeOnScroll, { passive: true });
+    var tableWrap = btn.closest('.overflow-x-auto');
+    if (tableWrap) tableWrap.addEventListener('scroll', closeOnScroll, { passive: true });
+    function cleanupBatchYears() { dropdown.remove(); if (arrow) arrow.classList.remove('open'); window.removeEventListener('scroll', closeOnScroll); if (tableWrap) tableWrap.removeEventListener('scroll', closeOnScroll); }
+    dropdown._cleanup = cleanupBatchYears;
+    inner.querySelectorAll('.dropdown-option').forEach(function(el){
+      el.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        var v = el.getAttribute('data-value');
+        btn.setAttribute('data-value', v);
+        btn.querySelector('span').textContent = v + ' 年';
+        cleanupBatchYears();
+        var items = readCart();
+        var anyChanged = false;
+        document.querySelectorAll('#cartTbody .item-select-checkbox:checked').forEach(function(cb) {
+          var cid = cb.getAttribute('data-id');
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].id === cid) {
+              var oldYear = Number(items[i].year) || 1;
+              if (oldYear > 0) {
+                var unit = (Number(items[i].price) || 0) / oldYear;
+                items[i].year = parseInt(v);
+                items[i].price = Math.round(unit * parseInt(v) * 100) / 100;
+                items[i].cycleText = parseInt(v) + ' 年';
+                anyChanged = true;
+              }
+              break;
+            }
+          }
+        });
+        if (anyChanged) { writeCart(items); renderTable(); }
+      });
+    });
+    setTimeout(function(){
+      document.addEventListener('click', function onDoc(ev){ if (dropdown && !dropdown.contains(ev.target) && !btn.contains(ev.target)) { cleanupBatchYears(); document.removeEventListener('click', onDoc); } });
+    }, 0);
+  }
+
+  function closeAllCartDropdownPanels() {
+    var ids = ['cartBatchYearsDropdown', 'cartPageSizeDropdown', 'detailRegDropdown', 'detailYearDropdown'];
+    ids.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) { if (el._cleanup) el._cleanup(); el.remove(); }
+    });
+  }
+
+  // ===== 详情弹窗辅助函数 =====
+  function buildDetailYearDropdown(itemId, curYear) {
+    var html = '<div class="dropdown-wrapper" style="display:inline-block;">'
+      + '<div class="detail-dropdown-btn detail-year-btn" data-id="' + esc(itemId) + '" data-value="' + curYear + '">'
+      + '<span class="text-[12px]">' + (YEAR_OPTS[curYear] || curYear + ' 年') + '</span>'
+      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '</div></div>';
+    return html;
+  }
+
+  function buildDetailRegistrantDropdown(itemId, curTemplateId) {
+    var templates = [];
+    try { templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]'); } catch(e) {}
+    var curName = '未选择';
+    var found = templates.find(function(t) { return t.id === curTemplateId; });
+    if (found) curName = found.name;
+    var html = '<span style="margin-left:8px;"><div class="dropdown-wrapper" style="display:inline-block;">'
+      + '<div class="detail-dropdown-btn detail-reg-btn" data-id="' + esc(itemId) + '" data-value="' + esc(curTemplateId) + '">'
+      + '<span class="text-[11px]">' + esc(curName) + '</span>'
+      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '</div></div></span>';
+    return html;
+  }
+
+  function buildRegistrantDetailHtml(item) {
+    var templateId = item.registrantTemplateId || '';
+    if (!templateId) return '<div class="detail-info-row"><span class="detail-value" style="color:#94A3B8;">请选择注册人模板</span></div>';
+    var templates = [];
+    try { templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]'); } catch(e) {}
+    var tpl = templates.find(function(t) { return t.id === templateId; });
+    if (!tpl) return '<div class="detail-info-row"><span class="detail-value" style="color:#94A3B8;">模板信息不可用</span></div>';
+    
+    if (tpl.type === 'personal') {
+      return '<div class="detail-registrant-grid">'
+        + '<div class="detail-info-row"><span class="detail-label">姓名</span><span class="detail-value">' + esc(tpl.holderCn || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">英文名</span><span class="detail-value">' + esc(tpl.holderEn || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">证件类型</span><span class="detail-value">身份证</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">证件号</span><span class="detail-value">' + esc(tpl.idNumber || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">电话</span><span class="detail-value">' + esc(tpl.phone || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">邮箱</span><span class="detail-value">' + esc(tpl.email || '') + '</span></div>'
+        + '<div class="detail-info-row" style="grid-column:1/-1;"><span class="detail-label">地址</span><span class="detail-value">' + esc(tpl.addressCn || '') + '</span></div>'
+        + '</div>';
+    } else {
+      return '<div class="detail-registrant-grid">'
+        + '<div class="detail-info-row"><span class="detail-label">企业名称</span><span class="detail-value">' + esc(tpl.nameCn || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">英文名</span><span class="detail-value">' + esc(tpl.nameEn || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">证件类型</span><span class="detail-value">营业执照</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">证件号</span><span class="detail-value">' + esc(tpl.idNumber || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">法人</span><span class="detail-value">' + esc(tpl.legalPerson || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">联系人</span><span class="detail-value">' + esc(tpl.contact || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">电话</span><span class="detail-value">' + esc(tpl.phone || '') + '</span></div>'
+        + '<div class="detail-info-row"><span class="detail-label">邮箱</span><span class="detail-value">' + esc(tpl.email || '') + '</span></div>'
+        + '<div class="detail-info-row" style="grid-column:1/-1;"><span class="detail-label">地址</span><span class="detail-value">' + esc(tpl.addressCn || '') + '</span></div>'
+        + '</div>';
+    }
+  }
+
+  // ===== 详情弹窗 =====
+  function getRegistrantName(item) {
+    var templateId = item.registrantTemplateId || '';
+    if (!templateId) return '未选择';
+    try {
+      var templates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]');
+      var found = templates.find(function(t) { return t.id === templateId; });
+      return found ? found.name : '未选择';
+    } catch(e) { return '未选择'; }
+  }
+
+  function buildDomainDetail(item) {
+    var year = Number(item.year) || 1;
+    var registrantHtml = buildRegistrantDetailHtml(item);
+    var yearDropdownHtml = buildDetailYearDropdown(item.id, year);
+    var regDropdownHtml = buildDetailRegistrantDropdown(item.id, item.registrantTemplateId || '');
+    var price = Number(item.price) || 0;
+    return '<div class="detail-section-card">'
+      + '<div class="section-title">基本信息</div>'
+      + '<div class="detail-info-row"><span class="detail-label">域名</span><span class="detail-domain-name">' + esc(item.productName) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品类型</span><span class="detail-value">' + esc(item.productType) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">购买年限</span><span class="detail-value">' + yearDropdownHtml + '</span></div>'
+      + '</div>'
+      + '<div class="detail-section-card">'
+      + '<div class="section-title">注册人信息 ' + regDropdownHtml + '</div>'
+      + registrantHtml
+      + '</div>'
+      + '<div class="detail-section-card">'
+      + '<div class="section-title">费用</div>'
+      + '<div class="detail-info-row"><span class="detail-label">金额</span><span class="detail-value detail-price-blue">¥' + fmtPrice(price) + '</span></div>'
+      + '</div>';
+  }
+
+  function buildCloudDetail(item) {
+    var year = Number(item.year) || 1;
+    var config = item.config || {};
+    var yearDropdownHtml = buildDetailYearDropdown(item.id, year);
+    var price = Number(item.price) || 0;
+    return '<div class="detail-section-card">'
+      + '<div class="section-title">基本信息</div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品名称</span><span class="detail-value">' + esc(item.productName) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品类型</span><span class="detail-value">' + esc(item.productType) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">配置</span><span class="detail-value">' + esc(config.spec || '标准配置') + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">购买时长</span><span class="detail-value">' + yearDropdownHtml + '</span></div>'
+      + '</div>'
+      + '<div class="detail-section-card">'
+      + '<div class="section-title">费用</div>'
+      + '<div class="detail-info-row"><span class="detail-label">金额</span><span class="detail-value detail-price-blue">¥' + fmtPrice(price) + '</span></div>'
+      + '</div>';
+  }
+
+  function buildSslDetail(item) {
+    var year = Number(item.year) || 1;
+    var yearDropdownHtml = buildDetailYearDropdown(item.id, year);
+    var price = Number(item.price) || 0;
+    return '<div class="detail-section-card">'
+      + '<div class="section-title">基本信息</div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品名称</span><span class="detail-value">' + esc(item.productName) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品类型</span><span class="detail-value">' + esc(item.productType) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">购买年限</span><span class="detail-value">' + yearDropdownHtml + '</span></div>'
+      + '</div>'
+      + '<div class="detail-section-card">'
+      + '<div class="section-title">费用</div>'
+      + '<div class="detail-info-row"><span class="detail-label">金额</span><span class="detail-value detail-price-blue">¥' + fmtPrice(price) + '</span></div>'
+      + '</div>';
+  }
+
+  function buildMailDetail(item) {
+    var year = Number(item.year) || 1;
+    var yearDropdownHtml = buildDetailYearDropdown(item.id, year);
+    var userCount = item.userCount || (item.config && item.config.userCount) || '-';
+    var price = Number(item.price) || 0;
+    return '<div class="detail-section-card">'
+      + '<div class="section-title">基本信息</div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品名称</span><span class="detail-value">' + esc(item.productName) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品类型</span><span class="detail-value">' + esc(item.productType) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">账号数</span><span class="detail-value">' + esc(userCount) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">购买年限</span><span class="detail-value">' + yearDropdownHtml + '</span></div>'
+      + '</div>'
+      + '<div class="detail-section-card">'
+      + '<div class="section-title">费用</div>'
+      + '<div class="detail-info-row"><span class="detail-label">金额</span><span class="detail-value detail-price-blue">¥' + fmtPrice(price) + '</span></div>'
+      + '</div>';
+  }
+
+  function buildGenericDetail(item) {
+    var year = Number(item.year) || 1;
+    var yearDropdownHtml = buildDetailYearDropdown(item.id, year);
+    var price = Number(item.price) || 0;
+    return '<div class="detail-section-card">'
+      + '<div class="section-title">基本信息</div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品名称</span><span class="detail-value">' + esc(item.productName) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">产品类型</span><span class="detail-value">' + esc(item.productType) + '</span></div>'
+      + '<div class="detail-info-row"><span class="detail-label">购买年限</span><span class="detail-value">' + yearDropdownHtml + '</span></div>'
+      + '</div>'
+      + '<div class="detail-section-card">'
+      + '<div class="section-title">费用</div>'
+      + '<div class="detail-info-row"><span class="detail-label">金额</span><span class="detail-value detail-price-blue">¥' + fmtPrice(price) + '</span></div>'
+      + '</div>';
+  }
+
+  function lockBodyScroll() {
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockBodyScroll() {
+    document.body.style.overflow = '';
+  }
+
+  window.showItemDetail = function(id) {
+    var items = readCart();
+    var item = items.find(function(it) { return it.id === id; });
+    if (!item) return;
+    var title = esc(item.productName) + ' - ' + esc(item.productType);
+    document.getElementById('detailTitle').textContent = title;
+    var html = '';
+    if (item.productType === '域名注册') { html = buildDomainDetail(item); }
+    else if (item.productType === '云服务器') { html = buildCloudDetail(item); }
+    else if (item.productType === 'SSL证书') { html = buildSslDetail(item); }
+    else if (item.productType === '企业邮箱') { html = buildMailDetail(item); }
+    else { html = buildGenericDetail(item); }
+    document.getElementById('detailBody').innerHTML = html;
+    document.getElementById('detailModal').classList.add('show');
+    lockBodyScroll();
+  };
+  window.closeDetailModal = function() { document.getElementById('detailModal').classList.remove('show'); unlockBodyScroll(); };
+  document.getElementById('detailModal').addEventListener('click', function(e) { if (e.target === this) closeDetailModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDetailModal(); });
+
+  // ===== 渲染表格 =====
   function renderTable() {
     var items = readCart();
     var tbody = document.getElementById('cartTbody');
     var empty = document.getElementById('cartEmptyState');
-    var table = document.getElementById('cartTable');
-    var footer = document.getElementById('cartTableFooter');
+    var tableWrap = document.getElementById('cartTableWrap');
+    var pagination = document.getElementById('cartPagination');
+    var batchBar = document.getElementById('cartBatchBar');
     var countLabel = document.getElementById('cartCountLabel');
 
     if (!items.length) {
       empty.classList.remove('hidden');
-      table.classList.add('hidden');
-      footer.classList.add('hidden');
+      tableWrap.classList.add('hidden');
+      if (pagination) pagination.classList.add('hidden');
+      if (batchBar) batchBar.classList.add('hidden');
       countLabel.textContent = '共 0 件';
       renderSummary(items);
       return;
     }
     empty.classList.add('hidden');
-    table.classList.remove('hidden');
-    footer.classList.remove('hidden');
+    tableWrap.classList.remove('hidden');
+    if (batchBar) batchBar.classList.remove('hidden');
     countLabel.textContent = '共 ' + items.length + ' 件';
 
-    var html = items.map(function(it, idx) {
+    // 分页计算
+    var totalPages = Math.ceil(items.length / pageSize) || 1;
+    if (currentPage > totalPages) currentPage = 1;
+    var start = (currentPage - 1) * pageSize;
+    var end = Math.min(start + pageSize, items.length);
+    var pageItems = items.slice(start, end);
+
+    var html = pageItems.map(function(it, idx) {
       var isDomain = it.productType === '域名注册';
       var year = Number(it.year) || 1;
       var cycleText = it.cycleText || (year + ' 年');
       var itemChecked = it.selected !== false ? ' checked' : '';
 
-      // 商品名称列：复选框 + 名称
-      var nameCell = '<label class="item-checkbox-label">'
-        + '<input type="checkbox" class="item-select-checkbox" data-id="' + esc(it.id) + '"' + itemChecked + '>'
-        + '<span class="item-checkbox-text">' + esc(it.productName) + '</span>'
-        + '</label>';
+      // 独立复选框
+      var checkboxCell = '<input type="checkbox" class="item-select-checkbox w-3 h-3 accent-primary cursor-pointer" data-id="' + esc(it.id) + '"' + itemChecked + '>';
 
-      // 申请资料：仅非顶级/非中国地区域名需要挂靠
-      var isTopLevelChina = /\.(com|net|org|cn|top|xyz|club|site|vip|shop|store|cc|tv|co|io|me|info|biz|asia)$/i.test(String(it.productName));
-      var needsRegService = isDomain && !isTopLevelChina;
-      var regFee = needsRegService ? (REG_SERVICE_BASE_PRICE * year) : 0;
-      var regChecked = it.regService ? ' checked' : '';
-      var regCell;
-      if (needsRegService) {
-        regCell = '<label class="reg-checkbox-label">'
-          + '<input type="checkbox" class="reg-service-checkbox" data-id="' + esc(it.id) + '"' + regChecked + '>'
-          + '<span class="reg-checkbox-text">挂靠 ¥' + regFee + '</span>'
-          + '</label>';
-      } else if (isDomain) {
-        regCell = '<span class="text-muted text-xs">无需资料</span>';
-      } else {
-        regCell = '<span class="text-muted text-xs">无需资料</span>';
-      }
+      // 商品名称（纯文本）
+      var nameCell = '<span class="text-sm font-medium text-body truncate">' + esc(it.productName) + '</span>';
 
-      // 年限下拉框
-      var yearSel = '<div class="dropdown-wrapper" style="width:120px;">';
+      // 年限下拉
+      var yearSel = '<div class="dropdown-wrapper" style="display:inline-flex;">';
       yearSel += '<div class="dropdown-btn dropdown-btn-sm" data-id="' + esc(it.id) + '" data-value="' + year + '">';
       yearSel += '<span class="text-[12px]">' + YEAR_OPTS[year] + '</span>';
       yearSel += '<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
       yearSel += '</div></div>';
 
-      var rowClass = it.selected === false ? ' item-unselected' : '';
-      return '<tr data-id="' + esc(it.id) + '" class="' + rowClass + '">'
-        + '<td>' + nameCell + '</td>'
-        + '<td>' + esc(it.productType) + '</td>'
-        + '<td>' + regCell + '</td>'
-        + '<td class="hide-mobile">' + yearSel + '</td>'
-        + '<td><span class="price-cell" data-price-cell>' + '¥' + fmtPrice(it.price) + '</span></td>'
-        + '<td class="hide-mobile">'
-        +   '<button class="remove-x-btn" data-remove-id="' + esc(it.id) + '" title="移除">'
-        +     '<svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
-        +   '</button>'
-        + '</td>'
-        + '</tr>';
+      // 详情按钮
+      var detailBtn = '<button class="detail-btn" data-id="' + esc(it.id) + '" onclick="showItemDetail(\'' + esc(it.id) + '\')" title="详情">'
+        + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
+        + '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>';
+
+      // 删除按钮
+      var removeBtn = '<button class="remove-x-btn" data-remove-id="' + esc(it.id) + '" title="移除" style="width:26px;height:26px;">'
+        + '<svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>';
+
+      var rowOpacity = it.selected === false ? ' opacity-40' : '';
+      return '<div data-id="' + esc(it.id) + '" class="grid grid-cols-12 gap-1 px-4 py-3 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors' + rowOpacity + '">'
+        + '<div class="col-span-1 table-grid-cb flex items-center justify-center">' + checkboxCell + '</div>'
+        + '<div class="col-span-3 font-medium text-sm text-body truncate">' + esc(it.productName) + '</div>'
+        + '<div class="col-span-2 text-center text-sm text-muted">' + esc(it.productType) + '</div>'
+        + '<div class="col-span-2 flex items-center justify-center">' + yearSel + '</div>'
+        + '<div class="col-span-2 text-center"><span class="text-sm font-semibold text-body">¥' + fmtPrice(it.price) + '</span></div>'
+        + '<div class="col-span-2 flex items-center justify-center gap-1.5">' + detailBtn + removeBtn + '</div>'
+        + '</div>';
     }).join('');
     tbody.innerHTML = html;
+    initCartBatchDropdowns();
     renderSummary(items);
+    renderPagination(items.length);
+
+    // 卡片高度稳定
+    if (items.length > pageSize) {
+      var card = document.getElementById('cartTableWrap').parentNode;
+      if (pageItems.length === pageSize) cardMinHeight = card.offsetHeight;
+      if (cardMinHeight > 0) card.style.minHeight = cardMinHeight + 'px';
+    } else if (cardMinHeight > 0) {
+      document.getElementById('cartTableWrap').parentNode.style.minHeight = '';
+      cardMinHeight = 0;
+    }
   }
 
   function renderSummary(items) {
-    // 只计算选中的商品
     var selected = items.filter(function(it){ return it.selected !== false; });
     var count = selected.length;
     var totalCount = items.length;
 
-    function needsRegService(it) {
-      if (it.productType !== '域名注册') return false;
-      var isTopLevelChina = /\.(com|net|org|cn|top|xyz|club|site|vip|shop|store|cc|tv|co|io|me|info|biz|asia)$/i.test(String(it.productName));
-      return !isTopLevelChina;
-    }
-
-    var regServiceFee = selected.filter(function(it){ return needsRegService(it) && it.regService; })
-      .reduce(function(s, it){ return s + (REG_SERVICE_BASE_PRICE * (Number(it.year) || 1)); }, 0);
-    var domainFee = selected.filter(function(it){ return it.productType === '域名注册'; })
-      .reduce(function(s, it){ return s + (Number(it.price) || 0); }, 0);
-    var otherFee = selected.filter(function(it){ return it.productType !== '域名注册'; })
-      .reduce(function(s, it){ return s + (Number(it.price) || 0); }, 0);
-    var total = domainFee + otherFee + regServiceFee;
+    var total = selected.reduce(function(s, it){ return s + (Number(it.price) || 0); }, 0);
 
     document.getElementById('sumCount').textContent = count + ' / ' + totalCount + ' 件';
     document.getElementById('sumTotal').textContent = '¥' + fmtPrice(total);
 
-    // 动态按商品类型生成汇总行
     var typeMap = {};
     selected.forEach(function(it) {
       var type = it.productType || '其他';
-      if (!typeMap[type]) typeMap[type] = { count: 0, regCount: 0 };
+      if (!typeMap[type]) typeMap[type] = { count: 0 };
       typeMap[type].count++;
-      if (type === '域名注册' && it.regService) {
-        typeMap[type].regCount++;
-      }
     });
     var summaryHtml = '';
     Object.keys(typeMap).forEach(function(type) {
@@ -524,12 +1000,6 @@ tailwind.config = {
         + '<span>' + esc(type) + '</span>'
         + '<strong>' + info.count + ' 件</strong>'
         + '</div>';
-      if (type === '域名注册') {
-        summaryHtml += '<div class="cart-summary-row">'
-          + '<span>申请资料挂靠</span>'
-          + '<strong class="text-green-600">' + info.regCount + ' / ' + info.count + '</strong>'
-          + '</div>';
-      }
     });
     document.getElementById('productTypeSummary').innerHTML = summaryHtml;
 
@@ -538,7 +1008,6 @@ tailwind.config = {
     btn.style.opacity = count === 0 ? '0.5' : '1';
     btn.style.cursor = count === 0 ? 'not-allowed' : 'pointer';
 
-    // 同步表头全选状态
     var allCb = document.getElementById('selectAllItems');
     if (allCb) {
       allCb.checked = items.length > 0 && items.every(function(it){ return it.selected !== false; });
@@ -554,80 +1023,8 @@ tailwind.config = {
     renderTable();
   });
 
-  document.getElementById('selectAllRegService').addEventListener('change', function(e) {
-    var checked = e.target.checked;
-    var items = readCart();
-    items.forEach(function(it) {
-      if (it.productType === '域名注册') {
-        var isTopLevelChina = /\.(com|net|org|cn|top|xyz|club|site|vip|shop|store|cc|tv|co|io|me|info|biz|asia)$/i.test(String(it.productName));
-        if (!isTopLevelChina) {
-          it.regService = checked;
-        }
-      }
-    });
-    writeCart(items);
-    renderTable();
-  });
-
-  document.getElementById('batchYearsBtn').addEventListener('click', function() {
-    var btn = this;
-    var cur = btn.getAttribute('data-value');
-    var dropdown = document.createElement('div');
-    dropdown.className = 'dropdown-panel';
-    var inner = document.createElement('div');
-    inner.className = 'dropdown-panel-inner';
-    inner.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(y) {
-      var sel = String(y) === cur;
-      return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
-           +   '<span>' + YEAR_OPTS[y] + '</span>'
-           +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
-           + '</div>';
-    }).join('');
-    dropdown.appendChild(inner);
-    var rect = btn.getBoundingClientRect();
-    dropdown.style.top = (rect.bottom + 4) + 'px';
-    dropdown.style.left = rect.left + 'px';
-    dropdown.style.minWidth = '120px';
-    document.body.appendChild(dropdown);
-    var arrow = btn.querySelector('.dropdown-arrow');
-    if (arrow) arrow.classList.add('open');
-    inner.querySelectorAll('.dropdown-option').forEach(function(el){
-      el.addEventListener('click', function(ev){
-        ev.stopPropagation();
-        var v = el.getAttribute('data-value');
-        btn.setAttribute('data-value', v);
-        document.getElementById('batchYearsText').textContent = '批量';
-        dropdown.remove();
-        if (arrow) arrow.classList.remove('open');
-        var year = parseInt(v);
-        var items = readCart();
-        items.forEach(function(it) {
-          var oldYear = Number(it.year) || 1;
-          if (oldYear > 0) {
-            var unit = (Number(it.price) || 0) / oldYear;
-            it.year = year;
-            it.price = Math.round(unit * year * 100) / 100;
-            it.cycleText = year + ' 年';
-          }
-        });
-        writeCart(items);
-        renderTable();
-      });
-    });
-    setTimeout(function(){
-      document.addEventListener('click', function onDoc(ev){
-        if (dropdown && !dropdown.contains(ev.target) && !btn.contains(ev.target)) {
-          dropdown.remove();
-          if (arrow) arrow.classList.remove('open');
-          document.removeEventListener('click', onDoc);
-        }
-      });
-    }, 0);
-  });
-
   // ===== 事件委托：复选框 / 下拉框 / 移除 =====
   document.addEventListener('change', function(e){
-    // 商品选中复选框
     var itemCb = e.target.closest && e.target.closest('.item-select-checkbox[data-id]');
     if (itemCb) {
       var idItem = itemCb.getAttribute('data-id');
@@ -639,39 +1036,24 @@ tailwind.config = {
         }
       }
       writeCart(itemsItem);
-      // 更新行样式
-      var row = itemCb.closest('tr');
+      var row = itemCb.closest('[data-id]');
       if (row) {
         if (itemCb.checked) {
-          row.classList.remove('item-unselected');
+          row.classList.remove('opacity-40');
         } else {
-          row.classList.add('item-unselected');
+          row.classList.add('opacity-40');
         }
       }
       renderSummary(itemsItem);
-      return;
-    }
-    // 申请资料复选框
-    var regCb = e.target.closest && e.target.closest('.reg-service-checkbox[data-id]');
-    if (regCb) {
-      var id0 = regCb.getAttribute('data-id');
-      var items0 = readCart();
-      for (var i0 = 0; i0 < items0.length; i0++) {
-        if (items0[i0].id === id0) {
-          items0[i0].regService = regCb.checked;
-          break;
-        }
-      }
-      writeCart(items0);
-      renderSummary(items0);
       return;
     }
   });
 
   // ===== 年限下拉框点击事件 =====
   document.addEventListener('click', function(e){
+    // 表格内年限下拉
     var yearBtn = e.target.closest && e.target.closest('.dropdown-btn.dropdown-btn-sm[data-id]');
-    if (yearBtn && !yearBtn.hasAttribute('id')) {
+    if (yearBtn && !yearBtn.hasAttribute('id') && !yearBtn.classList.contains('registrant-dropdown-btn')) {
       e.stopPropagation();
       var id2 = yearBtn.getAttribute('data-id');
       var curYear = parseInt(yearBtn.getAttribute('data-value')) || 1;
@@ -726,6 +1108,141 @@ tailwind.config = {
           }
         });
       }, 0);
+      return;
+    }
+
+    // 弹窗内年限下拉
+    var detailYearBtn = e.target.closest && e.target.closest('.detail-year-btn');
+    if (detailYearBtn) {
+      e.stopPropagation();
+      closeAllCartDropdownPanels();
+      var dyId = detailYearBtn.getAttribute('data-id');
+      var dyCur = parseInt(detailYearBtn.getAttribute('data-value')) || 1;
+      var dyDropdown = document.createElement('div');
+      dyDropdown.id = 'detailYearDropdown';
+      dyDropdown.className = 'dropdown-panel';
+      var dyInner = document.createElement('div');
+      dyInner.className = 'dropdown-panel-inner';
+      dyInner.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(y) {
+        var sel = y === dyCur;
+        return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
+             +   '<span>' + YEAR_OPTS[y] + '</span>'
+             +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+             + '</div>';
+      }).join('');
+      dyDropdown.appendChild(dyInner);
+      var dyRect = detailYearBtn.getBoundingClientRect();
+      dyDropdown.style.top = (dyRect.bottom + 4) + 'px';
+      dyDropdown.style.left = dyRect.left + 'px';
+      dyDropdown.style.minWidth = '120px';
+      document.body.appendChild(dyDropdown);
+      var dyArrow = detailYearBtn.querySelector('.dropdown-arrow');
+      if (dyArrow) dyArrow.classList.add('open');
+      function dyCloseOnScroll() { dyCleanup(); }
+      window.addEventListener('scroll', dyCloseOnScroll, { passive: true });
+      function dyCleanup() { dyDropdown.remove(); if (dyArrow) dyArrow.classList.remove('open'); window.removeEventListener('scroll', dyCloseOnScroll); }
+      dyDropdown._cleanup = dyCleanup;
+      dyInner.querySelectorAll('.dropdown-option').forEach(function(el){
+        el.addEventListener('click', function(ev){
+          ev.stopPropagation();
+          var newYear = parseInt(el.getAttribute('data-value'));
+          var itemsD = readCart();
+          for (var j = 0; j < itemsD.length; j++) {
+            if (itemsD[j].id === dyId) {
+              var oldYear = Number(itemsD[j].year) || 1;
+              if (oldYear > 0) {
+                var unit = (Number(itemsD[j].price) || 0) / oldYear;
+                itemsD[j].year = newYear;
+                itemsD[j].price = Math.round(unit * newYear * 100) / 100;
+                itemsD[j].cycleText = newYear + ' 年';
+              }
+              break;
+            }
+          }
+          writeCart(itemsD);
+          dyCleanup();
+          showItemDetail(dyId);
+          renderTable();
+        });
+      });
+      setTimeout(function(){
+        document.addEventListener('click', function onDocDy(ev){
+          if (dyDropdown && !dyDropdown.contains(ev.target) && !detailYearBtn.contains(ev.target)) {
+            dyCleanup();
+            document.removeEventListener('click', onDocDy);
+          }
+        });
+      }, 0);
+      return;
+    }
+
+    // 弹窗内注册人下拉
+    var detailRegBtn = e.target.closest && e.target.closest('.detail-reg-btn');
+    if (detailRegBtn) {
+      e.stopPropagation();
+      closeAllCartDropdownPanels();
+      var drId = detailRegBtn.getAttribute('data-id');
+      var drCur = detailRegBtn.getAttribute('data-value') || '';
+      var drTemplates = [];
+      try { drTemplates = JSON.parse(localStorage.getItem('registrantTemplates') || '[]'); } catch(e) {}
+      var drDropdown = document.createElement('div');
+      drDropdown.id = 'detailRegDropdown';
+      drDropdown.className = 'dropdown-panel';
+      var drInner = document.createElement('div');
+      drInner.className = 'dropdown-panel-inner';
+      if (drTemplates.length === 0) {
+        drInner.innerHTML = '<div class="dropdown-option disabled" style="cursor:default;opacity:0.5;"><span>暂无模板</span></div>'
+          + '<div class="dropdown-option-divider"></div>'
+          + '<div class="dropdown-option" data-action="manage"><svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg><span>管理模板</span></div>';
+      } else {
+        var drOptsHtml = '';
+        drTemplates.forEach(function(tpl) {
+          var sel = tpl.id === drCur;
+          drOptsHtml += '<div class="dropdown-option' + (sel ? ' selected' : '') + '" data-value="' + tpl.id + '" data-type="' + tpl.type + '">'
+            + '<span>' + tpl.name + ' <span class="text-muted text-[10px]">(' + (tpl.type === 'personal' ? '个人' : '企业') + ')</span></span>'
+            + '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+            + '</div>';
+        });
+        drInner.innerHTML = drOptsHtml
+          + '<div class="dropdown-option-divider"></div>'
+          + '<div class="dropdown-option" data-action="manage"><svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg><span>管理模板</span></div>';
+      }
+      drDropdown.appendChild(drInner);
+      var drRect = detailRegBtn.getBoundingClientRect();
+      drDropdown.style.top = (drRect.bottom + 4) + 'px';
+      drDropdown.style.left = drRect.left + 'px';
+      drDropdown.style.minWidth = '160px';
+      document.body.appendChild(drDropdown);
+      var drArrow = detailRegBtn.querySelector('.dropdown-arrow');
+      if (drArrow) drArrow.classList.add('open');
+      function drCloseOnScroll() { drCleanup(); }
+      window.addEventListener('scroll', drCloseOnScroll, { passive: true });
+      function drCleanup() { drDropdown.remove(); if (drArrow) drArrow.classList.remove('open'); window.removeEventListener('scroll', drCloseOnScroll); }
+      drDropdown._cleanup = drCleanup;
+      drInner.querySelectorAll('.dropdown-option[data-value]').forEach(function(el) {
+        el.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+          var v = el.getAttribute('data-value');
+          var itemsDR = readCart();
+          for (var i = 0; i < itemsDR.length; i++) { if (itemsDR[i].id === drId) { itemsDR[i].registrantTemplateId = v; break; } }
+          writeCart(itemsDR);
+          drCleanup();
+          showItemDetail(drId);
+          renderTable();
+        });
+      });
+      drInner.querySelectorAll('.dropdown-option[data-action="manage"]').forEach(function(el) {
+        el.addEventListener('click', function(ev) { ev.stopPropagation(); drCleanup(); window.open('user.html#panel-domain-registrant', '_blank'); });
+      });
+      setTimeout(function(){
+        document.addEventListener('click', function onDocDr(ev){
+          if (drDropdown && !drDropdown.contains(ev.target) && !detailRegBtn.contains(ev.target)) {
+            drCleanup();
+            document.removeEventListener('click', onDocDr);
+          }
+        });
+      }, 0);
+      return;
     }
 
     var rm = e.target.closest && e.target.closest('[data-remove-id]');
@@ -745,31 +1262,95 @@ tailwind.config = {
     });
   });
 
-  // ===== 立即结算 =====
+  // ===== 下一步 → 付款下单 =====
   document.getElementById('checkoutBtn').addEventListener('click', function(){
-    var items = readCart();
-    var selectedItems = items.filter(function(it) { return it.selected; });
-    
-    if (!selectedItems.length) {
-      showAlert('warning', '请选择要结算的商品');
+    var items = readCart().filter(function(it) { return it.selected !== false; });
+    if (items.length === 0) {
+      showAlert('warning', '请先选择要结算的商品');
       return;
     }
-    
-    window.location.href = 'cart-info.html';
+    window.location.href = 'cart-payment.html';
   });
 
-  // 暴露给 inline onclick
-  window.closeSuccessModal = function() {
-    document.getElementById('successModal').classList.remove('show');
-    renderTable();
-  };
-  window.goToOrderList = function() {
-    window.location.href = 'user.html#panel-orders';
-  };
+  // ===== 分页控件 =====
+  document.getElementById('prevPageBtn').addEventListener('click', function() { changePage(-1); });
+  document.getElementById('nextPageBtn').addEventListener('click', function() { changePage(1); });
 
-  // 初始化
+  document.addEventListener('click', function(e) {
+    var sizeBtn = e.target.closest && e.target.closest('#cartPagination .page-size-btn');
+    if (sizeBtn) { e.stopPropagation(); toggleCartPageSizeDropdown(sizeBtn); }
+  });
+
+  function renderPagination(totalItems) {
+    var totalPages = Math.ceil(totalItems / pageSize) || 1;
+    var pagEl = document.getElementById('cartPagination');
+    if (totalItems <= pageSize) { pagEl.classList.add('hidden'); return; }
+    pagEl.classList.remove('hidden');
+    document.getElementById('pagTotalCount').textContent = '共 ' + totalItems + ' 件';
+    document.getElementById('pageInfo').textContent = '第 ' + currentPage + '/' + totalPages + ' 页';
+    document.getElementById('prevPageBtn').disabled = currentPage <= 1;
+    document.getElementById('nextPageBtn').disabled = currentPage >= totalPages;
+    var sizeBtn = document.querySelector('#cartPagination .page-size-btn');
+    if (sizeBtn) {
+      var sizeText = sizeBtn.querySelector('span');
+      if (sizeText) sizeText.textContent = pageSize + ' 条';
+      sizeBtn.setAttribute('data-value', String(pageSize));
+    }
+  }
+
+  function changePage(delta) {
+    var items = readCart();
+    var totalPages = Math.ceil(items.length / pageSize) || 1;
+    var newPage = currentPage + delta;
+    if (newPage < 1 || newPage > totalPages) return;
+    currentPage = newPage;
+    var scrollY = window.scrollY;
+    renderTable();
+    window.scrollTo(0, scrollY);
+  }
+
+  function toggleCartPageSizeDropdown(btn) {
+    var existing = document.getElementById('cartPageSizeDropdown');
+    if (existing) { if (existing._cleanup) existing._cleanup(); existing.remove(); return; }
+    closeAllCartDropdownPanels();
+    var SIZES = [{value:'10',label:'10 条'},{value:'20',label:'20 条'},{value:'30',label:'30 条'},{value:'50',label:'50 条'}];
+    var dropdown = document.createElement('div');
+    dropdown.id = 'cartPageSizeDropdown';
+    dropdown.className = 'dropdown-panel';
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+    var cur = btn.getAttribute('data-value') || '10';
+    inner.innerHTML = SIZES.map(function(o){ var sel=o.value===cur; return '<div class="dropdown-option dropdown-option-sm'+(sel?' selected':'')+'" data-value="'+o.value+'"><span>'+o.label+'</span><svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>'; }).join('');
+    dropdown.appendChild(inner);
+    inner.addEventListener('wheel', function(ev) { ev.stopPropagation(); }, { passive: true });
+    var rect = btn.getBoundingClientRect();
+    dropdown.style.top = (rect.bottom + 4) + 'px';
+    dropdown.style.left = rect.left + 'px';
+    dropdown.style.minWidth = '100px';
+    document.body.appendChild(dropdown);
+    var arrow = btn.querySelector('.dropdown-arrow');
+    if (arrow) arrow.classList.add('open');
+    function closeOnScroll() { cleanupCartPageSize(); }
+    window.addEventListener('scroll', closeOnScroll, { passive: true });
+    function cleanupCartPageSize() { dropdown.remove(); if (arrow) arrow.classList.remove('open'); window.removeEventListener('scroll', closeOnScroll); }
+    dropdown._cleanup = cleanupCartPageSize;
+    inner.querySelectorAll('.dropdown-option').forEach(function(el){
+      el.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        var v = el.getAttribute('data-value');
+        btn.setAttribute('data-value', v);
+        btn.querySelector('span').textContent = SIZES.find(function(o){return o.value===v;}).label;
+        cleanupCartPageSize();
+        pageSize = parseInt(v);
+        currentPage = 1;
+        renderTable();
+      });
+    });
+    setTimeout(function(){ document.addEventListener('click', function onDoc(ev){ if (dropdown && !dropdown.contains(ev.target) && !btn.contains(ev.target)) { cleanupCartPageSize(); document.removeEventListener('click', onDoc); } }); }, 0);
+  }
+
+  // ===== 初始化 =====
   renderTable();
-  // 同步角标
   if (window.cartUtils) window.cartUtils.refresh();
 })();
 </script>

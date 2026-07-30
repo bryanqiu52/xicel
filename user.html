@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>xicel 控制面板</title>
 <script src="js/tailwindcss.js"></script>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/user.css">
 <script>
 tailwind.config = {
@@ -283,7 +284,7 @@ tailwind.config = {
               </div>
               <div class="cr-text">
                 <span class="cr-label">办公地址</span>
-                <span class="cr-value">深圳市龙华区汇隆大厦</span>
+                <span class="cr-value">深圳市龙华区汇隆大厦1105</span>
               </div>
             </div>
           </div>
@@ -365,33 +366,33 @@ tailwind.config = {
               <span class="news-card-title">📰 行业动态</span>
               <a href="#" class="news-more">更多 ›</a>
             </div>
-            <div class="news-banner" style="background:linear-gradient(135deg,#0A66FF 0%,#6366F1 50%,#8B5CF6 100%);min-height:140px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden;">
+            <div class="news-banner" style="background:linear-gradient(135deg,#0A66FF 0%,#6366F1 50%,#8B5CF6 100%);min-height:90px;display:flex;align-items:flex-end;padding:12px;position:relative;overflow:hidden;">
               <div class="news-banner-decor" style="position:absolute;top:-40px;right:-30px;width:200px;height:200px;background:rgba(255,255,255,0.08);border-radius:50%;pointer-events:none;"></div>
               <div class="news-banner-title" style="color:#fff;font-size:15px;font-weight:600;line-height:1.5;position:relative;z-index:1;">工信部印发《2025年云计算综合标准化体系建设指南》</div>
             </div>
             <div class="news-list">
-              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #F1F5F9;">
+              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:6px 0;border-bottom:1px solid #F1F5F9;">
                 <div style="flex-shrink:0;width:64px;height:48px;border-radius:6px;background:linear-gradient(135deg,#10B981,#34D399);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;">IDC</div>
                 <div style="flex:1;min-width:0;">
                   <p class="news-item-title">我国IDC市场规模突破4500亿，AI驱动算力需求激增</p>
                   <span class="news-item-date">2025/06/20</span>
                 </div>
               </div>
-              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #F1F5F9;">
+              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:6px 0;border-bottom:1px solid #F1F5F9;">
                 <div style="flex-shrink:0;width:64px;height:48px;border-radius:6px;background:linear-gradient(135deg,#F59E0B,#FCD34D);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;">DNS</div>
                 <div style="flex:1;min-width:0;">
                   <p class="news-item-title">全球DNS安全威胁升级，权威机构建议部署DNSSEC防护</p>
                   <span class="news-item-date">2025/06/15</span>
                 </div>
               </div>
-              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #F1F5F9;">
+              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:6px 0;border-bottom:1px solid #F1F5F9;">
                 <div style="flex-shrink:0;width:64px;height:48px;border-radius:6px;background:linear-gradient(135deg,#EF4444,#F87171);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;">SSL</div>
                 <div style="flex:1;min-width:0;">
                   <p class="news-item-title">Google Chrome 将强制要求所有网站启用HTTPS加密</p>
                   <span class="news-item-date">2025/06/08</span>
                 </div>
               </div>
-              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:10px 0;">
+              <div class="news-item" style="display:flex;gap:12px;align-items:flex-start;padding:6px 0;">
                 <div style="flex-shrink:0;width:64px;height:48px;border-radius:6px;background:linear-gradient(135deg,#6366F1,#818CF8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;">云</div>
                 <div style="flex:1;min-width:0;">
                   <p class="news-item-title">2025中国云计算产业峰会将于9月在深圳举办</p>
@@ -497,18 +498,11 @@ tailwind.config = {
       <!-- 搜索区 -->
       <div class="search-area">
         <div class="search-row" style="margin-bottom:16px;">
-          <div class="custom-select" style="width:140px;" id="productTypeDropdown">
-            <button class="custom-select-trigger" type="button">
-              <span class="custom-select-text">全部产品</span>
-              <svg class="custom-select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="dropdown-wrapper" style="width:140px;">
+            <button class="dropdown-btn is-full" type="button" id="productTypeBtn">
+              <span>全部产品</span>
+              <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div class="custom-select-panel">
-              <div class="custom-select-option selected" data-value="全部产品">全部产品<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>
-              <div class="custom-select-option" data-value="域名注册">域名注册<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>
-              <div class="custom-select-option" data-value="云服务器">云服务器<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>
-              <div class="custom-select-option" data-value="SSL证书">SSL证书<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>
-              <div class="custom-select-option" data-value="企业邮箱">企业邮箱<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>
-            </div>
           </div>
           <input class="search-input" type="text" placeholder="请输入订单号/产品名称">
           <button class="search-btn">
@@ -531,16 +525,11 @@ tailwind.config = {
             <button class="filter-btn">已取消</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <div class="dropdown-wrap">
-              <button class="btn btn-outline-dark btn-sm" onclick="this.nextElementSibling.classList.toggle('show')">
-                批量管理
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="orders">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="dropdown-menu">
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的订单')">批量删除</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的订单')">批量续费</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的订单')">批量导出</a>
-              </div>
             </div>
             <button class="btn btn-outline-dark btn-sm">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg>
@@ -710,18 +699,6 @@ tailwind.config = {
       <div class="search-area">
         <div class="search-row" style="margin-bottom:16px;flex-wrap:wrap;gap:10px;">
           <input class="search-input" type="text" placeholder="请输入SSL证书名" style="flex:1;min-width:200px;">
-          <div class="date-group">
-            <span class="date-label">开通时间</span>
-            <input class="date-input" type="date" value="2026-01-01">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" value="2026-07-08">
-          </div>
-          <div class="date-group">
-            <span class="date-label">到期时间</span>
-            <input class="date-input" type="date" value="2026-07-08">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" value="2027-07-08">
-          </div>
           <button class="search-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             搜索
@@ -739,16 +716,11 @@ tailwind.config = {
             <button class="filter-btn">已过期</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <div class="dropdown-wrap">
-              <button class="btn btn-outline-dark btn-sm" onclick="this.nextElementSibling.classList.toggle('show')">
-                批量管理
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="ssl">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="dropdown-menu">
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的证书')">批量删除</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的证书')">批量续费</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的证书')">批量导出</a>
-              </div>
             </div>
             <button class="btn btn-outline-dark btn-sm">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
@@ -1365,7 +1337,12 @@ tailwind.config = {
             <button class="filter-btn" onclick="filterNotifByRead('read')">已读</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <button class="btn btn-outline-dark btn-sm">批量管理</button>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="notifications">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <button class="btn btn-outline-dark btn-sm">全部标为已读</button>
             <button class="btn btn-outline-dark btn-sm">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
@@ -1566,18 +1543,6 @@ tailwind.config = {
       <div class="search-area">
         <div class="search-row" style="margin-bottom:16px;flex-wrap:wrap;gap:10px;">
           <input class="search-input" type="text" placeholder="请输入邮箱域名" style="flex:1;min-width:200px;">
-          <div class="date-group">
-            <span class="date-label">开通时间</span>
-            <input class="date-input" type="date" placeholder="开始日期">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" placeholder="结束日期">
-          </div>
-          <div class="date-group">
-            <span class="date-label">到期时间</span>
-            <input class="date-input" type="date" placeholder="开始日期">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" placeholder="结束日期">
-          </div>
           <button class="search-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             搜索
@@ -1595,16 +1560,11 @@ tailwind.config = {
             <button class="filter-btn">已到期</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <div class="dropdown-wrap">
-              <button class="btn btn-outline-dark btn-sm" onclick="this.nextElementSibling.classList.toggle('show')">
-                批量管理
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="email">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="dropdown-menu">
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的邮箱')">批量续费</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的邮箱')">批量修改密码</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的邮箱')">批量导出</a>
-              </div>
             </div>
             <button class="btn btn-outline-dark btn-sm">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
@@ -2186,18 +2146,6 @@ tailwind.config = {
       <div class="search-area">
         <div class="search-row" style="margin-bottom:16px;flex-wrap:wrap;gap:10px;">
           <input class="search-input" type="text" placeholder="请输入云服务器编号/IP/产品类型" style="flex:1;min-width:200px;">
-          <div class="date-group">
-            <span class="date-label">开通时间</span>
-            <input class="date-input" type="date" placeholder="开始日期">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" placeholder="结束日期">
-          </div>
-          <div class="date-group">
-            <span class="date-label">到期时间</span>
-            <input class="date-input" type="date" placeholder="开始日期">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" placeholder="结束日期">
-          </div>
           <button class="search-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             搜索
@@ -2215,16 +2163,11 @@ tailwind.config = {
             <button class="filter-btn">已到期</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <div class="dropdown-wrap">
-              <button class="btn btn-outline-dark btn-sm" onclick="this.nextElementSibling.classList.toggle('show')">
-                批量管理
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="hosting">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="dropdown-menu">
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的服务器')">批量续费</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的服务器')">批量升级</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的服务器')">批量导出</a>
-              </div>
             </div>
             <button class="btn btn-outline-dark btn-sm">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
@@ -2397,18 +2340,6 @@ tailwind.config = {
               <input type="checkbox" style="accent-color:#0A66FF;cursor:pointer;">
               仅显示商标注册
             </label>
-          </div>
-          <div class="date-group">
-            <span class="date-label">注册时间</span>
-            <input class="date-input" type="date" placeholder="开始日期">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" placeholder="结束日期">
-          </div>
-          <div class="date-group">
-            <span class="date-label">到期时间</span>
-            <input class="date-input" type="date" placeholder="开始日期">
-            <span class="date-separator">至</span>
-            <input class="date-input" type="date" placeholder="结束日期">
           </div>
           <button class="search-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -2613,7 +2544,12 @@ tailwind.config = {
             <button class="filter-btn" onclick="filterSubaccounts('inactive', this)">已禁用</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <button class="btn btn-outline-dark btn-sm">批量管理</button>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="subaccount">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetSubaccountFilters()">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
           </div>
@@ -2982,16 +2918,11 @@ tailwind.config = {
             <button class="filter-btn" onclick="filterDomains('expired', this)">已过期</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <div class="dropdown-wrap">
-              <button class="btn btn-outline-dark btn-sm" onclick="this.nextElementSibling.classList.toggle('show')">
-                批量管理
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="domain-list">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="dropdown-menu">
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的域名')">批量续费</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的域名')">批量解析</a>
-                <a href="javascript:;" onclick="alert('请先勾选需要操作的域名')">批量转入</a>
-              </div>
             </div>
             <button class="btn btn-outline-dark btn-sm" onclick="alert('导出列表功能开发中')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg>
@@ -3323,7 +3254,12 @@ tailwind.config = {
             <button class="filter-btn" onclick="filterRegistrants('enterprise', this)">企业认证</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <button class="btn btn-outline-dark btn-sm">批量管理</button>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="domain-registrant">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetRegistrantFilters()">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
           </div>
@@ -3435,7 +3371,12 @@ tailwind.config = {
             <button class="filter-btn" onclick="filterTransfers('failed', this)">已失败</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <button class="btn btn-outline-dark btn-sm">批量管理</button>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="domain-transfer">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetTransferFilters()">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
           </div>
@@ -3628,7 +3569,7 @@ tailwind.config = {
             </div>
             <div>
               <div style="font-size:11px;color:#94A3B8;font-weight:500;">深圳总部</div>
-              <div style="font-size:14px;font-weight:600;color:#1E293B;">深圳市龙华区汇隆大厦</div>
+              <div style="font-size:14px;font-weight:600;color:#1E293B;">深圳市龙华区汇隆大厦1105</div>
             </div>
           </div>
         </div>
@@ -3731,7 +3672,12 @@ tailwind.config = {
             <button class="filter-btn" onclick="filterTickets('已关闭', this)">已关闭</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <button class="btn btn-outline-dark btn-sm">批量管理</button>
+            <div class="dropdown-wrapper">
+              <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="tickets">
+                <span>批量管理</span>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetTicketFilters()">重置</button>
             <button class="btn btn-ghost btn-sm">列设置</button>
           </div>
@@ -3975,32 +3921,21 @@ tailwind.config = {
           <div class="form-item">
             <label class="form-label"><span style="color:#EF4444;">*</span> 角色</label>
             <input type="hidden" id="subRole" value="">
-            <div class="dropdown-wrap" style="width:100%;">
-              <button type="button" class="form-input form-select-btn" onclick="toggleFormSelect('roleSelect', this)" style="width:100%;text-align:left;justify-content:space-between;display:flex;align-items:center;">
+            <div class="dropdown-wrapper" style="width:100%;">
+              <button class="dropdown-btn is-full form-dropdown-trigger" type="button" id="roleSelectBtn" data-value="">
                 <span id="roleSelectText" style="color:#94A3B8;">请选择角色</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="dropdown-menu form-dropdown-menu" id="roleSelect" style="width:100%;min-width:unset;">
-                <a href="javascript:;" onclick="selectFormOption('roleSelect', 'super', '超级管理员', 'subRole', 'roleSelectText')">超级管理员</a>
-                <a href="javascript:;" onclick="selectFormOption('roleSelect', 'operation', '运营管理员', 'subRole', 'roleSelectText')">运营管理员</a>
-                <a href="javascript:;" onclick="selectFormOption('roleSelect', 'finance', '财务管理员', 'subRole', 'roleSelectText')">财务管理员</a>
-                <a href="javascript:;" onclick="selectFormOption('roleSelect', 'tech', '技术人员', 'subRole', 'roleSelectText')">技术人员</a>
-                <a href="javascript:;" onclick="selectFormOption('roleSelect', 'sales', '销售人员', 'subRole', 'roleSelectText')">销售人员</a>
-              </div>
             </div>
           </div>
           <div class="form-item">
             <label class="form-label">状态</label>
             <input type="hidden" id="subStatus" value="active">
-            <div class="dropdown-wrap" style="width:100%;">
-              <button type="button" class="form-input form-select-btn" onclick="toggleFormSelect('statusSelect', this)" style="width:100%;text-align:left;justify-content:space-between;display:flex;align-items:center;">
+            <div class="dropdown-wrapper" style="width:100%;">
+              <button class="dropdown-btn is-full form-dropdown-trigger" type="button" id="statusSelectBtn" data-value="active">
                 <span id="statusSelectText" style="color:#1E293B;">启用</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="dropdown-menu form-dropdown-menu" id="statusSelect" style="width:100%;min-width:unset;">
-                <a href="javascript:;" onclick="selectFormOption('statusSelect', 'active', '启用', 'subStatus', 'statusSelectText')">启用</a>
-                <a href="javascript:;" onclick="selectFormOption('statusSelect', 'inactive', '禁用', 'subStatus', 'statusSelectText')">禁用</a>
-              </div>
             </div>
           </div>
         </div>
@@ -4821,44 +4756,198 @@ document.querySelectorAll('.sidebar-submenu-group').forEach(group => {
   });
 });
 
-// ===== 订单记录产品类型自定义下拉 =====
+// ===== 产品类型筛选下拉（标准 dropdown-btn 体系） =====
 (function() {
-  const dropdown = document.getElementById('productTypeDropdown');
-  if (!dropdown) return;
-  const trigger = dropdown.querySelector('.custom-select-trigger');
-  const textEl = dropdown.querySelector('.custom-select-text');
-  const options = dropdown.querySelectorAll('.custom-select-option');
+  var btn = document.getElementById('productTypeBtn');
+  if (!btn) return;
+  var wrapper = btn.parentNode;
+  var textEl = btn.querySelector('span');
+  var arrow = btn.querySelector('.dropdown-arrow');
+  var activePanel = null;
 
-  function openDropdown() {
-    dropdown.classList.add('open');
-    document.addEventListener('click', onClickOutside);
-  }
+  var productTypeOptions = [
+    { value: '全部产品', label: '全部产品' },
+    { value: '域名注册', label: '域名注册' },
+    { value: '云服务器', label: '云服务器' },
+    { value: 'SSL证书', label: 'SSL证书' },
+    { value: '企业邮箱', label: '企业邮箱' }
+  ];
 
-  function closeDropdown() {
-    dropdown.classList.remove('open');
-    document.removeEventListener('click', onClickOutside);
-  }
-
-  function onClickOutside(e) {
-    if (!dropdown.contains(e.target)) {
-      closeDropdown();
+  function closeOnScroll() { closePanel(); }
+  function closeOnGlobalClick(e) {
+    if (activePanel && !activePanel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+      closePanel();
     }
   }
 
-  trigger.addEventListener('click', function(e) {
-    e.stopPropagation();
-    dropdown.classList.contains('open') ? closeDropdown() : openDropdown();
-  });
+  function closePanel() {
+    if (activePanel) {
+      if (activePanel._cleanup) activePanel._cleanup();
+      activePanel.remove();
+      activePanel = null;
+    }
+    arrow.classList.remove('open');
+    window.removeEventListener('scroll', closeOnScroll);
+    document.removeEventListener('click', closeOnGlobalClick);
+  }
 
-  options.forEach(function(opt) {
-    opt.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var value = this.getAttribute('data-value');
-      options.forEach(function(o) { o.classList.remove('selected'); });
-      this.classList.add('selected');
-      textEl.textContent = value;
-      closeDropdown();
+  function openPanel() {
+    // 关闭其他已打开的面板
+    if (activePanel) closePanel();
+
+    var panel = document.createElement('div');
+    panel.className = 'dropdown-panel';
+    panel.style.minWidth = '140px';
+
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+
+    productTypeOptions.forEach(function(opt) {
+      var option = document.createElement('div');
+      option.className = 'dropdown-option' + (opt.value === textEl.textContent ? ' selected' : '');
+      option.setAttribute('data-value', opt.value);
+      option.innerHTML = '<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><span>' + opt.label + '</span>';
+
+      option.addEventListener('click', function(e) {
+        e.stopPropagation();
+        textEl.textContent = opt.value;
+        closePanel();
+      });
+
+      inner.appendChild(option);
     });
+
+    // 滚轮不透传
+    inner.addEventListener('wheel', function(e) { e.stopPropagation(); });
+
+    panel.appendChild(inner);
+    document.body.appendChild(panel);
+
+    // 定位
+    var rect = btn.getBoundingClientRect();
+    panel.style.left = rect.left + 'px';
+    panel.style.top = (rect.bottom + 4) + 'px';
+    panel.style.width = rect.width + 'px';
+
+    arrow.classList.add('open');
+
+    panel._cleanup = function() {
+      window.removeEventListener('scroll', closeOnScroll);
+      document.removeEventListener('click', closeOnGlobalClick);
+    };
+
+    activePanel = panel;
+
+    window.addEventListener('scroll', closeOnScroll, { once: true });
+    setTimeout(function() {
+      document.addEventListener('click', closeOnGlobalClick);
+    }, 0);
+  }
+
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (activePanel) {
+      closePanel();
+    } else {
+      openPanel();
+    }
+  });
+})();
+
+// ===== 批量管理下拉（统一事件委托） =====
+var BATCH_ITEMS = {
+  orders: [{ label: '批量删除', action: "alert('请先勾选需要操作的订单')" }, { label: '批量续费', action: "alert('请先勾选需要操作的订单')" }, { label: '批量导出', action: "alert('请先勾选需要操作的订单')" }],
+  ssl: [{ label: '批量删除', action: "alert('请先勾选需要操作的证书')" }, { label: '批量续费', action: "alert('请先勾选需要操作的证书')" }, { label: '批量导出', action: "alert('请先勾选需要操作的证书')" }],
+  email: [{ label: '批量续费', action: "alert('请先勾选需要操作的邮箱')" }, { label: '批量修改密码', action: "alert('请先勾选需要操作的邮箱')" }, { label: '批量导出', action: "alert('请先勾选需要操作的邮箱')" }],
+  hosting: [{ label: '批量续费', action: "alert('请先勾选需要操作的主机')" }, { label: '批量修改密码', action: "alert('请先勾选需要操作的主机')" }],
+  'domain-list': [{ label: '批量续费', action: "alert('请先勾选需要操作的域名')" }],
+  notifications: [{ label: '标记已读', action: "alert('暂无通知')" }, { label: '删除通知', action: "alert('暂无通知')" }],
+  subaccount: [{ label: '批量删除', action: "alert('请先勾选需要操作的子账号')" }, { label: '批量启用', action: "alert('请先勾选需要操作的子账号')" }, { label: '批量禁用', action: "alert('请先勾选需要操作的子账号')" }],
+  'domain-registrant': [{ label: '批量删除', action: "alert('请先勾选需要操作的模板')" }, { label: '批量导出', action: "alert('请先勾选需要操作的模板')" }],
+  'domain-transfer': [{ label: '批量删除', action: "alert('请先勾选需要转入的域名')" }, { label: '批量取消转入', action: "alert('请先勾选需要转入的域名')" }],
+  tickets: [{ label: '批量删除', action: "alert('请先勾选需要操作的工单')" }, { label: '批量关闭', action: "alert('请先勾选需要操作的工单')" }]
+};
+
+(function() {
+  var activePanel = null;
+
+  function closeOnScroll() { closePanel(); }
+  function closeOnGlobalClick(e) {
+    if (activePanel && !activePanel.contains(e.target) && !e.target.closest('[data-batch-panel]')) {
+      closePanel();
+    }
+  }
+
+  function closePanel() {
+    if (activePanel) {
+      if (activePanel._cleanup) activePanel._cleanup();
+      activePanel.remove();
+      activePanel = null;
+    }
+    document.querySelectorAll('[data-batch-panel]').forEach(function(b) {
+      b.querySelector('.dropdown-arrow') && b.querySelector('.dropdown-arrow').classList.remove('open');
+    });
+    window.removeEventListener('scroll', closeOnScroll);
+    document.removeEventListener('click', closeOnGlobalClick);
+  }
+
+  function openPanel(btn) {
+    if (activePanel) closePanel();
+
+    var panelName = btn.getAttribute('data-batch-panel');
+    var items = BATCH_ITEMS[panelName];
+    if (!items) return;
+
+    var panel = document.createElement('div');
+    panel.className = 'dropdown-panel';
+    panel.style.minWidth = '120px';
+
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+
+    items.forEach(function(item) {
+      var option = document.createElement('div');
+      option.className = 'dropdown-option dropdown-option-sm batch-option';
+      option.textContent = item.label;
+      option.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closePanel();
+        try { eval(item.action); } catch(ex) {}
+      });
+      inner.appendChild(option);
+    });
+
+    inner.addEventListener('wheel', function(e) { e.stopPropagation(); });
+    panel.appendChild(inner);
+    document.body.appendChild(panel);
+
+    var rect = btn.getBoundingClientRect();
+    panel.style.left = rect.left + 'px';
+    panel.style.top = (rect.bottom + 4) + 'px';
+    panel.style.width = rect.width + 'px';
+
+    btn.querySelector('.dropdown-arrow') && btn.querySelector('.dropdown-arrow').classList.add('open');
+
+    panel._cleanup = function() {
+      window.removeEventListener('scroll', closeOnScroll);
+      document.removeEventListener('click', closeOnGlobalClick);
+    };
+
+    activePanel = panel;
+    window.addEventListener('scroll', closeOnScroll, { once: true });
+    setTimeout(function() { document.addEventListener('click', closeOnGlobalClick); }, 0);
+  }
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('[data-batch-panel]');
+    if (btn) {
+      e.stopPropagation();
+      if (activePanel && activePanel._btn === btn) {
+        closePanel();
+      } else {
+        openPanel(btn);
+      }
+    }
   });
 })();
 
@@ -4982,12 +5071,20 @@ function saveAvatar() {
   closeModal('modalAvatar');
 }
 
+// ===== 滚动锁定辅助函数 =====
+function lockBodyScroll() {
+  document.body.style.overflow = 'hidden';
+}
+function unlockBodyScroll() {
+  document.body.style.overflow = '';
+}
+
 // ===== 通用弹窗 =====
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
   }
 }
 
@@ -4996,7 +5093,7 @@ function closeModal(modalId, e) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5086,7 +5183,7 @@ function closeOrderDetail(e) {
   const modal = document.getElementById('modalOrderDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5136,7 +5233,7 @@ function closeSslDetail(e) {
   const modal = document.getElementById('modalSslDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5162,7 +5259,7 @@ function closeDeleteConfirm(e) {
   const modal = document.getElementById('modalDeleteConfirm');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
   deleteTargetRow = null;
   deleteCallback = null;
@@ -5206,7 +5303,7 @@ function closeEmailDetail(e) {
   const modal = document.getElementById('modalEmailDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5224,7 +5321,7 @@ function closeEmailPassword(e) {
   const modal = document.getElementById('modalEmailPassword');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 function submitEmailPassword() {
@@ -5273,7 +5370,7 @@ function closeHostingDetail(e) {
   const modal = document.getElementById('modalHostingDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5312,7 +5409,7 @@ function closeTrademarkDetail(e) {
   const modal = document.getElementById('modalTrademarkDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5352,7 +5449,7 @@ function closeWalletDetail(e) {
   const modal = document.getElementById('modalWalletDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5398,7 +5495,7 @@ function closeTransferDetail(e) {
   const modal = document.getElementById('modalTransferDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 
@@ -5408,7 +5505,7 @@ function closeAddRecord(e) {
   const modal = document.getElementById('modalAddRecord');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 function submitAddRecord() {
@@ -5986,53 +6083,142 @@ function updateSubaccountStats() {
   }
 }
 
-// ===== 表单自定义下拉框 =====
-function toggleFormSelect(menuId, btn) {
-  const menu = document.getElementById(menuId);
-  const isOpen = menu.classList.contains('show');
-  
-  document.querySelectorAll('.form-dropdown-menu').forEach(m => m.classList.remove('show'));
-  
-  if (!isOpen) {
-    menu.classList.add('show');
-  }
-}
+// ===== 表单自定义下拉框（标准 dropdown-btn 体系） =====
+(function() {
+  var activePanel = null;
 
-function selectFormOption(menuId, value, text, hiddenId, textId) {
-  document.getElementById(hiddenId).value = value;
-  const textEl = document.getElementById(textId);
-  textEl.textContent = text;
-  textEl.style.color = '#1E293B';
-  
-  const menu = document.getElementById(menuId);
-  menu.querySelectorAll('a').forEach(a => a.classList.remove('selected'));
-  event.target.classList.add('selected');
-  
-  menu.classList.remove('show');
-}
+  var formDropdowns = {
+    roleSelectBtn: {
+      hiddenId: 'subRole',
+      options: [
+        { value: '', label: '请选择角色', placeholder: true },
+        { value: 'super', label: '超级管理员' },
+        { value: 'operation', label: '运营管理员' },
+        { value: 'finance', label: '财务管理员' },
+        { value: 'tech', label: '技术人员' },
+        { value: 'sales', label: '销售人员' }
+      ]
+    },
+    statusSelectBtn: {
+      hiddenId: 'subStatus',
+      options: [
+        { value: 'active', label: '启用' },
+        { value: 'inactive', label: '禁用' }
+      ]
+    }
+  };
 
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.dropdown-wrap')) {
-    document.querySelectorAll('.form-dropdown-menu').forEach(m => m.classList.remove('show'));
+  function closeOnScroll() { closePanel(); }
+  function closeOnGlobalClick(e) {
+    if (activePanel && !activePanel.contains(e.target) && !e.target.closest('.form-dropdown-trigger')) {
+      closePanel();
+    }
   }
-});
+
+  function closePanel() {
+    if (activePanel) {
+      if (activePanel._cleanup) activePanel._cleanup();
+      activePanel.remove();
+      activePanel = null;
+    }
+    document.querySelectorAll('.form-dropdown-trigger .dropdown-arrow').forEach(function(a) {
+      a.classList.remove('open');
+    });
+    window.removeEventListener('scroll', closeOnScroll);
+    document.removeEventListener('click', closeOnGlobalClick);
+  }
+
+  function openPanel(btn) {
+    if (activePanel) closePanel();
+
+    var config = formDropdowns[btn.id];
+    if (!config) return;
+
+    var panel = document.createElement('div');
+    panel.className = 'dropdown-panel';
+    panel.style.minWidth = '140px';
+
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+
+    config.options.forEach(function(opt) {
+      var option = document.createElement('div');
+      var isSelected = (btn.getAttribute('data-value') || '') === opt.value;
+      option.className = 'dropdown-option' + (isSelected ? ' selected' : '');
+      if (opt.placeholder) {
+        option.style.color = '#94A3B8';
+      }
+      option.innerHTML = '<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><span>' + opt.label + '</span>';
+
+      option.addEventListener('click', function(e) {
+        e.stopPropagation();
+        // 更新按钮
+        var span = btn.querySelector('span');
+        span.textContent = opt.label;
+        span.style.color = opt.placeholder ? '#94A3B8' : '#1E293B';
+        btn.setAttribute('data-value', opt.value);
+        // 更新隐藏域
+        document.getElementById(config.hiddenId).value = opt.value;
+        closePanel();
+      });
+
+      inner.appendChild(option);
+    });
+
+    inner.addEventListener('wheel', function(e) { e.stopPropagation(); });
+
+    panel.appendChild(inner);
+    document.body.appendChild(panel);
+
+    var rect = btn.getBoundingClientRect();
+    panel.style.left = rect.left + 'px';
+    panel.style.top = (rect.bottom + 4) + 'px';
+    panel.style.width = rect.width + 'px';
+
+    btn.querySelector('.dropdown-arrow').classList.add('open');
+
+    panel._cleanup = function() {
+      window.removeEventListener('scroll', closeOnScroll);
+      document.removeEventListener('click', closeOnGlobalClick);
+    };
+
+    activePanel = panel;
+    window.addEventListener('scroll', closeOnScroll, { once: true });
+    setTimeout(function() { document.addEventListener('click', closeOnGlobalClick); }, 0);
+  }
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.form-dropdown-trigger');
+    if (btn) {
+      e.stopPropagation();
+      if (activePanel && activePanel._btn === btn) {
+        closePanel();
+      } else {
+        openPanel(btn);
+      }
+    }
+  });
+})();
 
 function setFormSelectValue(menuId, value, textId, text) {
-  const textEl = document.getElementById(textId);
-  textEl.textContent = text;
-  textEl.style.color = value ? '#1E293B' : '#94A3B8';
-  
-  const menu = document.getElementById(menuId);
-  if (menu) {
-    menu.querySelectorAll('a').forEach(a => {
-      const onClick = a.getAttribute('onclick') || '';
-      if (onClick.includes("'" + value + "'")) {
-        a.classList.add('selected');
-      } else {
-        a.classList.remove('selected');
-      }
-    });
+  // 兼容旧调用：menuId 是旧菜单ID，映射到新按钮ID
+  var btnId = menuId === 'roleSelect' ? 'roleSelectBtn' : (menuId === 'statusSelect' ? 'statusSelectBtn' : menuId);
+  var btn = document.getElementById(btnId);
+  if (!btn) {
+    // 降级：直接设置text
+    var textEl = document.getElementById(textId);
+    if (textEl) {
+      textEl.textContent = text;
+      textEl.style.color = value ? '#1E293B' : '#94A3B8';
+    }
+    return;
   }
+  var span = btn.querySelector('span');
+  if (span) {
+    span.textContent = text;
+    span.style.color = value ? '#1E293B' : '#94A3B8';
+  }
+  btn.setAttribute('data-value', value);
 }
 
 // ===== 工单管理 =====
@@ -6137,13 +6323,13 @@ function searchTickets() {
 
 function openTicketModal() {
   document.getElementById('modalTicket').classList.add('show');
-  document.body.style.overflow = 'hidden';
+  lockBodyScroll();
 }
 
 function closeTicketModal(e) {
   if (e && e.target && !e.target.classList.contains('modal-overlay')) return;
   document.getElementById('modalTicket').classList.remove('show');
-  document.body.style.overflow = '';
+  unlockBodyScroll();
 }
 
 function submitTicket() {
@@ -7234,7 +7420,7 @@ function openNoticeDetail(idx) {
   var modal = document.getElementById('modalNoticeDetail');
   if (modal) {
     modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
   }
 }
 
@@ -7243,67 +7429,123 @@ function closeNoticeDetail(e) {
   var modal = document.getElementById('modalNoticeDetail');
   if (modal) {
     modal.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 }
 </script>
 
-<!-- ===== 每页条数下拉组件（统一注入所有分页器） ===== -->
+<!-- ===== 每页条数下拉组件（标准 dropdown-btn 体系） ===== -->
 <script>
 (function() {
+  var activePanel = null;
 
-  // 创建下拉 DOM
+  function closeOnScroll() { closePanel(); }
+  function closeOnGlobalClick(e) {
+    if (activePanel && !activePanel.contains(e.target) && !e.target.closest('.page-size-dropdown')) {
+      closePanel();
+    }
+  }
+
+  function closePanel() {
+    if (activePanel) {
+      if (activePanel._cleanup) activePanel._cleanup();
+      activePanel.remove();
+      activePanel = null;
+    }
+    window.removeEventListener('scroll', closeOnScroll);
+    document.removeEventListener('click', closeOnGlobalClick);
+  }
+
+  function openPanel(triggerBtn, dropdown) {
+    if (activePanel) closePanel();
+
+    var panel = document.createElement('div');
+    panel.className = 'dropdown-panel';
+    panel.style.minWidth = '115px';
+
+    var inner = document.createElement('div');
+    inner.className = 'dropdown-panel-inner';
+
+    var currentSize = parseInt(triggerBtn.getAttribute('data-value') || '10', 10);
+    var sizes = [10, 20, 50];
+
+    sizes.forEach(function(size) {
+      var opt = document.createElement('div');
+      opt.className = 'dropdown-option dropdown-option-sm' + (size === currentSize ? ' selected' : '');
+      opt.setAttribute('data-value', size);
+      opt.innerHTML = '<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><span>' + size + '条/页</span>';
+
+      opt.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var val = this.getAttribute('data-value');
+        triggerBtn.setAttribute('data-value', val);
+        var textSpan = triggerBtn.querySelector('span');
+        if (textSpan) textSpan.textContent = val + '条/页';
+        closePanel();
+      });
+
+      inner.appendChild(opt);
+    });
+
+    inner.addEventListener('wheel', function(e) { e.stopPropagation(); });
+    panel.appendChild(inner);
+    document.body.appendChild(panel);
+
+    var rect = triggerBtn.getBoundingClientRect();
+    var spaceBelow = window.innerHeight - rect.bottom;
+    var spaceAbove = rect.top;
+    var panelHeight = Math.min(sizes.length * 38 + 16, 256);
+
+    if (spaceBelow < panelHeight && spaceAbove > spaceBelow) {
+      // 向上弹出
+      panel.style.left = rect.left + 'px';
+      panel.style.top = (rect.top - panelHeight - 4) + 'px';
+    } else {
+      panel.style.left = rect.left + 'px';
+      panel.style.top = (rect.bottom + 4) + 'px';
+    }
+    panel.style.width = rect.width + 'px';
+
+    triggerBtn.querySelector('.dropdown-arrow') && triggerBtn.querySelector('.dropdown-arrow').classList.add('open');
+
+    panel._cleanup = function() {
+      window.removeEventListener('scroll', closeOnScroll);
+      document.removeEventListener('click', closeOnGlobalClick);
+    };
+
+    activePanel = panel;
+    window.addEventListener('scroll', closeOnScroll, { once: true });
+    setTimeout(function() { document.addEventListener('click', closeOnGlobalClick); }, 0);
+  }
+
+  // DOM 方式创建
   function createPageSizeDropdown() {
     var div = document.createElement('div');
-    div.className = 'page-size-dropdown custom-select';
+    div.className = 'page-size-dropdown dropdown-wrapper';
     div.style.width = '115px';
     div.innerHTML =
-      '<button class="custom-select-trigger" type="button">' +
-        '<span class="custom-select-text">10条/页</span>' +
-        '<svg class="custom-select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>' +
-      '</button>' +
-      '<div class="custom-select-panel">' +
-        '<div class="custom-select-option selected" data-value="10">10条/页<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>' +
-        '<div class="custom-select-option" data-value="20">20条/页<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>' +
-        '<div class="custom-select-option" data-value="50">50条/页<span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span></div>' +
-      '</div>';
+      '<button class="dropdown-btn dropdown-btn-sm" type="button" data-value="10">' +
+        '<span>10条/页</span>' +
+        '<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>' +
+      '</button>';
     return div;
   }
 
-  // 绑定打开/关闭/选中事件
-  function bindDropdown(dropdown) {
-    var trigger = dropdown.querySelector('.custom-select-trigger');
-    var textEl = dropdown.querySelector('.custom-select-text');
-    var options = dropdown.querySelectorAll('.custom-select-option');
-
-    function open() {
-      dropdown.classList.add('open');
-      document.addEventListener('click', onClickOutside);
-    }
-    function close() {
-      dropdown.classList.remove('open');
-      document.removeEventListener('click', onClickOutside);
-    }
-    function onClickOutside(e) {
-      if (!dropdown.contains(e.target)) close();
-    }
-
-    trigger.addEventListener('click', function(e) {
+  // 事件委托绑定
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.page-size-dropdown .dropdown-btn');
+    if (btn) {
       e.stopPropagation();
-      dropdown.classList.contains('open') ? close() : open();
-    });
-
-    options.forEach(function(opt) {
-      opt.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var value = this.getAttribute('data-value');
-        options.forEach(function(o) { o.classList.remove('selected'); });
-        this.classList.add('selected');
-        textEl.textContent = value + '条/页';
-        close();
-      });
-    });
-  }
+      var dropdown = btn.closest('.page-size-dropdown');
+      if (dropdown) {
+        if (activePanel && activePanel._btn === btn) {
+          closePanel();
+        } else {
+          openPanel(btn, dropdown);
+        }
+      }
+    }
+  });
 
   // 注入到所有目标面板的分页器
   function injectAll() {
@@ -7326,21 +7568,17 @@ function closeNoticeDetail(e) {
       var panel = document.getElementById(pid);
       if (!panel) return;
 
-      // 定位 pagination-bar 或 table-footer 中的 .pagination 容器
       var paginations = panel.querySelectorAll('.pagination-right .pagination, .table-footer-right .pagination');
       paginations.forEach(function(pagination) {
-        // 防重复注入
         var parent = pagination.parentElement;
         if (parent.querySelector('.page-size-dropdown')) return;
 
         var dropdown = createPageSizeDropdown();
         parent.appendChild(dropdown);
-        bindDropdown(dropdown);
       });
     });
   }
 
-  // DOM 就绪后执行
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', injectAll);
   } else {
@@ -7461,13 +7699,13 @@ function closeNoticeDetail(e) {
   function openSidebar() {
     sidebar.classList.add('open');
     overlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
   }
 
   function closeSidebar() {
     sidebar.classList.remove('open');
     overlay.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 
   toggleBtn.addEventListener('click', function(e) {

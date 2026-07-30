@@ -481,7 +481,7 @@ function openConsultModal() {
   var modal = document.getElementById('consultModal');
   if (modal) {
     modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
   } else {
     window.location.href = 'about.html#contact';
   }

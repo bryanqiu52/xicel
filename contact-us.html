@@ -78,7 +78,7 @@ tailwind.config = {
           </svg>
         </div>
         <div class="contact-info-title">公司地址</div>
-        <div class="contact-info-value">深圳市龙华区汇隆大厦</div>
+        <div class="contact-info-value">深圳市龙华区汇隆大厦1105</div>
       </div>
       
     </div>
@@ -194,10 +194,15 @@ function submitContactForm(e) {
   document.getElementById('contactFormSuccess').classList.add('show');
 }
 
-// 高德地图初始化
+// 高德地图安全密钥
+window._AMapSecurityConfig = {
+  securityJsCode: '954f969f9e489e2b33da27466635d8b2',
+};
+
+// 高德地图初始化（由 AMap SDK 加载完成后通过 callback 自动调用）
 function initMap() {
   // 汇隆中心坐标（用户已验证正确）
-  var center = [114.032, 22.610];
+  var center = [114.0331, 22.6105];
 
   var map = new AMap.Map('mapContainer', {
     zoom: 16,
@@ -205,38 +210,32 @@ function initMap() {
     resizeEnable: true
   });
 
-  // 添加定位标记
+  // 添加定位标记（显式指定 icon 完整 URL，避免 file:// 协议下路径解析错误）
   var marker = new AMap.Marker({
     position: center,
-    title: '希赛乐科技'
+    title: '希赛乐科技',
+    icon: new AMap.Icon({
+      image: 'https://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+      size: new AMap.Size(30, 40),
+      imageSize: new AMap.Size(30, 40)
+    }),
+    offset: new AMap.Pixel(-15, -40)
   });
   marker.setMap(map);
 
   // 信息窗体
   var info = new AMap.InfoWindow({
-    content: '<div style="padding:10px 14px;font-size:14px;line-height:1.6;"><strong style="font-size:16px;color:#1E293B;">希赛乐科技</strong><br><span style="color:#64748B;">深圳市龙华区汇隆大厦</span></div>',
-    offset: new AMap.Pixel(0, -30)
+    content: '<div style="padding:10px 14px;font-size:14px;line-height:1.6;"><strong style="font-size:16px;color:#1E293B;">希赛乐科技</strong><br><span style="color:#64748B;">深圳市龙华区汇隆大厦1105</span></div>',
+    offset: new AMap.Pixel(0, -45)
   });
-  AMap.event.addListener(marker, 'click', function() {
+  marker.on('click', function() {
     info.open(map, center);
   });
   info.open(map, center);
-}
-
-// 等 AMap 加载完再初始化
-if (typeof AMap !== 'undefined') {
-  initMap();
-} else {
-  window.addEventListener('load', function() {
-    if (typeof AMap !== 'undefined') {
-      initMap();
-    }
-  });
-}
-</script>
+}</script>
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>
 <script src="components/float-actions.js"></script>
-<script src="https://webapi.amap.com/maps?v=2.0&key=e08608592f69d993861358be2c1f8cee&plugin=AMap.Geocoder"></script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=e08608592f69d993861358be2c1f8cee&callback=initMap"></script>
 </body>
 </html>

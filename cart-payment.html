@@ -200,6 +200,40 @@ tailwind.config = {
   font-size: 12px;
   color: #94A3B8;
 }
+
+/* 订单商品展开收起 */
+.order-items-collapsible {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.order-items-collapsible.expanded {
+  max-height: 5000px;
+}
+.order-items-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0 4px;
+  cursor: pointer;
+  color: #0A66FF;
+  font-size: 13px;
+  font-weight: 500;
+  user-select: none;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.order-items-toggle-wrap:hover {
+  color: #0047CC;
+}
+.order-items-toggle-wrap .toggle-icon {
+  display: inline-flex;
+  transition: transform 0.35s ease;
+}
+.order-items-toggle-wrap .toggle-icon.expanded {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 640px) {
   .payment-method-card {
     padding: 12px;
@@ -235,26 +269,16 @@ tailwind.config = {
           <div class="flex items-center justify-between">
             <div class="step-item completed">
               <div class="step-num">1</div>
-              <span class="step-text">加入购物车</span>
-            </div>
-            <div class="step-line active"></div>
-            <div class="step-item completed">
-              <div class="step-num">2</div>
-              <span class="step-text">订单确认</span>
-            </div>
-            <div class="step-line active"></div>
-            <div class="step-item completed">
-              <div class="step-num">3</div>
-              <span class="step-text">资料填写</span>
+              <span class="step-text">购物车订单</span>
             </div>
             <div class="step-line active"></div>
             <div class="step-item current">
-              <div class="step-num">4</div>
+              <div class="step-num">2</div>
               <span class="step-text">付款下单</span>
             </div>
             <div class="step-line"></div>
             <div class="step-item pending">
-              <div class="step-num">5</div>
+              <div class="step-num">3</div>
               <span class="step-text">支付完成</span>
             </div>
           </div>
@@ -369,14 +393,13 @@ tailwind.config = {
               <strong id="sumCount">0 件</strong>
             </div>
             <div id="productTypeSummary"></div>
-            <div class="cart-summary-divider"></div>
             <div class="cart-summary-row total">
               <span>合计金额</span>
               <span class="total-amount" id="sumTotal">¥0.00</span>
             </div>
 
             <button class="btn-checkout" onclick="submitPayment()">立即支付</button>
-            <a href="cart-info.html" class="btn-continue">返回上一步</a>
+            <a href="cart-confirm.html" class="btn-continue">返回上一步</a>
           </div>
 
           <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
@@ -415,15 +438,9 @@ var REG_SERVICE_BASE_PRICE = 50;
 
 function initPage() {
   var cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-  var registrantInfo = JSON.parse(localStorage.getItem('registrantInfo') || 'null');
   
   if (cartItems.length === 0) {
     window.location.href = 'cart-confirm.html';
-    return;
-  }
-  
-  if (!registrantInfo) {
-    window.location.href = 'cart-info.html';
     return;
   }
   
@@ -433,11 +450,14 @@ function initPage() {
 
 function renderOrderItems(items) {
   var container = document.getElementById('orderItems');
+  var selected = items.filter(function(it) { return it.selected; });
+  var limit = 10;
+  var showToggle = selected.length > limit;
+  var shownItems = showToggle ? selected.slice(0, limit) : selected;
+  var hiddenItems = showToggle ? selected.slice(limit) : [];
   var html = '';
-  var idx = 0;
   
-  items.forEach(function(item) {
-    if (!item.selected) return;
+  shownItems.forEach(function(item, idx) {
     var price = (item.price * (item.year || 1)).toFixed(2);
     var name = item.productName || item.name || '';
     var border = idx > 0 ? ' border-t border-dashed border-slate-200' : '';
@@ -445,10 +465,64 @@ function renderOrderItems(items) {
     html += '<span>' + escapeHtml(name) + ' <span class="text-muted">× ' + (item.year || 1) + '年</span></span>';
     html += '<span class="font-medium">¥' + price + '</span>';
     html += '</div>';
-    idx++;
   });
   
+  // 超出部分包裹在可折叠容器中
+  if (showToggle) {
+    html += '<div id="orderItemsExtra" class="order-items-collapsible">';
+    hiddenItems.forEach(function(item) {
+      var price = (item.price * (item.year || 1)).toFixed(2);
+      var name = item.productName || item.name || '';
+      html += '<div class="flex justify-between py-2 border-t border-dashed border-slate-200">';
+      html += '<span>' + escapeHtml(name) + ' <span class="text-muted">× ' + (item.year || 1) + '年</span></span>';
+      html += '<span class="font-medium">¥' + price + '</span>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+  
   container.innerHTML = html;
+  
+  // 展开/收起按钮
+  var toggleEl = document.getElementById('orderItemsToggle');
+  if (!toggleEl) {
+    toggleEl = document.createElement('div');
+    toggleEl.id = 'orderItemsToggle';
+    container.parentNode.insertBefore(toggleEl, container.nextSibling);
+  }
+  
+  if (showToggle) {
+    toggleEl.innerHTML = ''
+      + '<div class="order-items-toggle-wrap" onclick="toggleOrderItems()">'
+      + '<span class="toggle-text">展开全部</span>'
+      + '<span class="toggle-count font-medium">(' + hiddenItems.length + ' 件)</span>'
+      + '<span class="toggle-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>'
+      + '</div>';
+    toggleEl.style.display = '';
+  } else {
+    toggleEl.style.display = 'none';
+  }
+}
+
+function toggleOrderItems() {
+  var extra = document.getElementById('orderItemsExtra');
+  var wrap = document.querySelector('.order-items-toggle-wrap');
+  if (!extra || !wrap) return;
+  var text = wrap.querySelector('.toggle-text');
+  var count = wrap.querySelector('.toggle-count');
+  var icon = wrap.querySelector('.toggle-icon');
+  var isExpanded = extra.classList.contains('expanded');
+  
+  extra.classList.toggle('expanded');
+  if (icon) icon.classList.toggle('expanded');
+  
+  if (isExpanded) {
+    if (text) text.textContent = '展开全部';
+    if (count) count.style.display = '';
+  } else {
+    if (text) text.textContent = '收起';
+    if (count) count.style.display = 'none';
+  }
 }
 
 function renderOrderSummary(items) {
@@ -514,12 +588,10 @@ function selectPaymentMethod(method) {
 
 function submitPayment() {
   var cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-  var registrantInfo = JSON.parse(localStorage.getItem('registrantInfo') || 'null');
   
   var orderData = {
     orderNo: 'XD' + Date.now(),
     items: cartItems.filter(function(it) { return it.selected; }),
-    registrant: registrantInfo,
     paymentMethod: selectedPaymentMethod,
     createTime: new Date().toISOString()
   };
@@ -539,29 +611,6 @@ function switchBalanceMode(mode) {
 
 function sendBalanceCode() {
   alert('验证码已发送至您的绑定手机，请注意查收');
-}
-
-function getCertTypeText(type) {
-  var map = {
-    idcard: '居民身份证',
-    passport: '护照',
-    other: '其他',
-    business: '工商营业执照',
-    org: '组织机构代码证'
-  };
-  return map[type] || type;
-}
-
-function maskIdNumber(id) {
-  if (!id) return '';
-  if (id.length <= 6) return id;
-  return id.substring(0, 3) + '****' + id.substring(id.length - 3);
-}
-
-function maskPhone(phone) {
-  if (!phone) return '';
-  if (phone.length <= 7) return phone;
-  return phone.substring(0, 3) + '****' + phone.substring(phone.length - 4);
 }
 
 function escapeHtml(str) {

@@ -163,26 +163,16 @@ tailwind.config = {
           <div class="flex items-center justify-between">
             <div class="step-item completed">
               <div class="step-num">1</div>
-              <span class="step-text">加入购物车</span>
+              <span class="step-text">购物车订单</span>
             </div>
             <div class="step-line active"></div>
             <div class="step-item completed">
               <div class="step-num">2</div>
-              <span class="step-text">订单确认</span>
-            </div>
-            <div class="step-line active"></div>
-            <div class="step-item completed">
-              <div class="step-num">3</div>
-              <span class="step-text">资料填写</span>
-            </div>
-            <div class="step-line active"></div>
-            <div class="step-item completed">
-              <div class="step-num">4</div>
               <span class="step-text">付款下单</span>
             </div>
             <div class="step-line active"></div>
             <div class="step-item current">
-              <div class="step-num">5</div>
+              <div class="step-num">3</div>
               <span class="step-text">支付完成</span>
             </div>
           </div>
@@ -197,25 +187,13 @@ tailwind.config = {
           <p class="text-muted">您的订单已成功提交，我们将尽快为您处理</p>
         </div>
 
-        <!-- 重要提示 -->
-        <div class="tip-card">
-          <div class="tip-icon">!</div>
-          <div class="tip-content">
-            <div class="tip-title">重要提示</div>
-            <div class="tip-text">
-              域名注册通常需要 1-3 个工作日完成审核。<br>
-              如您选择了"申请资料挂靠"，我们将代为完成实名认证流程。<br>
-              审核结果将通过短信和邮件通知您，请保持联系信息畅通。
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- 右侧栏 -->
-      <div class="lg:col-span-4">
-        <div class="sticky top-24 space-y-4">
+      <div class="lg:col-span-4 flex flex-col">
+        <div class="sticky top-24 space-y-4 flex flex-col flex-1">
           <!-- 订单汇总 -->
-          <div class="cart-summary-card">
+          <div class="cart-summary-card flex-1">
             <h4 class="font-bold text-body text-base mb-4">订单汇总</h4>
             <div class="text-xs text-muted mb-3 border-b border-dashed border-slate-200 pb-3" id="orderMeta">
               <div class="flex justify-between mb-1.5">
@@ -225,10 +203,6 @@ tailwind.config = {
               <div class="flex justify-between mb-1.5">
                 <span>支付方式</span>
                 <span id="summaryPayment" class="text-body font-medium"></span>
-              </div>
-              <div class="flex justify-between mb-1.5">
-                <span>注册类型</span>
-                <span id="summaryRegType" class="text-body font-medium"></span>
               </div>
               <div class="flex justify-between">
                 <span>下单时间</span>
@@ -247,56 +221,11 @@ tailwind.config = {
             </div>
           </div>
 
-          <!-- 操作卡片 -->
-          <div class="space-y-4">
-            <div class="action-card" onclick="window.location.href='user.html'">
-              <div class="action-icon blue">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              </div>
-              <div class="action-content">
-                <div class="action-title">查看订单</div>
-                <div class="action-desc">在用户中心查看订单状态和详情</div>
-              </div>
-            </div>
-
-            <div class="action-card" onclick="window.location.href='products-domain.html'">
-              <div class="action-icon orange">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-              </div>
-              <div class="action-content">
-                <div class="action-title">购买更多服务</div>
-                <div class="action-desc">云主机、企业邮箱等产品</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 服务保障 -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
-            <h5 class="text-sm font-bold text-body mb-3">服务保障</h5>
-            <div class="space-y-2 text-xs text-muted">
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                <span>7×24 小时技术支持</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                <span>未注册成功全额退款</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                <span>实名信息加密传输</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 联系我们 -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 class="font-bold text-lg text-body mb-4">联系我们</h3>
-            <div style="font-size:13px;color:#64748B;line-height:1.8;">
-              <div>客服热线：400-888-8888</div>
-              <div>工作时间：9:00 - 21:00</div>
-            <div>电子邮箱：support@xicel.com</div>
-          </div>
+          <!-- 查看订单 - 紧凑按钮 -->
+          <a href="user.html#panel-orders" class="block w-full text-center bg-primary hover:bg-primary-dark text-white rounded-xl py-2.5 text-sm font-medium transition-colors">
+            <svg class="inline-block w-4 h-4 mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            查看订单
+          </a>
         </div>
       </div>
     </div>
@@ -340,7 +269,6 @@ function renderSummaryMeta(orderData) {
 
   document.getElementById('summaryOrderNo').textContent = orderData.orderNo || '';
   document.getElementById('summaryPayment').textContent = getPaymentMethodText(orderData.paymentMethod);
-  document.getElementById('summaryRegType').textContent = orderData.registrant && orderData.registrant.type === 'personal' ? '个人用户' : '企业用户';
   document.getElementById('summaryCreateTime').textContent = formatDateTime(orderData.createTime);
   document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
 }
@@ -359,30 +287,11 @@ function renderOrderSummary(items) {
   document.getElementById('sumCount').textContent = count + ' 件';
   document.getElementById('sumTotal').textContent = '¥' + total.toFixed(2);
 
-  // 动态按商品类型生成汇总行
-  var typeMap = {};
-  selected.forEach(function(it) {
-    var type = it.productType || '其他';
-    if (!typeMap[type]) typeMap[type] = { count: 0, regCount: 0 };
-    typeMap[type].count++;
-    if (type === '域名注册' && it.regService) {
-      typeMap[type].regCount++;
-    }
-  });
-  var summaryHtml = '';
-  Object.keys(typeMap).forEach(function(type) {
-    var info = typeMap[type];
-    summaryHtml += '<div class="cart-summary-row">'
-      + '<span>' + escapeHtml(type) + '</span>'
-      + '<strong>' + info.count + ' 件</strong>'
-      + '</div>';
-    if (type === '域名注册') {
-      summaryHtml += '<div class="cart-summary-row">'
-        + '<span>申请资料挂靠</span>'
-        + '<strong class="text-green-600">' + info.regCount + ' / ' + info.count + '</strong>'
-        + '</div>';
-    }
-  });
+  // 展示订单明细
+  var summaryHtml = '<div class="cart-summary-row">'
+    + '<span>域名注册</span>'
+    + '<strong>' + count + ' 件</strong>'
+    + '</div>';
   document.getElementById('productTypeSummary').innerHTML = summaryHtml;
 }
 

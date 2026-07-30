@@ -49,7 +49,7 @@
           </li>
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span>深圳市龙华区汇隆大厦</span>
+            <span>深圳市龙华区汇隆大厦1105</span>
           </li>
         </ul>
         <div class="w-[120px] h-[120px] rounded-xl border border-slate-200 overflow-hidden bg-white">

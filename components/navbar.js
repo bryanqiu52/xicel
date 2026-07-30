@@ -3,6 +3,15 @@
  * 用法：在页面 <body> 顶部放置 <div id="navbar-container"></div>，然后引入此脚本即可。
  * 自动注入完整导航 HTML、高亮当前页面、初始化滚动阴影。
  */
+
+/* ===== 弹窗滚动锁定（scrollbar-gutter: stable 保证不抖动） ===== */
+window.lockBodyScroll = function () {
+  document.body.style.overflow = 'hidden';
+};
+window.unlockBodyScroll = function () {
+  document.body.style.overflow = '';
+};
+
 (function () {
   'use strict';
 
@@ -326,7 +335,7 @@
     var query = input ? input.value.trim() : '';
     if (!query) { window.location.href = 'domain-search.html'; return; }
     if (query.indexOf('.') === 0) {
-      window.location.href = 'domain-order.html?domain=' + encodeURIComponent(query);
+      window.location.href = 'domain-search.html?suffix=' + encodeURIComponent(query);
     } else {
       window.location.href = 'domain-search.html?q=' + encodeURIComponent(query);
     }
@@ -344,7 +353,7 @@
       l1.style.transform = 'rotate(45deg) translate(5px,5px)';
       l2.style.opacity = '0';
       l3.style.transform = 'rotate(-45deg) translate(5px,-5px)';
-      document.body.style.overflow = 'hidden';
+      lockBodyScroll();
     } else {
       closeMobileMenu();
     }
@@ -361,7 +370,7 @@
     if (l2) l2.style.opacity = '';
     var l3 = document.getElementById('ham-line3');
     if (l3) l3.style.transform = '';
-    document.body.style.overflow = '';
+    unlockBodyScroll();
   }
 
   /** 退出登录 */
@@ -714,7 +723,7 @@
   function closeModal() {
     if (!modalOverlay) return;
     modalOverlay.classList.remove('show');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
     if (currentCloseCallback) {
       currentCloseCallback();
       currentCloseCallback = null;
@@ -754,7 +763,7 @@
     footerEl.innerHTML = '<button class="xicel-modal-btn ok" onclick="closeModal()">确定</button>';
 
     currentCloseCallback = onClose || null;
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
     modalOverlay.classList.add('show');
   }
 
@@ -780,7 +789,7 @@
 
     currentConfirmCallback = onConfirm || null;
     currentCloseCallback = null;
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
     modalOverlay.classList.add('show');
   }
 

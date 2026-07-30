@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -130,9 +130,9 @@ function handleDomainSearch() {
     return;
   }
 
-  // 域名注册：如果用户输入的是域名后缀（以 . 开头，如 .com / .cn），直接跳订单页
+  // 域名注册：如果输入后缀，跳搜索页并填入输入框
   if (query.indexOf('.') === 0) {
-    window.location.href = 'domain-order.html?domain=' + encodeURIComponent(query);
+    window.location.href = 'domain-search.html?suffix=' + encodeURIComponent(query);
   } else {
     if (currentDomainRegisterMode === 'explore') {
       // 域名探索模式：判断是否包含完整域名
@@ -242,7 +242,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥98<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.com" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.com" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".cn" cursor-pointer>
@@ -255,7 +255,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-red-500">¥35<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".net" cursor-pointer>
@@ -270,7 +270,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥79<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.net" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.net" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".com.cn" cursor-pointer>
@@ -283,7 +283,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-red-500">¥39<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.com.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.com.cn" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".top" cursor-pointer>
@@ -298,7 +298,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥9<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.top" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.top" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".xyz" cursor-pointer>
@@ -313,7 +313,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥8<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.xyz" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.xyz" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".site" cursor-pointer>
@@ -328,7 +328,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥15<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.site" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.site" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".shop" cursor-pointer>
@@ -343,7 +343,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥68<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.shop" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.shop" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".vip" cursor-pointer>
@@ -358,7 +358,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥29<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.vip" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.vip" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".club" cursor-pointer>
@@ -373,7 +373,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥19<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.club" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.club" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".work" cursor-pointer>
@@ -388,7 +388,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥12<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.work" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.work" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
       <div class="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col" data-domain=".link" cursor-pointer>
@@ -403,7 +403,7 @@ function handleDomainSearch() {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-base font-semibold text-primary">¥25<span class="text-xs font-normal text-muted">/首年</span></div>
-          <a href="domain-order.html?domain=.link" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
+          <a href="domain-search.html?suffix=.link" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">注册 →</a>
         </div>
       </div>
           </div>
@@ -445,7 +445,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥145.50</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="Rapid DV 单域名" data-price="145.50" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -475,7 +475,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥95.40</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="Wosign DV 单域名" data-price="95.40" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -500,7 +500,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥1,074.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="GeoTrust OV 单域名" data-price="1074.00" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -525,7 +525,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥2,236.80</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="Globatsign OV 单域名" data-price="2236.80" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -550,7 +550,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥850.50</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="Digicert DV 通配符" data-price="850.50" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -574,7 +574,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥3,430.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="CFCA SSL 证书" data-price="3430.00" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -598,7 +598,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥270.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="SSL证书托管服务" data-price="270.00" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -622,7 +622,7 @@ function handleDomainSearch() {
               <div class="text-[11px] text-muted line-through mt-0.5">¥30.00</div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-3">
-              <button class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
+              <button data-product-type="SSL证书" data-product-name="SSL证书部署服务" data-price="30.00" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
               <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
             </div>
           </div>
@@ -1394,8 +1394,8 @@ function handleDomainSearch() {
   </div>
 </div>
 <script>
-function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; document.body.style.overflow='hidden'; }
-function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; document.body.style.overflow=''; }
+function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; lockBodyScroll(); }
+function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; unlockBodyScroll(); }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
 </script>
 
@@ -1406,29 +1406,33 @@ function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我�
     var btn = e.target.closest && e.target.closest('.add-to-cart-btn');
     if (!btn) return;
 
-    // 读取卡片信息：商品名称、周期、价格
-    var card = btn.closest('.bg-white');
-    if (!card) return;
-    var nameEl = card.querySelector('h4');
-    var productName = nameEl ? nameEl.textContent.trim() : 'SSL 证书';
-    // 价格：抓 text-[28px] 那个数字
-    var priceEl = card.querySelector('[class*="text-[28px]"]');
-    var price = priceEl ? parseFloat(priceEl.textContent.replace(/,/g,'')) : 0;
-    // 周期：往上找 "6个月" / "1年"
-    var cycleEl = Array.from(card.querySelectorAll('span')).find(function(s){
-      return /(\d+个月|\d+年|个月|年)$/.test(s.textContent.trim());
-    });
-    var year = 1;
-    var cycleText = cycleEl ? cycleEl.textContent.trim() : '1年';
-    if (/(\d+)个月/.test(cycleText)) year = parseInt(RegExp.$1, 10) / 12;
-    else if (/(\d+)年/.test(cycleText)) year = parseInt(RegExp.$1, 10);
+    // 优先读 data-* 属性，没有则从 DOM 解析
+    var productName = btn.getAttribute('data-product-name');
+    var productType = btn.getAttribute('data-product-type') || 'SSL证书';
+    var price = parseFloat(btn.getAttribute('data-price')) || 0;
+    var year = parseFloat(btn.getAttribute('data-year')) || 1;
+
+    if (!productName) {
+      var card = btn.closest('.bg-white');
+      if (!card) return;
+      var nameEl = card.querySelector('h4');
+      productName = nameEl ? nameEl.textContent.trim() : 'SSL 证书';
+      var priceEl = card.querySelector('[class*="text-[28px]"]');
+      price = priceEl ? parseFloat(priceEl.textContent.replace(/,/g,'')) : 0;
+      var cycleEl = Array.from(card.querySelectorAll('span')).find(function(s){
+        return /(\d+个月|\d+年|个月|年)$/.test(s.textContent.trim());
+      });
+      var cycleText = cycleEl ? cycleEl.textContent.trim() : '1年';
+      if (/(\d+)个月/.test(cycleText)) year = parseInt(RegExp.$1, 10) / 12;
+      else if (/(\d+)年/.test(cycleText)) year = parseInt(RegExp.$1, 10);
+    }
 
     var item = {
       id: 'ssl-' + productName.replace(/\s+/g, '-'),
-      productType: 'SSL证书',
+      productType: productType,
       productName: productName,
       year: year,
-      cycleText: cycleText,
+      cycleText: (year < 1 ? Math.round(year * 12) + '个月' : year + '年'),
       price: price,
       regStatus: '—'
     };
