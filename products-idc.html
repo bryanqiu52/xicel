@@ -2210,7 +2210,7 @@ function addSslToCart(name, price, btn){
   var item = {
     id: 'ssl-' + name + '-' + sslCurrentType + '-' + Date.now(),
     productType: 'SSL证书',
-    productName: name + '（' + typeLabel + '）',
+    productName: name + ' · ' + typeLabel,
     price: price,
     quantity: 1,
     selected: true,
@@ -2443,7 +2443,7 @@ document.getElementById('cloudOrderSubmitBtn').addEventListener('click', functio
   var item = {
     id: 'cloud-' + cloudCurrentKey + '-' + cloudCurrentRegion + '-' + cloudCurrentYears + 'y-' + Date.now(),
     productType: '云服务器',
-    productName: data.name + '（' + regionLabel + '）',
+    productName: data.name + ' · ' + regionLabel,
     version: data.name,
     region: regionLabel,
     tag: data.tag,
@@ -2463,6 +2463,17 @@ document.getElementById('cloudOrderSubmitBtn').addEventListener('click', functio
 });
 
 /* ========== 下拉框统一交互（年限 + 类型套餐 + 表单下拉） ========== */
+
+// 关闭下拉面板并还原触发按钮上的箭头 open 类
+function closeDropdownPanel(panel){
+  if(!panel) return;
+  if(panel._btn){
+    var arr = panel._btn.querySelector('.dropdown-arrow');
+    if(arr) arr.classList.remove('open');
+  }
+  panel.remove();
+}
+
 document.addEventListener('click', function(e){
   // 先检查是否是表单下拉框
   var formBtn = e.target.closest('.form-dropdown-trigger');
@@ -2470,9 +2481,14 @@ document.addEventListener('click', function(e){
     e.preventDefault();
     e.stopPropagation();
 
-    // 关闭其他已打开的面板
+    // 二次点击同一按钮：直接关闭面板
     var existing = document.querySelector('.dropdown-panel');
-    if(existing) existing.remove();
+    if(existing && existing._btn === formBtn){
+      closeDropdownPanel(existing);
+      return;
+    }
+    // 关闭其他已打开的面板（并还原其箭头）
+    if(existing) closeDropdownPanel(existing);
 
     var rect = formBtn.getBoundingClientRect();
 
@@ -2555,7 +2571,7 @@ document.addEventListener('click', function(e){
           textEl.className = val ? '' : 'dd-placeholder';
         }
         var p = this.closest('.dropdown-panel');
-        if(p) p.remove();
+        if(p) closeDropdownPanel(p);
       });
 
       inner.appendChild(opt);
@@ -2563,6 +2579,7 @@ document.addEventListener('click', function(e){
 
     panel.appendChild(inner);
     document.body.appendChild(panel);
+    panel._btn = formBtn;
 
     // 箭头旋转
     var arrow = formBtn.querySelector('.dropdown-arrow');
@@ -2573,7 +2590,7 @@ document.addEventListener('click', function(e){
       var closeHandler = function(ev){
         if(!ev.target.closest('.dropdown-panel') && !ev.target.closest('.form-dropdown-trigger')){
           var p = document.querySelector('.dropdown-panel');
-          if(p) p.remove();
+          if(p) closeDropdownPanel(p);
           document.removeEventListener('click', closeHandler);
         }
       };
@@ -2590,9 +2607,14 @@ document.addEventListener('click', function(e){
   // 只处理云服务器/邮箱的年限下拉和类型套餐下拉
   if(btn.id !== 'cloudYearsBtn' && btn.id !== 'mailYearsBtn' && btn.id !== 'cloudVersionBtn' && btn.id !== 'mailVersionBtn') return;
 
-  // 关闭其他已打开的面板
+  // 二次点击同一按钮：直接关闭面板
   var existing = document.querySelector('.dropdown-panel');
-  if(existing) existing.remove();
+  if(existing && existing._btn === btn){
+    closeDropdownPanel(existing);
+    return;
+  }
+  // 关闭其他已打开的面板（并还原其箭头）
+  if(existing) closeDropdownPanel(existing);
 
   var rect = btn.getBoundingClientRect();
   var panel = document.createElement('div');
@@ -2645,7 +2667,7 @@ document.addEventListener('click', function(e){
 
         // 关闭面板
         var p = this.closest('.dropdown-panel');
-        if(p) p.remove();
+        if(p) closeDropdownPanel(p);
       });
 
       inner.appendChild(opt);
@@ -2683,7 +2705,7 @@ document.addEventListener('click', function(e){
         }
         refreshCloudDetail();
         var p = this.closest('.dropdown-panel');
-        if(p) p.remove();
+        if(p) closeDropdownPanel(p);
       });
 
       inner.appendChild(opt);
@@ -2721,7 +2743,7 @@ document.addEventListener('click', function(e){
         }
         calcMailTotal();
         var p = this.closest('.dropdown-panel');
-        if(p) p.remove();
+        if(p) closeDropdownPanel(p);
       });
 
       inner.appendChild(opt);
@@ -2730,13 +2752,14 @@ document.addEventListener('click', function(e){
 
   panel.appendChild(inner);
   document.body.appendChild(panel);
+  panel._btn = btn;
 
   // 点击面板外部关闭
   setTimeout(function(){
     var closeHandler = function(ev){
       if(!ev.target.closest('.dropdown-panel') && !ev.target.closest('#cloudYearsBtn') && !ev.target.closest('#mailYearsBtn') && !ev.target.closest('#cloudVersionBtn') && !ev.target.closest('#mailVersionBtn') && !ev.target.closest('.form-dropdown-trigger')){
         var p = document.querySelector('.dropdown-panel');
-        if(p) p.remove();
+        if(p) closeDropdownPanel(p);
         document.removeEventListener('click', closeHandler);
       }
     };
@@ -2747,7 +2770,7 @@ document.addEventListener('click', function(e){
 // 滚动时关闭所有下拉面板（排除下拉面板内部滚动）
 window.addEventListener('scroll', function(e){
     var p = document.querySelector('.dropdown-panel');
-    if(p && !p.contains(e.target)) p.remove();
+    if(p && !p.contains(e.target)) closeDropdownPanel(p);
   }, true);
 </script>
 

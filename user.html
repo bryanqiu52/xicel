@@ -4933,6 +4933,7 @@ var BATCH_ITEMS = {
       document.removeEventListener('click', closeOnGlobalClick);
     };
 
+    panel._btn = btn;
     activePanel = panel;
     window.addEventListener('scroll', closeOnScroll, { once: true });
     setTimeout(function() { document.addEventListener('click', closeOnGlobalClick); }, 0);
@@ -6182,6 +6183,7 @@ function updateSubaccountStats() {
       document.removeEventListener('click', closeOnGlobalClick);
     };
 
+    panel._btn = btn;
     activePanel = panel;
     window.addEventListener('scroll', closeOnScroll, { once: true });
     setTimeout(function() { document.addEventListener('click', closeOnGlobalClick); }, 0);
@@ -7513,6 +7515,7 @@ function closeNoticeDetail(e) {
       document.removeEventListener('click', closeOnGlobalClick);
     };
 
+    panel._btn = triggerBtn;
     activePanel = panel;
     window.addEventListener('scroll', closeOnScroll, { once: true });
     setTimeout(function() { document.addEventListener('click', closeOnGlobalClick); }, 0);
