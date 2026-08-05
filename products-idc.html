@@ -441,8 +441,8 @@ tailwind.config = {
             </p>
             <div class="grid sm:grid-cols-3 gap-4">
               <div class="bg-white rounded-xl p-4 border border-slate-100">
-                <div class="text-primary font-bold text-lg mb-1">🏢 17个节点</div>
-                <div class="text-sm text-muted">中国6个 + 海外11个</div>
+                <div class="text-primary font-bold text-lg mb-1">🏢 30+个节点</div>
+                <div class="text-sm text-muted">包含国内和海外节点</div>
               </div>
               <div class="bg-white rounded-xl p-4 border border-slate-100">
                 <div class="text-accent font-bold text-lg mb-1">⚡ T3+等级机房</div>
@@ -467,8 +467,7 @@ tailwind.config = {
         <div class="hosting-region-wrap">
           <div class="hosting-region-header">
             <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/map-pin.svg');mask-image:url('assets/icons/outline/map-pin.svg')"></span>
-            <span class="text-base font-bold text-body">国内机房</span>
-            <span class="text-xs text-muted ml-auto">6个节点</span>
+            <span class="text-base font-bold text-body">国内热门机房</span>
           </div>
           <div class="grid grid-cols-3 gap-3">
             <div class="hosting-loc-card hs-animate"><span class="loc-name">中国香港</span><span class="loc-en">Hong Kong</span></div>
@@ -482,8 +481,7 @@ tailwind.config = {
         <div class="hosting-region-wrap">
           <div class="hosting-region-header">
             <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span>
-            <span class="text-base font-bold text-body">海外机房</span>
-            <span class="text-xs text-muted ml-auto">11个节点</span>
+            <span class="text-base font-bold text-body">海外热门机房</span>
           </div>
           <div class="grid grid-cols-3 gap-3">
             <div class="hosting-loc-card hs-animate"><span class="loc-name">美国</span><span class="loc-en">USA</span></div>
@@ -2232,6 +2230,8 @@ function switchIdcSubtab(s){
   history.replaceState(null,'','?subtab='+s);
   document.querySelectorAll('.idc-subtab').forEach(function(b){b.classList.remove('tab-active-idc');b.classList.add('border-transparent','text-muted');});
   var ab=document.getElementById('subtab-'+s);ab.classList.add('tab-active-idc');ab.classList.remove('border-transparent','text-muted');
+  // 切换面板后重测地图画布尺寸（面板由隐藏变显示时画布宽高会从 0 恢复，必须重新初始化才能画出来）
+  if(window.__initNetworkMap) window.__initNetworkMap();
 }
 document.querySelectorAll('.idc-subtab').forEach(function(b){b.addEventListener('click',function(){switchIdcSubtab(b.dataset.subtab);});});
 (function(){var p=new URLSearchParams(window.location.search),s=p.get('subtab')||'network';if(['network','hosting','web','ssl','mail','cloud'].indexOf(s)===-1)s='network';switchIdcSubtab(s);})();
@@ -2774,6 +2774,10 @@ window.addEventListener('scroll', function(e){
   }, true);
 </script>
 
+<!-- 地图数据（script 注入，兼容 file:// 直接打开与 HTTP 服务器访问） -->
+<script src="assets/geo/110m_land.js"></script>
+<script src="assets/geo/countries-110m.js"></script>
+
 <!-- ===== 全球机房网络图 Canvas ===== -->
 <script>
 (function(){
@@ -2943,26 +2947,15 @@ window.addEventListener('scroll', function(e){
     return polys;
   }
 
-  /* ---- 从 CDN 加载真实世界地图 ---- */
-  fetch('https://unpkg.com/ne110m_fixes/world/110m_land.geojson')
-    .then(function(r){return r.json();})
-    .then(function(geo){
-      landData=parseGeoJSON(geo);
-      dataReady=true;
-      if(W) drawStatic();
-    })
-    .catch(function(){dataReady=true;});
-
-  /* ---- 加载中国国界轮廓（world-atlas TopoJSON） ---- */
-  fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
-    .then(function(r){return r.json();})
-    .then(function(topo){
-      chinaOutlineData=parseChinaTopoJSON(topo);
-      if(W) drawStatic();
-    })
-    .catch(function(){});
+  /* ---- 读取本地地图数据（window.GEO_LAND / GEO_COUNTRIES 由 script 标签注入，兼容 file:// 与 http） ---- */
+  if(window.GEO_LAND){ landData=parseGeoJSON(window.GEO_LAND); }
+  if(window.GEO_COUNTRIES){ chinaOutlineData=parseChinaTopoJSON(window.GEO_COUNTRIES); }
+  if(W) drawStatic();
 
   function init(){
+    // 先清空内联宽高，让 w-full/h-full(100%) 生效；否则面板隐藏时残留的 width:0px 会覆盖 100%，永远量不到真实尺寸
+    cvs.style.width = '';
+    cvs.style.height = '';
     var rect = cvs.getBoundingClientRect();
     var dpr = window.devicePixelRatio||1;
     W = rect.width; H = rect.height;
@@ -3047,15 +3040,15 @@ window.addEventListener('scroll', function(e){
         });
       });
     }else{
-      // 回退：手绘大洲
+      // 回退：手绘大洲（颜色加深，保证离线也清晰可见）
       continents.forEach(function(ct){
         c.beginPath();
         ct.pts.forEach(function(p,i){
           i===0?c.moveTo(p[0]*sw,p[1]*sh):c.lineTo(p[0]*sw,p[1]*sh);
         });
         c.closePath();
-        c.fillStyle=ct.fill; c.fill();
-        c.strokeStyle=ct.stroke; c.lineWidth=0.8; c.stroke();
+        c.fillStyle='rgba(190,198,210,0.45)'; c.fill();
+        c.strokeStyle='rgba(120,132,148,0.6)'; c.lineWidth=0.8; c.stroke();
       });
     }
 
@@ -3103,6 +3096,9 @@ window.addEventListener('scroll', function(e){
   }
 
   function animate(){
+    // 画布无尺寸时跳过绘制（drawImage 源宽高为 0 会抛异常中断循环），保持 RAF 继续，
+    // 等面板显示后 init() 恢复尺寸即可正常绘制
+    if(!W || !H){ requestAnimationFrame(animate); return; }
     ctx.clearRect(0,0,W,H);
     // 填充背景防边缘留白
     var bg=ctx.createLinearGradient(0,0,0,H);
@@ -3207,6 +3203,9 @@ window.addEventListener('scroll', function(e){
     clearTimeout(resizeTimer);
     resizeTimer=setTimeout(init,200);
   });
+
+  // 暴露给 switchIdcSubtab：面板隐藏/显示切换后重新测量画布尺寸并重绘
+  window.__initNetworkMap = init;
 
   if(document.readyState==='complete'||document.readyState==='interactive'){
     init(); animate();
