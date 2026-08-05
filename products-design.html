@@ -59,6 +59,51 @@ tailwind.config = {
     <h3 class="text-2xl font-bold text-body mb-2">品牌设计</h3>
     <p class="text-lg text-muted mb-14">从LOGO到VI系统，全方位打造识别度强的品牌视觉体系。</p>
 
+    <!-- Price -->
+    <div class="mb-20">
+      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-6">品牌设计价格</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">LOGO 设计</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥1,000 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">品牌LOGO全案设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>3款初稿方案</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>AI/PNG源文件</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>标准制图规范</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>多轮修改服务</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">VI 视觉系统</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥3,000 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">企业VI视觉全案</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>LOGO全方案</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>VI手册 60P+</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>名片/信纸/手提袋</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>多轮修改服务</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">品牌全案</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥6,000 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">品牌全案策略设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>品牌策略报告</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>LOGO+VI全案</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>品牌手册+画册</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>IP形象设计</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>域名+商标建议</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ===== Apply / 申请表 ===== -->
     <div class="mb-12">
       <div class="ip-section-title"><span class="tag">Apply</span><span class="line"></span></div>
@@ -245,52 +290,6 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- Price -->
-    <div class="mb-20">
-      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
-      <h2 class="text-3xl font-bold text-body mb-6">品牌设计价格</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">LOGO 设计</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥1,000 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">品牌LOGO全案设计</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>3款初稿方案</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>AI/PNG源文件</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>标准制图规范</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>多轮修改服务</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card featured rounded-2xl p-6 flex flex-col">
-          <div class="price-badge">推荐</div>
-          <h3 class="text-lg font-bold text-body mb-2">VI 视觉系统</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥3,000 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">企业VI视觉全案</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>LOGO全方案</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>VI手册 60P+</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>名片/信纸/手提袋</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>多轮修改服务</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">品牌全案</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥6,000 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">品牌全案策略设计</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>品牌策略报告</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>LOGO+VI全案</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>品牌手册+画册</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>IP形象设计</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>域名+商标建议</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ -->
     <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
@@ -328,6 +327,46 @@ tailwind.config = {
     <div class="gradient-section-title"><span class="en-tag">Packaging</span><span class="line"></span></div>
     <h3 class="text-2xl font-bold text-body mb-2">包装设计</h3>
     <p class="text-lg text-muted mb-14">从产品包装到礼盒套装，从标签贴纸到效果图渲染，让你的产品在货架上脱颖而出。</p>
+
+    <!-- Price -->
+    <div class="mb-20">
+      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-6">包装设计价格</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">包装设计</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥1,500 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">产品包装全案设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>2-3 套方案</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>3D 效果图</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>印刷级源文件</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">礼盒套装</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥3,000 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">礼盒/套装全案设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>外盒设计</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>展示效果图</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>规范文件</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">更多包装视觉</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥??</div>
+          <p class="text-sm text-muted mb-4">按需定制设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>定制化服务</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>免费咨询</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ===== Apply / 申请表 ===== -->
     <div class="mb-12">
@@ -497,48 +536,6 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- Price -->
-    <div class="mb-20">
-      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
-      <h2 class="text-3xl font-bold text-body mb-6">包装设计价格</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">包装设计</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥1,500 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">产品包装全案设计</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>2-3 套方案</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>3D 效果图</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>印刷级源文件</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card featured rounded-2xl p-6 flex flex-col">
-          <div class="price-badge">推荐</div>
-          <h3 class="text-lg font-bold text-body mb-2">礼盒套装</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥3,000 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">礼盒/套装全案设计</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>外盒+内衬设计</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>展示效果图</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>刀版图+规范文件</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">标签贴纸</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥500 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">标签/贴纸设计</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>2-3 款样式</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>多规格适配</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>印刷级源文件</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ -->
     <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
@@ -577,6 +574,47 @@ tailwind.config = {
     <h3 class="text-2xl font-bold text-body mb-2">电商设计</h3>
     <p class="text-lg text-muted mb-14">主图/详情页/店铺装修/活动页，覆盖主流平台，提升转化率。</p>
 
+    <!-- Price -->
+    <div class="mb-20">
+      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-6">电商设计价格</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">单品详情页</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥699<span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">单款主图+详情页长图</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>主图5-6张</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>详情页1套</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>PSD源文件</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">店铺全案包</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥2,999<span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">整店视觉全案设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>拍套单款产品主图</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>配套详情页企业模版</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>店铺首页装修</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>配套活动海报</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">更多电商视觉</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥??</div>
+          <p class="text-sm text-muted mb-4">按需定制设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>定制化服务</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>免费咨询</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ===== Apply / 申请表 ===== -->
     <div class="mb-12">
       <div class="ip-section-title"><span class="tag">Apply</span><span class="line"></span></div>
@@ -611,15 +649,15 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 平台按钮 -->
+    <!-- 平台展示 -->
     <div class="mb-14">
       <div class="ip-section-title"><span class="tag">Platform</span><span class="line"></span></div>
       <h2 class="text-3xl font-bold text-body mb-6">支持电商平台</h2>
-      <div class="flex flex-wrap gap-4">
-        <button class="design-platform-btn active px-6 py-3 rounded-xl border-2 border-primary text-primary bg-[#EFF6FF] font-medium text-sm transition-all" onclick="switchEcommercePlatform(this,'taobao')">🍑 淘宝/天猫</button>
-        <button class="design-platform-btn px-6 py-3 rounded-xl border-2 border-slate-200 text-muted hover:border-primary hover:text-primary hover:bg-[#EFF6FF] font-medium text-sm transition-all" onclick="switchEcommercePlatform(this,'jd')">🐶 京东</button>
-        <button class="design-platform-btn px-6 py-3 rounded-xl border-2 border-slate-200 text-muted hover:border-primary hover:text-primary hover:bg-[#EFF6FF] font-medium text-sm transition-all" onclick="switchEcommercePlatform(this,'amazon')">📦 亚马逊</button>
-        <button class="design-platform-btn px-6 py-3 rounded-xl border-2 border-slate-200 text-muted hover:border-primary hover:text-primary hover:bg-[#EFF6FF] font-medium text-sm transition-all" onclick="switchEcommercePlatform(this,'duli')">🛒 独立站</button>
+      <div class="flex flex-wrap gap-x-10 gap-y-6">
+        <div class="text-muted font-medium text-sm inline-flex items-center gap-2"><svg viewBox="0 0 1024 1024" class="w-12 h-12 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M512 73.28A438.72 438.72 0 1 0 950.72 512 438.72 438.72 0 0 0 512 73.28zM301.44 266.4a52.64 52.64 0 1 1-52.64 52.64 52.64 52.64 0 0 1 52.64-52.64z m-23.68 464l-89.12-64s124.96-102.56 117.92-136.64-93.12-76.64-93.12-76.64l40-56.48s102.56 67.04 109.6 120.16-85.28 213.44-85.28 213.44z m529.44-100.16s-8.32 67.2-65.92 90.72-146.24 5.92-146.24 5.92l4.8-36.64s52.96 11.84 85.92 1.28a67.2 67.2 0 0 0 42.56-36.64V392a75.04 75.04 0 0 0-35.36-45.92c-30.72-18.72-46.08-16-79.04-11.68a393.44 393.44 0 0 0-83.68 28.16l-28.16 55.36h190.88v37.76H576v47.2h121.6v32.96l-119.04 4.64v89.6l56.64-24.8-4.64-38.88 45.92-9.44 34.08 89.6L654.08 672l-7.2-32s-106.88 45.12-149.76 48-84.96-6.72-105.44-35.68-16-87.2-16-87.2l76.16 1.92a82.08 82.08 0 0 0 9.12 54.08c15.04 20.96 48.96 16 48.96 16v-99.04l-117.76-3.52v-32H512l-1.28-47.2-36.96-7.36s-30.56 48-50.72 46.56S400 466.24 400 466.24l64.8-80-35.2-3.68-53.12 62.56-40-35.36a294.56 294.56 0 0 0 51.84-64 281.28 281.28 0 0 0 30.56-75.36l64.8 25.92-18.88 36.48s4.8 4.8 21.28 2.4 124.96-56.48 199.04-43.52 121.44 71.84 121.44 117.76z" fill="#FC8848"/></svg>淘宝/天猫</div>
+        <div class="text-muted font-medium text-sm inline-flex items-center gap-2"><svg viewBox="0 0 1024 1024" class="w-12 h-12 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M512 954.2656c-251.71968 0-455.79264-204.07296-455.79264-455.79264S260.28032 42.69056 512 42.69056 967.79264 246.76352 967.79264 498.4832 763.71968 954.2656 512 954.2656z m96.32768-243.08736c114.24768 0 206.92992-101.888 206.92992-227.55328 0-125.6448-92.672-227.5328-206.92992-227.5328H470.31296v455.08608h138.01472z m-372.62336 0c91.46368 0 165.60128-71.92576 165.60128-160.6144V256.09216h-55.18336v294.44096c0 59.15648-49.408 107.1104-110.3872 107.1104h-27.58656v53.54496h27.58656-0.03072z m0 0" fill="#CB0507"/><path d="M608.32768 309.62688h-82.83136V657.6128h82.80064c83.83488 0 151.77728-77.90592 151.77728-173.98784s-67.9424-173.98784-151.77728-173.98784h0.03072z m0 0" fill="#CB0507"/></svg>京东</div>
+        <div class="text-muted font-medium text-sm inline-flex items-center gap-2"><svg viewBox="0 0 1024 1024" class="w-12 h-12 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M485 467.5c-11.6 4.9-20.9 12.2-27.8 22-6.9 9.8-10.4 21.6-10.4 35.5 0 17.8 7.5 31.5 22.4 41.2 14.1 9.1 28.9 11.4 44.4 6.8 17.9-5.2 30-17.9 36.4-38.1 3-9.3 4.5-19.7 4.5-31.3v-50.2c-12.6 0.4-24.4 1.6-35.5 3.7-11.1 2.1-22.4 5.6-34 10.4zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m35.8 262.7c-7.2-10.9-20.1-16.4-38.7-16.4-1.3 0-3 0.1-5.3 0.3-2.2 0.2-6.6 1.5-12.9 3.7-6.3 2.3-12.4 5.3-17.9 9.1-5.5 3.8-11.5 10-18 18.4-6.4 8.5-11.5 18.4-15.3 29.8l-94-8.4c0-12.4 2.4-24.7 7-36.9 4.7-12.2 11.8-23.9 21.4-35 9.6-11.2 21.1-21 34.5-29.4 13.4-8.5 29.6-15.2 48.4-20.3 18.9-5.1 39.1-7.6 60.9-7.6 21.3 0 40.6 2.6 57.8 7.7 17.2 5.2 31.1 11.5 41.4 19.1 10.3 7.5 18.9 16.1 25.9 25.7 6.9 9.6 11.7 18.5 14.4 26.7 2.7 8.2 4 15.7 4 22.8v182.5c0 6.4 1.4 13 4.3 19.8 2.9 6.8 6.3 12.8 10.2 18 3.9 5.2 7.9 9.9 12 14.3 4.1 4.3 7.6 7.7 10.6 9.9l4.1 3.4-72.5 69.4c-8.5-7.7-16.9-15.4-25.2-23.4-8.3-8-14.5-14-18.5-18.1l-6.1-6.2c-2.4-2.3-5-5.7-8-10.2-8.1 12.2-18.5 22.8-31.1 31.8-12.7 9-26.3 15.6-40.7 19.7-14.5 4.1-29.4 6.5-44.7 7.1-15.3 0.6-30-1.5-43.9-6.5-13.9-5-26.5-11.7-37.6-20.3-11.1-8.6-19.9-20.2-26.5-35-6.6-14.8-9.9-31.5-9.9-50.4 0-17.4 3-33.3 8.9-47.7 6-14.5 13.6-26.5 23-36.1 9.4-9.6 20.7-18.2 34-25.7s26.4-13.4 39.2-17.7c12.8-4.2 26.6-7.8 41.5-10.7 14.9-2.9 27.6-4.8 38.2-5.7 10.6-0.9 21.2-1.6 31.8-2v-39.4c0-13.5-2.3-23.5-6.7-30.1z m180.5 379.6c-2.8 3.3-7.5 7.8-14.1 13.5s-16.8 12.7-30.5 21.1c-13.7 8.4-28.8 16-45 22.9-16.3 6.9-36.3 12.9-60.1 18-23.7 5.1-48.2 7.6-73.3 7.6-25.4 0-50.7-3.2-76.1-9.6-25.4-6.4-47.6-14.3-66.8-23.7-19.1-9.4-37.6-20.2-55.1-32.2-17.6-12.1-31.7-22.9-42.4-32.5-10.6-9.6-19.6-18.7-26.8-27.1-1.7-1.9-2.8-3.6-3.2-5.1-0.4-1.5-0.3-2.8 0.3-3.7 0.6-0.9 1.5-1.6 2.6-2.2 1.1-0.5 2.3-0.7 3.7-0.6s2.6 0.6 3.7 1.4c40.9 24.2 72.9 41.3 95.9 51.4 82.9 36.4 168 45.7 255.3 27.9 40.5-8.3 82.1-22.2 124.9-41.8 3.2-1.2 6-1.5 8.3-0.9 2.3 0.6 3.5 2.4 3.5 5.4 0 2.8-1.6 6.3-4.8 10.2z m59.9-29c-1.8 11.1-4.9 21.6-9.1 31.8-7.2 17.1-16.3 30-27.1 38.4-3.6 2.9-6.4 3.8-8.3 2.8-1.9-1-1.9-3.5 0-7.4 4.5-9.3 9.2-21.8 14.2-37.7 5-15.8 5.7-26 2.1-30.5-1.1-1.5-2.7-2.6-5-3.6-2.2-0.9-5.1-1.5-8.6-1.9s-6.7-0.6-9.4-0.8c-2.8-0.2-6.5-0.2-11.2 0-4.7 0.2-8 0.4-10.1 0.6-2 0.2-5.3 0.5-9.9 0.9-4.6 0.4-7 0.6-7.2 0.6-1.3 0.2-2.7 0.4-4.1 0.5-1.5 0.1-2.7 0.2-3.5 0.3l-2.7 0.3c-1 0.1-1.7 0.2-2.2 0.2h-3.2l-1-0.2-0.6-0.5-0.5-0.9c-1.3-3.3 3.7-7.4 15-12.4s22.3-8.1 32.9-9.3c9.8-1.5 21.3-1.5 34.5-0.3s21.3 3.7 24.3 7.4c2.3 3.5 2.5 10.7 0.7 21.7z" fill="#1296DB"/></svg>亚马逊</div>
+        <div class="text-muted font-medium text-sm inline-flex items-center gap-2"><svg viewBox="0 0 1058 1024" class="w-12 h-12 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M620.032 407.552c-23.04-19.968-49.152-30.208-79.36-30.208s-56.832 10.24-79.872 30.208c-22.528 19.968-34.816 45.056-35.84 75.264h230.912c-1.024-30.208-12.8-55.296-35.84-75.264z m133.632-133.12c-11.264-10.24-25.6-15.36-43.52-15.36-23.04 0-49.664 7.168-80.384 22.016 25.6 9.728 49.152 24.064 70.656 41.472 21.504 17.92 39.424 38.4 54.272 61.952 10.752-28.672 16.384-51.2 16.384-68.608-0.512-16.896-6.144-30.72-17.408-41.472zM340.48 680.96c-19.456-23.552-33.792-49.152-43.52-77.824-20.48 43.52-31.232 78.336-31.232 104.96 0 17.92 5.12 32.256 15.36 41.984 10.24 9.728 24.576 14.848 42.496 14.848 24.064 0 52.224-8.704 84.48-26.112-26.112-15.36-48.64-34.304-67.584-57.856z" fill="#1296db"/><path d="M516.608 0C233.472 0 4.608 229.376 4.608 512s229.376 512 512 512 512-229.376 512-512S799.232 0 516.608 0z m273.92 552.448H425.984c0 30.72 11.776 56.832 34.816 77.312 23.04 20.992 50.176 31.232 81.408 31.232 20.992 0 40.448-5.12 58.88-14.848 18.432-9.728 32.768-23.552 43.008-41.472H778.24c-11.776 33.792-29.696 63.488-54.272 89.088-24.064 25.6-52.224 45.568-84.992 59.904-32.256 13.824-66.048 20.992-101.888 20.992-39.424 0-77.312-8.704-112.64-26.112-48.128 24.576-89.6 36.864-124.928 36.864-50.176 0-75.264-27.648-75.264-83.456 0-24.064 4.608-53.248 14.336-87.04 3.584-12.8 15.36-36.864 34.304-72.704 41.984-76.288 92.16-140.288 150.528-192-38.912 16.896-83.968 54.272-135.168 112.128C302.592 404.48 332.288 356.864 378.88 320c46.592-36.864 99.328-55.808 158.72-55.808 6.144 0 11.264 0 14.336 0.512 53.76-24.576 99.84-36.864 137.216-36.864 13.312 0 25.6 1.536 36.864 4.096 10.752 2.56 20.992 7.168 29.696 12.8 9.216 5.632 15.872 13.824 20.992 24.064 5.12 10.24 7.68 22.528 7.68 36.352 0 24.576-7.68 54.784-23.552 90.624 21.504 38.4 32.256 79.872 32.256 123.392 0 11.776-1.024 23.04-2.56 33.28z" fill="#1296db"/></svg>独立站</div>
       </div>
     </div>
 
@@ -709,49 +747,6 @@ tailwind.config = {
           <div class="ip-icon-box why mb-4"><span class="icon-mask w-7 h-7 text-red-500" style="-webkit-mask-image:url('assets/icons/outline/coin.svg');mask-image:url('assets/icons/outline/coin.svg')"></span></div>
           <h3 class="font-bold text-body mb-3">ROI导向</h3>
           <p class="text-sm text-muted">关注投入产出比，让每一分设计费都带来可量化的转化回报。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Price -->
-    <div class="mb-20">
-      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
-      <h2 class="text-3xl font-bold text-body mb-6">电商设计价格</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">单品详情页</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥999<span class="text-sm text-muted font-normal">/套</span></div>
-          <p class="text-sm text-muted mb-4">含主图5张+详情页长图</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>主图5张</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>详情页1套</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>PSD源文件</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card featured rounded-2xl p-6 flex flex-col">
-          <div class="price-badge">推荐</div>
-          <h3 class="text-lg font-bold text-body mb-2">店铺全案包</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥9,999</div>
-          <p class="text-sm text-muted mb-4">整店视觉全案设计</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>10款主图</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>5套详情页</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>店铺首页装修</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>活动海报3张</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">电商品牌视觉包</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥2,000 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">含 3 款主图 + 2 套详情页 + 活动海报</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>3 款主图设计</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>2 套详情页</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>活动海报 1 张</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
         </div>
       </div>
     </div>
@@ -938,6 +933,49 @@ tailwind.config = {
     <h3 class="text-2xl font-bold text-body mb-2">UI/UX 设计</h3>
     <p class="text-lg text-muted mb-14">移动端App、Web端页面、交互原型，从用户研究到高保真交付。提供在线演示链接，无需安装软件，浏览器打开即可查看交互效果。</p>
 
+    <!-- Price -->
+    <div class="mb-20">
+      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-6">UI/UX 设计价格</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">单页设计</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥800 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">单页面高保真设计输出</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>设计源文件（含高清切图）</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>响应式适配</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>标注切图</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">应用 UI 设计</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥4,000 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">App/Web端全套UI设计</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>15-30页设计</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>交互原型</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>设计规范文档</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>设计规范文档 + 组件素材包</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+        <div class="price-card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-lg font-bold text-body mb-2">设计系统</h3>
+          <div class="text-3xl font-bold text-body mb-1">¥8,000 <span class="text-sm text-muted font-normal">起</span></div>
+          <p class="text-sm text-muted mb-4">企业级设计系统建设</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>Design Token体系</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>组件库100+</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>多平台适配</li>
+            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>开发对接文档</li>
+          </ul>
+          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ===== Apply / 申请表 ===== -->
     <div class="mb-12">
       <div class="ip-section-title"><span class="tag">Apply</span><span class="line"></span></div>
@@ -972,55 +1010,64 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 设备展示 -->
+    <!-- 服务卡片 -->
     <div class="mb-20">
-      <div class="ip-section-title"><span class="tag">Showcase</span><span class="line"></span></div>
-      <h2 class="text-3xl font-bold text-body mb-8">设计作品展示</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-8 border border-slate-100">
-          <div class="w-44 h-72 rounded-[2rem] bg-slate-100 border-4 border-slate-300 flex items-center justify-center relative overflow-hidden">
-            <div class="w-40 h-64 rounded-3xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-              <span class="text-xs text-primary/40 font-medium">App Screen</span>
-            </div>
+      <div class="ip-section-title"><span class="tag">Services</span><span class="line"></span></div>
+      <h2 class="text-3xl font-bold text-body mb-6">UI/UX 设计服务</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+            <span class="text-3xl">📱</span>
           </div>
-          <span class="text-sm text-muted font-medium">移动端App</span>
+          <div class="p-5 bg-white">
+            <h3 class="font-bold text-body mb-2">App界面设计</h3>
+            <p class="text-sm text-muted">iOS/Android 双端高保真界面设计，遵循平台规范，交付可直接开发的切图与标注。</p>
+          </div>
         </div>
-        <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-8 border border-slate-100">
-          <div class="w-72 h-44 rounded-lg bg-slate-100 border-2 border-slate-300 flex flex-col overflow-hidden relative">
-            <div class="h-5 bg-slate-200 flex items-center px-2 gap-1"><div class="w-2 h-2 rounded-full bg-red-300"></div><div class="w-2 h-2 rounded-full bg-yellow-300"></div><div class="w-2 h-2 rounded-full bg-green-300"></div></div>
-            <div class="flex-1 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center"><span class="text-xs text-primary/50 font-medium">Web Page</span></div>
+        <div class="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+            <span class="text-3xl">🖥️</span>
           </div>
-          <span class="text-sm text-muted font-medium">Web端页面</span>
+          <div class="p-5 bg-white">
+            <h3 class="font-bold text-body mb-2">Web端页面设计</h3>
+            <p class="text-sm text-muted">官网、企业系统、SaaS 平台等 Web 端页面设计，响应式适配全尺寸屏幕。</p>
+          </div>
         </div>
-        <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-8 border border-slate-100">
-          <div class="w-44 h-72 rounded-[2rem] bg-slate-100 border-4 border-slate-300 flex items-center justify-center relative overflow-hidden">
-            <div class="w-40 h-64 rounded-3xl bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
-              <span class="text-xs text-purple-500/50 font-medium">Dashboard</span>
-            </div>
+        <div class="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+            <span class="text-3xl">🔗</span>
           </div>
-          <span class="text-sm text-muted font-medium">数据看板</span>
+          <div class="p-5 bg-white">
+            <h3 class="font-bold text-body mb-2">交互原型设计</h3>
+            <p class="text-sm text-muted">页面流程与交互原型设计，浏览器在线演示，还原真实操作体验。</p>
+          </div>
         </div>
-        <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-8 border border-slate-100">
-          <div class="w-72 h-44 rounded-lg bg-slate-100 border-2 border-slate-300 flex flex-col overflow-hidden relative">
-            <div class="h-5 bg-slate-200 flex items-center px-2 gap-1"><div class="w-2 h-2 rounded-full bg-red-300"></div><div class="w-2 h-2 rounded-full bg-yellow-300"></div><div class="w-2 h-2 rounded-full bg-green-300"></div></div>
-            <div class="flex-1 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center"><span class="text-xs text-accent/50 font-medium">Landing Page</span></div>
+        <div class="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+            <span class="text-3xl">📊</span>
           </div>
-          <span class="text-sm text-muted font-medium">落地页设计</span>
+          <div class="p-5 bg-white">
+            <h3 class="font-bold text-body mb-2">数据看板设计</h3>
+            <p class="text-sm text-muted">Dashboard 数据可视化设计，信息层级清晰，让数据一目了然。</p>
+          </div>
         </div>
-        <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-8 border border-slate-100">
-          <div class="w-44 h-72 rounded-[2rem] bg-slate-100 border-4 border-slate-300 flex items-center justify-center relative overflow-hidden">
-            <div class="w-40 h-64 rounded-3xl bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center">
-              <span class="text-xs text-red-500/50 font-medium">E-Commerce</span>
-            </div>
+        <div class="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+            <span class="text-3xl">🧩</span>
           </div>
-          <span class="text-sm text-muted font-medium">电商App</span>
+          <div class="p-5 bg-white">
+            <h3 class="font-bold text-body mb-2">设计系统建设</h3>
+            <p class="text-sm text-muted">Design Token + 组件库体系搭建，统一多端设计语言，提升协作效率。</p>
+          </div>
         </div>
-        <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-8 border border-slate-100">
-          <div class="w-72 h-44 rounded-lg bg-slate-100 border-2 border-slate-300 flex flex-col overflow-hidden relative">
-            <div class="h-5 bg-slate-200 flex items-center px-2 gap-1"><div class="w-2 h-2 rounded-full bg-red-300"></div><div class="w-2 h-2 rounded-full bg-yellow-300"></div><div class="w-2 h-2 rounded-full bg-green-300"></div></div>
-            <div class="flex-1 bg-gradient-to-br from-sky-50 to-sky-100 flex items-center justify-center"><span class="text-xs text-sky-500/50 font-medium">SaaS Platform</span></div>
+        <div class="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
+            <span class="text-3xl">🔍</span>
           </div>
-          <span class="text-sm text-muted font-medium">SaaS平台</span>
+          <div class="p-5 bg-white">
+            <h3 class="font-bold text-body mb-2">用户体验研究</h3>
+            <p class="text-sm text-muted">用户访谈、竞品分析、可用性测试，用数据支撑设计决策。</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1107,50 +1154,6 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- Price -->
-    <div class="mb-20">
-      <div class="ip-section-title"><span class="tag">Price</span><span class="line"></span></div>
-      <h2 class="text-3xl font-bold text-body mb-6">UI/UX 设计价格</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">单页设计</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥800 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">单页面高保真设计输出</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>设计源文件（含高清切图）</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>响应式适配</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>标注切图</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card featured rounded-2xl p-6 flex flex-col">
-          <div class="price-badge">推荐</div>
-          <h3 class="text-lg font-bold text-body mb-2">应用 UI 设计</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥4,000 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">App/Web端全套UI设计</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>15-30页设计</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>交互原型</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>设计规范文档</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>设计规范文档 + 组件素材包</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors">立即咨询</button>
-        </div>
-        <div class="price-card rounded-2xl p-6 flex flex-col">
-          <h3 class="text-lg font-bold text-body mb-2">设计系统</h3>
-          <div class="text-3xl font-bold text-body mb-1">¥8,000 <span class="text-sm text-muted font-normal">起</span></div>
-          <p class="text-sm text-muted mb-4">企业级设计系统建设</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>Design Token体系</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>组件库100+</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>多平台适配</li>
-            <li class="flex items-center gap-2 text-sm text-muted"><span class="w-2 h-2 bg-primary rounded-full"></span>开发对接文档</li>
-          </ul>
-          <button onclick="openConsultModal()" class="mt-auto w-full py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-body hover:border-primary hover:text-primary transition-colors">立即咨询</button>
-        </div>
-      </div>
-    </div>
-
     <!-- FAQ -->
     <div class="max-w-7xl mx-auto">
       <h3 class="text-xl font-bold text-body mb-6">常见问题</h3>
@@ -1197,7 +1200,7 @@ tailwind.config = {
         <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-        <div><label class="block text-sm font-medium text-body mb-1.5">公司名称</label><input type="text" placeholder="请输入您的公司名称（选填）" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">公司名称 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的公司名称" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的设计需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
         <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
       </form>
@@ -1231,11 +1234,6 @@ function switchDesignSubtab(subtab){
   ab.classList.add('tab-active-design'); ab.classList.remove('border-transparent','text-muted');
 }
 document.querySelectorAll('.design-subtab').forEach(function(b){ b.addEventListener('click', function(){ switchDesignSubtab(b.dataset.subtab); }); });
-
-function switchEcommercePlatform(btn, platform){
-  document.querySelectorAll('.design-platform-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
-}
 
 (function(){
   var p = new URLSearchParams(window.location.search), s = p.get('subtab') || 'brand';

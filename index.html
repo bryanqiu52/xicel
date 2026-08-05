@@ -172,7 +172,7 @@ function handleDomainSearch() {
           <button onclick="openConsultModal()" class="bg-primary hover:bg-primary-dark text-white font-semibold px-10 py-5 rounded-xl text-lg transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5">免费咨询</button>
           <button onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})" class="border-2 border-primary/30 hover:border-primary text-body font-semibold px-10 py-5 rounded-xl text-lg transition-all bg-white/60 hover:bg-white/90 backdrop-blur-sm">查看产品</button>
         </div>
-        <div class="flex gap-10 mt-12">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mt-12">
           <div><span class="stat-num text-body font-bold text-2xl" data-target="700" data-suffix="+">0+</span><span class="text-muted text-sm ml-1">域名后缀</span></div>
           <div><span class="stat-num text-body font-bold text-2xl" data-target="30" data-suffix="+">0+</span><span class="text-muted text-sm ml-1">国家节点</span></div>
           <div><span class="stat-num text-body font-bold text-2xl" data-target="100" data-suffix="+">0+</span><span class="text-muted text-sm ml-1">云节点</span></div>
@@ -505,7 +505,7 @@ function handleDomainSearch() {
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-medium text-body mb-2">企业名称 <span class="text-red-400">*</span></label>
-                  <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入企业名称">
+                  <input type="text" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入企业名称">
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-body mb-2">联系人名称 <span class="text-red-400">*</span></label>
@@ -1249,7 +1249,7 @@ function handleDomainSearch() {
         <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-        <div><label class="block text-sm font-medium text-body mb-1.5">公司名称</label><input type="text" placeholder="请输入您的公司名称（选填）" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">公司名称 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的公司名称" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
         <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
       </form>

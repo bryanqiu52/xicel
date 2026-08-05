@@ -108,8 +108,8 @@ tailwind.config = {
               <input type="email" id="tmEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
             </div>
             <div>
-              <label class="block text-sm font-medium text-body mb-2">公司名称</label>
-              <input type="text" id="tmCompany" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称（选填）">
+              <label class="block text-sm font-medium text-body mb-2">公司名称 <span class="text-red-400">*</span></label>
+              <input type="text" id="tmCompany" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称">
             </div>
             <div>
               <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
@@ -423,8 +423,8 @@ tailwind.config = {
               <input type="email" id="patentEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
             </div>
             <div>
-              <label class="block text-sm font-medium text-body mb-2">公司名称</label>
-              <input type="text" id="patentCompany" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称（选填）">
+              <label class="block text-sm font-medium text-body mb-2">公司名称 <span class="text-red-400">*</span></label>
+              <input type="text" id="patentCompany" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称">
             </div>
             <div>
               <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
@@ -776,8 +776,8 @@ tailwind.config = {
               <input type="email" id="copyrightEmail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入邮箱地址">
             </div>
             <div>
-              <label class="block text-sm font-medium text-body mb-2">公司名称</label>
-              <input type="text" id="copyrightCompany" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称（选填）">
+              <label class="block text-sm font-medium text-body mb-2">公司名称 <span class="text-red-400">*</span></label>
+              <input type="text" id="copyrightCompany" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-body placeholder-muted focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的公司名称">
             </div>
             <div>
               <label class="block text-sm font-medium text-body mb-2">需求描述 <span class="text-red-400">*</span></label>
@@ -1029,7 +1029,7 @@ tailwind.config = {
         <div><label class="block text-sm font-medium text-body mb-1.5">姓名 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的姓名" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">电话 <span class="text-red-400">*</span></label><input type="tel" required placeholder="请输入您的手机号" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">邮箱</label><input type="email" placeholder="请输入您的邮箱" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
-        <div><label class="block text-sm font-medium text-body mb-1.5">公司名称</label><input type="text" placeholder="请输入您的公司名称（选填）" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
+        <div><label class="block text-sm font-medium text-body mb-1.5">公司名称 <span class="text-red-400">*</span></label><input type="text" required placeholder="请输入您的公司名称" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"></div>
         <div><label class="block text-sm font-medium text-body mb-1.5">需求描述</label><textarea rows="3" placeholder="请简要描述您的需求..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"></textarea></div>
         <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30">提交咨询</button>
       </form>
@@ -1048,10 +1048,12 @@ function submitTmApply(e){
   var type = document.getElementById('tmType').value;
   var name = document.getElementById('tmName').value.trim();
   var phone = document.getElementById('tmPhone').value.trim();
+  var company = document.getElementById('tmCompany').value.trim();
   var desc = document.getElementById('tmDesc').value.trim();
   if (!type) { alert('请选择服务类型'); return; }
   if (!name) { alert('请输入联系人姓名'); return; }
   if (!phone) { alert('请输入联系电话'); return; }
+  if (!company) { alert('请输入公司名称'); return; }
   if (!desc) { alert('请输入需求描述'); return; }
   alert('感谢您的申请，我们的知识产权专家将在24小时内与您联系！');
   e.target.reset();
@@ -1063,10 +1065,12 @@ function submitPatentApply(e){
   var type = document.getElementById('patentType').value;
   var name = document.getElementById('patentName').value.trim();
   var phone = document.getElementById('patentPhone').value.trim();
+  var company = document.getElementById('patentCompany').value.trim();
   var desc = document.getElementById('patentDesc').value.trim();
   if (!type) { alert('请选择专利类型'); return; }
   if (!name) { alert('请输入联系人姓名'); return; }
   if (!phone) { alert('请输入联系电话'); return; }
+  if (!company) { alert('请输入公司名称'); return; }
   if (!desc) { alert('请输入需求描述'); return; }
   alert('感谢您的申请，我们的知识产权专家将在24小时内与您联系！');
   e.target.reset();
@@ -1078,10 +1082,12 @@ function submitCopyrightApply(e){
   var type = document.getElementById('copyrightType').value;
   var name = document.getElementById('copyrightName').value.trim();
   var phone = document.getElementById('copyrightPhone').value.trim();
+  var company = document.getElementById('copyrightCompany').value.trim();
   var desc = document.getElementById('copyrightDesc').value.trim();
   if (!type) { alert('请选择版权类型'); return; }
   if (!name) { alert('请输入联系人姓名'); return; }
   if (!phone) { alert('请输入联系电话'); return; }
+  if (!company) { alert('请输入公司名称'); return; }
   if (!desc) { alert('请输入需求描述'); return; }
   alert('感谢您的申请，我们的知识产权专家将在24小时内与您联系！');
   e.target.reset();

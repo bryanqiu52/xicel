@@ -4,13 +4,6 @@
 .tab-active-design { color: #0A66FF !important; border-bottom-color: #0A66FF !important; }
 .design-content.hidden { display: none; }
 
-/* 电商平台按钮 */
-.design-platform-btn.active {
-  border-color: #0A66FF !important;
-  color: #0A66FF !important;
-  background-color: #EFF6FF !important;
-}
-
 /* 瀑布流 */
 .masonry-grid { columns: 2; column-gap: 16px; }
 .masonry-item { transition: all 0.3s ease; margin-bottom: 16px; }

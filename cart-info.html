@@ -311,8 +311,8 @@ tailwind.config = {
               <input type="text" class="form-input" id="comNameCn" placeholder="请输入企业名称">
             </div>
             <div class="form-item">
-              <label class="form-label">企业名称（英文）</label>
-              <input type="text" class="form-input" id="comNameEn" placeholder="请输入英文企业名称">
+              <label class="form-label"><span class="required">*</span>企业名称（英文）</label>
+              <input type="text" class="form-input" id="comNameEn" required placeholder="请输入英文企业名称">
             </div>
             <div class="form-item">
               <label class="form-label"><span class="required">*</span>证件类型</label>
@@ -729,6 +729,7 @@ function validateForm() {
     if (!document.getElementById('perEmail').value.trim()) { showAlert('warning', '请填写电子邮箱'); return false; }
   } else {
     if (!document.getElementById('comNameCn').value.trim()) { showAlert('warning', '请填写企业名称（中文）'); return false; }
+    if (!document.getElementById('comNameEn').value.trim()) { showAlert('warning', '请填写企业名称（英文）'); return false; }
     if (!document.getElementById('comIdNumber').value.trim()) { showAlert('warning', '请填写证件号码'); return false; }
     if (!document.getElementById('comLegalPerson').value.trim()) { showAlert('warning', '请填写法人姓名'); return false; }
     if (!document.getElementById('comCountry').value.trim()) { showAlert('warning', '请填写国家/地区'); return false; }
