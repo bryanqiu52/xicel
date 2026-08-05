@@ -44,13 +44,13 @@
       <!-- 搜索输入框容器 -->
       <div class="flex-1 relative" id="searchInputWrapper">
         <div class="search-input-wrapper relative overflow-hidden rounded-xl border border-border bg-white focus-within:ring-1 focus-within:ring-primary focus-within:border-primary transition-shadow">
-          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span class="icon-mask absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-body opacity-50 pointer-events-none z-10" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
           <input id="domainSearchInput" type="text" placeholder="输入域名前缀，探索所有后缀的可用性；支持带后缀精准搜索" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" />
         </div>
       </div>
       <!-- 搜索按钮 -->
       <button onclick="handleSearch()" class="flex items-center gap-1 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 h-12 rounded-xl transition-colors whitespace-nowrap">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
         立即查询
       </button>
     </div>
@@ -93,13 +93,13 @@
           <div class="dropdown-wrapper" style="width:140px;">
             <div class="dropdown-btn dropdown-btn-sm batch-dropdown-btn" id="batchRegistrantBtn" data-value="">
               <span id="batchRegistrantText" class="batch-dropdown-text text-muted">选择注册人</span>
-              <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
             </div>
           </div>
           <div class="dropdown-wrapper" style="width:140px;">
             <div class="dropdown-btn dropdown-btn-sm batch-dropdown-btn" id="batchYearsBtn" data-value="">
               <span id="batchYearsText" class="batch-dropdown-text text-muted">选择年限</span>
-              <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
             </div>
           </div>
           <button onclick="batchAddToCart()" class="batch-cart-btn bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all shadow-sm shadow-primary/20">批量加入购物车</button>
@@ -117,7 +117,7 @@
             <div class="col-span-1 text-center">状态</div>
             <div class="col-span-1 text-center">单价</div>
             <div class="col-span-2 text-center">注册人</div>
-            <div class="col-span-2 text-center"><span class="inline-flex items-center justify-center gap-1"><span>申请资料</span><svg class="doc-tip w-3.5 h-3.5 text-muted hover:text-primary cursor-help" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span></div>
+            <div class="col-span-2 text-center"><span class="inline-flex items-center justify-center gap-1"><span>申请资料</span><span class="icon-mask doc-tip w-3.5 h-3.5 opacity-60 hover:opacity-100 cursor-help text-body" style="-webkit-mask-image:url('assets/icons/outline/info-circle.svg');mask-image:url('assets/icons/outline/info-circle.svg')"></span></span></div>
             <div class="col-span-1 text-center">年限</div>
             <div class="col-span-1 text-center">小计</div>
             <div class="col-span-1 text-center">操作</div>
@@ -134,7 +134,7 @@
             <div class="dropdown-wrapper">
               <div class="dropdown-btn dropdown-btn-sm page-size-btn" data-value="10">
                 <span class="text-[12px]">10 条</span>
-                <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </div>
             </div>
           </div>
@@ -172,7 +172,7 @@
     <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
       <h3 class="text-lg font-semibold text-body">域名回购请求</h3>
       <button onclick="closeTradeModal()" class="text-muted hover:text-body transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        <span class="icon-mask w-5 h-5 opacity-60 hover:opacity-100" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="px-6 py-5">
@@ -311,7 +311,7 @@ function switchSearchMode(mode) {
   // 切换输入框模式
   var wrapper = document.querySelector('.search-input-wrapper');
   if (mode === 'explore') {
-    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input id="domainSearchInput" type="text" placeholder="输入域名前缀，探索所有后缀的可用性；支持带后缀精准搜索" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" />';
+    wrapper.innerHTML = '<span class="icon-mask absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-body opacity-50 pointer-events-none z-10" style="-webkit-mask-image:url(\'assets/icons/outline/search.svg\');mask-image:url(\'assets/icons/outline/search.svg\')"></span><input id="domainSearchInput" type="text" placeholder="输入域名前缀，探索所有后缀的可用性；支持带后缀精准搜索" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" />';
     var input = document.getElementById('domainSearchInput');
     if (input) {
       input.addEventListener('keydown', function(e) {
@@ -319,7 +319,7 @@ function switchSearchMode(mode) {
       });
     }
   } else {
-    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><textarea id="domainSearchInput" rows="2" placeholder="输入完整域名，支持批量查询，Enter 换行，每行一个" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none resize-none" style="min-height:72px;"></textarea>';
+    wrapper.innerHTML = '<span class="icon-mask absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-body opacity-50 pointer-events-none z-10" style="-webkit-mask-image:url(\'assets/icons/outline/search.svg\');mask-image:url(\'assets/icons/outline/search.svg\')"></span><textarea id="domainSearchInput" rows="2" placeholder="输入完整域名，支持批量查询，Enter 换行，每行一个" class="w-full min-w-0 pl-10 pr-2 border-0 text-sm text-body placeholder-muted focus:outline-none resize-none" style="min-height:72px;"></textarea>';
     var textarea = document.getElementById('domainSearchInput');
     if (textarea) {
       textarea.addEventListener('keydown', function(e) {
@@ -499,7 +499,7 @@ function renderResultRow(result, showCheckbox) {
   var docsDropdownHtml = '<div style="display:flex;align-items:center;justify-content:center;width:120px;">'
     + '<div class="dropdown-btn dropdown-btn-sm docs-dropdown-btn ' + opacityClass + '" data-result-id="' + id + '" data-value="' + savedDocMode + '" onclick="toggleTableDocsDropdown(this, event)">'
     +   '<span class="text-[12px] ' + docTextClass + ' truncate" style="max-width:70px;">' + docText + '</span>'
-    +   '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+    +   '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
     + '</div>'
     + '</div>';
 
@@ -513,7 +513,7 @@ function renderResultRow(result, showCheckbox) {
     +   '<div style="display:flex;align-items:center;justify-content:center;width:130px;">'
     +     '<div class="dropdown-btn dropdown-btn-sm registrant-dropdown-btn ' + opacityClass + '" data-result-id="' + id + '" data-value="' + savedRegId + '" onclick="toggleTableRegistrantDropdown(this, event)">'
     +       '<span class="registrant-text text-[12px] ' + regTextClass + ' truncate" style="max-width:80px;">' + savedRegName + '</span>'
-    +       '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      +       '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
     +     '</div>'
     +   '</div>'
     + '</div>'
@@ -526,7 +526,7 @@ function renderResultRow(result, showCheckbox) {
     +   '<div style="display:flex;align-items:center;justify-content:center;width:110px;">'
     +     '<div class="dropdown-btn dropdown-btn-sm years-dropdown-btn ' + opacityClass + '" data-result-id="' + id + '" data-value="' + savedYears + '" onclick="toggleTableYearsDropdown(this, event)">'
     +       '<span class="text-[12px]">' + savedYears + ' 年</span>'
-    +       '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      +       '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
     +     '</div>'
     +   '</div>'
     + '</div>'
@@ -537,7 +537,7 @@ function renderResultRow(result, showCheckbox) {
     // 操作
     + '<div class="col-span-1 flex justify-center">'
     +   '<button class="text-xs font-medium px-2 py-1 rounded-lg transition-colors ' + (isSelected || !showCheckbox ? 'bg-primary text-white hover:bg-primary-dark' : 'bg-slate-100 text-muted ' + opacityClass) + '" onclick="addToCart(\'' + id + '\', this)" ' + ((isSelected || !showCheckbox) ? '' : 'disabled') + '>'
-    +     '<svg class="w-3 h-3 inline mr-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.39L23 6H6"/></svg>加入'
+    +     '<span class="icon-mask w-3 h-3 inline mr-0.5" style="-webkit-mask-image:url(\'assets/icons/outline/basket.svg\');mask-image:url(\'assets/icons/outline/basket.svg\')"></span>加入'
     +   '</button>'
     + '</div>'
   + '</div>';
@@ -691,13 +691,13 @@ function renderSingleDomainDetail(query) {
     +   '<div class="dropdown-wrapper" style="width:140px;">'
     +     '<div class="dropdown-btn dropdown-btn-sm batch-dropdown-btn" id="recBatchRegistrantBtn" data-value="">'
     +       '<span id="recBatchRegistrantText" class="batch-dropdown-text text-muted">选择注册人</span>'
-    +       '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      +       '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
     +     '</div>'
     +   '</div>'
-    +   '<div class="dropdown-wrapper" style="width:140px;">'
+    +   '<div class="dropdown-wrapper" style="width:140px;" >'
     +     '<div class="dropdown-btn dropdown-btn-sm batch-dropdown-btn" id="recBatchYearsBtn" data-value="">'
     +       '<span id="recBatchYearsText" class="batch-dropdown-text text-muted">选择年限</span>'
-    +       '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      +       '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
     +     '</div>'
     +   '</div>'
     +   '<button onclick="batchAddToCart()" class="rec-batch-cart-btn bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all shadow-sm shadow-primary/20">批量加入购物车</button>'
@@ -944,13 +944,13 @@ function toggleTableYearsDropdown(btn, ev) {
 
 // ===== 申请资料表头 info icon =====
 function docTipIconHtml() {
-  return '<span class="inline-flex items-center justify-center gap-1"><span>申请资料</span><svg class="doc-tip w-4 h-4 text-muted hover:text-primary cursor-help" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>';
+  return '<span class="inline-flex items-center justify-center gap-1"><span>申请资料</span><span class="icon-mask doc-tip w-4 h-4 opacity-60 hover:opacity-100 cursor-help text-body" style="-webkit-mask-image:url(\'assets/icons/outline/info-circle.svg\');mask-image:url(\'assets/icons/outline/info-circle.svg\')"></span></span>';
 }
 
 // ===== 申请资料 tooltip =====
 var DOC_TIP_HTML = ''
   + '<div class="doc-tip-head">'
-  +   '<svg class="doc-tip-head-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>'
+  +   '<span class="icon-mask doc-tip-head-icon w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/info-circle.svg\');mask-image:url(\'assets/icons/outline/info-circle.svg\')"></span>'
   +   '申请资料'
   +   '<button type="button" class="doc-tip-close" onclick="hideDocTip()" aria-label="关闭">×</button>'
   + '</div>'

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -55,7 +55,7 @@ function switchDomainRegisterMode(mode) {
   var activePlaceholder = activeTab && activeTab.dataset.placeholder ? activeTab.dataset.placeholder : '请输入要查询的内容';
 
   if (mode === 'explore') {
-    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input id="domainSearchInput" type="text" placeholder="' + activePlaceholder + '" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" style="transition: padding-right 0.2s;" />';
+    wrapper.innerHTML = '<span class="icon-mask absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" style="-webkit-mask-image:url(\'assets/icons/outline/search.svg\');mask-image:url(\'assets/icons/outline/search.svg\')"></span><input id="domainSearchInput" type="text" placeholder="' + activePlaceholder + '" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" style="transition: padding-right 0.2s;" />';
     var input = document.getElementById('domainSearchInput');
     if (input) {
       input.addEventListener('keydown', function(e) {
@@ -66,7 +66,7 @@ function switchDomainRegisterMode(mode) {
       });
     }
   } else {
-    wrapper.innerHTML = '<svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><textarea id="domainSearchInput" rows="2" placeholder="输入完整域名，Enter 换行，每行一个，例：xicel.com" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none resize-none overflow-y-auto overflow-x-hidden" style="min-height:72px;max-height:160px;line-height:1.6;background:transparent;padding-top:calc(36px - 0.8em);"></textarea>';
+    wrapper.innerHTML = '<span class="icon-mask absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" style="-webkit-mask-image:url(\'assets/icons/outline/search.svg\');mask-image:url(\'assets/icons/outline/search.svg\')"></span><textarea id="domainSearchInput" rows="2" placeholder="输入完整域名，Enter 换行，每行一个，例：xicel.com" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none resize-none overflow-y-auto overflow-x-hidden" style="min-height:72px;max-height:160px;line-height:1.6;background:transparent;padding-top:calc(36px - 0.8em);"></textarea>';
     var textarea = document.getElementById('domainSearchInput');
     if (textarea) {
       textarea.addEventListener('keydown', function(e) {
@@ -207,12 +207,12 @@ function handleDomainSearch() {
       <div class="flex items-center gap-2" id="searchRow">
         <div class="flex-1 relative" id="searchInputWrapper">
           <div class="search-input-wrapper relative overflow-hidden rounded-xl border border-border bg-white focus-within:ring-1 focus-within:ring-primary focus-within:border-primary transition-shadow">
-            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <span class="icon-mask absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none z-10" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             <input id="domainSearchInput" type="text" placeholder="输入查找的域名，例：xicel / xicel.com" class="w-full min-w-0 pl-10 pr-3 border-0 text-sm text-body placeholder-muted focus:outline-none h-12" style="transition: padding-right 0.2s;" />
           </div>
         </div>
         <button onclick="handleDomainSearch()" class="search-btn relative flex items-center gap-1 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 h-12 rounded-xl transition-colors whitespace-nowrap overflow-visible">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
           搜索
           <span class="free-ribbon">免费</span>
         </button>
@@ -226,7 +226,7 @@ function handleDomainSearch() {
       <!-- 域名卡片轮播 -->
       <div class="domain-carousel-wrapper">
         <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="上一页">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+          <span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
         </button>
         <div class="domain-carousel-viewport">
           <div class="domain-carousel-track" id="carouselTrack">
@@ -409,222 +409,85 @@ function handleDomainSearch() {
           </div>
         </div>
         <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="下一页">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+          <span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
         </button>
       </div>
       <!-- 更多域名 -->
       <div class="text-center mt-6">
         <a href="domain-pricing.html" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark text-sm font-medium transition-colors">
           更多域名
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span class="icon-mask w-4 h-4 text-primary" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
         </a>
       </div>
       </div>
       <!-- SSL 证书套餐卡片（仅"SSL证书"标签可见） -->
       <div id="sslCardSection" class="hidden mt-6">
         <h3 class="text-sm font-medium text-muted mb-4">SSL 证书套餐</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">Rapid DV 单域名</h4>
-              </div>
-            </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1个域名</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 6个月有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> DV 域名验证</div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <span class="text-[11px] text-accent font-medium">新人专享</span>
-              <div class="flex items-baseline gap-0.5 mt-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">145.50</span>
-                <span class="text-xs text-muted">/6个月</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥145.50</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="Rapid DV 单域名" data-price="145.50" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
+
+        <!-- 单域名 / 通配符 选择 -->
+        <div class="flex items-center gap-4 mb-6 ssl-type-toggle">
+          <span class="text-sm font-medium text-body">证书类型：</span>
+          <div class="flex bg-slate-100 rounded-xl p-1 gap-1">
+            <button type="button" class="ssl-type-btn active bg-white text-body shadow-sm px-5 py-2 text-sm font-medium rounded-lg transition-all" data-ssl-type="single" onclick="switchSslType('single')">单域名</button>
+            <button type="button" class="ssl-type-btn px-5 py-2 text-sm font-medium rounded-lg transition-all" data-ssl-type="wildcard" onclick="switchSslType('wildcard')">通配符</button>
           </div>
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all relative overflow-hidden">
-            <div class="absolute top-0 right-0">
-              <div class="bg-accent text-white text-[14px] font-medium px-2 py-0.5 rounded-bl-lg shadow-sm">
-                推荐
-              </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 ssl-plan-cards">
+          <!-- DV证书 -->
+          <div class="ssl-card">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-2xl">🔒</span>
+              <h3 class="ssl-card-title">DV证书</h3>
             </div>
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">Wosign DV 单域名</h4>
-              </div>
+            <p class="ssl-card-desc">域名验证，快速签发，适合个人网站和博客</p>
+            <div class="ssl-card-features">
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>域名所有权验证级别</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>数分钟快速颁发</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>浏览器🔒安全锁标识</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>适合个人网站和博客</div>
             </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1个域名</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 6个月有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> DV 域名验证</div>
+            <div class="ssl-card-price">
+              <div class="price-main"><span class="ssl-price" data-single="299" data-wildcard="899">¥299</span><span>/年</span></div>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <span class="text-[11px] text-accent font-medium">新人专享</span>
-              <div class="flex items-baseline gap-0.5 mt-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">95.40</span>
-                <span class="text-xs text-muted">/6个月</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥95.40</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="Wosign DV 单域名" data-price="95.40" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
+            <button onclick="addSslToCart('DV证书', getSslPrice('single',299,899), this)" class="ssl-btn ssl-btn-outline">加入购物车</button>
           </div>
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">GeoTrust OV 单域名</h4>
-              </div>
+          <!-- OV证书 (推荐) -->
+          <div class="ssl-card recommended">
+            <span class="ssl-card-badge">推荐</span>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-2xl">🛡️</span>
+              <h3 class="ssl-card-title">OV证书</h3>
             </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1个域名</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 6个月有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> OV 组织验证</div>
+            <p class="ssl-card-desc">企业验证，适合企业官网和电商网站</p>
+            <div class="ssl-card-features">
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>企业资质验证，增强客户信任</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>1-3个工作日快速颁发</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>浏览器🔒安全锁标识</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>适合企业官网和电商网站</div>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <span class="text-[11px] text-accent font-medium">新人专享</span>
-              <div class="flex items-baseline gap-0.5 mt-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">1,074.00</span>
-                <span class="text-xs text-muted">/6个月</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥1,074.00</div>
+            <div class="ssl-card-price">
+              <div class="price-main"><span class="ssl-price" data-single="1299" data-wildcard="2499">¥1,299</span><span>/年</span></div>
             </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="GeoTrust OV 单域名" data-price="1074.00" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
+            <button onclick="addSslToCart('OV证书', getSslPrice('single',1299,2499), this)" class="ssl-btn ssl-btn-primary">加入购物车</button>
           </div>
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">Globatsign OV 单域名</h4>
-              </div>
+          <!-- EV证书 -->
+          <div class="ssl-card">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-2xl">🏦</span>
+              <h3 class="ssl-card-title">EV证书</h3>
             </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1个域名</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1年有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> OV 组织验证</div>
+            <p class="ssl-card-desc">扩展验证，最高信任级别，适合金融机构</p>
+            <div class="ssl-card-features">
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>企业+法律实体扩展验证</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>3-7个工作日深度审核</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>浏览器地址栏显示企业名称</div>
+              <div class="feat-item"><span class="feat-check"><span class="icon-mask w-2.5 h-2.5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span></span>适合银行/金融/支付平台</div>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <span class="text-[11px] text-accent font-medium">新人专享</span>
-              <div class="flex items-baseline gap-0.5 mt-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">2,236.80</span>
-                <span class="text-xs text-muted">/1年</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥2,236.80</div>
+            <div class="ssl-card-price">
+              <div class="price-main"><span class="ssl-price" data-single="3999" data-wildcard="6999">¥3,999</span><span>/年</span></div>
             </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="Globatsign OV 单域名" data-price="2236.80" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">Digicert DV 通配符</h4>
-              </div>
-            </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 所有子域名</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 6个月有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> DV 域名验证</div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <span class="text-[11px] text-accent font-medium">新人专享</span>
-              <div class="flex items-baseline gap-0.5 mt-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">850.50</span>
-                <span class="text-xs text-muted">/6个月</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥850.50</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="Digicert DV 通配符" data-price="850.50" data-year="0.5" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">CFCA SSL 证书</h4>
-              </div>
-            </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1个域名</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1年有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> OV 企业型</div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <div class="flex items-baseline gap-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">3,430.00</span>
-                <span class="text-xs text-muted">/1年</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥3,430.00</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="CFCA SSL 证书" data-price="3430.00" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">SSL证书托管服务</h4>
-              </div>
-            </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 托管服务</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1年有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 自动续期</div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <div class="flex items-baseline gap-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">270.00</span>
-                <span class="text-xs text-muted">/1年</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥270.00</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="SSL证书托管服务" data-price="270.00" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl border border-border p-5 flex flex-col hover:shadow-md hover:border-primary transition-all">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-semibold text-body leading-snug">SSL证书部署服务</h4>
-              </div>
-            </div>
-            <div class="space-y-1.5 text-xs mb-4">
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 部署服务</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 1年有效期</div>
-              <div class="flex items-center gap-1.5 text-muted"><svg class="w-3 h-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 专业技术</div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <div class="flex items-baseline gap-0.5">
-                <span class="text-xs text-muted">¥</span>
-                <span class="text-[28px] font-bold text-primary leading-none">30.00</span>
-                <span class="text-xs text-muted">/1年</span>
-              </div>
-              <div class="text-[11px] text-muted line-through mt-0.5">¥30.00</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <button data-product-type="SSL证书" data-product-name="SSL证书部署服务" data-price="30.00" data-year="1" class="add-to-cart-btn border border-border text-muted text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white hover:border-primary transition-colors">加入购物车</button>
-              <button class="border border-primary text-primary bg-white text-xs rounded-lg py-2.5 hover:bg-primary hover:text-white transition-colors">立即购买</button>
-            </div>
+            <button onclick="addSslToCart('EV证书', getSslPrice('single',3999,6999), this)" class="ssl-btn ssl-btn-outline">加入购物车</button>
           </div>
         </div>
       </div>
@@ -669,21 +532,21 @@ function handleDomainSearch() {
         <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span class="icon-mask w-6 h-6 text-primary" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
             </div>
             <h4 class="font-bold text-body text-lg mb-2">什么是域名回购？</h4>
             <p class="text-sm text-muted leading-relaxed">域名回购是指通过专业经纪人，向已注册域名的持有人协商购买该域名的过程。当您心仪的域名已被他人注册时，无需放弃——我们可以帮您促成这笔交易。</p>
           </div>
           <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span class="icon-mask w-6 h-6 text-accent" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
             </div>
             <h4 class="font-bold text-body text-lg mb-2">为什么要回购域名？</h4>
             <p class="text-sm text-muted leading-relaxed">品牌域名是企业的核心数字资产。拥有与品牌完全匹配的域名，能提升品牌认知度、增强用户信任、防止流量流失到竞争对手手中，是品牌保护战略的关键一环。</p>
           </div>
           <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="icon-mask w-6 h-6 text-amber-500" style="-webkit-mask-image:url('assets/icons/outline/circle-check.svg');mask-image:url('assets/icons/outline/circle-check.svg')"></span>
             </div>
             <h4 class="font-bold text-body text-lg mb-2">回购流程</h4>
             <div class="space-y-2.5 text-sm text-muted">
@@ -709,12 +572,12 @@ function handleDomainSearch() {
             <div class="pb-6 mb-6 border-b border-slate-100">
               <div class="flex items-start gap-3 mb-3">
                 <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                  <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/briefcase.svg');mask-image:url('assets/icons/outline/briefcase.svg')"></span>
                 </div>
                 <div class="flex-1">
                   <h5 class="text-base font-semibold text-body mb-1.5">中大型企业服务</h5>
                   <p class="text-sm text-muted leading-relaxed mb-4">针对集团化、跨国经营需求，提供全品类商标注册、专利布局、版权登记、商业秘密保护等深度定制方案，匹配法务合规与品牌战略。</p>
-                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></button>
                 </div>
               </div>
             </div>
@@ -722,12 +585,12 @@ function handleDomainSearch() {
             <div>
               <div class="flex items-start gap-3 mb-3">
                 <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                  <span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/users.svg');mask-image:url('assets/icons/outline/users.svg')"></span>
                 </div>
                 <div class="flex-1">
                   <h5 class="text-base font-semibold text-body mb-1.5">小微企业服务</h5>
                   <p class="text-sm text-muted leading-relaxed mb-4">为初创团队、中小企业提供高性价比的商标注册、软著登记等基础知产保护方案，费用透明、流程标准化，快速确权。</p>
-                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></button>
                 </div>
               </div>
             </div>
@@ -742,12 +605,12 @@ function handleDomainSearch() {
             <div class="pb-6 mb-6 border-b border-slate-100">
               <div class="flex items-start gap-3 mb-3">
                 <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span class="icon-mask w-5 h-5 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/map-pin.svg');mask-image:url('assets/icons/outline/map-pin.svg')"></span>
                 </div>
                 <div class="flex-1">
                   <h5 class="text-base font-semibold text-body mb-1.5">国内布局与保护</h5>
                   <p class="text-sm text-muted leading-relaxed mb-4">围绕中国经营需求，提供商标、裁判文书、版权、专利的全链条支持，覆盖确权、维权、运营全生命周期。</p>
-                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></button>
                 </div>
               </div>
             </div>
@@ -755,12 +618,12 @@ function handleDomainSearch() {
             <div>
               <div class="flex items-start gap-3 mb-3">
                 <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="3" ry="10"/><path d="M2 12h20"/></svg>
+                  <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/world.svg');mask-image:url('assets/icons/outline/world.svg')"></span>
                 </div>
                 <div class="flex-1">
                   <h5 class="text-base font-semibold text-body mb-1.5">出海布局与保护服务</h5>
                   <p class="text-sm text-muted leading-relaxed mb-4">海外市场进入、跨境电商、技术出海等场景下的海外商标注册、国际专利申请及风险防范，覆盖全球主要经济区。</p>
-                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button onclick="openConsultModal()" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">预约咨询 <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></button>
                 </div>
               </div>
             </div>
@@ -789,7 +652,7 @@ function handleDomainSearch() {
           <div class="flex items-start justify-between mb-6">
             <div class="flex items-center gap-4">
               <div class="product-icon-box" style="background:rgba(10,102,255,0.1);">
-                <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <span class="icon-mask w-7 h-7 text-primary" style="-webkit-mask-image:url('assets/icons/outline/device-desktop.svg');mask-image:url('assets/icons/outline/device-desktop.svg')"></span>
               </div>
               <div>
                 <div class="flex items-center gap-2 mb-1">
@@ -833,7 +696,7 @@ function handleDomainSearch() {
           <div class="flex items-start justify-between mb-6">
             <div class="flex items-center gap-4">
               <div class="product-icon-box" style="background:rgba(0,212,170,0.1);">
-                <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                <span class="icon-mask w-7 h-7 text-accent" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
               </div>
               <div>
                 <div class="flex items-center gap-2 mb-1">
@@ -876,7 +739,7 @@ function handleDomainSearch() {
           <div class="flex items-start justify-between mb-6">
             <div class="flex items-center gap-4">
               <div class="product-icon-box" style="background:rgba(124,58,237,0.1);">
-                <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span class="icon-mask w-7 h-7 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/file.svg');mask-image:url('assets/icons/outline/file.svg')"></span>
               </div>
               <div>
                 <div class="flex items-center gap-2 mb-1">
@@ -917,7 +780,7 @@ function handleDomainSearch() {
           <div class="flex items-start justify-between mb-6">
             <div class="flex items-center gap-4">
               <div class="product-icon-box" style="background:rgba(244,63,94,0.1);">
-                <svg class="w-7 h-7 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+                <span class="icon-mask w-7 h-7 text-rose-500" style="-webkit-mask-image:url('assets/icons/outline/brush.svg');mask-image:url('assets/icons/outline/brush.svg')"></span>
               </div>
               <div>
                 <div class="flex items-center gap-2 mb-1">
@@ -1008,7 +871,7 @@ function handleDomainSearch() {
       <div class="why-flow-steps">
         <div class="why-flow-step">
           <div class="why-flow-step-num">
-            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            <span class="icon-mask w-6 h-6 text-primary" style="-webkit-mask-image:url('assets/icons/outline/message.svg');mask-image:url('assets/icons/outline/message.svg')"></span>
             <span class="step-badge">1</span>
           </div>
           <div class="why-flow-step-title">需求咨询</div>
@@ -1017,7 +880,7 @@ function handleDomainSearch() {
         </div>
         <div class="why-flow-step">
           <div class="why-flow-step-num">
-            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2h-4M9 11V7a3 3 0 016 0v4M9 11h6"/></svg>
+            <span class="icon-mask w-6 h-6 text-primary" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span>
             <span class="step-badge">2</span>
           </div>
           <div class="why-flow-step-title">方案定制</div>
@@ -1026,7 +889,7 @@ function handleDomainSearch() {
         </div>
         <div class="why-flow-step">
           <div class="why-flow-step-num">
-            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span class="icon-mask w-6 h-6 text-primary" style="-webkit-mask-image:url('assets/icons/outline/photo.svg');mask-image:url('assets/icons/outline/photo.svg')"></span>
             <span class="step-badge">3</span>
           </div>
           <div class="why-flow-step-title">部署上线</div>
@@ -1035,7 +898,7 @@ function handleDomainSearch() {
         </div>
         <div class="why-flow-step">
           <div class="why-flow-step-num">
-            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <span class="icon-mask w-6 h-6 text-primary" style="-webkit-mask-image:url('assets/icons/outline/chart-bar.svg');mask-image:url('assets/icons/outline/chart-bar.svg')"></span>
             <span class="step-badge">4</span>
           </div>
           <div class="why-flow-step-title">持续运维</div>
@@ -1108,7 +971,7 @@ function handleDomainSearch() {
         <div class="relative z-10 p-6 h-full flex flex-col">
           <div class="flex items-center justify-between mb-5">
             <div class="bento-icon-box">
-              <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              <span class="icon-mask w-5 h-5 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/basket.svg');mask-image:url('assets/icons/outline/basket.svg')"></span>
             </div>
             <span class="text-[10px] font-mono text-purple-700/70 tracking-wider">No.02</span>
           </div>
@@ -1128,7 +991,7 @@ function handleDomainSearch() {
         <div class="relative z-10 p-6 h-full flex flex-col">
           <div class="flex items-center justify-between mb-5">
             <div class="bento-icon-box">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7v6c0 5 4 9 10 9s10-4 10-9V7l-10-5z"/><path d="M9 12l2 2 4-4"/></svg>
+              <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
             </div>
             <span class="text-[10px] font-mono text-emerald-700/70 tracking-wider">No.03</span>
           </div>
@@ -1148,7 +1011,7 @@ function handleDomainSearch() {
         <div class="relative z-10 p-5 h-full flex flex-col">
           <div class="flex items-center justify-between mb-4">
             <div class="bento-icon-box" style="background:#fff;">
-              <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01M6.5 19h11a4 4 0 004-4v-5a4 4 0 00-4-4h-11a4 4 0 00-4 4v5a4 4 0 004 4z"/></svg>
+              <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/radar.svg');mask-image:url('assets/icons/outline/radar.svg')"></span>
             </div>
             <span class="text-[10px] font-mono text-amber-700/70 tracking-wider">No.04</span>
           </div>
@@ -1169,7 +1032,7 @@ function handleDomainSearch() {
         <div class="relative z-10 p-5 h-full flex flex-col">
           <div class="flex items-center justify-between mb-4">
             <div class="bento-icon-box" style="background:#fff;">
-              <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h2M22 12h-2M12 2v2M12 22v-2M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41M19.07 19.07l-1.41-1.41M6.34 6.34L4.93 4.93"/><circle cx="12" cy="12" r="4"/></svg>
+              <span class="icon-mask w-5 h-5 text-rose-600" style="-webkit-mask-image:url('assets/icons/outline/radar.svg');mask-image:url('assets/icons/outline/radar.svg')"></span>
             </div>
             <span class="text-[10px] font-mono text-rose-700/70 tracking-wider">No.05</span>
           </div>
@@ -1190,7 +1053,7 @@ function handleDomainSearch() {
         <div class="relative z-10 p-5 h-full flex flex-col">
           <div class="flex items-center justify-between mb-4">
             <div class="bento-icon-box" style="background:#fff;">
-              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span class="icon-mask w-5 h-5 text-sky-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
             </div>
             <span class="bento-tag new">NEW</span>
           </div>
@@ -1248,7 +1111,7 @@ function handleDomainSearch() {
     <div class="mt-10 text-center">
       <a href="news.html" class="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm transition-colors">
         查看全部新闻动态
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span class="icon-mask w-4 h-4 text-primary" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
       </a>
     </div>
   </div>
@@ -1379,7 +1242,7 @@ function handleDomainSearch() {
       <div class="flex items-center justify-between mb-6">
         <h3 class="text-2xl font-bold text-body">立即咨询</h3>
         <button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
         </button>
       </div>
       <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">
@@ -1397,6 +1260,55 @@ function handleDomainSearch() {
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; lockBodyScroll(); }
 function closeConsultModal(){ document.getElementById('consultModal').style.display='none'; unlockBodyScroll(); }
 function submitConsult(e){ e.preventDefault(); alert('感谢您的咨询，我们将尽快联系您！'); closeConsultModal(); }
+</script>
+
+<!-- ===== SSL 证书 - 类型切换 & 加入购物车 ===== -->
+<script>
+var sslCurrentType = 'single'; // 'single' or 'wildcard'
+
+function switchSslType(type){
+  sslCurrentType = type;
+  // 切换按钮状态
+  document.querySelectorAll('.ssl-type-btn').forEach(function(b){
+    b.classList.remove('active');
+    b.classList.remove('bg-white', 'text-body', 'shadow-sm');
+  });
+  document.querySelectorAll('.ssl-type-btn[data-ssl-type="'+type+'"]').forEach(function(b){
+    b.classList.add('active');
+    b.classList.add('bg-white', 'text-body', 'shadow-sm');
+  });
+  // 更新所有价格显示
+  document.querySelectorAll('.ssl-price').forEach(function(el){
+    var singlePrice = parseFloat(el.getAttribute('data-single'));
+    var wildcardPrice = parseFloat(el.getAttribute('data-wildcard'));
+    var p = type === 'single' ? singlePrice : wildcardPrice;
+    el.textContent = '¥' + p.toLocaleString('zh-CN');
+  });
+}
+
+function getSslPrice(type, singlePrice, wildcardPrice){
+  return type === 'single' ? singlePrice : wildcardPrice;
+}
+
+function addSslToCart(name, price, btn){
+  if (!window.cartUtils) {
+    alert('购物车组件未加载，请稍后重试');
+    return;
+  }
+  var typeLabel = sslCurrentType === 'single' ? '单域名' : '通配符';
+  var item = {
+    id: 'ssl-' + name + '-' + sslCurrentType + '-' + Date.now(),
+    productType: 'SSL证书',
+    productName: name + ' · ' + typeLabel,
+    price: price,
+    quantity: 1,
+    selected: true,
+    category: 'ssl'
+  };
+  window.cartUtils.addItem(item);
+  window.cartUtils.flyTo(btn);
+  window.cartUtils.toast('已加入购物车');
+}
 </script>
 
 <!-- ===== 加入购物车引导动画 ===== -->

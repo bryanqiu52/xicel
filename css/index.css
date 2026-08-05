@@ -231,7 +231,8 @@
   border: 2px dashed rgba(10, 102, 255, 0.3);
   animation: rotate 12s linear infinite;
 }
-.why-flow-step-num svg {
+.why-flow-step-num svg,
+.why-flow-step-num .icon-mask {
   width: 28px; height: 28px;
   color: #0A66FF;
   transition: transform 0.35s ease;
@@ -241,7 +242,8 @@
   transform: scale(1.05);
   box-shadow: 0 12px 28px -8px rgba(10, 102, 255, 0.4);
 }
-.why-flow-step:hover .why-flow-step-num svg {
+.why-flow-step:hover .why-flow-step-num svg,
+.why-flow-step:hover .why-flow-step-num .icon-mask {
   color: #fff;
   transform: scale(1.1);
 }
@@ -864,4 +866,170 @@
 @media (max-width: 640px) {
   .domain-carousel-wrapper { padding: 0 40px; }
   .domain-carousel-track > div { flex: 0 0 calc(100% - 8px); }
+}
+
+/* ===== SSL 套餐卡片（对齐 IDC 页 SSL 板块风格） ===== */
+.ssl-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 36px 32px 32px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s, border-color 0.4s;
+  overflow: hidden;
+}
+.ssl-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(10,102,255,0.12);
+}
+.ssl-card.recommended {
+  border-color: rgba(10,102,255,0.2);
+  box-shadow: 0 8px 32px rgba(10,102,255,0.08);
+}
+.ssl-card.recommended::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  z-index: 1;
+}
+.ssl-card.recommended::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 100%; height: 200%;
+  background: linear-gradient(135deg, transparent 40%, rgba(10,102,255,0.02) 50%, transparent 60%);
+  animation: sslCardShimmer 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes sslCardShimmer {
+  0%, 100% { transform: translateX(-30%) rotate(25deg); }
+  50% { transform: translateX(30%) rotate(25deg); }
+}
+
+/* 推荐徽章（右上角） */
+.ssl-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(10,102,255,0.25);
+  z-index: 2;
+}
+
+/* 标题 */
+.ssl-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1E293B;
+  margin-bottom: 4px;
+}
+
+/* 描述 */
+.ssl-card-desc {
+  font-size: 14px;
+  color: #64748B;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* 特性列表 */
+.ssl-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.ssl-card-features .feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+}
+.ssl-card-features .feat-check {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ssl-card-features .feat-check svg {
+  width: 10px;
+  height: 10px;
+  color: #00D4AA;
+}
+
+/* 价格区 */
+.ssl-card-price {
+  margin-bottom: 24px;
+}
+.ssl-card-price .price-main {
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.ssl-card-price .price-main span {
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-text-fill-color: #64748B;
+  color: #64748B;
+}
+.ssl-card-price .price-main .ssl-price {
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+/* SSL 卡片按钮 */
+.ssl-plan-cards .ssl-btn {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+  cursor: pointer;
+}
+.ssl-plan-cards .ssl-btn-primary {
+  background: linear-gradient(135deg, #0A66FF, #00D4AA);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(10,102,255,0.25);
+}
+.ssl-plan-cards .ssl-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.35);
+}
+.ssl-plan-cards .ssl-btn-outline {
+  background: transparent;
+  color: #0A66FF;
+  border: 2px solid rgba(10,102,255,0.2);
+}
+.ssl-plan-cards .ssl-btn-outline:hover {
+  background: #0A66FF;
+  color: #fff;
+  border-color: #0A66FF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,102,255,0.35);
 }

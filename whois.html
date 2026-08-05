@@ -36,7 +36,7 @@
     <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">WHOIS 查询</h1>
     <p class="text-white/70 mb-8">查询域名的注册信息、注册商、到期时间、DNS 服务器等详细资料</p>
     <div class="relative max-w-xl mx-auto">
-      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50 z-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <span class="icon-mask absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50 z-10" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
       <input id="whoisSearchInput" type="text" placeholder="输入完整域名，如 xicel.com" class="whois-search-input pl-12" onkeydown="if(event.key==='Enter')handleWhoisSearch()" />
       <button onclick="handleWhoisSearch()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white text-sm font-medium px-5 py-2 rounded-xl transition-all backdrop-blur-sm whitespace-nowrap border border-white/20">查询</button>
     </div>
@@ -50,10 +50,7 @@
 
     <!-- 空状态（默认显示） -->
     <div id="whoisEmpty" class="whois-empty">
-      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-        <path d="M9 12h6m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
-        <path d="M14 3v4a1 1 0 001 1h4"/>
-      </svg>
+      <span class="icon-mask w-20 h-20 mb-5 text-slate-300" style="-webkit-mask-image:url('assets/icons/outline/file.svg');mask-image:url('assets/icons/outline/file.svg')"></span>
       <h3>查询域名 Whois 信息</h3>
       <p>输入域名后点击查询，即可查看该域名的注册详情</p>
       <!-- 热门示例 -->
@@ -102,7 +99,7 @@
           <!-- 注册人 -->
           <div class="whois-contact-group">
             <div class="whois-contact-header">
-              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <span class="icon-mask w-4 h-4 text-primary" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
               <span>注册人</span>
             </div>
             <div id="whoisRegistrantInfo"></div>
@@ -111,7 +108,7 @@
           <!-- 管理联系人 -->
           <div class="whois-contact-group">
             <div class="whois-contact-header">
-              <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              <span class="icon-mask w-4 h-4 text-amber-500" style="-webkit-mask-image:url('assets/icons/outline/chart-bar.svg');mask-image:url('assets/icons/outline/chart-bar.svg')"></span>
               <span>管理联系人</span>
             </div>
             <div id="whoisAdminInfo"></div>
@@ -120,7 +117,7 @@
           <!-- 技术联系人 -->
           <div class="whois-contact-group">
             <div class="whois-contact-header">
-              <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              <span class="icon-mask w-4 h-4 text-teal-500" style="-webkit-mask-image:url('assets/icons/outline/bolt.svg');mask-image:url('assets/icons/outline/bolt.svg')"></span>
               <span>技术联系人</span>
             </div>
             <div id="whoisTechInfo"></div>

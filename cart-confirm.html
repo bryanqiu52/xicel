@@ -338,10 +338,26 @@ table.cart-confirm-table select::-ms-expand,
   background: rgba(10, 102, 255, 0.06);
 }
 
-/* ===== 移除按钮调整 ===== */
-.cart-op-col .remove-x-btn {
-  width: 28px !important;
-  height: 28px !important;
+/* ===== 移除按钮（grid 表格布局内，选择器必须能匹配到实际渲染的按钮） ===== */
+.remove-x-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #F5F7FA;
+  border: 1px solid #E2E8F0;
+  color: #94A3B8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+.remove-x-btn:hover {
+  color: #0A66FF;
+  border-color: #93C5FD;
+  background: rgba(10, 102, 255, 0.06);
 }
 </style>
 <script>
@@ -418,7 +434,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <div class="dropdown-btn dropdown-btn-sm batch-years-btn" data-value="">
                 <span class="text-[11px] text-muted">选择年限</span>
-                <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </div>
             </div>
             <span class="mx-1 w-px h-4 bg-slate-200"></span>
@@ -433,7 +449,7 @@ tailwind.config = {
                 <div class="cart-empty-en">Your Cart<br>is Empty</div>
                 <p class="cart-empty-sub">购物车还是空的，去挑选您感兴趣的商品吧</p>
                 <a href="index.html" class="btn-go-shop">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l3 12h12l2-8H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+                  <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/filled/basket.svg');mask-image:url('assets/icons/filled/basket.svg')"></span>
                   去选购
                 </a>
               </div>
@@ -469,7 +485,7 @@ tailwind.config = {
                 <div class="dropdown-wrapper" style="min-width:0;">
                   <div class="dropdown-btn dropdown-btn-sm page-size-btn" data-value="10">
                     <span class="text-[12px]">10 条</span>
-                    <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    <span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
                   </div>
                 </div>
               </div>
@@ -512,15 +528,15 @@ tailwind.config = {
             <h5 class="text-sm font-bold text-body mb-3">服务保障</h5>
             <div class="space-y-2 text-xs text-muted">
               <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="icon-mask w-4 h-4 text-green-500 flex-shrink-0" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                 <span>7×24 小时技术支持</span>
               </div>
               <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="icon-mask w-4 h-4 text-green-500 flex-shrink-0" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                 <span>未注册成功全额退款</span>
               </div>
               <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="icon-mask w-4 h-4 text-green-500 flex-shrink-0" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                 <span>实名信息加密传输</span>
               </div>
             </div>
@@ -538,7 +554,7 @@ tailwind.config = {
     <div class="detail-modal-header">
       <h3 id="detailTitle">商品详情</h3>
       <button class="detail-modal-close" onclick="closeDetailModal()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="detail-modal-body" id="detailBody">
@@ -572,11 +588,11 @@ tailwind.config = {
 <script>
 (function(){
   var PRODUCT_TYPE_META = {
-    '域名注册':   { color: 'linear-gradient(135deg, #0A66FF, #0047CC)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>' },
-    '云服务器':   { color: 'linear-gradient(135deg, #00D4AA, #00A77F)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>' },
-    'SSL证书':    { color: 'linear-gradient(135deg, #F59E0B, #D97706)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>' },
-    '增值服务':   { color: 'linear-gradient(135deg, #8B5CF6, #7C3AED)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>' },
-    '企业邮箱':   { color: 'linear-gradient(135deg, #EC4899, #DB2777)', svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' }
+    '域名注册':   { color: 'linear-gradient(135deg, #0A66FF, #0047CC)', svg: '<span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url(\'assets/icons/filled/globe.svg\');mask-image:url(\'assets/icons/filled/globe.svg\')"></span>' },
+    '云服务器':   { color: 'linear-gradient(135deg, #00D4AA, #00A77F)', svg: '<span class="icon-mask w-5 h-5 text-green-600" style="-webkit-mask-image:url(\'assets/icons/filled/cloud.svg\');mask-image:url(\'assets/icons/filled/cloud.svg\')"></span>' },
+    'SSL证书':    { color: 'linear-gradient(135deg, #F59E0B, #D97706)', svg: '<span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url(\'assets/icons/filled/lock.svg\');mask-image:url(\'assets/icons/filled/lock.svg\')"></span>' },
+    '增值服务':   { color: 'linear-gradient(135deg, #8B5CF6, #7C3AED)', svg: '<span class="icon-mask w-5 h-5 text-violet-600" style="-webkit-mask-image:url(\'assets/icons/filled/star.svg\');mask-image:url(\'assets/icons/filled/star.svg\')"></span>' },
+    '企业邮箱':   { color: 'linear-gradient(135deg, #EC4899, #DB2777)', svg: '<span class="icon-mask w-5 h-5 text-pink-600" style="-webkit-mask-image:url(\'assets/icons/filled/mail.svg\');mask-image:url(\'assets/icons/filled/mail.svg\')"></span>' }
   };
 
   // ===== 套餐数据（与 products-idc.html 对齐） =====
@@ -629,7 +645,7 @@ tailwind.config = {
   function metaOf(type) {
     return PRODUCT_TYPE_META[type] || {
       color: 'linear-gradient(135deg, #64748B, #475569)',
-      svg: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>'
+      svg: '<span class="icon-mask w-5 h-5 text-slate-600" style="-webkit-mask-image:url(\'assets/icons/filled/file.svg\');mask-image:url(\'assets/icons/filled/file.svg\')"></span>'
     };
   }
 
@@ -672,7 +688,7 @@ tailwind.config = {
     var cur = btn.getAttribute('data-value') || '1';
     inner.innerHTML = YEARS_OPTIONS.map(function(o){
       var sel = o.value === cur;
-      return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.value + '"><span>' + o.label + ' 年</span><svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>';
+      return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.value + '"><span>' + o.label + ' 年</span><span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span></div>';
     }).join('');
     dropdown.appendChild(inner);
     inner.addEventListener('wheel', function(ev) { ev.stopPropagation(); }, { passive: true });
@@ -735,7 +751,7 @@ tailwind.config = {
     var html = '<div class="dropdown-wrapper" style="display:inline-block;">'
       + '<div class="detail-dropdown-btn detail-year-btn" data-id="' + esc(itemId) + '" data-value="' + curYear + '">'
       + '<span class="text-[12px]">' + (YEAR_OPTS[curYear] || curYear + ' 年') + '</span>'
-      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '<span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
       + '</div></div>';
     return html;
   }
@@ -749,7 +765,7 @@ tailwind.config = {
     var html = '<span style="margin-left:8px;"><div class="dropdown-wrapper" style="display:inline-block;">'
       + '<div class="detail-dropdown-btn detail-reg-btn" data-id="' + esc(itemId) + '" data-value="' + esc(curTemplateId) + '">'
       + '<span class="text-[11px]">' + esc(curName) + '</span>'
-      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '<span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
       + '</div></div></span>';
     return html;
   }
@@ -874,7 +890,7 @@ tailwind.config = {
     return '<div class="dropdown-wrapper" style="display:inline-block;">'
       + '<div class="detail-dropdown-btn detail-doc-btn" data-id="' + esc(item.id) + '" data-value="' + cur.val + '">'
       + '<span class="text-[12px]">' + cur.label + '</span>'
-      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '<span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
       + '</div></div>';
   }
 
@@ -912,7 +928,7 @@ tailwind.config = {
     var planBtnHtml = '<div class="dropdown-wrapper" style="display:inline-block;">'
       + '<div class="detail-dropdown-btn detail-plan-btn" data-id="' + esc(item.id) + '" data-plan="cloud">'
       + '<span class="text-[12px]">' + esc(cloudPlan.name + ' · ' + cloudPlan.tag) + '</span>'
-      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '<span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
       + '</div></div>';
     return '<div class="detail-d-opts">'
       + ddoRow('区域', regionToggle)
@@ -957,7 +973,7 @@ tailwind.config = {
     var planBtnHtml = '<div class="dropdown-wrapper" style="display:inline-block;">'
       + '<div class="detail-dropdown-btn detail-plan-btn" data-id="' + esc(item.id) + '" data-plan="ssl">'
       + '<span class="text-[12px]">' + esc(planName) + '</span>'
-      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '<span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
       + '</div></div>';
     return '<div class="detail-d-opts">'
       + ddoRow('证书类型', toggleHtml)
@@ -983,14 +999,14 @@ tailwind.config = {
     var mailPlanBtnHtml = '<div class="dropdown-wrapper" style="display:inline-block;">'
       + '<div class="detail-dropdown-btn detail-plan-btn" data-id="' + esc(item.id) + '" data-plan="mail">'
       + '<span class="text-[12px]">' + esc(mailPlan.name + ' · ' + mailPlan.capacity) + '</span>'
-      + '<svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+      + '<span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
       + '</div></div>';
     var qtyStepper = '<div class="detail-d-qty">'
       + '<button type="button" class="ddq-btn ddq-minus" onclick="changeDetailMailQty(\'' + esc(item.id) + '\',-1)" aria-label="减少用户数">'
-      + '<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>'
+      + '<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/minus.svg\');mask-image:url(\'assets/icons/outline/minus.svg\')"></span></button>'
       + '<input type="number" class="ddq-input" value="' + qty + '" min="5" readonly>'
       + '<button type="button" class="ddq-btn ddq-plus" onclick="changeDetailMailQty(\'' + esc(item.id) + '\',1)" aria-label="增加用户数">'
-      + '<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>'
+      + '<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/filled/plus.svg\');mask-image:url(\'assets/icons/filled/plus.svg\')"></span></button>'
       + '</div>';
     return '<div class="detail-d-opts">'
       + ddoRow('版本', mailPlanBtnHtml)
@@ -1255,17 +1271,15 @@ tailwind.config = {
       var yearSel = '<div class="dropdown-wrapper" style="display:inline-flex;">';
       yearSel += '<div class="dropdown-btn dropdown-btn-sm" data-id="' + esc(it.id) + '" data-value="' + year + '">';
       yearSel += '<span class="text-[12px]">' + YEAR_OPTS[year] + '</span>';
-      yearSel += '<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
+      yearSel += '<span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>';
       yearSel += '</div></div>';
 
       // 详情按钮
-      var detailBtn = '<button class="detail-btn" data-id="' + esc(it.id) + '" onclick="showItemDetail(\'' + esc(it.id) + '\')" title="详情">'
-        + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
-        + '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>';
+      var detailBtn = '<button class="detail-btn" data-id="' + esc(it.id) + '" onclick="showItemDetail(\'' + esc(it.id) + '\')" title="详情" style="width:auto;padding:0 8px;font-size:11px;font-weight:600;">详情</button>';
 
-      // 删除按钮
-      var removeBtn = '<button class="remove-x-btn" data-remove-id="' + esc(it.id) + '" title="移除" style="width:26px;height:26px;">'
-        + '<svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>';
+      // 删除按钮（可见样式由 .remove-x-btn 控制，去掉内联 color 覆盖）
+      var removeBtn = '<button class="remove-x-btn" data-remove-id="' + esc(it.id) + '" title="移除">'
+        + '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/x.svg\');mask-image:url(\'assets/icons/outline/x.svg\')"></span></button>';
 
       var rowOpacity = it.selected === false ? ' opacity-40' : '';
       return '<div data-id="' + esc(it.id) + '" class="grid grid-cols-12 gap-1 px-4 py-3 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors' + rowOpacity + '">'
@@ -1386,7 +1400,7 @@ tailwind.config = {
         var sel = y === curYear;
         return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
              +   '<span>' + YEAR_OPTS[y] + '</span>'
-             +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+             +   '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span>'
              + '</div>';
       }).join('');
       dropdown.appendChild(inner);
@@ -1455,7 +1469,7 @@ tailwind.config = {
         var sel = y === dyCur;
         return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + y + '">'
              +   '<span>' + YEAR_OPTS[y] + '</span>'
-             +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+             +   '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span>'
              + '</div>';
       }).join('');
       dyDropdown.appendChild(dyInner);
@@ -1522,7 +1536,7 @@ tailwind.config = {
         var sel = o.label === planCurText;
         return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.val + '">'
              +   '<span>' + o.label + '</span>'
-             +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+             +   '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span>'
              + '</div>';
       }).join('');
       planDropdown.appendChild(planInner);
@@ -1581,7 +1595,7 @@ tailwind.config = {
         var sel = o.val === docCur;
         return '<div class="dropdown-option dropdown-option-sm' + (sel ? ' selected' : '') + '" data-value="' + o.val + '">'
              +   '<span>' + o.label + '</span>'
-             +   '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+             +   '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span>'
              + '</div>';
       }).join('');
       docDropdown.appendChild(docInner);
@@ -1635,19 +1649,19 @@ tailwind.config = {
       if (drTemplates.length === 0) {
         drInner.innerHTML = '<div class="dropdown-option disabled" style="cursor:default;opacity:0.5;"><span>暂无模板</span></div>'
           + '<div class="dropdown-option-divider"></div>'
-          + '<div class="dropdown-option" data-action="manage"><svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg><span>管理模板</span></div>';
+          + '<div class="dropdown-option" data-action="manage"><span class="icon-mask w-3.5 h-3.5 text-body" style="-webkit-mask-image:url(\'assets/icons/filled/edit.svg\');mask-image:url(\'assets/icons/filled/edit.svg\')"></span><span>管理模板</span></div>';
       } else {
         var drOptsHtml = '';
         drTemplates.forEach(function(tpl) {
           var sel = tpl.id === drCur;
           drOptsHtml += '<div class="dropdown-option' + (sel ? ' selected' : '') + '" data-value="' + tpl.id + '" data-type="' + tpl.type + '">'
             + '<span>' + tpl.name + ' <span class="text-muted text-[10px]">(' + (tpl.type === 'personal' ? '个人' : '企业') + ')</span></span>'
-            + '<svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>'
+            + '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span>'
             + '</div>';
         });
         drInner.innerHTML = drOptsHtml
           + '<div class="dropdown-option-divider"></div>'
-          + '<div class="dropdown-option" data-action="manage"><svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg><span>管理模板</span></div>';
+          + '<div class="dropdown-option" data-action="manage"><span class="icon-mask w-3.5 h-3.5 text-body" style="-webkit-mask-image:url(\'assets/icons/filled/edit.svg\');mask-image:url(\'assets/icons/filled/edit.svg\')"></span><span>管理模板</span></div>';
       }
       drDropdown.appendChild(drInner);
       var drRect = detailRegBtn.getBoundingClientRect();
@@ -1760,7 +1774,7 @@ tailwind.config = {
     var inner = document.createElement('div');
     inner.className = 'dropdown-panel-inner';
     var cur = btn.getAttribute('data-value') || '10';
-    inner.innerHTML = SIZES.map(function(o){ var sel=o.value===cur; return '<div class="dropdown-option dropdown-option-sm'+(sel?' selected':'')+'" data-value="'+o.value+'"><span>'+o.label+'</span><svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>'; }).join('');
+    inner.innerHTML = SIZES.map(function(o){ var sel=o.value===cur; return '<div class="dropdown-option dropdown-option-sm'+(sel?' selected':'')+'" data-value="'+o.value+'"><span>'+o.label+'</span><span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span></div>'; }).join('');
     dropdown.appendChild(inner);
     inner.addEventListener('wheel', function(ev) { ev.stopPropagation(); }, { passive: true });
     var rect = btn.getBoundingClientRect();

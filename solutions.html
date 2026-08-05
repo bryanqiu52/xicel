@@ -57,17 +57,17 @@ tailwind.config = {
       <!-- 痛点卡片 -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div class="pain-card">
-          <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/circle-plus.svg');mask-image:url('assets/icons/outline/circle-plus.svg')"></span></div>
           <h5>海外访问卡顿</h5>
           <p>用户遍布全球但服务器集中一地，跨境网络延迟高、页面加载慢，严重影响转化率</p>
         </div>
         <div class="pain-card">
-          <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span></div>
           <h5>跨国合规复杂</h5>
           <p>各国数据隐私法规各异（GDPR/CCPA等），自行研究合规成本高、风险大</p>
         </div>
         <div class="pain-card">
-          <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
+          <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span></div>
           <h5>品牌本地化难</h5>
           <p>多语言站点搭建、本地支付接入、区域化品牌设计缺乏一站式服务商</p>
         </div>
@@ -91,14 +91,14 @@ tailwind.config = {
         </div>
         <button onclick="openConsultModal()" class="sol-cta-btn" style="background:#fff;color:#0A66FF;box-shadow:0 6px 20px rgba(0,0,0,0.15);">
           咨询出海方案
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+          <span class="icon-mask w-4 h-4 text-primary" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
         </button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== Section 2: 电商全球化 ========== -->
+<!-- ========== Section 2: 跨境电商 ========== -->
 <section class="ind-section white has-grid">
   <div class="max-w-7xl mx-auto px-6">
     <div class="relative">
@@ -107,7 +107,7 @@ tailwind.config = {
         <!-- 左侧图片 -->
         <div class="w-full lg:w-5/12">
           <div class="ind-img-wrap" style="aspect-ratio:4/3;">
-            <img src="assets/images/solutions_ecommerce.jpg" alt="电商全球化" />
+            <img src="assets/images/solutions_ecommerce.jpg" alt="跨境电商" />
           </div>
         </div>
         <!-- 右侧内容 -->
@@ -115,44 +115,46 @@ tailwind.config = {
           <div class="ind-title-row">
             <span class="text-xs text-muted tracking-widest uppercase font-mono">E-Commerce</span>
           </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">电商全球化</h2>
-          <p class="text-muted text-base leading-relaxed mb-6 max-w-lg">
-            全球加速 · SSL 加密 · 多站点部署，让购物车永远在线，大促期间零宕机。
+          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">跨境电商全球化解决方案</h2>
+          <p class="text-muted text-base leading-relaxed mb-6 max-w-2xl">
+            独立站搭建、全球网络服务、海外社媒矩阵运营、知识产权布局，保障站点稳定运营，全域防护品牌线上风险。
           </p>
 
           <!-- 痛点 -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-              <h5>高并发压力</h5>
-              <p>大促期间流量峰值，服务器性能不足导致宕机</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/chart-line.svg');mask-image:url('assets/icons/outline/chart-line.svg')"></span></div>
+              <h5>站点访问体验差</h5>
+              <p>服务器规划不当，网站加载缓慢，大促期间卡顿宕机，直接流失下单客户。</p>
             </div>
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-              <h5>多站点管理</h5>
-              <p>多语言、多币种站点维护成本高、同步复杂</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/share.svg');mask-image:url('assets/icons/outline/share.svg')"></span></div>
+              <h5>公域引流转化断层</h5>
+              <p>海外社媒缺少系统化运营，内容本地化不足，流量无法高效导入独立站形成订单。</p>
             </div>
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <h5>支付安全</h5>
-              <p>在线支付合规要求高，数据泄露风险时刻存在</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span></div>
+              <h5>品牌仿冒风险突出</h5>
+              <p>域名、社媒账号缺少防御布局，钓鱼站点、仿冒社媒账号分流客源，扰乱正常经营。</p>
             </div>
           </div>
 
           <!-- 方案标签 -->
           <div class="flex flex-wrap gap-2.5 mb-6">
-            <span class="sol-tag">全球加速</span>
-            <span class="sol-tag">SSL 证书</span>
-            <span class="sol-tag">多站点部署</span>
-            <span class="sol-tag">CDN</span>
-            <span class="sol-tag">自动扩缩容</span>
+            <span class="sol-tag">独立站搭建</span>
+            <span class="sol-tag">SD-WAN组网</span>
+            <span class="sol-tag">IDC托管</span>
+            <span class="sol-tag">全球域名</span>
+            <span class="sol-tag">海外商标</span>
+            <span class="sol-tag">海外社媒运营</span>
+            <span class="sol-tag">侵权处置</span>
           </div>
 
           <div class="flex flex-wrap items-end justify-between gap-4">
-            <div class="ind-metric"><span class="num">98.99<span class="unit" style="font-size:16px;">%</span></span><span class="unit" style="margin-left:4px;">可用性 SLA</span></div>
+            <p class="sol-tagline">稳定运营、社媒引流与品牌防护一体化</p>
             <button onclick="openConsultModal()" class="sol-cta-btn">
-              咨询电商方案
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+              咨询跨境电商方案
+              <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
             </button>
           </div>
         </div>
@@ -161,7 +163,7 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ========== Section 3: 网络安全&高可用 ========== -->
+<!-- ========== Section 3: 传统制造业 ========== -->
 <section class="ind-section light has-grid">
   <div class="max-w-7xl mx-auto px-6">
     <div class="relative">
@@ -170,51 +172,52 @@ tailwind.config = {
         <!-- 右侧图片 -->
         <div class="w-full lg:w-5/12">
           <div class="ind-img-wrap" style="aspect-ratio:4/3;">
-            <img src="assets/images/solutions_finance.jpg" alt="网络安全&高可用" />
+            <img src="assets/images/solutions_manufacturing.jpg" alt="传统制造业" />
           </div>
         </div>
         <!-- 左侧内容 -->
         <div class="w-full lg:w-7/12 relative z-10">
           <div class="ind-title-row">
-            <span class="text-xs text-muted tracking-widest uppercase font-mono">Network & HA</span>
+            <span class="text-xs text-muted tracking-widest uppercase font-mono">Manufacturing</span>
           </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">网络安全&amp;高可用</h2>
-          <p class="text-muted text-base leading-relaxed mb-6 max-w-lg">
-            异地灾备 · 同城双活 · 网络安全防护 · 高可用架构，保障业务连续性零中断。
+          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">制造企业出海数字化方案</h2>
+          <p class="text-muted text-base leading-relaxed mb-6 max-w-2xl">
+            外贸官网搭建、跨境网络专线、海外社媒获客、全球品牌资产规划，持续拓展海外 B 端采购渠道。
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-              <h5>业务中断风险</h5>
-              <p>单点故障导致业务瘫痪，每中断一分钟都可能造成巨大经济损失与品牌声誉损害</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span></div>
+              <h5>海外访客访问受阻</h5>
+              <p>国内服务器搭建外贸站点，海外客户打开缓慢，优质询盘持续流失。</p>
             </div>
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <h5>网络安全威胁</h5>
-              <p>DDoS攻击、勒索病毒、数据泄露等网络安全威胁日益严峻，传统防护方案难以应对</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/brand-linkedin.svg');mask-image:url('assets/icons/outline/brand-linkedin.svg')"></span></div>
+              <h5>海外获客渠道单一</h5>
+              <p>缺乏 LinkedIn 等工业社媒系统化运营，难以触达海外采购商，曝光增长乏力。</p>
             </div>
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
-              <h5>灾备恢复困难</h5>
-              <p>缺乏完善的异地灾备体系，数据备份与恢复流程不健全，灾备演练难以常态化执行</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span></div>
+              <h5>数字品牌资产失控</h5>
+              <p>品牌域名、社媒昵称遭囤积抢注，仿冒官网与假社媒账号误导海外合作方。</p>
             </div>
           </div>
 
           <div class="flex flex-wrap gap-2.5 mb-6">
-            <span class="sol-tag">同城双活</span>
-            <span class="sol-tag">容灾备份</span>
-            <span class="sol-tag">DDoS高防</span>
-            <span class="sol-tag">数据加密</span>
-            <span class="sol-tag">安全审计</span>
-            <span class="sol-tag">入侵检测</span>
+            <span class="sol-tag">外贸官网搭建</span>
+            <span class="sol-tag">SD-WAN跨境专线</span>
+            <span class="sol-tag">国别域名</span>
+            <span class="sol-tag">域名回购</span>
+            <span class="sol-tag">国际商标</span>
+            <span class="sol-tag">B端社媒运营</span>
+            <span class="sol-tag">品牌监控</span>
           </div>
 
           <div class="flex flex-wrap items-end justify-between gap-4">
-            <div class="ind-metric"><span class="num">99.99<span class="unit" style="font-size:16px;">%</span></span><span class="unit" style="margin-left:4px;">SLA高可用保障</span></div>
+            <p class="sol-tagline">打通海外获客渠道，构筑线上品牌防线</p>
             <button onclick="openConsultModal()" class="sol-cta-btn">
-              咨询网络方案
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+              咨询制造业出海方案
+              <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
             </button>
           </div>
         </div>
@@ -223,114 +226,61 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ========== Section 4: 游戏出海 ========== -->
-<section class="ind-full-bg">
-  <img class="bg-img" src="assets/images/solutions_gaming.jpg" alt="游戏出海" />
-  <div class="bg-overlay"></div>
-  <div class="content max-w-7xl mx-auto px-6 w-full py-20">
-    <div class="relative">
-      <span class="ind-num" style="color:rgba(255,255,255,0.08)">04</span>
-      <div class="ind-title-row">
-        <span class="text-white/50 text-xs tracking-widest uppercase font-mono">Gaming</span>
-      </div>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" style="letter-spacing:-0.02em;">游戏出海</h2>
-      <p class="text-white/75 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
-        全球专线 · 算力集群 · T 级抗 DDoS，让全球玩家享受毫秒级流畅体验。
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div class="pain-card">
-          <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg></div>
-          <h5>低延迟要求</h5>
-          <p>玩家对延迟极度敏感，跨境网络波动直接影响游戏体验与留存</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h5>DDoS 攻击</h5>
-          <p>游戏行业是 DDoS 攻击重灾区，需要 T 级别的防护能力</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10M12 2a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10"/></svg></div>
-          <h5>全球玩家分布</h5>
-          <p>玩家遍布各大洲，需要就近接入点与统一调度能力</p>
-        </div>
-      </div>
-
-      <div class="flex flex-wrap gap-2.5 mb-8">
-        <span class="sol-tag">全球专线</span>
-        <span class="sol-tag">算力集群</span>
-        <span class="sol-tag">T 级抗 DDoS</span>
-        <span class="sol-tag">多区域部署</span>
-        <span class="sol-tag">实时加速</span>
-      </div>
-
-      <div class="flex flex-wrap items-end justify-between gap-6">
-        <div class="flex flex-wrap gap-8">
-          <div class="ind-metric"><span class="num">< 30</span><span class="unit">ms 延迟</span></div>
-          <div class="ind-metric"><span class="num">T</span><span class="unit">级防护</span></div>
-        </div>
-        <button onclick="openConsultModal()" class="sol-cta-btn" style="background:#fff;color:#0A66FF;box-shadow:0 6px 20px rgba(0,0,0,0.15);">
-          咨询游戏方案
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== Section 5: 智能制造 ========== -->
+<!-- ========== Section 4: 消费电子 ========== -->
 <section class="ind-section white has-grid">
   <div class="max-w-7xl mx-auto px-6">
     <div class="relative">
-      <span class="ind-num">05</span>
+      <span class="ind-num">04</span>
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         <!-- 左侧图片 -->
         <div class="w-full lg:w-5/12">
           <div class="ind-img-wrap" style="aspect-ratio:4/3;">
-            <img src="assets/images/solutions_manufacturing.jpg" alt="智能制造" />
+            <img src="assets/images/solutions_consumer_electronics.jpg" alt="消费电子" />
           </div>
         </div>
         <!-- 右侧内容 -->
         <div class="w-full lg:w-7/12 relative z-10">
           <div class="ind-title-row">
-            <span class="text-xs text-muted tracking-widest uppercase font-mono">Industry 4.0</span>
+            <span class="text-xs text-muted tracking-widest uppercase font-mono">Consumer Electronics</span>
           </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">智能制造</h2>
-          <p class="text-muted text-base leading-relaxed mb-6 max-w-lg">
-            边缘计算 · 工业专线 · 私有云部署，让每一条产线都拥有数字化大脑。
+          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">消费电子全球品牌运营方案</h2>
+          <p class="text-muted text-base leading-relaxed mb-6 max-w-2xl">
+            品牌官网建设、全球网络加速、海外社媒种草、全链条知识产权服务，助力硬件品牌开拓海外市场。
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg></div>
-              <h5>工业数据安全</h5>
-              <p>生产工艺数据是核心资产，上云顾虑大、私有化部署难</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/crosshair.svg');mask-image:url('assets/icons/outline/crosshair.svg')"></span></div>
+              <h5>新品上市缺少前置保护</h5>
+              <p>域名、商标、专利、官方社媒账号布局滞后，存在被抢先注册、仿冒风险。</p>
             </div>
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 12h16"/><path d="M12 4v16"/></svg></div>
-              <h5>边缘计算需求</h5>
-              <p>产线需要毫秒级响应，传统云计算无法满足实时性要求</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/alert-triangle.svg');mask-image:url('assets/icons/outline/alert-triangle.svg')"></span></div>
+              <h5>市场仿冒侵权频发</h5>
+              <p>山寨产品、钓鱼网站、假冒社媒账号大量涌现，冲击产品销量与品牌口碑。</p>
             </div>
             <div class="pain-card">
-              <div class="pain-card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-              <h5>系统集成</h5>
-              <p>ERP/MES/WMS 等多系统对接复杂，缺乏统一数据底座</p>
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/world.svg');mask-image:url('assets/icons/outline/world.svg')"></span></div>
+              <h5>多区域线上推广不稳定</h5>
+              <p>各国官网、社媒账号分散管理，各地访问速度不均衡，营销推广难以协同。</p>
             </div>
           </div>
 
           <div class="flex flex-wrap gap-2.5 mb-6">
-            <span class="sol-tag">边缘计算</span>
-            <span class="sol-tag">工业专线</span>
-            <span class="sol-tag">私有云</span>
-            <span class="sol-tag">混合云架构</span>
-            <span class="sol-tag">IoT 平台</span>
+            <span class="sol-tag">品牌官网搭建</span>
+            <span class="sol-tag">CDN加速</span>
+            <span class="sol-tag">IDC云主机</span>
+            <span class="sol-tag">域名矩阵</span>
+            <span class="sol-tag">商标专利</span>
+            <span class="sol-tag">海外社媒矩阵运营</span>
+            <span class="sol-tag">侵权站点下架</span>
           </div>
 
           <div class="flex flex-wrap items-end justify-between gap-4">
-            <div class="ind-metric"><span class="num">5G</span><span class="unit">+ 边缘计算</span></div>
+            <p class="sol-tagline">支撑全球推广，高效应对跨境侵权</p>
             <button onclick="openConsultModal()" class="sol-cta-btn">
-              咨询智造方案
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+              咨询消费电子方案
+              <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
             </button>
           </div>
         </div>
@@ -339,73 +289,191 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ========== Section 6: 更多行业方案 ========== -->
+<!-- ========== Section 5: IP 文创 ========== -->
 <section class="ind-section light has-grid">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3">
-        <span class="w-6 h-px bg-primary"></span> MORE <span class="w-6 h-px bg-primary"></span>
+    <div class="relative">
+      <span class="ind-num">05</span>
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
+        <!-- 右侧图片 -->
+        <div class="w-full lg:w-5/12">
+          <div class="ind-img-wrap" style="aspect-ratio:4/3;">
+            <img src="assets/images/solutions_ip_cultural.jpg" alt="IP文创" />
+          </div>
+        </div>
+        <!-- 左侧内容 -->
+        <div class="w-full lg:w-7/12 relative z-10">
+          <div class="ind-title-row">
+            <span class="text-xs text-muted tracking-widest uppercase font-mono">IP &amp; Cultural Creation</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">IP 文创全球权益运营方案</h2>
+          <p class="text-muted text-base leading-relaxed mb-6 max-w-2xl">
+            IP 官方站点搭建、海外云服务、海外社媒内容运营、全球知识产权布局，保障 IP 海外商业化落地。
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/building-store.svg');mask-image:url('assets/icons/outline/building-store.svg')"></span></div>
+              <h5>缺少正规线上展示阵地</h5>
+              <p>无合规海外官网与官方社媒矩阵，粉丝流量被虚假网站、仿冒账号抢占。</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/copy.svg');mask-image:url('assets/icons/outline/copy.svg')"></span></div>
+              <h5>盗版衍生品泛滥</h5>
+              <p>IP 形象被擅自盗用，盗版商品、仿冒社媒账号持续侵蚀正版商业收益。</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/trademark.svg');mask-image:url('assets/icons/outline/trademark.svg')"></span></div>
+              <h5>海外知识产权布局零散</h5>
+              <p>防御域名、多国商标、社媒账号规划不足，市场拓展频繁遭遇权属壁垒。</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2.5 mb-6">
+            <span class="sol-tag">IP官网搭建</span>
+            <span class="sol-tag">海外云服务器</span>
+            <span class="sol-tag">防御域名</span>
+            <span class="sol-tag">跨类商标</span>
+            <span class="sol-tag">IP社媒运营</span>
+            <span class="sol-tag">证据保全</span>
+            <span class="sol-tag">侵权持续巡检</span>
+          </div>
+
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <p class="sol-tagline">稳定线上运营，全方位守护 IP 商业价值</p>
+            <button onclick="openConsultModal()" class="sol-cta-btn">
+              咨询 IP 权益保护方案
+              <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
+            </button>
+          </div>
+        </div>
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">更多行业方案</h2>
-      <p class="text-muted text-lg">无论您身处哪个行业，xicel 都能提供量身定制的数字化基建方案</p>
     </div>
+  </div>
+</section>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <!-- 教育 -->
-      <a href="products-idc.html" class="more-ind-card">
-        <div class="card-icon" style="background:rgba(10,102,255,0.08);">
-          <svg fill="none" stroke="#0A66FF" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+<!-- ========== Section 6: 户外运动 ========== -->
+<section class="ind-section white has-grid">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="relative">
+      <span class="ind-num">06</span>
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <!-- 左侧图片 -->
+        <div class="w-full lg:w-5/12">
+          <div class="ind-img-wrap" style="aspect-ratio:4/3;">
+            <img src="assets/images/solutions_outdoor.jpg" alt="户外运动" />
+          </div>
         </div>
-        <h4>教育行业</h4>
-        <p>在线教育平台、直播授课加速、学习管理系统部署，支持百万级并发在线学习</p>
-        <div class="flex flex-wrap gap-1.5 mt-4">
-          <span class="text-xs text-primary bg-primary/5 px-2 py-0.5 rounded">CDN</span>
-          <span class="text-xs text-primary bg-primary/5 px-2 py-0.5 rounded">云服务器</span>
-          <span class="text-xs text-primary bg-primary/5 px-2 py-0.5 rounded">直播加速</span>
-        </div>
-      </a>
+        <!-- 右侧内容 -->
+        <div class="w-full lg:w-7/12 relative z-10">
+          <div class="ind-title-row">
+            <span class="text-xs text-muted tracking-widest uppercase font-mono">Outdoor Sports</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">户外品牌全球化解决方案</h2>
+          <p class="text-muted text-base leading-relaxed mb-6 max-w-2xl">
+            户外品牌独立站搭建、全球网络加速、海外社媒种草运营、全链路知识产权服务，助力露营、骑行品牌开拓海外 DTC 市场。
+          </p>
 
-      <!-- 医疗 -->
-      <a href="products-idc.html" class="more-ind-card">
-        <div class="card-icon" style="background:rgba(0,212,170,0.08);">
-          <svg fill="none" stroke="#00D4AA" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-        </div>
-        <h4>医疗行业</h4>
-        <p>医疗数据合规存储、影像云归档、远程诊疗平台，满足 HIPAA/等保三级要求</p>
-        <div class="flex flex-wrap gap-1.5 mt-4">
-          <span class="text-xs text-accent bg-accent/5 px-2 py-0.5 rounded">私有云</span>
-          <span class="text-xs text-accent bg-accent/5 px-2 py-0.5 rounded">数据加密</span>
-          <span class="text-xs text-accent bg-accent/5 px-2 py-0.5 rounded">容灾备份</span>
-        </div>
-      </a>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/bolt.svg');mask-image:url('assets/icons/outline/bolt.svg')"></span></div>
+              <h5>海外站点访问体验差</h5>
+              <p>独立站图片、视频素材量大，跨地域加载缓慢，影响海外消费者浏览与下单转化。</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/brand-instagram.svg');mask-image:url('assets/icons/outline/brand-instagram.svg')"></span></div>
+              <h5>社媒营销体系不完善</h5>
+              <p>TikTok/Ins 等平台缺乏场景化内容运营，难以触达户外圈层消费者，引流效果薄弱。</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/shield.svg');mask-image:url('assets/icons/outline/shield.svg')"></span></div>
+              <h5>品牌流量被山寨主体抢夺</h5>
+              <p>近似域名、仿冒社媒账号大量涌现，假货站点分流客户，损害品牌海外形象。</p>
+            </div>
+          </div>
 
-      <!-- 政企 -->
-      <a href="products-idc.html" class="more-ind-card">
-        <div class="card-icon" style="background:rgba(99,102,241,0.08);">
-          <svg fill="none" stroke="#6366F1" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <h4>政企行业</h4>
-        <p>政务云平台、安全合规私有部署、国产化适配，满足信创与等保要求</p>
-        <div class="flex flex-wrap gap-1.5 mt-4">
-          <span class="text-xs text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">政务云</span>
-          <span class="text-xs text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">安全合规</span>
-          <span class="text-xs text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">信创适配</span>
-        </div>
-      </a>
+          <div class="flex flex-wrap gap-2.5 mb-6">
+            <span class="sol-tag">品牌独立站搭建</span>
+            <span class="sol-tag">全球CDN加速</span>
+            <span class="sol-tag">IDC云主机</span>
+            <span class="sol-tag">全球域名矩阵</span>
+            <span class="sol-tag">多国商标注册</span>
+            <span class="sol-tag">海外社媒代运营</span>
+            <span class="sol-tag">侵权站点下架处置</span>
+          </div>
 
-      <!-- 媒体 -->
-      <a href="products-idc.html" class="more-ind-card">
-        <div class="card-icon" style="background:rgba(245,158,11,0.08);">
-          <svg fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <p class="sol-tagline">稳定海外线上经营，全方位拦截仿冒竞争</p>
+            <button onclick="openConsultModal()" class="sol-cta-btn">
+              咨询户外用品方案
+              <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
+            </button>
+          </div>
         </div>
-        <h4>媒体行业</h4>
-        <p>内容分发加速、直播推拉流、版权保护方案，支持全球千万级并发观看</p>
-        <div class="flex flex-wrap gap-1.5 mt-4">
-          <span class="text-xs text-amber-600 bg-amber-50 px-2 py-0.5 rounded">CDN</span>
-          <span class="text-xs text-amber-600 bg-amber-50 px-2 py-0.5 rounded">直播加速</span>
-          <span class="text-xs text-amber-600 bg-amber-50 px-2 py-0.5 rounded">DRM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Section 7: 新能源 ========== -->
+<section class="ind-section light has-grid">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="relative">
+      <span class="ind-num">07</span>
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
+        <!-- 右侧图片 -->
+        <div class="w-full lg:w-5/12">
+          <div class="ind-img-wrap" style="aspect-ratio:4/3;">
+            <img src="assets/images/solutions_new_energy.jpg" alt="新能源" />
+          </div>
         </div>
-      </a>
+        <!-- 左侧内容 -->
+        <div class="w-full lg:w-7/12 relative z-10">
+          <div class="ind-title-row">
+            <span class="text-xs text-muted tracking-widest uppercase font-mono">New Energy</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-body mb-4" style="letter-spacing:-0.02em;">新能源企业出海数字化方案</h2>
+          <p class="text-muted text-base leading-relaxed mb-6 max-w-2xl">
+            多语言外贸官网建设、SD-WAN 跨境组网、B 端海外社媒运营、全球知识产权布局，支撑光伏、储能设备企业拓展全球工程项目。
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/cloud-network.svg');mask-image:url('assets/icons/outline/cloud-network.svg')"></span></div>
+              <h5>跨国业务协同效率偏低</h5>
+              <p>国内总部、海外办事处网络互通延迟，工程图纸、技术资料跨国传输缓慢。</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/users.svg');mask-image:url('assets/icons/outline/users.svg')"></span></div>
+              <h5>海外客户信任构建困难</h5>
+              <p>官网访问卡顿，缺少专业 LinkedIn 社媒运营展示项目案例，流失海外工程询盘。</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-card-icon"><span class="icon-mask w-5 h-5 text-accent" style="-webkit-mask-image:url('assets/icons/outline/badge-tm.svg');mask-image:url('assets/icons/outline/badge-tm.svg')"></span></div>
+              <h5>知识产权海外风险突出</h5>
+              <p>品牌域名、官方社媒昵称遭恶意囤积，竞品抢先注册权利，仿冒主体干扰海外招投标。</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2.5 mb-6">
+            <span class="sol-tag">外贸官网搭建</span>
+            <span class="sol-tag">SD-WAN跨境专线</span>
+            <span class="sol-tag">国别域名保护</span>
+            <span class="sol-tag">域名回购谈判</span>
+            <span class="sol-tag">国际商标专利</span>
+            <span class="sol-tag">B端社媒运营</span>
+            <span class="sol-tag">全网品牌监测</span>
+          </div>
+
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <p class="sol-tagline">打通海外获客渠道，构建技术与品牌防护壁垒</p>
+            <button onclick="openConsultModal()" class="sol-cta-btn">
+              咨询新能源出海方案
+              <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -417,7 +485,7 @@ tailwind.config = {
     <p class="text-muted text-lg mb-8 max-w-2xl mx-auto">立即咨询 xicel 解决方案专家，获取一对一专属定制方案</p>
     <button onclick="openConsultModal()" class="sol-cta-btn text-lg px-10 py-4">
       立即咨询
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      <span class="icon-mask w-5 h-5 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
     </button>
   </div>
 </section>
@@ -434,7 +502,7 @@ tailwind.config = {
       <div class="flex items-center justify-between mb-6">
         <h3 class="text-2xl font-bold text-body">立即咨询</h3>
         <button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
         </button>
       </div>
       <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">

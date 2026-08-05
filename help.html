@@ -51,7 +51,7 @@ tailwind.config = {
 <section class="bg-white border-b border-slate-100">
   <div class="max-w-2xl mx-auto px-6 py-6">
     <div class="relative">
-      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <span class="icon-mask absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
       <input type="text" id="faqSearch" placeholder="搜索问题或关键词..." class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body text-sm transition-all">
     </div>
   </div>
@@ -75,19 +75,19 @@ tailwind.config = {
     <div class="mb-10" data-category="域名">
       <h3 class="text-xl font-bold text-body mb-1">域名相关</h3>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">域名注册需要哪些资料？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">域名注册需要哪些资料？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">个人注册需提供身份证，企业注册需提供营业执照。部分特殊后缀（如.cn）需实名认证。注册成功后通常1-3个工作日内完成审核。</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">域名注册后多久生效？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">域名注册后多久生效？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">域名注册成功后立即生效，但全球DNS解析同步需要0-48小时。在中国大陆使用需完成ICP备案。</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">如何将域名从其他注册商转入xicel？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">如何将域名从其他注册商转入xicel？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">在原注册商解锁域名并获取转移码，在xicel提交转入申请并输入转移码，等待5-7个工作日完成转入。</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">.com和.cn域名有什么区别？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">.com和.cn域名有什么区别？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">.com是国际通用顶级域名，适合全球业务。.cn是中国国家顶级域名，需实名认证，国内访问速度快，搜索引擎对.cn有地域加权。</p></div>
       </div>
     </div>
@@ -96,15 +96,15 @@ tailwind.config = {
     <div class="mb-10" data-category="云服务器">
       <h3 class="text-xl font-bold text-body mb-1">云服务器相关</h3>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">虚拟主机和云服务器有什么区别？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">虚拟主机和云服务器有什么区别？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">虚拟主机共享服务器资源，适合小型官网；云服务器独享计算资源，支持弹性伸缩、自定义配置，适合中大型应用。</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">云服务器如何选择配置？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">云服务器如何选择配置？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">个人博客/企业官网：2核4G起步；电商/社区：4核8G起步；高并发应用：8核16G+负载均衡。建议从低配起步，按需升级。</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">数据存储在哪个位置？是否安全？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">数据存储在哪个位置？是否安全？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">xicel数据中心分布在中国大陆、香港、新加坡、美国等地。数据多副本存储，持久性达99.9999999%。</p></div>
       </div>
     </div>
@@ -113,11 +113,11 @@ tailwind.config = {
     <div class="mb-10" data-category="SSL">
       <h3 class="text-xl font-bold text-body mb-1">SSL证书相关</h3>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">DV、OV、EV证书有什么区别？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">DV、OV、EV证书有什么区别？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">DV验证域名所有权，最快5分钟签发，适合个人网站；OV验证企业身份，1-3个工作日；EV最严格审核，地址栏显示绿色企业名称，3-5个工作日。</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">SSL证书部署需要多久？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">SSL证书部署需要多久？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">证书签发后部署到服务器通常只需几分钟。购买后我们提供免费部署指导。</p></div>
       </div>
     </div>
@@ -126,11 +126,11 @@ tailwind.config = {
     <div class="mb-10" data-category="网络">
       <h3 class="text-xl font-bold text-body mb-1">网络相关</h3>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">CDN加速是什么？我的网站需要吗？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">CDN加速是什么？我的网站需要吗？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">CDN将网站内容缓存到全球节点，用户就近访问。如果你的用户分布在不同地区或海外，CDN可大幅提升加载速度。适合电商、媒体、游戏等。</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">SD-WAN适合多大规模的企业？</span><svg class="arrow w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span class="text-sm font-medium">SD-WAN适合多大规模的企业？</span><span class="icon-mask arrow w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span></div>
         <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">有2个及以上分支机构、或需要跨境网络连接的企业都适合。小到2个办公室互联，大到全球200+节点组网。</p></div>
       </div>
     </div>
@@ -207,7 +207,7 @@ tailwind.config = {
       <div class="flex items-center justify-between mb-6">
         <h3 class="text-2xl font-bold text-body">立即咨询</h3>
         <button onclick="closeConsultModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
         </button>
       </div>
       <form id="consultForm" onsubmit="submitConsult(event)" class="space-y-4">

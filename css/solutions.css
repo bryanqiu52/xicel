@@ -264,6 +264,27 @@
   box-shadow: 0 10px 28px rgba(10,102,255,0.35);
 }
 
+/* 方案一句话 tagline */
+.sol-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0A66FF;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 340px;
+}
+.sol-tagline::before {
+  content: '';
+  flex-shrink: 0;
+  width: 4px;
+  height: 18px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #0A66FF, #00D4AA);
+}
+
 /* ----- 响应式 ----- */
 @media (max-width: 1024px) {
   .sol-hero { min-height: 380px; }
@@ -281,4 +302,5 @@
   .ind-full-bg { min-height: auto; padding: 60px 0; }
   .ind-num { font-size: 60px; }
   .ind-metric .num { font-size: 26px; }
+  .sol-tagline { font-size: 14px; max-width: 100%; }
 }

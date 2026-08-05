@@ -1837,11 +1837,13 @@ body .beautified-select-sm:disabled {
   height: 50px;
   flex-shrink: 0;
 }
-.float-avatar svg {
+.float-avatar svg,
+.float-avatar img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   display: block;
+  object-fit: cover;
 }
 .float-agent-info {
   flex: 1;
@@ -2330,4 +2332,23 @@ body .beautified-select-sm:disabled {
 }
 .doc-tip-panel.pinned .doc-tip-close {
   display: inline-flex;
+}
+
+/* ===== 图标 mask 方案（外链 SVG 任意变色） =====
+   用法：<span class="icon-mask" style="-webkit-mask-image:url('assets/icons/.../xxx.svg');mask-image:url('assets/icons/.../xxx.svg')"></span>
+   注意：
+   1. mask-image 不能通过 CSS 变量传 url()（Chrome 解析失败），必须直接写 url()
+   2. 尺寸必须由显式 w-* h-* class 控制（本类不设默认尺寸）
+   background-color 用 currentColor，因此 text-primary / text-muted 等
+   color class 可直接控制图标颜色，等价于内联 SVG 时代 */
+.icon-mask {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
 }

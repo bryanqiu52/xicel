@@ -58,7 +58,7 @@ tailwind.config = {
     <div class="sidebar-section">
       <div class="sidebar-section-title">工作台</div>
       <a class="sidebar-item active" data-panel="panel-dashboard">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/layout.svg');mask-image:url('assets/icons/outline/layout.svg')"></span>
         数据面板
       </a>
     </div>
@@ -70,40 +70,40 @@ tailwind.config = {
       <div class="sidebar-submenu-group">
         <a class="sidebar-item sidebar-has-sub" style="justify-content:space-between;">
           <span style="display:flex;align-items:center;gap:10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10"/><path d="M12 2a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span>
             域名管理
           </span>
-          <svg class="sub-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+          <span class="icon-mask sub-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
         </a>
         <div class="sidebar-submenu">
           <a class="sidebar-sub-item" data-panel="panel-domain-list" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/file-text.svg');mask-image:url('assets/icons/outline/file-text.svg')"></span>
             域名列表
           </a>
           <a class="sidebar-sub-item" data-panel="panel-domain-registrant" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
             注册人信息
           </a>
           <a class="sidebar-sub-item" data-panel="panel-domain-transfer" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/transfer.svg');mask-image:url('assets/icons/outline/transfer.svg')"></span>
             域名转入
           </a>
         </div>
       </div>
       <a class="sidebar-item" data-panel="panel-hosting">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/server.svg');mask-image:url('assets/icons/outline/server.svg')"></span>
         主机管理
       </a>
       <a class="sidebar-item" data-panel="panel-email">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/mail.svg');mask-image:url('assets/icons/outline/mail.svg')"></span>
         企业邮箱
       </a>
       <a class="sidebar-item" data-panel="panel-trademark">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M10 8l3 4-3 4"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/trademark.svg');mask-image:url('assets/icons/outline/trademark.svg')"></span>
         商标管理
       </a>
       <a class="sidebar-item" data-panel="panel-ssl">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span>
         SSL证书
       </a>
     </div>
@@ -112,11 +112,11 @@ tailwind.config = {
     <div class="sidebar-section">
       <div class="sidebar-section-title">订单与服务</div>
       <a class="sidebar-item" data-panel="panel-orders">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/shopping-cart.svg');mask-image:url('assets/icons/outline/shopping-cart.svg')"></span>
         订单记录
       </a>
       <a class="sidebar-item" data-panel="panel-tickets">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/><path d="M12 8v4"/><path d="M12 15h.01"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/bell.svg');mask-image:url('assets/icons/outline/bell.svg')"></span>
         工单管理
       </a>
     </div>
@@ -128,47 +128,47 @@ tailwind.config = {
       <div class="sidebar-submenu-group">
         <a class="sidebar-item sidebar-has-sub" style="justify-content:space-between;">
           <span style="display:flex;align-items:center;gap:10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
             账号中心
           </span>
-          <svg class="sub-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+          <span class="icon-mask sub-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
         </a>
         <div class="sidebar-submenu">
           <a class="sidebar-sub-item" data-panel="panel-account" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
             基本信息
           </a>
           <a class="sidebar-sub-item" data-panel="panel-wallet" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="5" y1="8" x2="5" y2="8.01"/><circle cx="12" cy="14" r="2"/><path d="M19 10v4"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/credit-card.svg');mask-image:url('assets/icons/outline/credit-card.svg')"></span>
             我的钱包
           </a>
           <a class="sidebar-sub-item" data-panel="panel-security" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
             安全设置
           </a>
         </div>
       </div>
       <a class="sidebar-item" data-panel="panel-notifications">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/bell.svg');mask-image:url('assets/icons/outline/bell.svg')"></span>
         消息通知
       </a>
       <a class="sidebar-item" data-panel="panel-subaccount">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/users.svg');mask-image:url('assets/icons/outline/users.svg')"></span>
         子账号管理
       </a>
       <a class="sidebar-item" data-panel="panel-realname">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
         实名认证
       </a>
       <a class="sidebar-item" data-panel="panel-contact">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/message.svg');mask-image:url('assets/icons/outline/message.svg')"></span>
         联系我们
       </a>
     </div>
   </nav>
   <div class="sidebar-bottom">
     <button class="sidebar-logout-btn" onclick="window.location.href='login.html'">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/logout.svg');mask-image:url('assets/icons/outline/logout.svg')"></span>
       退出登录
     </button>
   </div>
@@ -180,26 +180,22 @@ tailwind.config = {
   <!-- 顶部栏 -->
   <header class="topbar">
     <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="打开菜单">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
+      <span class="icon-mask w-[2px] h-[18px] text-body" style="-webkit-mask-image:url('assets/icons/outline/menu.svg');mask-image:url('assets/icons/outline/menu.svg')"></span>
     </button>
     <a href="javascript:void(0)" class="back-home home-icon" onclick="switchPanel('panel-dashboard')" title="返回控制面板">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/home.svg');mask-image:url('assets/icons/outline/home.svg')"></span>
     </a>
     <a href="index.html" class="back-home" title="返回网站首页">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/arrow-left.svg');mask-image:url('assets/icons/outline/arrow-left.svg')"></span>
       返回网站首页
     </a>
     <div class="topbar-right">
       <button class="topbar-icon" title="消息通知" onclick="switchPanel('panel-notifications')">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        <span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/bell.svg');mask-image:url('assets/icons/outline/bell.svg')"></span>
         <span class="badge"></span>
       </button>
       <button class="topbar-icon" title="安全设置" onclick="switchPanel('panel-security')">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/settings.svg');mask-image:url('assets/icons/outline/settings.svg')"></span>
       </button>
       <div class="topbar-avatar" title="基本信息" onclick="switchPanel('panel-account')" style="cursor:pointer;">
         <img src="assets/images/avatars/men_32.jpg" alt="Paul">
@@ -212,7 +208,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/layout.svg');mask-image:url('assets/icons/outline/layout.svg')"></span>
           数据面板
         </h1>
         <p class="page-subtitle">欢迎回来，Paul 以下是你的账号概览</p>
@@ -254,7 +250,7 @@ tailwind.config = {
         <div class="contact-card">
           <div class="contact-card-top">
             <div class="cc-icon-wrap">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span class="icon-mask w-[15px] h-[15px] text-white" style="-webkit-mask-image:url('assets/icons/outline/message.svg');mask-image:url('assets/icons/outline/message.svg')"></span>
             </div>
             <h4>联系客服</h4>
             <span class="cc-sub">工作日 9:00-18:00</span>
@@ -262,7 +258,7 @@ tailwind.config = {
           <div class="contact-body">
             <div class="contact-row">
               <div class="cr-icon email">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/mail.svg');mask-image:url('assets/icons/outline/mail.svg')"></span>
               </div>
               <div class="cr-text">
                 <span class="cr-label">电子邮箱</span>
@@ -271,7 +267,7 @@ tailwind.config = {
             </div>
             <div class="contact-row">
               <div class="cr-icon phone">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/phone.svg');mask-image:url('assets/icons/outline/phone.svg')"></span>
               </div>
               <div class="cr-text">
                 <span class="cr-label">客服电话</span>
@@ -280,7 +276,7 @@ tailwind.config = {
             </div>
             <div class="contact-row">
               <div class="cr-icon address">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/map-pin.svg');mask-image:url('assets/icons/outline/map-pin.svg')"></span>
               </div>
               <div class="cr-text">
                 <span class="cr-label">办公地址</span>
@@ -299,7 +295,7 @@ tailwind.config = {
           <div class="stat-card domain" onclick="switchPanel('panel-domain-list')">
             <div class="stat-card-header">
               <div class="stat-card-icon domain">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10"/></svg>
+                <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span>
               </div>
               <span class="stat-card-trend up">↑ 100%</span>
             </div>
@@ -310,7 +306,7 @@ tailwind.config = {
           <div class="stat-card email" onclick="switchPanel('panel-email')">
             <div class="stat-card-header">
               <div class="stat-card-icon email">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/mail.svg');mask-image:url('assets/icons/outline/mail.svg')"></span>
               </div>
               <span class="stat-card-trend up">+1</span>
             </div>
@@ -321,7 +317,7 @@ tailwind.config = {
           <div class="stat-card server" onclick="switchPanel('panel-hosting')">
             <div class="stat-card-header">
               <div class="stat-card-icon server">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="#22C55E"/><circle cx="6" cy="18" r="1" fill="#22C55E"/></svg>
+                <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/server.svg');mask-image:url('assets/icons/outline/server.svg')"></span>
               </div>
               <span class="stat-card-trend up">+2</span>
             </div>
@@ -332,7 +328,7 @@ tailwind.config = {
           <div class="stat-card trademark" onclick="switchPanel('panel-trademark')">
             <div class="stat-card-header">
               <div class="stat-card-icon trademark">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 7h4l2 5 2-5h4"/><path d="M9 12h6"/></svg>
+                <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/trademark.svg');mask-image:url('assets/icons/outline/trademark.svg')"></span>
               </div>
               <span class="stat-card-trend up">+1</span>
             </div>
@@ -343,7 +339,7 @@ tailwind.config = {
           <div class="stat-card cert" onclick="switchPanel('panel-ssl')">
             <div class="stat-card-header">
               <div class="stat-card-icon cert">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span class="icon-mask w-5 h-5 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/shield.svg');mask-image:url('assets/icons/outline/shield.svg')"></span>
               </div>
               <span class="stat-card-trend up">+2</span>
             </div>
@@ -449,7 +445,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/shopping-cart.svg');mask-image:url('assets/icons/outline/shopping-cart.svg')"></span>
           订单记录
         </h1>
         <p class="page-subtitle">查看您所有的产品订单、支付状态与处理进度</p>
@@ -459,7 +455,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/file-text.svg');mask-image:url('assets/icons/outline/file-text.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">5</div>
@@ -468,7 +464,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/receipt-dollar.svg');mask-image:url('assets/icons/outline/receipt-dollar.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value" style="font-size:18px;">¥17,936</div>
@@ -477,7 +473,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">1</div>
@@ -486,7 +482,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#F3E8FF,#E9D5FF);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">3</div>
@@ -501,16 +497,16 @@ tailwind.config = {
           <div class="dropdown-wrapper" style="width:140px;">
             <button class="dropdown-btn is-full" type="button" id="productTypeBtn">
               <span>全部产品</span>
-              <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="icon-mask dropdown-arrow w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
             </button>
           </div>
           <input class="search-input" type="text" placeholder="请输入订单号/产品名称">
           <button class="search-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
           <button class="btn btn-outline-dark btn-sm" style="margin-left:8px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+            <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/filter.svg');mask-image:url('assets/icons/outline/filter.svg')"></span>
             高级筛选
           </button>
         </div>
@@ -528,11 +524,11 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="orders">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg>
+              <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/download.svg');mask-image:url('assets/icons/outline/download.svg')"></span>
               导出列表
             </button>
             <button class="btn btn-outline-dark btn-sm">重置</button>
@@ -631,11 +627,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled title="上一页">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn" title="下一页" onclick="alert('已经是最后一页')">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -649,7 +645,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span>
           SSL证书
         </h1>
         <p class="page-subtitle">管理您的SSL数字证书，跟踪到期时间，避免证书失效</p>
@@ -659,7 +655,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">8</div>
@@ -668,7 +664,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">4</div>
@@ -677,7 +673,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">2</div>
@@ -686,7 +682,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEE2E2,#FECACA);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span class="icon-mask w-5 h-5 text-red-500" style="-webkit-mask-image:url('assets/icons/outline/alert-circle.svg');mask-image:url('assets/icons/outline/alert-circle.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">2</div>
@@ -700,7 +696,7 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;flex-wrap:wrap;gap:10px;">
           <input class="search-input" type="text" placeholder="请输入SSL证书名" style="flex:1;min-width:200px;">
           <button class="search-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
         </div>
@@ -719,7 +715,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="ssl">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm">重置</button>
@@ -886,11 +882,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -904,7 +900,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
           基本信息
         </h1>
         <p class="page-subtitle">管理您的账户基本信息与公司资料</p>
@@ -922,13 +918,13 @@ tailwind.config = {
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
                   <span style="font-size: 20px; font-weight: 700; color: #0F172A;">Paul</span>
                   <span class="verify-badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                     已实名认证
                   </span>
                 </div>
                 <div style="font-size: 13px; color: #64748B; margin-bottom: 12px;">账号：tailg581</div>
                 <button class="btn btn-outline-dark" onclick="openAvatarModal()" style="padding: 6px 14px; font-size: 12px;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/camera.svg');mask-image:url('assets/icons/outline/camera.svg')"></span>
                   更换头像
                 </button>
               </div>
@@ -945,7 +941,7 @@ tailwind.config = {
                 <span class="info-label">认证状态</span>
                 <span class="info-value">
                   <span class="verify-badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                     已实名认证
                   </span>
                 </span>
@@ -982,7 +978,7 @@ tailwind.config = {
                 <span class="info-label">认证状态</span>
                 <span class="info-value">
                   <span class="verify-badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                     已实名认证
                   </span>
                 </span>
@@ -1019,7 +1015,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
           安全设置
         </h1>
         <p class="page-subtitle">管理您的账户安全与验证方式</p>
@@ -1029,7 +1025,7 @@ tailwind.config = {
         <!-- 账号安全 -->
         <div class="security-section">
           <div class="security-section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <span class="icon-mask w-[18px] h-[18px] text-primary" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span>
             账号安全
           </div>
           <div class="info-card" style="margin-top: 12px;">
@@ -1041,7 +1037,7 @@ tailwind.config = {
                 </div>
                 <div class="security-action">
                   <span class="verified-tag">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                     已设置
                   </span>
                   <a href="javascript:;" class="info-inline-link" onclick="openModal('modalPassword')">修改</a>
@@ -1055,7 +1051,7 @@ tailwind.config = {
         <!-- 验证管理 -->
         <div class="security-section" style="margin-top: 20px;">
           <div class="security-section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-[18px] h-[18px] text-primary" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
             验证管理
           </div>
           <div class="info-card" style="margin-top: 12px;">
@@ -1067,7 +1063,7 @@ tailwind.config = {
                 </div>
                 <div class="security-action">
                   <span class="verified-tag">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                     已验证
                   </span>
                   <a href="javascript:;" class="info-inline-link" onclick="openModal('modalEmail')">修改</a>
@@ -1080,7 +1076,7 @@ tailwind.config = {
                 </div>
                 <div class="security-action">
                   <span class="verified-tag">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                     已验证
                   </span>
                   <a href="javascript:;" class="info-inline-link" onclick="openModal('modalPhone')">修改</a>
@@ -1102,12 +1098,12 @@ tailwind.config = {
       <div class="page-header" style="margin-bottom:20px;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
           <button class="back-btn" onclick="switchPanel('panel-account')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:1px solid #E2E8F0;background:#fff;color:#1E293B;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span class="icon-mask w-4 h-4 text-body" style="-webkit-mask-image:url('assets/icons/outline/arrow-left.svg');mask-image:url('assets/icons/outline/arrow-left.svg')"></span>
             返回
           </button>
         </div>
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
           编辑账户信息
         </h1>
         <p class="page-subtitle">修改您的账户基本信息与联系信息</p>
@@ -1131,7 +1127,7 @@ tailwind.config = {
                 <label class="form-label">认证状态</label>
                 <div style="display:flex;align-items:center;gap:10px;">
                   <span class="verify-badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
                     已实名认证
                   </span>
                   <a href="javascript:;" class="info-inline-link" onclick="switchPanel('panel-realname')">查看</a>
@@ -1205,7 +1201,7 @@ tailwind.config = {
           <div style="display:flex;gap:12px;justify-content:flex-end;">
             <button class="btn btn-outline-dark" onclick="switchPanel('panel-account')">取消</button>
             <button class="btn-primary" onclick="alert('保存成功！'); switchPanel('panel-account')">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="icon-mask w-[15px] h-[15px] text-white" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
               保存修改
             </button>
           </div>
@@ -1219,7 +1215,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
           实名认证
         </h1>
         <p class="page-subtitle">完成实名认证，享受更多服务</p>
@@ -1232,7 +1228,7 @@ tailwind.config = {
           </div>
           <div class="realname-status">
             <div class="realname-success-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="icon-mask w-9 h-9" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
             </div>
             <span class="realname-status-text">您已完成实名认证</span>
           </div>
@@ -1240,7 +1236,7 @@ tailwind.config = {
           <div class="realname-info-box">
             <div class="realname-icon-col">
               <div class="realname-type-icon">
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M14 10h3"/><path d="M14 14h3"/><path d="M7 19h10"/><path d="M7 5v-1"/><path d="M17 5v-1"/></svg>
+                <span class="icon-mask w-14 h-14" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
               </div>
               <div class="realname-type-label">个人认证</div>
             </div>
@@ -1269,7 +1265,7 @@ tailwind.config = {
           <div class="realname-info-box company-box">
             <div class="realname-icon-col">
               <div class="realname-type-icon company">
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M14 17h1"/></svg>
+                <span class="icon-mask w-14 h-14" style="-webkit-mask-image:url('assets/icons/outline/building-bank.svg');mask-image:url('assets/icons/outline/building-bank.svg')"></span>
               </div>
               <div class="realname-type-label">公司认证</div>
             </div>
@@ -1308,7 +1304,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/bell.svg');mask-image:url('assets/icons/outline/bell.svg')"></span>
           消息通知
         </h1>
         <p class="page-subtitle">查看系统消息、活动通知和产品提醒</p>
@@ -1319,7 +1315,7 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;">
           <input class="search-input" type="text" placeholder="请输入标题" style="flex:1;min-width:200px;">
           <button class="search-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
         </div>
@@ -1340,7 +1336,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="notifications">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm">全部标为已读</button>
@@ -1512,13 +1508,13 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">2</button>
               <button class="page-btn">3</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
 
             </div>
@@ -1533,7 +1529,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/mail.svg');mask-image:url('assets/icons/outline/mail.svg')"></span>
           企业邮箱
         </h1>
         <p class="page-subtitle">管理您的企业邮箱账号，重置密码与查看到期时间</p>
@@ -1544,7 +1540,7 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;flex-wrap:wrap;gap:10px;">
           <input class="search-input" type="text" placeholder="请输入邮箱域名" style="flex:1;min-width:200px;">
           <button class="search-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
         </div>
@@ -1563,7 +1559,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="email">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm">重置</button>
@@ -1663,11 +1659,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -1681,7 +1677,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/credit-card.svg');mask-image:url('assets/icons/outline/credit-card.svg')"></span>
           我的钱包
         </h1>
         <p class="page-subtitle">账户余额管理与充值</p>
@@ -1728,7 +1724,7 @@ tailwind.config = {
           </select>
           <input class="search-input" type="text" placeholder="搜索订单号 / 产品名">
           <button class="search-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
         </div>
@@ -1814,11 +1810,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -1832,7 +1828,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
           账号修改
         </h1>
         <p class="page-subtitle">更新您的账户联系信息与公司资料</p>
@@ -1995,7 +1991,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
           密码修改
         </h1>
         <p class="page-subtitle">定期更换密码，保障账户安全</p>
@@ -2006,7 +2002,7 @@ tailwind.config = {
         <div class="info-card">
           <div class="info-card-header">
             <h3 class="info-card-title" style="display:flex;align-items:center;gap:8px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/lock.svg');mask-image:url('assets/icons/outline/lock.svg')"></span>
               修改登录密码
             </h3>
           </div>
@@ -2039,7 +2035,7 @@ tailwind.config = {
           <div class="info-card">
             <div class="info-card-header">
               <h3 class="info-card-title" style="display:flex;align-items:center;gap:8px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/alert-triangle.svg');mask-image:url('assets/icons/outline/alert-triangle.svg')"></span>
                 安全提醒
               </h3>
             </div>
@@ -2067,7 +2063,7 @@ tailwind.config = {
           <div class="info-card">
             <div class="info-card-header">
               <h3 class="info-card-title" style="display:flex;align-items:center;gap:8px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
                 修改记录
               </h3>
             </div>
@@ -2096,7 +2092,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/server.svg');mask-image:url('assets/icons/outline/server.svg')"></span>
           主机管理
         </h1>
         <p class="page-subtitle">管理您的云服务器资源，查看运行状态与到期时间</p>
@@ -2106,7 +2102,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/server.svg');mask-image:url('assets/icons/outline/server.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">5</div>
@@ -2115,7 +2111,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">3</div>
@@ -2124,7 +2120,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">0</div>
@@ -2133,7 +2129,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEE2E2,#FECACA);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <span class="icon-mask w-5 h-5 text-red-500" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">2</div>
@@ -2147,7 +2143,7 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;flex-wrap:wrap;gap:10px;">
           <input class="search-input" type="text" placeholder="请输入云服务器编号/IP/产品类型" style="flex:1;min-width:200px;">
           <button class="search-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
         </div>
@@ -2166,7 +2162,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="hosting">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm">重置</button>
@@ -2267,11 +2263,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -2285,7 +2281,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M10 8l3 4-3 4"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/trademark.svg');mask-image:url('assets/icons/outline/trademark.svg')"></span>
           商标管理
         </h1>
         <p class="page-subtitle">查看与管理您的商标注册申请、续展与法律状态</p>
@@ -2295,7 +2291,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M10 8l3 4-3 4"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/trademark.svg');mask-image:url('assets/icons/outline/trademark.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">5</div>
@@ -2304,7 +2300,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">2</div>
@@ -2313,7 +2309,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">2</div>
@@ -2322,7 +2318,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEE2E2,#FECACA);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <span class="icon-mask w-5 h-5 text-red-500" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">1</div>
@@ -2342,7 +2338,7 @@ tailwind.config = {
             </label>
           </div>
           <button class="search-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
         </div>
@@ -2360,7 +2356,7 @@ tailwind.config = {
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
             <button class="btn btn-outline-dark btn-sm">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg>
+              <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/download.svg');mask-image:url('assets/icons/outline/download.svg')"></span>
               导出列表
             </button>
             <button class="btn btn-outline-dark btn-sm">重置</button>
@@ -2458,11 +2454,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -2476,7 +2472,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/users.svg');mask-image:url('assets/icons/outline/users.svg')"></span>
           子账号管理
         </h1>
         <p class="page-subtitle">管理您的子账号，分配不同的权限和角色</p>
@@ -2486,7 +2482,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/users.svg');mask-image:url('assets/icons/outline/users.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">5</div>
@@ -2495,7 +2491,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">4</div>
@@ -2504,7 +2500,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">1</div>
@@ -2513,7 +2509,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#F3E8FF,#E9D5FF);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="icon-mask w-5 h-5 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/star.svg');mask-image:url('assets/icons/outline/star.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">3</div>
@@ -2527,11 +2523,11 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;">
           <input class="search-input" type="text" placeholder="请输入子账号用户名/姓名/邮箱" id="subaccountSearch">
           <button class="search-btn" onclick="searchSubaccounts()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
           <button class="search-btn" onclick="openSubaccountModal()" style="margin-left:8px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/plus.svg');mask-image:url('assets/icons/outline/plus.svg')"></span>
             添加子账号
           </button>
         </div>
@@ -2547,7 +2543,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="subaccount">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetSubaccountFilters()">重置</button>
@@ -2690,11 +2686,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
 
             </div>
@@ -2710,7 +2706,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/layout.svg');mask-image:url('assets/icons/outline/layout.svg')"></span>
           统一列表模板
         </h1>
         <p class="page-subtitle">以子账号管理为基准的统一列表组件，包含完整的筛选、排序、分页功能</p>
@@ -2720,7 +2716,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/users.svg');mask-image:url('assets/icons/outline/users.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">24</div>
@@ -2729,7 +2725,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">18</div>
@@ -2738,7 +2734,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">6</div>
@@ -2747,7 +2743,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#F3E8FF,#E9D5FF);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="icon-mask w-5 h-5 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/star.svg');mask-image:url('assets/icons/outline/star.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">3</div>
@@ -2761,11 +2757,11 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;">
           <input class="search-input" type="text" placeholder="请输入关键词搜索" id="templateSearch" oninput="handleTemplateSearch()">
           <button class="search-btn" onclick="handleTemplateSearch()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
           <button class="search-btn" onclick="openTemplateModal()" style="margin-left:8px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/plus.svg');mask-image:url('assets/icons/outline/plus.svg')"></span>
             新增记录
           </button>
         </div>
@@ -2793,23 +2789,23 @@ tailwind.config = {
               <th class="checkbox-cell"><input type="checkbox" id="selectAllTemplate" onchange="document.querySelectorAll('#panel-unified-template .row-check').forEach(cb=>cb.checked=this.checked)"></th>
               <th data-sort="name" onclick="sortTemplateTable('name', this)" class="sortable-th">
                 名称
-                <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/><polyline points="6 15 12 9 18 15"/></svg>
+                <span class="icon-mask sort-icon w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </th>
               <th data-sort="category" onclick="sortTemplateTable('category', this)" class="sortable-th">
                 分类
-                <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/><polyline points="6 15 12 9 18 15"/></svg>
+                <span class="icon-mask sort-icon w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </th>
               <th data-sort="status" onclick="sortTemplateTable('status', this)" class="sortable-th">
                 状态
-                <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/><polyline points="6 15 12 9 18 15"/></svg>
+                <span class="icon-mask sort-icon w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </th>
               <th data-sort="createTime" onclick="sortTemplateTable('createTime', this)" class="sortable-th">
                 创建时间
-                <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/><polyline points="6 15 12 9 18 15"/></svg>
+                <span class="icon-mask sort-icon w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </th>
               <th data-sort="updateTime" onclick="sortTemplateTable('updateTime', this)" class="sortable-th">
                 更新时间
-                <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/><polyline points="6 15 12 9 18 15"/></svg>
+                <span class="icon-mask sort-icon w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </th>
               <th>操作</th>
             </tr>
@@ -2848,7 +2844,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10"/><path d="M12 2a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span>
           域名管理
         </h1>
         <p class="page-subtitle">管理您的所有域名，查看状态、续费或配置解析</p>
@@ -2858,7 +2854,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10"/><path d="M12 2a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">10</div>
@@ -2867,7 +2863,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">10</div>
@@ -2876,7 +2872,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">2</div>
@@ -2885,7 +2881,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEE2E2,#FECACA);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <span class="icon-mask w-5 h-5 text-red-500" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">0</div>
@@ -2899,11 +2895,11 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;">
           <input class="search-input" type="text" id="domainSearch" placeholder="请输入域名关键字（空格分隔）" onkeydown="if(event.key==='Enter')searchDomains()">
           <button class="search-btn" onclick="searchDomains()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
           <button class="btn-primary" onclick="alert('注册域名功能开发中')" style="margin-left:8px;display:flex;align-items:center;gap:6px;border-radius:10px;padding:8px 18px;font-size:13px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="icon-mask w-3.5 h-3.5 text-white" style="-webkit-mask-image:url('assets/icons/outline/plus.svg');mask-image:url('assets/icons/outline/plus.svg')"></span>
             注册域名
           </button>
         </div>
@@ -2921,11 +2917,11 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="domain-list">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm" onclick="alert('导出列表功能开发中')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg>
+              <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/download.svg');mask-image:url('assets/icons/outline/download.svg')"></span>
               导出列表
             </button>
             <button class="btn btn-outline-dark btn-sm" onclick="resetDomainFilters()">重置</button>
@@ -2964,7 +2960,7 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn" onclick="alert('正在加载第2页')">2</button>
@@ -2972,7 +2968,7 @@ tailwind.config = {
               <button class="page-btn">...</button>
               <button class="page-btn" onclick="alert('正在加载第18页')">18</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -2987,12 +2983,12 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;">
         <button class="btn btn-outline-dark" style="border-radius:8px;padding:6px 12px;display:flex;align-items:center;gap:4px;" onclick="switchPanel('panel-domain-list')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
           返回
         </button>
         <div>
           <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span>
             域名：tailg.com.jk
           </h1>
           <p class="page-subtitle">查看和管理域名基本信息与注册人详情</p>
@@ -3013,7 +3009,7 @@ tailwind.config = {
         <div class="info-card" style="margin-bottom:24px;">
           <div class="info-card-header">
             <h3 class="info-card-title" style="display:flex;align-items:center;gap:8px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/info-circle.svg');mask-image:url('assets/icons/outline/info-circle.svg')"></span>
               基本信息
             </h3>
           </div>
@@ -3066,7 +3062,7 @@ tailwind.config = {
           </div>
           <div style="padding:0 24px 20px;">
             <button class="btn btn-outline-dark" style="border-radius:8px;display:flex;align-items:center;gap:6px;" onclick="alert('正在查验证书信息')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 2l9 4.5v5.5c0 5-4 9.5-9 11-5-1.5-9-6-9-11V6.5L12 2z"/></svg>
+              <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
               查验证书
             </button>
           </div>
@@ -3076,7 +3072,7 @@ tailwind.config = {
         <div class="info-card">
           <div class="info-card-header">
             <h3 class="info-card-title" style="display:flex;align-items:center;gap:8px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
               注册信息
             </h3>
           </div>
@@ -3147,12 +3143,12 @@ tailwind.config = {
           <div class="info-card-header" style="display:flex;align-items:center;justify-content:space-between;">
             <h3 class="info-card-title">DNS解析记录</h3>
             <button class="btn-primary" style="border-radius:8px;padding:6px 14px;font-size:12px;display:flex;align-items:center;gap:6px;" onclick="openModal('modalAddRecord')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span class="icon-mask w-3 h-3 text-white" style="-webkit-mask-image:url('assets/icons/outline/plus.svg');mask-image:url('assets/icons/outline/plus.svg')"></span>
               添加记录
             </button>
           </div>
           <div style="padding:60px 24px;text-align:center;color:#94A3B8;">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5" style="margin:0 auto 12px;"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            <span class="icon-mask w-12 h-12" style="-webkit-mask-image:url('assets/icons/outline/clipboard-smile.svg');mask-image:url('assets/icons/outline/clipboard-smile.svg')"></span>
             <div style="font-size:14px;font-weight:500;margin-bottom:4px;">暂无解析记录</div>
             <div style="font-size:12px;">点击上方"添加记录"按钮配置DNS解析</div>
           </div>
@@ -3199,7 +3195,7 @@ tailwind.config = {
           </div>
           <div style="padding:20px 24px;">
             <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:flex-start;gap:10px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span class="icon-mask w-[18px] h-[18px] text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/alert-circle.svg');mask-image:url('assets/icons/outline/alert-circle.svg')"></span>
               <div style="font-size:13px;color:#92400E;line-height:1.6;">修改DNS服务器后，解析生效时间通常为24-48小时。修改期间请确保新的DNS服务器已配置好解析记录，以免影响网站正常访问。</div>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px;">
@@ -3227,7 +3223,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
           注册人信息
         </h1>
         <p class="page-subtitle">预填域名注册人信息，注册域名时可直接选用</p>
@@ -3238,11 +3234,11 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;">
           <input class="search-input" type="text" id="registrantSearch" placeholder="请输入模板名称 / 持有者姓名 / 证件号码" onkeydown="if(event.key==='Enter')searchRegistrants()">
           <button class="search-btn" onclick="searchRegistrants()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
           <button class="btn-primary" onclick="openRegistrantModal()" style="margin-left:8px;display:flex;align-items:center;gap:6px;border-radius:10px;padding:8px 18px;font-size:13px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="icon-mask w-3.5 h-3.5 text-white" style="-webkit-mask-image:url('assets/icons/outline/plus.svg');mask-image:url('assets/icons/outline/plus.svg')"></span>
             新增模板
           </button>
         </div>
@@ -3257,7 +3253,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="domain-registrant">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetRegistrantFilters()">重置</button>
@@ -3293,11 +3289,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -3312,7 +3308,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2l3 10-3 10M12 2l-3 10 3 10"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/globe.svg');mask-image:url('assets/icons/outline/globe.svg')"></span>
           域名转入
         </h1>
         <p class="page-subtitle">将其他注册商处管理的域名转入希赛乐平台统一管理</p>
@@ -3322,7 +3318,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/map-pin.svg');mask-image:url('assets/icons/outline/map-pin.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">2</div>
@@ -3331,7 +3327,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">1</div>
@@ -3340,7 +3336,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value">1</div>
@@ -3354,11 +3350,11 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;">
           <input class="search-input" type="text" id="transferSearch" placeholder="请输入域名 / 原注册商" onkeydown="if(event.key==='Enter')searchTransfers()">
           <button class="search-btn" onclick="searchTransfers()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
           <button class="btn-primary" onclick="openTransferModal()" style="margin-left:8px;display:flex;align-items:center;gap:6px;border-radius:10px;padding:8px 18px;font-size:13px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="icon-mask w-3.5 h-3.5 text-white" style="-webkit-mask-image:url('assets/icons/outline/plus.svg');mask-image:url('assets/icons/outline/plus.svg')"></span>
             发起转入
           </button>
         </div>
@@ -3374,7 +3370,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="domain-transfer">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetTransferFilters()">重置</button>
@@ -3408,11 +3404,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -3427,7 +3423,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span class="icon-mask w-6 h-6" style="-webkit-mask-image:url('assets/icons/outline/message.svg');mask-image:url('assets/icons/outline/message.svg')"></span>
           联系我们
         </h1>
         <p class="page-subtitle">专业顾问团队，为您提供一对一专属服务</p>
@@ -3437,7 +3433,7 @@ tailwind.config = {
       <div class="info-card" style="margin-bottom:24px;">
         <div class="info-card-header">
           <h3 class="info-card-title" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/users.svg');mask-image:url('assets/icons/outline/users.svg')"></span>
             专属顾问团队
           </h3>
         </div>
@@ -3447,7 +3443,7 @@ tailwind.config = {
           <!-- 顾问 1 -->
           <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:22px 20px;display:flex;gap:18px;align-items:center;">
             <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#0A66FF,#6366F1);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span class="icon-mask w-7 h-7 text-white" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
               <div style="position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#10B981;border:3px solid #fff;"></div>
             </div>
             <div style="flex:1;min-width:0;">
@@ -3463,7 +3459,7 @@ tailwind.config = {
             <!-- 二维码框 -->
             <div style="width:72px;height:72px;border:1px dashed #CBD5E1;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;">
               <div style="text-align:center;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="5" height="5" rx="1"/><line x1="17" y1="14" x2="17" y2="19"/><line x1="14" y1="17" x2="19" y2="17"/></svg>
+                <span class="icon-mask w-7 h-7 text-body" style="-webkit-mask-image:url('assets/icons/outline/layout.svg');mask-image:url('assets/icons/outline/layout.svg')"></span>
                 <div style="font-size:10px;color:#94A3B8;margin-top:2px;">二维码</div>
               </div>
             </div>
@@ -3472,7 +3468,7 @@ tailwind.config = {
           <!-- 顾问 2 -->
           <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:22px 20px;display:flex;gap:18px;align-items:center;">
             <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#F59E0B,#EF4444);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+              <span class="icon-mask w-7 h-7 text-white" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
               <div style="position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#10B981;border:3px solid #fff;"></div>
             </div>
             <div style="flex:1;min-width:0;">
@@ -3488,7 +3484,7 @@ tailwind.config = {
             <!-- 二维码框 -->
             <div style="width:72px;height:72px;border:1px dashed #CBD5E1;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;">
               <div style="text-align:center;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="5" height="5" rx="1"/><line x1="17" y1="14" x2="17" y2="19"/><line x1="14" y1="17" x2="19" y2="17"/></svg>
+                <span class="icon-mask w-7 h-7 text-body" style="-webkit-mask-image:url('assets/icons/outline/layout.svg');mask-image:url('assets/icons/outline/layout.svg')"></span>
                 <div style="font-size:10px;color:#94A3B8;margin-top:2px;">二维码</div>
               </div>
             </div>
@@ -3505,7 +3501,7 @@ tailwind.config = {
           </div>
           <div style="padding:18px 24px;display:flex;align-items:center;gap:14px;">
             <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#EEF2FF,#E0E7FF);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span class="icon-mask w-[26px] h-[26px] text-indigo-600" style="-webkit-mask-image:url('assets/icons/outline/edit.svg');mask-image:url('assets/icons/outline/edit.svg')"></span>
             </div>
             <div>
               <div style="font-size:14px;font-weight:700;color:#1E293B;margin-bottom:2px;">1V1 专属定制</div>
@@ -3547,7 +3543,7 @@ tailwind.config = {
         <div style="padding:20px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
           <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#F8FAFC;border-radius:12px;border:1px solid #F1F5F9;">
             <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0A66FF,#3B82F6);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="icon-mask w-[18px] h-[18px] text-white" style="-webkit-mask-image:url('assets/icons/outline/phone.svg');mask-image:url('assets/icons/outline/phone.svg')"></span>
             </div>
             <div>
               <div style="font-size:11px;color:#94A3B8;font-weight:500;">7×24 服务热线</div>
@@ -3556,7 +3552,7 @@ tailwind.config = {
           </div>
           <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#F8FAFC;border-radius:12px;border:1px solid #F1F5F9;">
             <div style="width:40px;height:40px;border-radius:10px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span class="icon-mask w-[18px] h-[18px] text-primary" style="-webkit-mask-image:url('assets/icons/outline/mail.svg');mask-image:url('assets/icons/outline/mail.svg')"></span>
             </div>
             <div>
               <div style="font-size:11px;color:#94A3B8;font-weight:500;">电子邮箱</div>
@@ -3565,7 +3561,7 @@ tailwind.config = {
           </div>
           <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#F8FAFC;border-radius:12px;border:1px solid #F1F5F9;">
             <div style="width:40px;height:40px;border-radius:10px;background:#FFF7ED;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="icon-mask w-[18px] h-[18px] text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/map-pin.svg');mask-image:url('assets/icons/outline/map-pin.svg')"></span>
             </div>
             <div>
               <div style="font-size:11px;color:#94A3B8;font-weight:500;">深圳总部</div>
@@ -3579,7 +3575,7 @@ tailwind.config = {
       <div class="info-card">
         <div class="info-card-header">
           <h3 class="info-card-title" style="display:flex;align-items:center;gap:8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/info-circle.svg');mask-image:url('assets/icons/outline/info-circle.svg')"></span>
             关于希赛乐
           </h3>
         </div>
@@ -3604,7 +3600,7 @@ tailwind.config = {
     <div class="page-content">
       <div class="page-header">
         <h1 class="page-title" style="display:flex;align-items:center;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/><path d="M12 8v4"/><path d="M12 15h.01"/></svg>
+          <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/bell.svg');mask-image:url('assets/icons/outline/bell.svg')"></span>
           工单管理
         </h1>
         <p class="page-subtitle">查看、创建与跟踪您的技术支持工单</p>
@@ -3614,7 +3610,7 @@ tailwind.config = {
       <div class="stat-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+            <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/file-text.svg');mask-image:url('assets/icons/outline/file-text.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value" id="ticketStatTotal">7</div>
@@ -3623,7 +3619,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span class="icon-mask w-5 h-5 text-amber-600" style="-webkit-mask-image:url('assets/icons/outline/clock.svg');mask-image:url('assets/icons/outline/clock.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value" id="ticketStatPending">2</div>
@@ -3632,7 +3628,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="icon-mask w-5 h-5 text-emerald-600" style="-webkit-mask-image:url('assets/icons/outline/check.svg');mask-image:url('assets/icons/outline/check.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value" id="ticketStatResolved">2</div>
@@ -3641,7 +3637,7 @@ tailwind.config = {
         </div>
         <div class="stat-card">
           <div class="stat-card-icon" style="background:linear-gradient(135deg,#F3E8FF,#E9D5FF);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+            <span class="icon-mask w-5 h-5 text-purple-600" style="-webkit-mask-image:url('assets/icons/outline/calendar.svg');mask-image:url('assets/icons/outline/calendar.svg')"></span>
           </div>
           <div class="stat-card-info">
             <div class="stat-card-value" id="ticketStatClosed">3</div>
@@ -3655,11 +3651,11 @@ tailwind.config = {
         <div class="search-row" style="margin-bottom:16px;">
           <input class="search-input" type="text" id="ticketSearch" placeholder="请输入工单编号或标题" onkeydown="if(event.key==='Enter')searchTickets()">
           <button class="search-btn" onclick="searchTickets()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/search.svg');mask-image:url('assets/icons/outline/search.svg')"></span>
             搜索
           </button>
           <button class="search-btn" onclick="openTicketModal()" style="margin-left:8px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/plus.svg');mask-image:url('assets/icons/outline/plus.svg')"></span>
             提交工单
           </button>
         </div>
@@ -3675,7 +3671,7 @@ tailwind.config = {
             <div class="dropdown-wrapper">
               <button class="dropdown-btn dropdown-btn-sm" data-batch-panel="tickets">
                 <span>批量管理</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
             <button class="btn btn-outline-dark btn-sm" onclick="resetTicketFilters()">重置</button>
@@ -3709,11 +3705,11 @@ tailwind.config = {
           <div class="table-footer-right">
             <div class="pagination">
               <button class="page-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-left.svg');mask-image:url('assets/icons/outline/chevron-left.svg')"></span>
               </button>
               <button class="page-btn active">1</button>
               <button class="page-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-right.svg');mask-image:url('assets/icons/outline/chevron-right.svg')"></span>
               </button>
             </div>
           </div>
@@ -3732,7 +3728,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">修改登录密码</h3>
       <button class="modal-close" onclick="closeModal('modalPassword')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -3741,7 +3737,7 @@ tailwind.config = {
         <div class="password-input-wrap">
           <input class="form-input" type="password" id="oldPassword" placeholder="请输入当前密码">
           <button class="password-toggle" onclick="togglePassword('oldPassword', this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/eye.svg');mask-image:url('assets/icons/outline/eye.svg')"></span>
           </button>
         </div>
       </div>
@@ -3750,7 +3746,7 @@ tailwind.config = {
         <div class="password-input-wrap">
           <input class="form-input" type="password" id="newPassword" placeholder="请输入新密码（8-20位，含字母和数字）">
           <button class="password-toggle" onclick="togglePassword('newPassword', this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/eye.svg');mask-image:url('assets/icons/outline/eye.svg')"></span>
           </button>
         </div>
       </div>
@@ -3759,7 +3755,7 @@ tailwind.config = {
         <div class="password-input-wrap">
           <input class="form-input" type="password" id="confirmPassword" placeholder="请再次输入新密码">
           <button class="password-toggle" onclick="togglePassword('confirmPassword', this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/eye.svg');mask-image:url('assets/icons/outline/eye.svg')"></span>
           </button>
         </div>
       </div>
@@ -3777,7 +3773,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">修改安全邮箱</h3>
       <button class="modal-close" onclick="closeModal('modalEmail')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -3811,7 +3807,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">修改验证手机</h3>
       <button class="modal-close" onclick="closeModal('modalPhone')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -3845,7 +3841,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title" id="keyModalTitle">查看密钥对</h3>
       <button class="modal-close" onclick="closeModal('modalKey')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -3888,7 +3884,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title" id="subaccountModalTitle">添加子账号</h3>
       <button class="modal-close" onclick="closeModal('modalSubaccount')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -3924,7 +3920,7 @@ tailwind.config = {
             <div class="dropdown-wrapper" style="width:100%;">
               <button class="dropdown-btn is-full form-dropdown-trigger" type="button" id="roleSelectBtn" data-value="">
                 <span id="roleSelectText" style="color:#94A3B8;">请选择角色</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
           </div>
@@ -3934,7 +3930,7 @@ tailwind.config = {
             <div class="dropdown-wrapper" style="width:100%;">
               <button class="dropdown-btn is-full form-dropdown-trigger" type="button" id="statusSelectBtn" data-value="active">
                 <span id="statusSelectText" style="color:#1E293B;">启用</span>
-                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                <span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
               </button>
             </div>
           </div>
@@ -3945,7 +3941,7 @@ tailwind.config = {
           <div class="password-input-wrap">
             <input type="password" class="form-input" id="subPassword" placeholder="请输入登录密码" style="padding-right:40px;">
             <button type="button" class="password-toggle" onclick="togglePassword('subPassword', this)">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/eye.svg');mask-image:url('assets/icons/outline/eye.svg')"></span>
             </button>
           </div>
           <div class="form-tip">密码长度6-20位，包含字母和数字</div>
@@ -3971,7 +3967,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title" id="registrantModalTitle">新增注册人模板</h3>
       <button class="modal-close" onclick="closeModal('modalRegistrant')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4129,7 +4125,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">域名转入申请</h3>
       <button class="modal-close" onclick="closeModal('modalTransfer')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4144,7 +4140,7 @@ tailwind.config = {
           <span class="form-tip">请联系原域名注册商获取转移密码（EPP Code），通常可在域名管理后台获取</span>
         </div>
         <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span class="icon-mask w-[18px] h-[18px] text-primary" style="-webkit-mask-image:url('assets/icons/outline/info-circle.svg');mask-image:url('assets/icons/outline/info-circle.svg')"></span>
           <div style="font-size:13px;color:#1E40AF;line-height:1.6;">
             <div style="font-weight:600;margin-bottom:4px;">转入须知：</div>
             <ul style="margin:0;padding-left:18px;">
@@ -4171,7 +4167,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">提交工单</h3>
       <button class="modal-close" onclick="closeTicketModal()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4209,7 +4205,7 @@ tailwind.config = {
         <div id="ticketDropZone" style="border:2px dashed #CBD5E1;border-radius:12px;padding:28px;text-align:center;cursor:pointer;transition:all 0.2s;background:#F8FAFC;" 
              ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" onclick="document.getElementById('ticketFileInput').click()">
           <input type="file" id="ticketFileInput" style="display:none;" multiple onchange="handleFileSelect(event)">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" style="margin:0 auto 8px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span class="icon-mask w-9 h-9 text-body" style="-webkit-mask-image:url('assets/icons/outline/upload.svg');mask-image:url('assets/icons/outline/upload.svg')"></span>
           <div style="font-size:13px;color:#64748B;">拖拽文件到此处或 <span style="color:#0A66FF;">点击上传</span></div>
           <div style="font-size:11px;color:#94A3B8;margin-top:4px;">支持 jpg、png、pdf，单个文件不超过10MB</div>
         </div>
@@ -4229,7 +4225,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">更换头像</h3>
       <button class="modal-close" onclick="closeModal('modalAvatar')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4275,7 +4271,7 @@ tailwind.config = {
                ondrop="handleAvatarDrop(event)" ondragover="handleAvatarDragOver(event)" 
                ondragleave="handleAvatarDragLeave(event)" onclick="document.getElementById('avatarFileInput').click()">
             <input type="file" id="avatarFileInput" style="display:none;" accept="image/*" onchange="handleAvatarFileSelect(event)">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="icon-mask w-7 h-7 text-body" style="-webkit-mask-image:url('assets/icons/outline/camera.svg');mask-image:url('assets/icons/outline/camera.svg')"></span>
             <div style="font-size:13px;color:#64748B;margin-top:8px;">拖拽图片到此处或点击上传</div>
             <div style="font-size:11px;color:#94A3B8;margin-top:4px;">支持 jpg、png、gif，单个文件不超过2MB</div>
           </div>
@@ -4295,7 +4291,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">账户充值</h3>
       <button class="modal-close" onclick="closeModal('modalRecharge')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4352,7 +4348,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">对公转账</h3>
       <button class="modal-close" onclick="closeModal('modalPublicTransfer')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4361,27 +4357,27 @@ tailwind.config = {
           <span style="font-size:13px;font-weight:600;color:#64748B;width:90px;flex-shrink:0;">公司名称</span>
           <span style="font-size:14px;font-weight:600;color:#0F172A;flex:1;">深圳市希赛乐科技有限公司</span>
           <button class="copy-btn" onclick="copyText('深圳市希赛乐科技有限公司')" title="复制公司名称">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/copy.svg');mask-image:url('assets/icons/outline/copy.svg')"></span>
           </button>
         </div>
         <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #EEF2F6;">
           <span style="font-size:13px;font-weight:600;color:#64748B;width:90px;flex-shrink:0;">账号信息</span>
           <span style="font-size:14px;font-weight:600;color:#0F172A;font-family:'SF Mono','Consolas',monospace;letter-spacing:0.5px;flex:1;">756279557908</span>
           <button class="copy-btn" onclick="copyText('756279557908')" title="复制账号信息">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/copy.svg');mask-image:url('assets/icons/outline/copy.svg')"></span>
           </button>
         </div>
         <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;">
           <span style="font-size:13px;font-weight:600;color:#64748B;width:90px;flex-shrink:0;">支行信息</span>
           <span style="font-size:14px;font-weight:600;color:#0F172A;flex:1;">中国银行深圳横岗支行</span>
           <button class="copy-btn" onclick="copyText('中国银行深圳横岗支行')" title="复制支行信息">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url('assets/icons/outline/copy.svg');mask-image:url('assets/icons/outline/copy.svg')"></span>
           </button>
         </div>
       </div>
       <div style="margin-top:16px;text-align:center;">
         <button class="btn-primary" onclick="copyAllTransferInfo()" style="padding:10px 32px;font-size:14px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/copy.svg');mask-image:url('assets/icons/outline/copy.svg')"></span>
           一键复制全部
         </button>
       </div>
@@ -4395,7 +4391,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">合并支付</h3>
       <button class="modal-close" onclick="closeMergePay()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" style="max-height:55vh;overflow-y:auto;">
@@ -4428,7 +4424,7 @@ tailwind.config = {
         </div>
       </div>
       <div style="display:flex;align-items:flex-start;gap:8px;margin-top:16px;padding:12px;background:#FFF7ED;border-radius:8px;border:1px solid #FED7AA;">
-        <svg style="flex-shrink:0;margin-top:1px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span class="icon-mask w-4 h-4 text-orange-600" style="-webkit-mask-image:url('assets/icons/outline/alert-circle.svg');mask-image:url('assets/icons/outline/alert-circle.svg')"></span>
         <span style="font-size:12px;color:#C2410C;line-height:1.5;">合并支付仅对<strong>待支付</strong>状态的订单生效。支付成功后对应的订单状态将更新为「已支付已处理」。</span>
       </div>
     </div>
@@ -4445,7 +4441,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title" id="noticeDetailTitle">公告详情</h3>
       <button class="modal-close" onclick="closeNoticeDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" style="max-height:460px;overflow-y:auto;">
@@ -4469,7 +4465,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">订单详情</h3>
       <button class="modal-close" onclick="closeOrderDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" id="orderDetailBody" style="max-height:520px;overflow-y:auto;">
@@ -4487,7 +4483,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">证书详情</h3>
       <button class="modal-close" onclick="closeSslDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" id="sslDetailBody" style="max-height:520px;overflow-y:auto;">
@@ -4505,12 +4501,12 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title" style="color:#EF4444;">确认删除</h3>
       <button class="modal-close" onclick="closeDeleteConfirm()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" style="text-align:center;padding:24px 20px;">
       <div style="width:56px;height:56px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        <span class="icon-mask w-7 h-7 text-red-500" style="-webkit-mask-image:url('assets/icons/outline/trash.svg');mask-image:url('assets/icons/outline/trash.svg')"></span>
       </div>
       <p style="font-size:15px;color:#0F172A;font-weight:500;margin-bottom:8px;">确定要删除该记录吗？</p>
       <p style="font-size:13px;color:#64748B;">删除后无法恢复，请谨慎操作。</p>
@@ -4528,7 +4524,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">邮箱详情</h3>
       <button class="modal-close" onclick="closeEmailDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" id="emailDetailBody" style="max-height:480px;overflow-y:auto;">
@@ -4546,7 +4542,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">修改邮箱密码</h3>
       <button class="modal-close" onclick="closeEmailPassword()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4559,7 +4555,7 @@ tailwind.config = {
         <div class="password-input-wrap">
           <input class="form-input" type="password" id="emailNewPassword" placeholder="请输入新密码（至少8位）">
           <button class="password-toggle" onclick="togglePassword('emailNewPassword', this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/eye.svg');mask-image:url('assets/icons/outline/eye.svg')"></span>
           </button>
         </div>
       </div>
@@ -4568,7 +4564,7 @@ tailwind.config = {
         <div class="password-input-wrap">
           <input class="form-input" type="password" id="emailConfirmPassword" placeholder="请再次输入新密码">
           <button class="password-toggle" onclick="togglePassword('emailConfirmPassword', this)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/eye.svg');mask-image:url('assets/icons/outline/eye.svg')"></span>
           </button>
         </div>
       </div>
@@ -4586,7 +4582,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">服务器详情</h3>
       <button class="modal-close" onclick="closeHostingDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" id="hostingDetailBody" style="max-height:520px;overflow-y:auto;">
@@ -4604,7 +4600,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">商标详情</h3>
       <button class="modal-close" onclick="closeTrademarkDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" id="trademarkDetailBody" style="max-height:480px;overflow-y:auto;">
@@ -4622,7 +4618,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">消费详情</h3>
       <button class="modal-close" onclick="closeWalletDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" id="walletDetailBody" style="max-height:480px;overflow-y:auto;">
@@ -4640,7 +4636,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">转入进度详情</h3>
       <button class="modal-close" onclick="closeTransferDetail()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body" id="transferDetailBody" style="max-height:480px;overflow-y:auto;">
@@ -4658,7 +4654,7 @@ tailwind.config = {
     <div class="modal-header">
       <h3 class="modal-title">添加解析记录</h3>
       <button class="modal-close" onclick="closeAddRecord()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-[18px] h-[18px]" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </button>
     </div>
     <div class="modal-body">
@@ -4806,7 +4802,7 @@ document.querySelectorAll('.sidebar-submenu-group').forEach(group => {
       var option = document.createElement('div');
       option.className = 'dropdown-option' + (opt.value === textEl.textContent ? ' selected' : '');
       option.setAttribute('data-value', opt.value);
-      option.innerHTML = '<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><span>' + opt.label + '</span>';
+      option.innerHTML = '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span><span>' + opt.label + '</span>';
 
       option.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -5710,10 +5706,10 @@ function togglePassword(inputId, btn) {
   if (!input) return;
   if (input.type === 'password') {
     input.type = 'text';
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+    btn.innerHTML = '<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/eye-off.svg\');mask-image:url(\'assets/icons/outline/eye-off.svg\')"></span>';
   } else {
     input.type = 'password';
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+    btn.innerHTML = '<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/eye.svg\');mask-image:url(\'assets/icons/outline/eye.svg\')"></span>';
   }
 }
 
@@ -6149,7 +6145,7 @@ function updateSubaccountStats() {
       if (opt.placeholder) {
         option.style.color = '#94A3B8';
       }
-      option.innerHTML = '<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><span>' + opt.label + '</span>';
+      option.innerHTML = '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span><span>' + opt.label + '</span>';
 
       option.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -7113,7 +7109,7 @@ function renderTemplatePagination() {
   
   var prevBtn = document.createElement('button');
   prevBtn.className = 'page-btn' + (templateCurrentPage <= 1 ? ' disabled' : '');
-  prevBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>';
+  prevBtn.innerHTML = '<span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-left.svg\');mask-image:url(\'assets/icons/outline/chevron-left.svg\')"></span>';
   prevBtn.onclick = function() {
     if (templateCurrentPage > 1) {
       templateCurrentPage--;
@@ -7150,7 +7146,7 @@ function renderTemplatePagination() {
   
   var nextBtn = document.createElement('button');
   nextBtn.className = 'page-btn' + (templateCurrentPage >= totalPages ? ' disabled' : '');
-  nextBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>';
+  nextBtn.innerHTML = '<span class="icon-mask w-3.5 h-3.5" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-right.svg\');mask-image:url(\'assets/icons/outline/chevron-right.svg\')"></span>';
   nextBtn.onclick = function() {
     if (templateCurrentPage < totalPages) {
       templateCurrentPage++;
@@ -7475,7 +7471,7 @@ function closeNoticeDetail(e) {
       var opt = document.createElement('div');
       opt.className = 'dropdown-option dropdown-option-sm' + (size === currentSize ? ' selected' : '');
       opt.setAttribute('data-value', size);
-      opt.innerHTML = '<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A66FF" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg><span>' + size + '条/页</span>';
+      opt.innerHTML = '<span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span><span>' + size + '条/页</span>';
 
       opt.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -7529,7 +7525,7 @@ function closeNoticeDetail(e) {
     div.innerHTML =
       '<button class="dropdown-btn dropdown-btn-sm" type="button" data-value="10">' +
         '<span>10条/页</span>' +
-        '<svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>' +
+        '<span class="icon-mask dropdown-arrow w-3 h-3" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>' +
       '</button>';
     return div;
   }

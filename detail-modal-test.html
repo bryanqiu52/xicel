@@ -242,7 +242,7 @@ tailwind.config={theme:{extend:{colors:{primary:'#0A66FF','primary-dark':'#0047C
     <div class="stage-head">
       <h3 id="modalTitle">商品详情</h3>
       <div class="close">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="icon-mask w-4 h-4 text-muted" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span>
       </div>
     </div>
     <div class="stage-body" id="stageBody"></div>
@@ -259,7 +259,7 @@ var PRODS=[
   {id:'oth',name:'品牌卫士·基础版',type:'增值服务',cls:'oth',ico:'🛡️',pr:'¥399.00',yr:'1 年',st:'待激活'}
 ];
 function e(s){return String(s==null?'':s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
-function dd(t){return'<span class="md">'+e(t)+'<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>';}
+function dd(t){return'<span class="md">'+e(t)+'<span class="icon-mask w-2.5 h-2.5 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'+'</span>';}
 
 // ===== A =====
 function buildA(p){

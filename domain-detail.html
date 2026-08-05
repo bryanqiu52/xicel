@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -51,7 +51,7 @@ tailwind.config = {
     <h3 class="text-xl font-semibold text-body mb-2">未找到该域名信息</h3>
     <p class="text-muted mb-6">请检查域名后缀是否正确，或返回域名价格页浏览所有域名</p>
     <a href="domain-pricing.html" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-xl transition-colors">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
       浏览域名价格
     </a>
   </div>
@@ -313,52 +313,52 @@ window.getSameCategoryDomains=function(cgn,ex){var r=[];for(var k in window.DOMA
 
   // SVG 图标映射（ Feather Icons ）
   var iconMap = {
-    'globe': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
-    'globe-2': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
-    'shield': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-    'zap': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
-    'users': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
-    'refresh': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>',
-    'clock': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-    'trending-up': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
-    'flag': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>',
-    'map-pin': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-    'file-text': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>',
-    'building': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>',
-    'shopping-bag': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>',
-    'briefcase': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>',
-    'code': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
-    'wifi': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>',
-    'server': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>',
-    'user': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
-    'hash': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>',
-    'sparkles': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 001.272 1.272L21 12l-5.813 1.912a2 2 0 00-1.272 1.272L12 21l-1.912-5.813a2 2 0 00-1.272-1.272L3 12l5.813-1.912a2 2 0 001.272-1.272L12 3z"/></svg>',
-    'layout': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>',
-    'heart': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>',
-    'crown': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20h20M2 20l3-12 5 4 2-8 2 8 5-4 3 12"/></svg>',
-    'star': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-    'gift': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z"/></svg>',
-    'rocket': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-4l6-6a3 3 0 014 4l-6 6a22 22 0 01-4 2z"/></svg>',
-    'dumbbell': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6.5 6.5L17.5 17.5M6 18l3-3M18 6l-3 3"/><path d="M2 12l4-4v8zM22 12l-4-4v8zM6 8l2-2v12l-2-2zM18 8l-2-2v12l2-2z"/></svg>',
-    'music': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
-    'link': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>',
-    'share-2': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>',
-    'smartphone': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
-    'cpu': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>',
+    'globe': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/globe.svg\');mask-image:url(\'assets/icons/outline/globe.svg\')"></span>',
+    'globe-2': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/globe.svg\');mask-image:url(\'assets/icons/outline/globe.svg\')"></span>',
+    'shield': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/shield.svg\');mask-image:url(\'assets/icons/outline/shield.svg\')"></span>',
+    'zap': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/bolt.svg\');mask-image:url(\'assets/icons/outline/bolt.svg\')"></span>',
+    'users': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/users.svg\');mask-image:url(\'assets/icons/outline/users.svg\')"></span>',
+    'refresh': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/refresh.svg\');mask-image:url(\'assets/icons/outline/refresh.svg\')"></span>',
+    'clock': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/clock.svg\');mask-image:url(\'assets/icons/outline/clock.svg\')"></span>',
+    'trending-up': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/trending-up.svg\');mask-image:url(\'assets/icons/outline/trending-up.svg\')"></span>',
+    'flag': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/flag.svg\');mask-image:url(\'assets/icons/outline/flag.svg\')"></span>',
+    'map-pin': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/map-pin.svg\');mask-image:url(\'assets/icons/outline/map-pin.svg\')"></span>',
+    'file-text': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/file-text.svg\');mask-image:url(\'assets/icons/outline/file-text.svg\')"></span>',
+    'building': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/building.svg\');mask-image:url(\'assets/icons/outline/building.svg\')"></span>',
+    'shopping-bag': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/filled/basket.svg\');mask-image:url(\'assets/icons/filled/basket.svg\')"></span>',
+    'briefcase': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/briefcase.svg\');mask-image:url(\'assets/icons/outline/briefcase.svg\')"></span>',
+    'code': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/code.svg\');mask-image:url(\'assets/icons/outline/code.svg\')"></span>',
+    'wifi': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/wifi.svg\');mask-image:url(\'assets/icons/outline/wifi.svg\')"></span>',
+    'server': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/server.svg\');mask-image:url(\'assets/icons/outline/server.svg\')"></span>',
+    'user': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/user.svg\');mask-image:url(\'assets/icons/outline/user.svg\')"></span>',
+    'hash': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/hash.svg\');mask-image:url(\'assets/icons/outline/hash.svg\')"></span>',
+    'sparkles': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/sparkles.svg\');mask-image:url(\'assets/icons/outline/sparkles.svg\')"></span>',
+    'layout': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/layout.svg\');mask-image:url(\'assets/icons/outline/layout.svg\')"></span>',
+    'heart': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/heart.svg\');mask-image:url(\'assets/icons/outline/heart.svg\')"></span>',
+    'crown': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/crown.svg\');mask-image:url(\'assets/icons/outline/crown.svg\')"></span>',
+    'star': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/star.svg\');mask-image:url(\'assets/icons/outline/star.svg\')"></span>',
+    'gift': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/gift.svg\');mask-image:url(\'assets/icons/outline/gift.svg\')"></span>',
+    'rocket': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/rocket.svg\');mask-image:url(\'assets/icons/outline/rocket.svg\')"></span>',
+    'dumbbell': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/dumbbell.svg\');mask-image:url(\'assets/icons/outline/dumbbell.svg\')"></span>',
+    'music': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/music.svg\');mask-image:url(\'assets/icons/outline/music.svg\')"></span>',
+    'link': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/link.svg\');mask-image:url(\'assets/icons/outline/link.svg\')"></span>',
+    'share-2': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/share-2.svg\');mask-image:url(\'assets/icons/outline/share-2.svg\')"></span>',
+    'smartphone': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/device-mobile.svg\');mask-image:url(\'assets/icons/outline/device-mobile.svg\')"></span>',
+    'cpu': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/cpu.svg\');mask-image:url(\'assets/icons/outline/cpu.svg\')"></span>',
+    'truck': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/truck.svg\');mask-image:url(\'assets/icons/outline/truck.svg\')"></span>',
+    'radio': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/radio.svg\');mask-image:url(\'assets/icons/outline/radio.svg\')"></span>',
+    'lightbulb': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/lightbulb.svg\');mask-image:url(\'assets/icons/outline/lightbulb.svg\')"></span>',
     'type': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>',
     'landmark': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 11 4 11"/></svg>',
     'graduation-cap': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 11v5a4 4 0 008 0v-5"/></svg>',
     'store': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 7h20v14H2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>',
-    'truck': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
-    'lightbulb': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M15.09 14c.18-.56.25-1.17.25-1.8A6.29 6.29 0 0012 6.29 6.29 6.29 0 008.66 12.2c0 .63.07 1.24.25 1.8"/></svg>',
-    'radio': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.9 13.9A6 6 0 0112 6a6 6 0 017.1 7.9"/><circle cx="12" cy="12" r="2"/><path d="M2 18h20"/></svg>',
     'utensils': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2v0a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 4v3"/></svg>'
   };
 
   function getIcon(name, size) {
     size = size || 'w-5 h-5';
     var svg = iconMap[name] || iconMap['globe'];
-    return svg.replace(/class="w-5 h-5"/, 'class="' + size + '"');
+    return svg.replace(/class="icon-mask w-5 h-5"/, 'class="icon-mask ' + size + '"');
   }
 
   // 构建域名图标 HTML
@@ -429,16 +429,16 @@ window.getSameCategoryDomains=function(cgn,ex){var r=[];for(var k in window.DOMA
   // 概览卡片网格
   html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">';
   // 首年价格
-  html += '<div class="overview-card"><div class="ov-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div><div class="text-xs text-muted mb-1">首年价格</div><div class="text-xl font-bold text-primary">¥' + fmtPrice(displayPrice) + '</div></div></div>';
+  html += '<div class="overview-card"><div class="ov-icon"><span class="icon-mask w-5 h-5 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/coin.svg\');mask-image:url(\'assets/icons/outline/coin.svg\')"></span></div><div><div class="text-xs text-muted mb-1">首年价格</div><div class="text-xl font-bold text-primary">¥' + fmtPrice(displayPrice) + '</div></div></div>';
   // 注册要求
-  html += '<div class="overview-card"><div class="ov-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div class="text-xs text-muted mb-1">注册要求</div><div class="text-sm font-medium text-body">' + (data.requirements.length > 30 ? data.requirements.substring(0, 30) + '...' : data.requirements) + '</div></div></div>';
+  html += '<div class="overview-card"><div class="ov-icon"><span class="icon-mask w-5 h-5 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/file.svg\');mask-image:url(\'assets/icons/outline/file.svg\')"></span></div><div><div class="text-xs text-muted mb-1">注册要求</div><div class="text-sm font-medium text-body">' + (data.requirements.length > 30 ? data.requirements.substring(0, 30) + '...' : data.requirements) + '</div></div></div>';
   // 所属分类
-  html += '<div class="overview-card"><div class="ov-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div><div><div class="text-xs text-muted mb-1">所属分类</div><div class="text-sm font-medium text-body">' + data.category + '</div></div></div>';
+  html += '<div class="overview-card"><div class="ov-icon"><span class="icon-mask w-5 h-5 text-body" style="-webkit-mask-image:url(\'assets/icons/filled/folder.svg\');mask-image:url(\'assets/icons/filled/folder.svg\')"></span></div><div><div class="text-xs text-muted mb-1">所属分类</div><div class="text-sm font-medium text-body">' + data.category + '</div></div></div>';
   // 域名全称
-  html += '<div class="overview-card"><div class="ov-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".1" fill="currentColor"/></svg></div><div><div class="text-xs text-muted mb-1">域名全称</div><div class="text-sm font-medium text-body">' + data.fullName + '</div></div></div>';
+  html += '<div class="overview-card"><div class="ov-icon"><span class="icon-mask w-5 h-5 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/help.svg\');mask-image:url(\'assets/icons/outline/help.svg\')"></span></div><div><div class="text-xs text-muted mb-1">域名全称</div><div class="text-sm font-medium text-body">' + data.fullName + '</div></div></div>';
   html += '</div>';
   // 注册要求完整版
-  html += '<div class="mt-6 p-5 bg-slate-50 rounded-2xl border border-slate-100"><div class="flex items-start gap-3"><svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><div><span class="text-sm font-medium text-body">注册要求</span><p class="text-sm text-muted mt-1">' + data.requirements + '</p></div></div></div>';
+  html += '<div class="mt-6 p-5 bg-slate-50 rounded-2xl border border-slate-100"><div class="flex items-start gap-3"><span class="icon-mask w-5 h-5 text-primary mt-0.5 shrink-0" style="-webkit-mask-image:url(\'assets/icons/outline/info-circle.svg\');mask-image:url(\'assets/icons/outline/info-circle.svg\')"></span><div><span class="text-sm font-medium text-body">注册要求</span><p class="text-sm text-muted mt-1">' + data.requirements + '</p></div></div></div>';
   html += '</div>';
   html += '</section>';
 
@@ -507,7 +507,7 @@ window.getSameCategoryDomains=function(cgn,ex){var r=[];for(var k in window.DOMA
   }
   html += '</tbody></table>';
   html += '</div>';
-  html += '<div class="text-center mt-6"><a href="domain-search.html?suffix=' + data.tld + '" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-xl transition-colors text-sm">立即注册 ' + data.tld + '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>';
+  html += '<div class="text-center mt-6"><a href="domain-search.html?suffix=' + data.tld + '" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-xl transition-colors text-sm">立即注册 ' + data.tld + '<span class="icon-mask w-4 h-4 text-white" style="-webkit-mask-image:url(\'assets/icons/outline/arrow-right.svg\');mask-image:url(\'assets/icons/outline/arrow-right.svg\')"></span></a></div>';
   html += '</div>';
   html += '</section>';
 
