@@ -65,22 +65,14 @@ tailwind.config = {
       </div>
     </div>
   </div>
-  
-  <div class="about-hero-wave">
-    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-    </svg>
-  </div>
 </section>
 
 <!-- ========== 3. 公司简介 ========== -->
-<section class="py-20 bg-white">
+<section class="py-14 md:py-24 bg-white border-t border-slate-200">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div class="order-2 lg:order-1">
-        <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
-          <span class="w-6 h-px bg-primary"></span> ABOUT US <span class="w-6 h-px bg-primary"></span>
-        </div>
+        <div class="about-eyebrow">ABOUT US</div>
         <h2 class="text-3xl md:text-4xl font-bold text-body mb-6 leading-tight">
           专注中小企业出海服务<br>
           <span class="gradient-text">一站式解决方案供应商</span>
@@ -144,11 +136,11 @@ tailwind.config = {
 </section>
 
 <!-- ========== 4. 我们的使命 ========== -->
-<section class="py-20 about-mission-section">
+<section class="py-14 md:py-24 about-mission-section">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <div class="text-sm text-primary font-semibold mb-2">OUR MISSION</div>
-      <h2 class="text-3xl md:text-4xl font-bold text-body mb-4">我们为什么存在</h2>
+    <div class="text-center mb-14">
+      <div class="about-eyebrow">OUR MISSION</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">我们为什么存在</h2>
       <p class="text-muted-override text-lg max-w-3xl mx-auto">
         洞察中小企业出海痛点，用技术助力企业扬帆远航
       </p>
@@ -159,7 +151,9 @@ tailwind.config = {
       <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
       
       <div class="relative z-10">
-        <div class="text-5xl mb-6">💡</div>
+        <div class="about-mission-icon">
+          <span class="icon-mask w-8 h-8 text-primary" style="-webkit-mask-image:url('assets/icons/outline/lightbulb.svg');mask-image:url('assets/icons/outline/lightbulb.svg')"></span>
+        </div>
         <p class="text-xl md:text-2xl text-body leading-relaxed font-medium mb-6">
           在全球化竞争日益激烈的今天，众多中国中小企业虽拥有优质的产品与服务，却在拓展海外市场的过程中面临诸多挑战，如<span class="gradient-text font-bold">市场信息不对称、跨境风险管控能力不足、品牌国际影响力有限、运营成本高昂</span>等。
         </p>
@@ -172,12 +166,10 @@ tailwind.config = {
 </section>
 
 <!-- ========== 5. 核心业务能力 ========== -->
-<section class="py-20 bg-white">
+<section class="py-14 md:py-24 bg-white border-t border-slate-200">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14">
-      <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3">
-        <span class="w-6 h-px bg-primary"></span> OUR CAPABILITIES <span class="w-6 h-px bg-primary"></span>
-      </div>
+      <div class="about-eyebrow">OUR CAPABILITIES</div>
       <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">核心业务能力</h2>
       <p class="text-muted-override text-lg">技术创新驱动，全方位赋能企业出海</p>
     </div>
@@ -253,10 +245,10 @@ tailwind.config = {
 </section>
 
 <!-- ========== 6. 降本增效四大服务领域 ========== -->
-<section class="py-20 about-cost-section">
+<section class="py-14 md:py-24 about-cost-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14">
-      <div class="text-sm text-primary font-semibold mb-2">COST EFFICIENCY</div>
+      <div class="about-eyebrow">COST EFFICIENCY</div>
       <h2 class="text-3xl md:text-4xl font-bold text-body mb-3">降本增效 · 四大数字化服务领域</h2>
       <p class="text-muted-override text-lg">创新科技深度赋能企业运营关键环节</p>
     </div>
@@ -314,53 +306,67 @@ tailwind.config = {
 </section>
 
 <!-- ========== 7. 终极愿景 ========== -->
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="about-vision-wrapper relative overflow-hidden rounded-3xl">
-      <div class="absolute inset-0 about-vision-bg"></div>
-      <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
-      
-      <div class="relative z-10 p-10 md:p-16 text-center text-white">
-        <div class="text-sm font-semibold mb-4 opacity-80">OUR VISION</div>
-        <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+<section class="py-14 md:py-24 about-vision-section relative overflow-hidden border-t border-slate-200">
+  <div class="about-vision-ring about-vision-ring-1"></div>
+  <div class="about-vision-ring about-vision-ring-2"></div>
+  <div class="about-vision-ring about-vision-ring-3"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="about-eyebrow">OUR VISION</div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div class="lg:col-span-7">
+        <h2 class="about-vision-title">
           构建健康、动态、互联的<br>
-          <span class="about-vision-highlight">全球信息生态体系</span>
+          <span class="gradient-text">全球信息生态体系</span>
         </h2>
-        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-8">
+      </div>
+      <div class="lg:col-span-5 lg:pt-4">
+        <div class="w-14 h-[3px] rounded-full bg-gradient-to-r from-primary to-accent mb-6"></div>
+        <p class="text-lg text-muted-override leading-relaxed">
           希赛乐的终极目标，是助力每一家合作的出口企业构建起一个健康、动态、互联的全球信息生态体系。这个体系不仅能够打通从生产端到消费端的数据流，更能实现企业内部管理与外部市场拓展的无缝衔接，从而真正推动企业完成数字化的转型升级，在全球竞争中建立起可持续的核心优势。
         </p>
-        <div class="flex flex-wrap justify-center gap-6">
-          <div class="about-vision-item">
-            <div class="text-3xl font-bold">🌐</div>
-            <div class="text-sm mt-2">全球数据互通</div>
-          </div>
-          <div class="about-vision-item">
-            <div class="text-3xl font-bold">🔗</div>
-            <div class="text-sm mt-2">无缝衔接协同</div>
-          </div>
-          <div class="about-vision-item">
-            <div class="text-3xl font-bold">📈</div>
-            <div class="text-sm mt-2">数字化转型</div>
-          </div>
-          <div class="about-vision-item">
-            <div class="text-3xl font-bold">🏆</div>
-            <div class="text-sm mt-2">可持续竞争优势</div>
-          </div>
+      </div>
+    </div>
+
+    <div class="mt-16 md:mt-20 about-vision-keywords">
+      <div class="about-vision-kw">
+        <span class="about-vision-dot bg-primary"></span>
+        <div>
+          <div class="about-vision-kw-name">健康</div>
+          <div class="about-vision-kw-en">Healthy Ecosystem</div>
         </div>
+      </div>
+      <div class="about-vision-kw-line"></div>
+      <div class="about-vision-kw">
+        <span class="about-vision-dot bg-accent"></span>
+        <div>
+          <div class="about-vision-kw-name">动态</div>
+          <div class="about-vision-kw-en">Dynamic Growth</div>
+        </div>
+      </div>
+      <div class="about-vision-kw-line"></div>
+      <div class="about-vision-kw">
+        <span class="about-vision-dot bg-primary"></span>
+        <div>
+          <div class="about-vision-kw-name">互联</div>
+          <div class="about-vision-kw-en">Globally Connected</div>
+        </div>
+      </div>
+      <div class="about-vision-kw-line"></div>
+      <div class="about-vision-kw-end">
+        <span class="icon-mask w-5 h-5 text-primary" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========== 8. 展望未来 ========== -->
-<section class="py-20 about-future-section">
+<section class="py-14 md:py-24 about-future-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div>
-        <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
-          <span class="w-6 h-px bg-primary"></span> LOOKING AHEAD <span class="w-6 h-px bg-primary"></span>
-        </div>
+        <div class="about-eyebrow">LOOKING AHEAD</div>
         <h2 class="text-3xl md:text-4xl font-bold text-body mb-6 leading-tight">
           展望未来<br>
           <span class="gradient-text">携手开拓新商业传奇</span>
@@ -372,23 +378,31 @@ tailwind.config = {
       <div>
         <div class="grid grid-cols-2 gap-4">
           <div class="about-future-card about-future-card-1">
-            <div class="text-4xl mb-3">🚀</div>
-            <div class="font-bold text-body">深化技术创新</div>
+            <div class="about-future-icon bg-primary/10">
+              <span class="icon-mask w-6 h-6 text-primary" style="-webkit-mask-image:url('assets/icons/outline/jetpack.svg');mask-image:url('assets/icons/outline/jetpack.svg')"></span>
+            </div>
+            <div class="font-bold text-body mt-4">深化技术创新</div>
             <div class="text-xs text-muted-override mt-1">持续投入研发</div>
           </div>
           <div class="about-future-card about-future-card-2">
-            <div class="text-4xl mb-3">🌍</div>
-            <div class="font-bold text-body">拓展全球网络</div>
+            <div class="about-future-icon bg-accent/10">
+              <span class="icon-mask w-6 h-6 text-accent" style="-webkit-mask-image:url('assets/icons/outline/world.svg');mask-image:url('assets/icons/outline/world.svg')"></span>
+            </div>
+            <div class="font-bold text-body mt-4">拓展全球网络</div>
             <div class="text-xs text-muted-override mt-1">覆盖更多市场</div>
           </div>
           <div class="about-future-card about-future-card-3">
-            <div class="text-4xl mb-3">💼</div>
-            <div class="font-bold text-body">完善服务体系</div>
+            <div class="about-future-icon bg-purple-100">
+              <span class="icon-mask w-6 h-6 text-purple-500" style="-webkit-mask-image:url('assets/icons/outline/award.svg');mask-image:url('assets/icons/outline/award.svg')"></span>
+            </div>
+            <div class="font-bold text-body mt-4">完善服务体系</div>
             <div class="text-xs text-muted-override mt-1">一站式解决方案</div>
           </div>
           <div class="about-future-card about-future-card-4">
-            <div class="text-4xl mb-3">🤝</div>
-            <div class="font-bold text-body">陪伴客户成长</div>
+            <div class="about-future-icon bg-amber-100">
+              <span class="icon-mask w-6 h-6 text-amber-500" style="-webkit-mask-image:url('assets/icons/outline/friends.svg');mask-image:url('assets/icons/outline/friends.svg')"></span>
+            </div>
+            <div class="font-bold text-body mt-4">陪伴客户成长</div>
             <div class="text-xs text-muted-override mt-1">携手共创辉煌</div>
           </div>
         </div>
@@ -398,7 +412,7 @@ tailwind.config = {
 </section>
 
 <!-- ========== 9. CTA 联系我们 ========== -->
-<section class="py-20 bg-white">
+<section class="py-14 md:py-24 bg-white border-t border-slate-200">
   <div class="max-w-7xl mx-auto px-6">
     <div class="bg-gradient-to-r from-primary to-primary-dark rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden">
       <div class="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>

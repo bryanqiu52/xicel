@@ -9,6 +9,9 @@ body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
 /* ===== 渐变文字 ===== */
 .gradient-text { background: linear-gradient(135deg,#0A66FF,#00D4AA); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 
+/* ===== 辅助文字颜色（全站统一） ===== */
+.text-muted-override { color: #64748B; }
+
 /* ===== 动画 ===== */
 @keyframes fadeIn { from { opacity:0;transform:translateY(24px);} to { opacity:1;transform:translateY(0);} }
 .animate-fade-in { animation: fadeIn 0.8s ease-out; }
