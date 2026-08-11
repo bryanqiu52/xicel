@@ -427,11 +427,9 @@ window.getSameCategoryDomains=function(cgn,ex){var r=[];for(var k in window.DOMA
   html += '<p class="text-lg text-muted">了解 ' + data.tld + ' 域名的核心信息</p>';
   html += '</div>';
   // 概览卡片网格
-  html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">';
+  html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">';
   // 首年价格
   html += '<div class="overview-card"><div class="ov-icon"><span class="icon-mask w-5 h-5 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/coin.svg\');mask-image:url(\'assets/icons/outline/coin.svg\')"></span></div><div><div class="text-xs text-muted mb-1">首年价格</div><div class="text-xl font-bold text-primary">¥' + fmtPrice(displayPrice) + '</div></div></div>';
-  // 注册要求
-  html += '<div class="overview-card"><div class="ov-icon"><span class="icon-mask w-5 h-5 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/file.svg\');mask-image:url(\'assets/icons/outline/file.svg\')"></span></div><div><div class="text-xs text-muted mb-1">注册要求</div><div class="text-sm font-medium text-body">' + (data.requirements.length > 30 ? data.requirements.substring(0, 30) + '...' : data.requirements) + '</div></div></div>';
   // 所属分类
   html += '<div class="overview-card"><div class="ov-icon"><span class="icon-mask w-5 h-5 text-body" style="-webkit-mask-image:url(\'assets/icons/filled/folder.svg\');mask-image:url(\'assets/icons/filled/folder.svg\')"></span></div><div><div class="text-xs text-muted mb-1">所属分类</div><div class="text-sm font-medium text-body">' + data.category + '</div></div></div>';
   // 域名全称

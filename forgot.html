@@ -6,7 +6,7 @@
 <title>忘记密码 - xicel 全球品牌基建，一站就绪</title>
 <script src="js/tailwindcss.js"></script>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/login.css?v=20260811l">
 <script>
 tailwind.config = {
   theme: {
@@ -30,12 +30,35 @@ tailwind.config = {
 
 <div id="navbar-container"></div>
 <!-- ========== 忘记密码页面主体 ========== -->
-<section class="login-page relative overflow-hidden min-h-[calc(100vh-68px)] flex items-center justify-center py-16 px-6">
+<section class="login-page relative overflow-hidden min-h-[calc(100vh-68px)] flex items-center justify-center py-16 px-6 lg:py-0 lg:px-0">
   <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" style="background:radial-gradient(circle,rgba(10,102,255,0.08),transparent 70%)"></div>
   <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-3xl -translate-x-1/4 translate-y-1/3" style="background:radial-gradient(circle,rgba(0,212,170,0.06),transparent 70%)"></div>
 
-  <div class="relative z-10 w-full max-w-[460px]">
-    <div class="login-card bg-white rounded-2xl shadow-xl border border-border p-8 md:p-10">
+  <div class="relative z-10 w-full px-4 lg:px-0">
+    <div class="auth-split">
+      <!-- 左图区：蓝色渐变 + 杂志风占位（后续补充图片时替换此面板） -->
+      <aside class="auth-visual">
+        <div class="visual-glow w-[340px] h-[340px] -top-24 -right-16" style="background:radial-gradient(circle,rgba(0,212,170,0.30),transparent 70%)"></div>
+        <div class="visual-glow w-[260px] h-[260px] top-1/3 -left-20" style="background:radial-gradient(circle,rgba(255,255,255,0.14),transparent 70%)"></div>
+        <span class="visual-watermark">03</span>
+        <div class="visual-top">
+          <span class="visual-brand">XICEL</span>
+          <span class="visual-kicker">Account Security</span>
+        </div>
+        <div class="visual-body">
+          <span class="visual-label">Password Reset</span>
+          <h2 class="visual-title">SECURE YOUR<br>ACCOUNT<br>TODAY</h2>
+          <p class="visual-desc">通过手机号验证，安全重置您的账户密码，全程加密守护。</p>
+        </div>
+        <div class="visual-foot">
+          <span>EST. 2024</span>
+          <span>Trust &amp; Security First</span>
+        </div>
+      </aside>
+
+      <!-- 右表单区 -->
+      <div class="auth-form">
+      <div>
       <div class="text-center mb-8">
         <div class="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-4">
           <span class="w-6 h-px bg-primary"></span>
@@ -43,41 +66,40 @@ tailwind.config = {
           <span class="w-6 h-px bg-primary"></span>
         </div>
         <h1 class="text-2xl md:text-3xl font-bold text-body mb-2">找回密码</h1>
-        <p class="text-muted text-sm">通过邮箱验证重置您的账户密码</p>
+        <p class="text-muted text-sm">通过手机号验证重置您的账户密码</p>
       </div>
 
-      <!-- 步骤指示器 -->
-      <div class="flex items-center justify-between mb-8 px-2">
-        <div class="step-item flex flex-col items-center">
-          <div class="step-circle w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold" id="step1Circle">1</div>
-          <span class="text-xs text-primary mt-1.5 font-medium" id="step1Text">验证邮箱</span>
-        </div>
-        <div class="flex-1 h-0.5 bg-border mx-2" id="line1"></div>
-        <div class="step-item flex flex-col items-center">
-          <div class="step-circle w-8 h-8 rounded-full bg-border text-muted flex items-center justify-center text-sm font-semibold" id="step2Circle">2</div>
-          <span class="text-xs text-muted mt-1.5" id="step2Text">重置密码</span>
-        </div>
-        <div class="flex-1 h-0.5 bg-border mx-2" id="line2"></div>
-        <div class="step-item flex flex-col items-center">
-          <div class="step-circle w-8 h-8 rounded-full bg-border text-muted flex items-center justify-center text-sm font-semibold" id="step3Circle">3</div>
-          <span class="text-xs text-muted mt-1.5" id="step3Text">完成</span>
-        </div>
-      </div>
-
-      <!-- 步骤1：验证邮箱 -->
-      <form id="forgotStep1" class="space-y-5">
+      <!-- 找回密码表单（单步完成） -->
+      <form id="forgotForm" class="space-y-5">
+        <div class="grid sm:grid-cols-2 gap-4">
+        <!-- 用户名 -->
         <div class="form-group">
-          <label for="forgotEmail" class="block text-sm font-semibold text-body mb-2">注册邮箱 <span class="text-red-500">*</span></label>
+          <label for="forgotUsername" class="block text-sm font-semibold text-body mb-2">用户名 <span class="text-red-500">*</span></label>
           <div class="input-wrapper relative">
             <span class="input-icon absolute left-3.5 top-1/2 -translate-y-1/2 text-muted">
-              <span class="icon-mask w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/mail.svg');mask-image:url('assets/icons/outline/mail.svg')"></span>
+              <span class="icon-mask w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/user.svg');mask-image:url('assets/icons/outline/user.svg')"></span>
             </span>
-            <input type="email" id="forgotEmail" name="forgotEmail" placeholder="请输入您注册时使用的邮箱" 
+            <input type="text" id="forgotUsername" name="forgotUsername" placeholder="请输入用户名" 
               class="w-full pl-11 pr-4 py-3.5 border border-border rounded-xl text-sm text-body placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white">
           </div>
-          <p class="error-msg text-xs text-red-500 mt-1.5 hidden" id="forgotEmailError">请输入正确的邮箱地址</p>
+          <p class="error-msg text-xs text-red-500 mt-1.5 hidden" id="forgotUsernameError">请输入用户名</p>
         </div>
 
+        <!-- 手机号 -->
+        <div class="form-group">
+          <label for="forgotPhone" class="block text-sm font-semibold text-body mb-2">手机号 <span class="text-red-500">*</span></label>
+          <div class="input-wrapper relative">
+            <span class="input-icon absolute left-3.5 top-1/2 -translate-y-1/2 text-muted">
+              <span class="icon-mask w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/phone.svg');mask-image:url('assets/icons/outline/phone.svg')"></span>
+            </span>
+            <input type="tel" id="forgotPhone" name="forgotPhone" placeholder="请输入注册时使用的手机号" maxlength="11"
+              class="w-full pl-11 pr-4 py-3.5 border border-border rounded-xl text-sm text-body placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white">
+          </div>
+          <p class="error-msg text-xs text-red-500 mt-1.5 hidden" id="forgotPhoneError">请输入正确的手机号</p>
+        </div>
+        </div>
+
+        <!-- 验证码 -->
         <div class="form-group">
           <label for="verifyCode" class="block text-sm font-semibold text-body mb-2">验证码 <span class="text-red-500">*</span></label>
           <div class="flex gap-3">
@@ -95,19 +117,8 @@ tailwind.config = {
           <p class="error-msg text-xs text-red-500 mt-1.5 hidden" id="verifyCodeError">请输入验证码</p>
         </div>
 
-        <button type="submit" id="step1Btn" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl text-base transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 relative overflow-hidden">
-          <span class="btn-text">下一步</span>
-          <span class="btn-loading absolute inset-0 flex items-center justify-center hidden">
-            <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-            </svg>
-          </span>
-        </button>
-      </form>
-
-      <!-- 步骤2：重置密码 -->
-      <form id="forgotStep2" class="space-y-5 hidden">
+        <div class="grid sm:grid-cols-2 gap-4">
+        <!-- 新密码 -->
         <div class="form-group">
           <label for="newPassword" class="block text-sm font-semibold text-body mb-2">新密码 <span class="text-red-500">*</span></label>
           <div class="input-wrapper relative">
@@ -129,8 +140,9 @@ tailwind.config = {
           <p class="text-xs text-muted mt-1" id="forgotStrengthText">密码强度：弱</p>
         </div>
 
+        <!-- 确认密码 -->
         <div class="form-group">
-          <label for="confirmNewPassword" class="block text-sm font-semibold text-body mb-2">确认新密码 <span class="text-red-500">*</span></label>
+          <label for="confirmNewPassword" class="block text-sm font-semibold text-body mb-2">确认密码 <span class="text-red-500">*</span></label>
           <div class="input-wrapper relative">
             <span class="input-icon absolute left-3.5 top-1/2 -translate-y-1/2 text-muted">
               <span class="icon-mask w-5 h-5 text-muted" style="-webkit-mask-image:url('assets/icons/outline/shield-check.svg');mask-image:url('assets/icons/outline/shield-check.svg')"></span>
@@ -143,8 +155,9 @@ tailwind.config = {
           </div>
           <p class="error-msg text-xs text-red-500 mt-1.5 hidden" id="confirmNewPasswordError">两次输入的密码不一致</p>
         </div>
+        </div>
 
-        <button type="submit" id="step2Btn" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl text-base transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 relative overflow-hidden">
+        <button type="submit" id="forgotBtn" class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl text-base transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 relative overflow-hidden">
           <span class="btn-text">确认重置</span>
           <span class="btn-loading absolute inset-0 flex items-center justify-center hidden">
             <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
@@ -158,8 +171,8 @@ tailwind.config = {
         </button>
       </form>
 
-      <!-- 步骤3：完成 -->
-      <div id="forgotStep3" class="text-center py-6 hidden">
+      <!-- 重置成功 -->
+      <div id="forgotSuccess" class="text-center py-6 hidden">
         <div class="w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center">
           <span class="icon-mask w-10 h-10 text-accent" style="-webkit-mask-image:url('assets/icons/outline/circle-check.svg');mask-image:url('assets/icons/outline/circle-check.svg')"></span>
         </div>
@@ -175,6 +188,8 @@ tailwind.config = {
           想起密码了？
           <a href="login.html" class="text-primary hover:text-primary-dark font-medium transition-colors">返回登录</a>
         </p>
+      </div>
+      </div>
       </div>
     </div>
   </div>
@@ -205,17 +220,16 @@ tailwind.config = {
   setupPasswordToggle('toggleNewPassword', 'newPassword', 'newEyeIcon');
   setupPasswordToggle('toggleConfirmNewPassword', 'confirmNewPassword', 'confirmNewEyeIcon');
 
-  const sendCodeBtn = document.getElementById('sendCodeBtn');
-  const forgotEmailInput = document.getElementById('forgotEmail');
-  const forgotEmailError = document.getElementById('forgotEmailError');
+  const forgotForm = document.getElementById('forgotForm');
+  const forgotSuccess = document.getElementById('forgotSuccess');
+  const forgotBtn = document.getElementById('forgotBtn');
+  const forgotUsernameInput = document.getElementById('forgotUsername');
+  const forgotUsernameError = document.getElementById('forgotUsernameError');
+  const forgotPhoneInput = document.getElementById('forgotPhone');
+  const forgotPhoneError = document.getElementById('forgotPhoneError');
   const verifyCodeInput = document.getElementById('verifyCode');
   const verifyCodeError = document.getElementById('verifyCodeError');
-  const forgotStep1 = document.getElementById('forgotStep1');
-  const forgotStep2 = document.getElementById('forgotStep2');
-  const forgotStep3 = document.getElementById('forgotStep3');
-  const step1Btn = document.getElementById('step1Btn');
-  const step2Btn = document.getElementById('step2Btn');
-
+  const sendCodeBtn = document.getElementById('sendCodeBtn');
   const newPasswordInput = document.getElementById('newPassword');
   const confirmNewPasswordInput = document.getElementById('confirmNewPassword');
   const newPasswordError = document.getElementById('newPasswordError');
@@ -237,10 +251,16 @@ tailwind.config = {
     errorEl.classList.add('hidden');
   }
 
-  forgotEmailInput.addEventListener('input', function() {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(this.value.trim())) {
-      hideError(this, forgotEmailError);
+  forgotUsernameInput.addEventListener('input', function() {
+    if (this.value.trim().length >= 4) {
+      hideError(this, forgotUsernameError);
+    }
+  });
+
+  forgotPhoneInput.addEventListener('input', function() {
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    if (phoneRegex.test(this.value.trim())) {
+      hideError(this, forgotPhoneError);
     }
   });
 
@@ -253,9 +273,9 @@ tailwind.config = {
   sendCodeBtn.addEventListener('click', function() {
     if (countdown > 0) return;
     
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(forgotEmailInput.value.trim())) {
-      showError(forgotEmailInput, forgotEmailError, '请输入正确的邮箱地址');
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    if (!phoneRegex.test(forgotPhoneInput.value.trim())) {
+      showError(forgotPhoneInput, forgotPhoneError, '请输入正确的手机号');
       return;
     }
 
@@ -280,48 +300,6 @@ tailwind.config = {
       sendCodeBtn.classList.add('bg-primary/10', 'text-primary', 'hover:bg-primary/20');
     }
   }
-
-  forgotStep1.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    let isValid = true;
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(forgotEmailInput.value.trim())) {
-      showError(forgotEmailInput, forgotEmailError, '请输入正确的邮箱地址');
-      isValid = false;
-    }
-    
-    if (!verifyCodeInput.value.trim() || verifyCodeInput.value.trim().length < 4) {
-      showError(verifyCodeInput, verifyCodeError, '请输入验证码');
-      isValid = false;
-    }
-    
-    if (!isValid) return;
-
-    const btnText = step1Btn.querySelector('.btn-text');
-    const btnLoading = step1Btn.querySelector('.btn-loading');
-    
-    btnText.classList.add('opacity-0');
-    btnLoading.classList.remove('hidden');
-    step1Btn.disabled = true;
-
-    setTimeout(function() {
-      forgotStep1.classList.add('hidden');
-      forgotStep2.classList.remove('hidden');
-      
-      const step2Circle = document.getElementById('step2Circle');
-      const step2Text = document.getElementById('step2Text');
-      const line1 = document.getElementById('line1');
-      
-      step2Circle.classList.remove('bg-border', 'text-muted');
-      step2Circle.classList.add('bg-primary', 'text-white');
-      step2Text.classList.remove('text-muted');
-      step2Text.classList.add('text-primary', 'font-medium');
-      line1.classList.remove('bg-border');
-      line1.classList.add('bg-primary');
-    }, 1000);
-  });
 
   function checkPasswordStrength(password) {
     let strength = 0;
@@ -374,10 +352,26 @@ tailwind.config = {
     }
   });
 
-  forgotStep2.addEventListener('submit', function(e) {
+  forgotForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     let isValid = true;
+    
+    if (!forgotUsernameInput.value.trim() || forgotUsernameInput.value.trim().length < 4) {
+      showError(forgotUsernameInput, forgotUsernameError, '请输入用户名');
+      isValid = false;
+    }
+    
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    if (!phoneRegex.test(forgotPhoneInput.value.trim())) {
+      showError(forgotPhoneInput, forgotPhoneError, '请输入正确的手机号');
+      isValid = false;
+    }
+    
+    if (!verifyCodeInput.value.trim() || verifyCodeInput.value.trim().length < 4) {
+      showError(verifyCodeInput, verifyCodeError, '请输入验证码');
+      isValid = false;
+    }
     
     if (!newPasswordInput.value || newPasswordInput.value.length < 6) {
       showError(newPasswordInput, newPasswordError, '密码长度不能少于6位');
@@ -391,34 +385,23 @@ tailwind.config = {
     
     if (!isValid) return;
 
-    const btnText = step2Btn.querySelector('.btn-text');
-    const btnLoading = step2Btn.querySelector('.btn-loading');
-    const btnSuccess = step2Btn.querySelector('.btn-success');
+    const btnText = forgotBtn.querySelector('.btn-text');
+    const btnLoading = forgotBtn.querySelector('.btn-loading');
+    const btnSuccess = forgotBtn.querySelector('.btn-success');
     
     btnText.classList.add('opacity-0');
     btnLoading.classList.remove('hidden');
-    step2Btn.disabled = true;
+    forgotBtn.disabled = true;
 
     setTimeout(function() {
       btnLoading.classList.add('hidden');
       btnSuccess.classList.remove('hidden');
-      step2Btn.classList.remove('bg-primary', 'hover:bg-primary-dark');
-      step2Btn.classList.add('bg-accent');
-
-      const step3Circle = document.getElementById('step3Circle');
-      const step3Text = document.getElementById('step3Text');
-      const line2 = document.getElementById('line2');
-      
-      step3Circle.classList.remove('bg-border', 'text-muted');
-      step3Circle.classList.add('bg-accent', 'text-white');
-      step3Text.classList.remove('text-muted');
-      step3Text.classList.add('text-accent', 'font-medium');
-      line2.classList.remove('bg-border');
-      line2.classList.add('bg-accent');
+      forgotBtn.classList.remove('bg-primary', 'hover:bg-primary-dark');
+      forgotBtn.classList.add('bg-accent');
 
       setTimeout(function() {
-        forgotStep2.classList.add('hidden');
-        forgotStep3.classList.remove('hidden');
+        forgotForm.classList.add('hidden');
+        forgotSuccess.classList.remove('hidden');
       }, 800);
     }, 1500);
   });

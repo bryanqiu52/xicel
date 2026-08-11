@@ -63,3 +63,240 @@
     padding: 2rem 1.5rem !important;
   }
 }
+
+/* ========== 认证页左右分栏布局 ========== */
+
+.auth-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(13, 17, 23, 0.10), 0 4px 16px rgba(13, 17, 23, 0.06);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 左图区：蓝色渐变 + 杂志编辑风占位（用户后续补充图片时替换此面板背景即可） */
+.auth-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 28px;
+  min-height: 620px;
+  background: linear-gradient(135deg, #0A66FF 0%, #0047CC 55%, #002B7F 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+.auth-visual .visual-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.auth-visual .visual-watermark {
+  position: absolute;
+  bottom: -36px;
+  right: -24px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 200;
+  font-size: 240px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  user-select: none;
+}
+
+.auth-visual .visual-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.auth-visual .visual-brand {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.32em;
+}
+
+.auth-visual .visual-kicker {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.auth-visual .visual-body {
+  position: relative;
+  z-index: 1;
+  padding-right: 8px;
+}
+
+.auth-visual .visual-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 7px 14px;
+  margin-bottom: 26px;
+  opacity: 0.9;
+}
+
+.auth-visual .visual-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 200;
+  font-size: clamp(42px, 4.2vw, 58px);
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  margin: 0 0 22px;
+}
+
+.auth-visual .visual-desc {
+  font-size: 14px;
+  line-height: 1.9;
+  opacity: 0.78;
+  max-width: 300px;
+}
+
+.auth-visual .visual-foot {
+  position: relative;
+  z-index: 1;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.66;
+}
+
+/* 右表单区 */
+.auth-form {
+  display: flex;
+  align-items: center;
+  padding: 56px 52px;
+}
+
+.auth-form > div {
+  width: 100%;
+}
+
+/* 响应式：<1024px 隐藏左图区，表单全宽单列居中 */
+@media (max-width: 1023px) {
+  .auth-split {
+    display: block;
+    max-width: 520px;
+  }
+
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-form {
+    padding: 40px 28px;
+  }
+}
+
+/* 桌面端（≥1024px）：分栏铺满整屏，右侧内容独立卡片 */
+@media (min-width: 1024px) {
+  .auth-split {
+    max-width: none;
+    min-height: calc(100vh - 68px);
+    grid-template-columns: 1fr 1.2fr;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background:
+      radial-gradient(circle at 88% 10%, rgba(10, 102, 255, 0.045), transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(0, 212, 170, 0.04), transparent 45%),
+      linear-gradient(rgba(10, 102, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 102, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(180deg, #F0F5FD 0%, #F9FBFD 55%, #F0FBF8 100%);
+    background-size: auto, auto, 56px 56px, 56px 56px, auto;
+  }
+
+  .auth-form {
+    padding: 40px 0;
+  }
+
+  .auth-form > div {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 860px;
+    min-height: min(calc(100vh - 280px), 680px);
+    margin: 0 auto;
+    background:
+      radial-gradient(circle at 88% -8%, rgba(10, 102, 255, 0.05), transparent 42%),
+      radial-gradient(circle at 4% 108%, rgba(0, 212, 170, 0.045), transparent 46%),
+      linear-gradient(180deg, #FFFFFF 0%, #F6FAFF 100%);
+    border: 1px solid #E2E8F0;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(13, 17, 23, 0.10), 0 4px 16px rgba(13, 17, 23, 0.06);
+    padding: 36px 60px 32px;
+  }
+
+  .auth-form > div > * {
+    width: 100%;
+  }
+
+  /* 底部信息沉底：标题靠上、表单居中、链接贴卡片底部，中间空隙集中一处 */
+  .auth-form > div > div.mt-8 {
+    margin-top: auto;
+    padding-top: 28px;
+  }
+
+  /* 输入框整体加高，让表单更饱满 */
+  .auth-form input[type="text"],
+  .auth-form input[type="tel"],
+  .auth-form input[type="email"],
+  .auth-form input[type="password"] {
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+  }
+
+  .auth-form button {
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+  }
+
+  .auth-form > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0A66FF 0%, #00D4AA 100%);
+    pointer-events: none;
+  }
+}

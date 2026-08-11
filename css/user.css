@@ -162,6 +162,15 @@ body { background: #F5F7FA; margin: 0; padding-top: 0; overflow-x: hidden; }
 .stat-card.empty .stat-card-value { color: #CBD5E1; }
 .stat-card.empty .stat-card-label { color: #94A3B8; }
 
+/* ===== 统计卡片左右结构（图标在左，信息在右） ===== */
+.stats-grid .stat-card,
+.stat-cards .stat-card { display: flex; align-items: center; gap: 16px; }
+.stat-cards .stat-card { cursor: default; }
+.stat-card-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.stat-card-value-row { display: flex; align-items: baseline; gap: 8px; }
+.stat-card-value-row .stat-card-value { margin-bottom: 0; }
+.stats-grid .stat-card-value { font-size: 28px; }
+
 /* ===== 新闻与公告 ===== */
 .news-section { margin-top: 20px; }
 .news-grid { display: grid; grid-template-columns: 40% 60%; gap: 24px; }
@@ -275,6 +284,48 @@ body { background: #F5F7FA; margin: 0; padding-top: 0; overflow-x: hidden; }
 .quick-filter-bar .filter-btn:hover { border-color: #0A66FF; color: #0A66FF; }
 .quick-filter-bar .filter-btn.active { background: #EFF6FF; border-color: #0A66FF; color: #0A66FF; }
 
+/* ===== 详情页 Tab 导航 ===== */
+.detail-tabs { display: flex; align-items: stretch; gap: 2px; margin-bottom: 24px; border-bottom: 1px solid #E2E8F0; overflow-x: auto; }
+.detail-tab { position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 13px 20px; font-size: 14px; font-weight: 500; color: #64748B; background: none; border: none; cursor: pointer; white-space: nowrap; transition: color 0.2s ease; }
+.detail-tab .icon-mask { opacity: 0.55; transition: opacity 0.2s ease; }
+.detail-tab::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -1px; height: 2.5px; border-radius: 2px; background: linear-gradient(90deg, #0A66FF, #00D4AA); transform: scaleX(0); transform-origin: left center; transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+.detail-tab:hover { color: #0A66FF; background: rgba(10,102,255,0.04); }
+.detail-tab:hover .icon-mask { opacity: 1; }
+.detail-tab.active { color: #0A66FF; font-weight: 600; }
+.detail-tab.active .icon-mask { opacity: 1; }
+.detail-tab.active::after { transform: scaleX(1); }
+
+/* ===== 详情页区块大标题（拆出卡片外，参考 whois 页标题样式） ===== */
+.detail-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+.detail-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(180deg, #0A66FF, #00D4AA);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.detail-section-title + .info-card { margin-top: 0; }
+
+/* ===== 注册人选择下拉（详情页注册信息板块） ===== */
+.registrant-select-btn { border-radius: 999px; padding: 6px 14px; display: flex; align-items: center; justify-content: center; gap: 6px; background: #F8FAFC; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s; }
+.registrant-select-btn:hover { border-color: #0A66FF; background: #EFF6FF; }
+.registrant-select-btn .registrant-text { font-size: 12px; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* 注册信息变更提示条（草稿 / 已提交，行内展示在管理模板右侧） */
+.registrant-apply-tip { display: none; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 12px; background: #EFF6FF; border: 1px solid #DBEAFE; color: #0A66FF; line-height: 1.4; max-width: 360px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.registrant-apply-tip.is-submitted { background: #ECFDF5; border-color: #A7F3D0; color: #059669; }
+
 /* ===== 操作链接 ===== */
 .action-link { font-size: 12px; cursor: pointer; transition: color 0.15s; padding: 2px 8px; border-radius: 6px; }
 .action-link:hover { background: #F1F5F9; }
@@ -341,6 +392,29 @@ body { background: #F5F7FA; margin: 0; padding-top: 0; overflow-x: hidden; }
 .id-img-placeholder svg { color: #CBD5E1; }
 .id-img-placeholder span { font-size: 11px; font-weight: 500; color: #94A3B8; }
 .realname-actions { margin-top: 20px; }
+
+/* 实名认证 - 空状态 */
+.realname-empty { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 56px 24px; }
+.realname-empty-icon { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, #EFF6FF 0%, #ECFDF5 100%); color: #0A66FF; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.realname-empty-title { font-size: 18px; font-weight: 700; color: #0F172A; margin: 0 0 8px; }
+.realname-empty-desc { font-size: 13px; color: #64748B; margin: 0 0 28px; }
+.realname-empty-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* 实名认证 - 审核中 */
+.realname-reviewing { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 0 4px; }
+.realname-review-icon { width: 72px; height: 72px; border-radius: 50%; background: #FFFBEB; color: #F59E0B; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.realname-review-text { font-size: 16px; font-weight: 600; color: #1E293B; }
+.realname-review-desc { font-size: 13px; color: #64748B; margin: 8px 0 24px; }
+
+/* 实名认证 - 证件照上传占位 */
+.realname-upload-placeholder { padding: 24px 16px; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 10px; color: #64748B; font-size: 12px; text-align: center; cursor: pointer; transition: all 0.15s; }
+.realname-upload-placeholder:hover { border-color: #0A66FF; color: #0A66FF; background: #F0F6FF; }
+
+/* 实名认证 - 重置确认 */
+.realname-reset-confirm { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 12px 0; }
+.realname-reset-icon { width: 64px; height: 64px; border-radius: 50%; background: #FEF2F2; color: #EF4444; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.realname-reset-text { font-size: 15px; font-weight: 600; color: #1E293B; margin: 0 0 8px; }
+.realname-reset-sub { font-size: 12px; color: #94A3B8; margin: 0; }
 
 /* ===== 消息通知页面 ===== */
 .notif-toolbar { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid #F1F5F9; flex-wrap: wrap; }
@@ -498,6 +572,7 @@ body { background: #F5F7FA; margin: 0; padding-top: 0; overflow-x: hidden; }
   .stat-card { padding: 16px; }
   .stat-card-icon svg { width: 28px; height: 28px; }
   .stat-card-value { font-size: 20px; }
+  .stats-grid .stat-card-value { font-size: 20px; }
 }
 @media (max-width: 768px) {
   .sidebar { transform: translateX(-100%); }
@@ -518,6 +593,9 @@ body { background: #F5F7FA; margin: 0; padding-top: 0; overflow-x: hidden; }
   /* ===== 快捷筛选栏 ===== */
   .quick-filter-bar { gap: 6px; padding-top: 10px; }
   .quick-filter-bar .filter-btn { padding: 5px 12px; font-size: 11px; }
+  /* ===== 详情页 Tab 导航 ===== */
+  .detail-tabs { margin-bottom: 16px; }
+  .detail-tab { padding: 11px 14px; font-size: 13px; }
   /* ===== 数据面板移动端适配 ===== */
   .wallet-section { grid-template-columns: 1fr; }
   .account-card-body { padding: 16px; flex-wrap: wrap; gap: 14px; }
@@ -591,4 +669,33 @@ body { background: #F5F7FA; margin: 0; padding-top: 0; overflow-x: hidden; }
   .sidebar-toggle-btn {
     display: flex !important;
   }
+}
+
+/* ===== 订单详情/合并支付控件（参考 cart-payment.html） ===== */
+.payment-method-card { border: 2px solid #E2E8F0; border-radius: 12px; cursor: pointer; transition: all 0.2s; background: #fff; }
+.payment-method-card:hover { border-color: #0A66FF; background: rgba(10, 102, 255, 0.02); }
+.payment-method-card.active { border-color: #0A66FF; background: #EFF6FF; }
+.payment-card-header { display: flex; align-items: center; gap: 14px; padding: 14px 16px; }
+.payment-card-expand { display: none; border-top: 1px solid #E2E8F0; padding: 18px 24px 22px; background: #fff; border-radius: 0 0 11px 11px; }
+.payment-method-card.active .payment-card-expand { display: block; }
+.payment-method-card .radio-indicator { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #CBD5E1; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.payment-method-card.active .radio-indicator { border-color: #0A66FF; }
+.payment-method-card.active .radio-indicator::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #0A66FF; }
+.payment-method-card .method-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #fff; color: #64748B; border: 1px solid #E2E8F0; }
+.payment-method-card.alipay .method-icon,
+.payment-method-card[data-method="alipay"] .method-icon { color: #1677FF; }
+.payment-method-card.wechat .method-icon,
+.payment-method-card[data-method="wechat"] .method-icon { color: #07C160; }
+.payment-method-card.balance .method-icon,
+.payment-method-card[data-method="balance"] .method-icon { color: #0A66FF; }
+.payment-method-card .method-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.payment-method-card .method-name { font-size: 14px; font-weight: 600; color: #1E293B; }
+.payment-method-card .method-desc { font-size: 12px; color: #94A3B8; }
+
+/* ===== 订单详情左右布局（左可滚动 / 右 sticky） ===== */
+.order-detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 20px; align-items: start; }
+.order-detail-grid .order-summary-sticky { position: sticky; top: 84px; }
+@media (max-width: 1024px) {
+  .order-detail-grid { grid-template-columns: 1fr; }
+  .order-detail-grid .order-summary-sticky { position: static; }
 }
