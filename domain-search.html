@@ -109,15 +109,16 @@
     <!-- 探索/批量模式表格 -->
     <div id="defaultTableContainer">
       <div class="overflow-x-auto rounded-xl border border-slate-200">
-        <div class="table-grid-inner" style="min-width:720px;">
+        <div class="table-grid-inner" style="min-width:960px;">
           <!-- 表头 -->
           <div class="grid grid-cols-12 gap-1 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-muted uppercase tracking-wide border-b border-slate-200">
             <div class="col-span-1 table-grid-cb flex items-center justify-center"><input type="checkbox" id="selectAllTableItems" class="w-3 h-3 accent-primary cursor-pointer"></div>
-            <div class="col-span-2">域名</div>
+            <div class="col-span-3">域名</div>
+            <div class="col-span-1 text-center">国家</div>
             <div class="col-span-1 text-center">状态</div>
             <div class="col-span-1 text-center">单价</div>
-            <div class="col-span-2 text-center">注册人</div>
-            <div class="col-span-2 text-center"><span class="inline-flex items-center justify-center gap-1"><span>申请资料</span><span class="icon-mask doc-tip w-3.5 h-3.5 opacity-60 hover:opacity-100 cursor-help text-body" style="-webkit-mask-image:url('assets/icons/outline/info-circle.svg');mask-image:url('assets/icons/outline/info-circle.svg')"></span></span></div>
+            <div class="col-span-1 text-center">注册人</div>
+            <div class="col-span-1 text-center"><span class="inline-flex items-center justify-center gap-1"><span>申请资料</span><span class="icon-mask doc-tip w-3.5 h-3.5 opacity-60 hover:opacity-100 cursor-help text-body" style="-webkit-mask-image:url('assets/icons/outline/info-circle.svg');mask-image:url('assets/icons/outline/info-circle.svg')"></span></span></div>
             <div class="col-span-1 text-center">年限</div>
             <div class="col-span-1 text-center">小计</div>
             <div class="col-span-1 text-center">操作</div>
@@ -196,36 +197,36 @@
 <script>
 // ===== TLD 数据集（30个） =====
 var TLD_DATA = [
-  { domain: '.com',  desc: '全球用户注册首选域名',  price: 98,   color: 'bg-blue-600',      abbr: 'CO' },
-  { domain: '.net',  desc: '网络服务机构首选',        price: 79,   color: 'bg-blue-600',      abbr: 'NE' },
-  { domain: '.org',  desc: '非盈利组织专用',          price: 85,   color: 'bg-teal-600',      abbr: 'OR' },
-  { domain: '.info', desc: '信息服务平台',            price: 25,   color: 'bg-cyan-600',      abbr: 'IN' },
-  { domain: '.biz',  desc: '商业专属域名',            price: 55,   color: 'bg-slate-600',     abbr: 'BI' },
-  { domain: '.cn',   desc: '中国国家顶级域名',        price: 35,   flag: 'assets/flags/cn.svg' },
-  { domain: '.com.cn', desc: '中国企业专属域名',       price: 39,   flag: 'assets/flags/cn.svg' },
-  { domain: '.hk',   desc: '香港地区域名',            price: 180,  flag: 'assets/flags/cn.svg',  needDocs: true },
-  { domain: '.com.hk', desc: '香港商业域名',          price: 200,  flag: 'assets/flags/cn.svg',  needDocs: true },
-  { domain: '.com.tw', desc: '台湾地区域名',          price: 150,  flag: 'assets/flags/cn.svg',  needDocs: true },
-  { domain: '.jp',   desc: '日本国家域名',            price: 320,  color: 'bg-red-600',       abbr: 'JP',        needDocs: true },
-  { domain: '.kr',   desc: '韩国国家域名',            price: 280,  color: 'bg-blue-600',      abbr: 'KR',        needDocs: true },
-  { domain: '.sg',   desc: '新加坡国家域名',          price: 250,  color: 'bg-red-600',       abbr: 'SG',        needDocs: true },
-  { domain: '.uk',   desc: '英国国家域名',            price: 150,  color: 'bg-blue-600',      abbr: 'UK',        needDocs: true },
-  { domain: '.de',   desc: '德国国家域名',            price: 130,  color: 'bg-gray-800',      abbr: 'DE',        needDocs: true },
-  { domain: '.us',   desc: '美国国家域名',            price: 198,  color: 'bg-blue-600',      abbr: 'US',        needDocs: true },
-  { domain: '.fr',   desc: '法国国家域名',            price: 140,  color: 'bg-blue-600',      abbr: 'FR',        needDocs: true },
-  { domain: '.ai',   desc: '人工智能专属',            price: 580,  color: 'bg-purple-600',    abbr: 'AI' },
-  { domain: '.io',   desc: '科技创业首选',            price: 420,  color: 'bg-gray-800',      abbr: 'IO' },
-  { domain: '.co',   desc: '公司企业域名',            price: 180,  color: 'bg-blue-600',      abbr: 'CO2' },
-  { domain: '.cc',   desc: '创意无限',                price: 88,   color: 'bg-teal-600',      abbr: 'CC' },
-  { domain: '.top',  desc: '巅峰首选',                price: 9,    color: 'bg-amber-600',     abbr: 'TO' },
-  { domain: '.xyz',  desc: '新一代通用域名',          price: 8,    color: 'bg-purple-600',    abbr: 'XY' },
-  { domain: '.vip',  desc: '尊贵身份象征',            price: 29,   color: 'bg-amber-600',     abbr: 'VI' },
-  { domain: '.club', desc: '社群俱乐部',              price: 19,   color: 'bg-pink-600',      abbr: 'CL' },
-  { domain: '.shop', desc: '电商专属',                price: 68,   color: 'bg-orange-600',    abbr: 'SH' },
-  { domain: '.site', desc: '建站首选',                price: 15,   color: 'bg-emerald-600',   abbr: 'SI' },
-  { domain: '.work', desc: '职场个人站',              price: 12,   color: 'bg-cyan-600',      abbr: 'WO' },
-  { domain: '.link', desc: '链接跳转',                price: 25,   color: 'bg-indigo-600',    abbr: 'LI' },
-  { domain: '.online', desc: '在线首选',              price: 18,   color: 'bg-cyan-600',      abbr: 'ON' }
+  { domain: '.com',  desc: '全球用户注册首选域名',  price: 98,   color: 'bg-blue-600',      abbr: 'CO',   country: '顶级域名' },
+  { domain: '.net',  desc: '网络服务机构首选',        price: 79,   color: 'bg-blue-600',      abbr: 'NE',   country: '顶级域名' },
+  { domain: '.org',  desc: '非盈利组织专用',          price: 85,   color: 'bg-teal-600',      abbr: 'OR',   country: '顶级域名' },
+  { domain: '.info', desc: '信息服务平台',            price: 25,   color: 'bg-cyan-600',      abbr: 'IN',   country: '顶级域名' },
+  { domain: '.biz',  desc: '商业专属域名',            price: 55,   color: 'bg-slate-600',     abbr: 'BI',   country: '顶级域名' },
+  { domain: '.cn',   desc: '中国国家顶级域名',        price: 35,   flag: 'assets/flags/cn.svg', country: '中国' },
+  { domain: '.com.cn', desc: '中国企业专属域名',       price: 39,   flag: 'assets/flags/cn.svg', country: '中国' },
+  { domain: '.hk',   desc: '香港地区域名',            price: 180,  flag: 'assets/flags/cn.svg',  needDocs: true, country: '中国香港' },
+  { domain: '.com.hk', desc: '香港商业域名',          price: 200,  flag: 'assets/flags/cn.svg',  needDocs: true, country: '中国香港' },
+  { domain: '.com.tw', desc: '台湾地区域名',          price: 150,  flag: 'assets/flags/cn.svg',  needDocs: true, country: '中国台湾' },
+  { domain: '.jp',   desc: '日本国家域名',            price: 320,  color: 'bg-red-600',       abbr: 'JP',        needDocs: true, country: '日本' },
+  { domain: '.kr',   desc: '韩国国家域名',            price: 280,  color: 'bg-blue-600',      abbr: 'KR',        needDocs: true, country: '韩国' },
+  { domain: '.sg',   desc: '新加坡国家域名',          price: 250,  color: 'bg-red-600',       abbr: 'SG',        needDocs: true, country: '新加坡' },
+  { domain: '.uk',   desc: '英国国家域名',            price: 150,  color: 'bg-blue-600',      abbr: 'UK',        needDocs: true, country: '英国' },
+  { domain: '.de',   desc: '德国国家域名',            price: 130,  color: 'bg-gray-800',      abbr: 'DE',        needDocs: true, country: '德国' },
+  { domain: '.us',   desc: '美国国家域名',            price: 198,  color: 'bg-blue-600',      abbr: 'US',        needDocs: true, country: '美国' },
+  { domain: '.fr',   desc: '法国国家域名',            price: 140,  color: 'bg-blue-600',      abbr: 'FR',        needDocs: true, country: '法国' },
+  { domain: '.ai',   desc: '人工智能专属',            price: 580,  color: 'bg-purple-600',    abbr: 'AI',   country: '顶级域名' },
+  { domain: '.io',   desc: '科技创业首选',            price: 420,  color: 'bg-gray-800',      abbr: 'IO',   country: '顶级域名' },
+  { domain: '.co',   desc: '公司企业域名',            price: 180,  color: 'bg-blue-600',      abbr: 'CO2',  country: '顶级域名' },
+  { domain: '.cc',   desc: '创意无限',                price: 88,   color: 'bg-teal-600',      abbr: 'CC',   country: '顶级域名' },
+  { domain: '.top',  desc: '巅峰首选',                price: 9,    color: 'bg-amber-600',     abbr: 'TO',   country: '顶级域名' },
+  { domain: '.xyz',  desc: '新一代通用域名',          price: 8,    color: 'bg-purple-600',    abbr: 'XY',   country: '顶级域名' },
+  { domain: '.vip',  desc: '尊贵身份象征',            price: 29,   color: 'bg-amber-600',     abbr: 'VI',   country: '顶级域名' },
+  { domain: '.club', desc: '社群俱乐部',              price: 19,   color: 'bg-pink-600',      abbr: 'CL',   country: '顶级域名' },
+  { domain: '.shop', desc: '电商专属',                price: 68,   color: 'bg-orange-600',    abbr: 'SH',   country: '顶级域名' },
+  { domain: '.site', desc: '建站首选',                price: 15,   color: 'bg-emerald-600',   abbr: 'SI',   country: '顶级域名' },
+  { domain: '.work', desc: '职场个人站',              price: 12,   color: 'bg-cyan-600',      abbr: 'WO',   country: '顶级域名' },
+  { domain: '.link', desc: '链接跳转',                price: 25,   color: 'bg-indigo-600',    abbr: 'LI',   country: '顶级域名' },
+  { domain: '.online', desc: '在线首选',              price: 18,   color: 'bg-cyan-600',      abbr: 'ON',   country: '顶级域名' }
 ];
 
 var currentPrefix = '';
@@ -264,7 +265,8 @@ function generateResults(prefix) {
       domain: tld.domain, desc: tld.desc, price: tld.price,
       color: tld.color, abbr: tld.abbr, flag: tld.flag,
       status: status, fullDomain: prefix + tld.domain,
-      needDocs: tld.needDocs || false
+      needDocs: tld.needDocs || false,
+      country: tld.country || '顶级域名'
     };
     if (status === 'premium') result.premiumPrice = tld.price * 15;
     return result;
@@ -431,7 +433,7 @@ function syncSelectAllState() {
 }
 
 // ===== 渲染单行结果 =====
-function renderResultRow(result, showCheckbox) {
+function renderResultRow(result, showCheckbox, index) {
   if (showCheckbox === undefined) showCheckbox = true;
   var fullDomain = result.fullDomain || result.domain;
   var id = result.id || result.fullDomain || result.domain;
@@ -442,28 +444,33 @@ function renderResultRow(result, showCheckbox) {
   var savedYears = selData.years || 1;
   var savedDocMode = selData.docMode || '';
   var needDocs = !!result.needDocs;
+  var countryName = result.country || '顶级域名';
 
-  // 复选框列
+  // 复选框列（复选框右侧紧跟行序号）
   var checkboxHtml = '';
   if (showCheckbox) {
     if (result.status === 'registered') {
-      checkboxHtml = '<div class="col-span-1 table-grid-cb flex items-center justify-center"><input type="checkbox" class="row-checkbox w-3 h-3 accent-primary cursor-pointer" data-id="' + id + '" disabled></div>';
+      checkboxHtml = '<div class="col-span-1 table-grid-cb flex items-center justify-center gap-1.5"><input type="checkbox" class="row-checkbox w-3 h-3 accent-primary cursor-pointer" data-id="' + id + '" disabled><span class="row-index">' + (index || '-') + '</span></div>';
     } else {
-      checkboxHtml = '<div class="col-span-1 table-grid-cb flex items-center justify-center"><input type="checkbox" class="row-checkbox w-3 h-3 accent-primary cursor-pointer" data-id="' + id + '"' + (isSelected ? ' checked' : '') + '></div>';
+      checkboxHtml = '<div class="col-span-1 table-grid-cb flex items-center justify-center gap-1.5"><input type="checkbox" class="row-checkbox w-3 h-3 accent-primary cursor-pointer" data-id="' + id + '"' + (isSelected ? ' checked' : '') + '><span class="row-index">' + (index || '-') + '</span></div>';
     }
   } else {
-    checkboxHtml = '<div class="col-span-1 table-grid-cb flex items-center justify-center"><span class="text-muted text-xs">-</span></div>';
+    checkboxHtml = '<div class="col-span-1 table-grid-cb flex items-center justify-center"><span class="row-index">' + (index || '-') + '</span></div>';
   }
+
+  // 国家列（无明确国家归属时显示"顶级域名"）
+  var countryHtml = '<div class="col-span-1 text-center"><span class="text-xs text-muted">' + countryName + '</span></div>';
 
   // 已注册行
   if (result.status === 'registered') {
-    return '<div class="grid grid-cols-12 gap-1 px-4 py-3.5 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors" data-id="' + id + '">'
+    return '<div class="grid grid-cols-12 gap-1 px-4 py-3.5 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors" data-id="' + id + '" data-seq="' + (index || '') + '">'
       + checkboxHtml
-      + '<div class="col-span-2 font-semibold text-sm text-body truncate">' + fullDomain + '</div>'
+      + '<div class="col-span-3 font-semibold text-sm text-body truncate">' + fullDomain + '</div>'
+      + countryHtml
       + '<div class="col-span-1 text-center"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-red-50 text-red-700"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>已注册</span></div>'
       + '<div class="col-span-1 text-center text-sm text-muted">-</div>'
-      + '<div class="col-span-2 flex items-center justify-center"><span class="text-muted text-xs py-[6px]">-</span></div>'
-      + '<div class="col-span-2 flex items-center justify-center"><span class="text-muted text-xs py-[6px]">-</span></div>'
+      + '<div class="col-span-1 flex items-center justify-center"><span class="text-muted text-xs py-[6px]">-</span></div>'
+      + '<div class="col-span-1 flex items-center justify-center"><span class="text-muted text-xs py-[6px]">-</span></div>'
       + '<div class="col-span-1 text-center text-sm text-muted">-</div>'
       + '<div class="col-span-1 text-center text-sm text-muted">-</div>'
       + '<div class="col-span-1 flex justify-center gap-1">'
@@ -496,34 +503,35 @@ function renderResultRow(result, showCheckbox) {
   // 申请资料下拉 HTML（needDocs 域名使用）
   var docText = savedDocMode === 'agency' ? '资料代办' : (savedDocMode === 'self' ? '自备资料' : '请选择');
   var docTextClass = savedDocMode ? 'text-body' : 'text-muted';
-  var docsDropdownHtml = '<div style="display:flex;align-items:center;justify-content:center;width:120px;">'
+  var docsDropdownHtml = '<div style="display:flex;align-items:center;justify-content:center;width:100%;max-width:96px;">'
     + '<div class="dropdown-btn dropdown-btn-sm docs-dropdown-btn ' + opacityClass + '" data-result-id="' + id + '" data-value="' + savedDocMode + '" onclick="toggleTableDocsDropdown(this, event)">'
-    +   '<span class="text-[12px] ' + docTextClass + ' truncate" style="max-width:70px;">' + docText + '</span>'
+    +   '<span class="text-[12px] ' + docTextClass + ' truncate" style="max-width:52px;">' + docText + '</span>'
     +   '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
     + '</div>'
     + '</div>';
 
-  return '<div class="grid grid-cols-12 gap-1 px-4 py-3.5 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors" data-id="' + id + '" data-price="' + displayPrice + '">'
+  return '<div class="grid grid-cols-12 gap-1 px-4 py-3.5 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors" data-id="' + id + '" data-seq="' + (index || '') + '" data-price="' + displayPrice + '">'
     + checkboxHtml
-    + '<div class="col-span-2 font-semibold text-sm text-body truncate">' + fullDomain + '</div>'
+    + '<div class="col-span-3 font-semibold text-sm text-body truncate">' + fullDomain + '</div>'
+    + countryHtml
     + '<div class="col-span-1 text-center"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium ' + statusClass + '"><span class="w-1.5 h-1.5 rounded-full ' + statusDot + '"></span>' + statusText + '</span></div>'
     + '<div class="col-span-1 text-center text-sm text-muted">¥' + displayPrice + '</div>'
     // 注册人列
-    + '<div class="col-span-2 flex items-center justify-center">'
-    +   '<div style="display:flex;align-items:center;justify-content:center;width:130px;">'
+    + '<div class="col-span-1 flex items-center justify-center">'
+    +   '<div style="display:flex;align-items:center;justify-content:center;width:100%;max-width:96px;">'
     +     '<div class="dropdown-btn dropdown-btn-sm registrant-dropdown-btn ' + opacityClass + '" data-result-id="' + id + '" data-value="' + savedRegId + '" onclick="toggleTableRegistrantDropdown(this, event)">'
-    +       '<span class="registrant-text text-[12px] ' + regTextClass + ' truncate" style="max-width:80px;">' + savedRegName + '</span>'
+    +       '<span class="registrant-text text-[12px] ' + regTextClass + ' truncate" style="max-width:56px;">' + savedRegName + '</span>'
       +       '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
     +     '</div>'
     +   '</div>'
     + '</div>'
     // 申请资料（needDocs 域名显示下拉，否则静态"无需资料"）
-    + '<div class="col-span-2 flex items-center justify-center">'
+    + '<div class="col-span-1 flex items-center justify-center">'
     + (needDocs ? docsDropdownHtml : '<span class="text-muted text-xs">无需资料</span>')
     + '</div>'
     // 年限列
     + '<div class="col-span-1 flex items-center justify-center">'
-    +   '<div style="display:flex;align-items:center;justify-content:center;width:110px;">'
+    +   '<div style="display:flex;align-items:center;justify-content:center;width:100%;max-width:88px;">'
     +     '<div class="dropdown-btn dropdown-btn-sm years-dropdown-btn ' + opacityClass + '" data-result-id="' + id + '" data-value="' + savedYears + '" onclick="toggleTableYearsDropdown(this, event)">'
     +       '<span class="text-[12px]">' + savedYears + ' 年</span>'
       +       '<span class="icon-mask dropdown-arrow w-2.5 h-2.5 opacity-60 text-body" style="-webkit-mask-image:url(\'assets/icons/outline/chevron-down.svg\');mask-image:url(\'assets/icons/outline/chevron-down.svg\')"></span>'
@@ -561,9 +569,9 @@ function renderTableResults(queries) {
       }
       if (!matched) {
         if (suffix) {
-          matched = { domain: suffix, fullDomain: trimmed, status: 'available', price: 50, desc: '', color: 'bg-gray-600', abbr: suffix.replace('.','').toUpperCase() };
+          matched = { domain: suffix, fullDomain: trimmed, status: 'available', price: 50, desc: '', color: 'bg-gray-600', abbr: suffix.replace('.','').toUpperCase(), country: '顶级域名' };
         } else {
-          matched = results[0] || { domain: suffix, fullDomain: trimmed, status: 'available', price: 50 };
+          matched = results[0] || { domain: suffix, fullDomain: trimmed, status: 'available', price: 50, country: '顶级域名' };
         }
       }
       matched.id = idx + '-' + matched.fullDomain;
@@ -587,7 +595,7 @@ function renderTableResults(queries) {
   var tbody = document.getElementById('resultsTableBody');
   if (!tbody) return;
   tbody.innerHTML = pageItems.length > 0
-    ? pageItems.map(function(r) { return renderResultRow(r, true); }).join('')
+    ? pageItems.map(function(r, i) { return renderResultRow(r, true, start + i + 1); }).join('')
     : '<div class="px-4 py-12 text-center text-muted text-sm">暂无匹配结果</div>';
 
   // 显示区域
@@ -631,7 +639,7 @@ function renderSingleDomainDetail(query) {
   var mainResult = null;
   allResults.forEach(function(r) { if (r.fullDomain === fullDomain) mainResult = JSON.parse(JSON.stringify(r)); });
   if (!mainResult) {
-    mainResult = { domain: tldStr, fullDomain: fullDomain, status: 'available', price: 50 };
+    mainResult = { domain: tldStr, fullDomain: fullDomain, status: 'available', price: 50, country: '顶级域名' };
   }
   mainResult.id = fullDomain;
   tableResultsData = [mainResult];
@@ -655,19 +663,20 @@ function renderSingleDomainDetail(query) {
   var mainHtml = '<div class="mb-8">'
     + '<h3 class="text-base font-semibold text-body mb-4">查询结果：' + fullDomain + '</h3>'
     + '<div class="overflow-x-auto rounded-xl border border-slate-200">'
-    +   '<div style="min-width:720px;">'
+    +   '<div style="min-width:960px;">'
     +     '<div class="grid grid-cols-12 gap-1 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-muted uppercase tracking-wide border-b border-slate-200">'
-    +       '<div class="col-span-1 table-grid-cb flex items-center justify-center"><span class="text-muted text-xs">-</span></div>'
-    +       '<div class="col-span-2">域名</div>'
+    +       '<div class="col-span-1 table-grid-cb flex items-center justify-center">序号</div>'
+    +       '<div class="col-span-3">域名</div>'
+    +       '<div class="col-span-1 text-center">国家</div>'
     +       '<div class="col-span-1 text-center">状态</div>'
     +       '<div class="col-span-1 text-center">单价</div>'
-    +       '<div class="col-span-2 text-center">注册人</div>'
-    +       '<div class="col-span-2 text-center">' + docTipIconHtml() + '</div>'
+    +       '<div class="col-span-1 text-center">注册人</div>'
+    +       '<div class="col-span-1 text-center">' + docTipIconHtml() + '</div>'
     +       '<div class="col-span-1 text-center">年限</div>'
     +       '<div class="col-span-1 text-center">小计</div>'
     +       '<div class="col-span-1 text-center">操作</div>'
     +     '</div>'
-    +     '<div>' + renderResultRow(mainResult, false) + '</div>'
+    +     '<div>' + renderResultRow(mainResult, false, 1) + '</div>'
     +   '</div>'
     + '</div></div>';
 
@@ -704,14 +713,15 @@ function renderSingleDomainDetail(query) {
     + '</div>'
     // 表头
     + '<div class="overflow-x-auto rounded-xl border border-slate-200">'
-    +   '<div style="min-width:720px;">'
+    +   '<div style="min-width:960px;">'
     +     '<div class="grid grid-cols-12 gap-1 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-muted uppercase tracking-wide border-b border-slate-200">'
     +       '<div class="col-span-1 table-grid-cb flex items-center justify-center"><input type="checkbox" id="selectAllRecItems" class="w-3 h-3 accent-primary cursor-pointer"></div>'
-    +       '<div class="col-span-2">域名</div>'
+    +       '<div class="col-span-3">域名</div>'
+    +       '<div class="col-span-1 text-center">国家</div>'
     +       '<div class="col-span-1 text-center">状态</div>'
     +       '<div class="col-span-1 text-center">单价</div>'
-    +       '<div class="col-span-2 text-center">注册人</div>'
-    +       '<div class="col-span-2 text-center">' + docTipIconHtml() + '</div>'
+    +       '<div class="col-span-1 text-center">注册人</div>'
+    +       '<div class="col-span-1 text-center">' + docTipIconHtml() + '</div>'
     +       '<div class="col-span-1 text-center">年限</div>'
     +       '<div class="col-span-1 text-center">小计</div>'
     +       '<div class="col-span-1 text-center">操作</div>'
@@ -749,7 +759,7 @@ function renderRecPage() {
   if (!tbody) return;
   pageItems.forEach(function(r) { r.id = r.fullDomain; });
   tbody.innerHTML = pageItems.length > 0
-    ? pageItems.map(function(r) { return renderResultRow(r, true); }).join('')
+    ? pageItems.map(function(r, i) { return renderResultRow(r, true, (recCurrentPage - 1) * pageSize + i + 1); }).join('')
     : '<div class="px-4 py-12 text-center text-muted text-sm">暂无匹配结果</div>';
 
   // 更新推荐分页
@@ -1594,6 +1604,9 @@ function initAllControls() {
 // ===== 加入购物车 =====
 function addToCart(resultId, btnEl) {
   var result = tableResultsData.find(function(r) { return r.id === resultId || r.fullDomain === resultId; });
+  if (!result && recPageData.length > 0) {
+    result = recPageData.find(function(r) { return r.fullDomain === resultId; });
+  }
   if (!result) return;
   var data = selectedItems[resultId];
   var years = data ? data.years : 1;
@@ -1607,14 +1620,15 @@ function addToCart(resultId, btnEl) {
   var docMode = data ? (data.docMode || '') : (docsBtn ? docsBtn.getAttribute('data-value') || '' : '');
   // 需要资料的域名必须先选择申请资料方式
   if (result.needDocs && !docMode) {
-    window.showAlert('warning', '域名 ' + resultId + ' 注册需要申请资料，请先选择「自备资料」或「资料代办」');
+    window.showAlert('warning', '域名 ' + result.fullDomain + ' 注册需要申请资料，请先选择「自备资料」或「资料代办」');
     return;
   }
   var displayPrice = (result.status === 'premium' && result.premiumPrice) ? result.premiumPrice : (result.price || 0);
   var item = {
     id: 'domain-' + resultId + '-' + Date.now(),
     productType: '域名注册',
-    productName: resultId,
+    productName: result.fullDomain,
+    country: result.country || '顶级域名',
     year: years,
     cycleText: years + ' 年',
     price: calcSubtotal(displayPrice, years, docMode),
@@ -1627,9 +1641,9 @@ function addToCart(resultId, btnEl) {
   if (window.cartUtils) {
     window.cartUtils.addItem(item);
     if (btnEl) window.cartUtils.flyTo(btnEl);
-    window.cartUtils.toast('已加入购物车：' + resultId);
+    window.cartUtils.toast('已加入购物车：' + result.fullDomain);
   } else {
-    window.showAlert('success', '已加入购物车：' + resultId + ' (' + years + '年，¥' + item.price + ')');
+    window.showAlert('success', '已加入购物车：' + result.fullDomain + ' (' + years + '年，¥' + item.price + ')');
   }
 }
 
@@ -1656,9 +1670,11 @@ function batchAddToCart() {
       return;
     }
     var basePrice = result ? ((result.status === 'premium' && result.premiumPrice) ? result.premiumPrice : (result.price || 0)) : 0;
+    var domainName = result ? result.fullDomain : id;
     items.push({
       id: 'domain-' + id + '-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
-      productType: '域名注册', productName: id,
+      productType: '域名注册', productName: domainName,
+      country: result ? (result.country || '顶级域名') : '顶级域名',
       year: years, cycleText: years + ' 年',
       price: calcSubtotal(basePrice, years, docMode),
       regService: docMode === 'agency', registrantTemplateId: data.registrantId,

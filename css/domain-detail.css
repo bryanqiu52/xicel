@@ -60,6 +60,92 @@
   color: #0A66FF;
 }
 
+/* 注册要求结构化卡片 */
+.req-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.req-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #E2E8F0;
+  margin-bottom: 16px;
+}
+.req-head-ic {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #EFF6FF, #E6FFFA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A66FF;
+  flex-shrink: 0;
+}
+.req-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.req-badge-real {
+  background: #EFF6FF;
+  color: #0A66FF;
+  border: 1px solid #BFDBFE;
+}
+.req-badge-material {
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+.req-badge-free {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+.req-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.req-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #1E293B;
+  line-height: 1.7;
+}
+.req-item-ic {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: #F1F5F9;
+  color: #0A66FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.req-item-text {
+  flex: 1;
+}
+
 /* 特点卡片 */
 .feature-card {
   background: #fff;

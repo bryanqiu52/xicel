@@ -917,6 +917,7 @@ tailwind.config = {
     return buildDetailProdCard(item, meta, '#EFF6FF', '#0A66FF', item.productName)
       + '<div class="detail-d-order">'
       + ddoRow('域名', '<span style="color:#0A66FF;font-weight:700;">' + esc(item.productName) + '</span>')
+      + ddoRow('国家', '<span class="text-muted">' + esc(item.country || '顶级域名') + '</span>')
       + ddoRow('购买年限', yearDropdownHtml)
       + ddoRow('申请资料', buildDomainDocRowHtml(item))
       + '</div>'
@@ -1273,14 +1274,18 @@ tailwind.config = {
       // 独立复选框
       var checkboxCell = '<input type="checkbox" class="item-select-checkbox w-3 h-3 accent-primary cursor-pointer" data-id="' + esc(it.id) + '"' + itemChecked + '>';
 
-      // 商品名称（纯文本）+ 域名申请资料标签
+      // 商品名称（纯文本）+ 域名来源序号/国家/申请资料标签
       var docInfo = isDomain ? getDomainDocInfo(it) : null;
-      var docTagHtml = '';
+      var tagList = [];
+      if (isDomain) {
+        tagList.push('<span class="inline-block text-[10px] leading-none px-1.5 py-1 rounded text-slate-500 bg-slate-100">' + esc(it.country || '顶级域名') + '</span>');
+      }
       if (docInfo && docInfo.mode !== 'none') {
         var tagColor = docInfo.mode === 'agency' ? 'text-primary bg-blue-50' : 'text-slate-500 bg-slate-100';
-        docTagHtml = '<div><span class="inline-block mt-0.5 text-[10px] leading-none px-1.5 py-1 rounded ' + tagColor + '">' + esc(docInfo.label) + '</span></div>';
+        tagList.push('<span class="inline-block text-[10px] leading-none px-1.5 py-1 rounded ' + tagColor + '">' + esc(docInfo.label) + '</span>');
       }
-      var nameCell = '<span class="text-sm font-medium text-body truncate">' + esc(it.productName) + '</span>' + docTagHtml;
+      var nameCell = '<span class="text-sm font-medium text-body truncate">' + esc(it.productName) + '</span>';
+      if (tagList.length > 0) nameCell += '<div class="flex gap-1 mt-0.5">' + tagList.join('') + '</div>';
 
       // 年限下拉
       var yearSel = '<div class="dropdown-wrapper" style="display:inline-flex;">';
@@ -1753,7 +1758,7 @@ tailwind.config = {
   function renderPagination(totalItems) {
     var totalPages = Math.ceil(totalItems / pageSize) || 1;
     var pagEl = document.getElementById('cartPagination');
-    if (totalItems <= pageSize) { pagEl.classList.add('hidden'); return; }
+    // 有商品时始终显示分页控件（含"每页"切换）；仅一页时翻页按钮禁用
     pagEl.classList.remove('hidden');
     document.getElementById('pagTotalCount').textContent = '共 ' + totalItems + ' 件';
     document.getElementById('pageInfo').textContent = '第 ' + currentPage + '/' + totalPages + ' 页';

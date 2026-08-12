@@ -313,8 +313,16 @@ body .beautified-select-sm:disabled {
   border-color: #0047CC;
 }
 
-/* 表格复选框列 — 缩小占用宽度 */
-.table-grid-cb { min-width: 36px; width: 36px; flex-shrink: 0; }
+/* 表格复选框列 — 容纳复选框 + 行序号（序号与复选框同格，见 cart-confirm/domain-search） */
+.table-grid-cb { min-width: 56px; width: 56px; flex-shrink: 0; }
+/* 表格行序号（紧跟复选框右侧） */
+.row-index {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94A3B8;
+  line-height: 1;
+  white-space: nowrap;
+}
 /* Grid 表格容器 — 横向滚动用 */
 .table-grid-inner { min-width: 640px; }
 

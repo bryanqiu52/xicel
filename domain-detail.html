@@ -385,13 +385,58 @@ window.getSameCategoryDomains=function(cgn,ex){var r=[];for(var k in window.DOMA
     'landmark': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 11 4 11"/></svg>',
     'graduation-cap': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 11v5a4 4 0 008 0v-5"/></svg>',
     'store': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 7h20v14H2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>',
-    'utensils': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2v0a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 4v3"/></svg>'
+    'utensils': '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2v0a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 4v3"/></svg>',
+    'fingerprint': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/fingerprint.svg\');mask-image:url(\'assets/icons/outline/fingerprint.svg\')"></span>',
+    'circle-check': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/circle-check.svg\');mask-image:url(\'assets/icons/outline/circle-check.svg\')"></span>',
+    'check': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span>',
+    'clipboard-list': '<span class="icon-mask w-5 h-5" style="-webkit-mask-image:url(\'assets/icons/outline/clipboard-list.svg\');mask-image:url(\'assets/icons/outline/clipboard-list.svg\')"></span>'
   };
 
   function getIcon(name, size) {
     size = size || 'w-5 h-5';
     var svg = iconMap[name] || iconMap['globe'];
     return svg.replace(/class="icon-mask w-5 h-5"/, 'class="icon-mask ' + size + '"');
+  }
+
+  // ===== 注册要求结构化渲染 =====
+  // 从 requirements 文本中提取状态徽标 + 要点列表，让关键信号一眼可见
+  function reqIconFor(item) {
+    if (/实名认证|实名/.test(item)) return 'fingerprint';
+    if (/身份证|营业执照|证件|证明|执照/.test(item)) return 'file-text';
+    if (/地址|在场|本地|联络/.test(item)) return 'map-pin';
+    if (/长度|字符/.test(item)) return 'hash';
+    if (/代理/.test(item)) return 'globe';
+    if (/无特殊限制|均可注册|无本地/.test(item)) return 'circle-check';
+    return 'check';
+  }
+  function buildRequirementsHTML(reqText) {
+    var text = reqText || '';
+    // 状态徽标：三种门槛
+    var badge = { label: '无特殊限制', cls: 'req-badge-free' };
+    if (/实名认证/.test(text)) {
+      badge = { label: '需实名认证', cls: 'req-badge-real' };
+    } else if (/需提供|需声明|需满足|需提交|需认证|仅商业/.test(text)) {
+      badge = { label: '需提供资料', cls: 'req-badge-material' };
+    }
+    // 按句号拆成要点
+    var items = [];
+    var parts = text.split(/[。；;]/);
+    for (var i = 0; i < parts.length; i++) {
+      var s = parts[i].trim();
+      if (s) items.push(s);
+    }
+    var lis = '';
+    for (var j = 0; j < items.length; j++) {
+      lis += '<li class="req-item"><span class="req-item-ic">' + getIcon(reqIconFor(items[j]), 'w-4 h-4') + '</span><span class="req-item-text">' + items[j] + '</span></li>';
+    }
+    var html = '<div class="req-card">';
+    html += '<div class="req-card-head">';
+    html += '<div class="flex items-center gap-2.5"><span class="req-head-ic">' + getIcon('clipboard-list', 'w-5 h-5') + '</span><span class="text-base font-bold text-body">注册要求</span></div>';
+    html += '<span class="req-badge ' + badge.cls + '">' + badge.label + '</span>';
+    html += '</div>';
+    html += '<ul class="req-list">' + lis + '</ul>';
+    html += '</div>';
+    return html;
   }
 
   // 构建域名图标 HTML
@@ -459,8 +504,8 @@ window.getSameCategoryDomains=function(cgn,ex){var r=[];for(var k in window.DOMA
   html += '<h2 class="text-3xl md:text-4xl font-bold text-body mb-3">域名概览</h2>';
   html += '<p class="text-lg text-muted">了解 ' + data.tld + ' 域名的核心信息</p>';
   html += '</div>';
-  // 注册要求完整版
-  html += '<div class="mt-6 p-5 bg-slate-50 rounded-2xl border border-slate-100"><div class="flex items-start gap-3"><span class="icon-mask w-5 h-5 text-primary mt-0.5 shrink-0" style="-webkit-mask-image:url(\'assets/icons/outline/info-circle.svg\');mask-image:url(\'assets/icons/outline/info-circle.svg\')"></span><div><span class="text-sm font-medium text-body">注册要求</span><p class="text-sm text-muted mt-1">' + data.requirements + '</p></div></div></div>';
+  // 注册要求结构化卡片
+  html += '<div class="mt-8 max-w-3xl mx-auto">' + buildRequirementsHTML(data.requirements) + '</div>';
   html += '</div>';
   html += '</section>';
 
