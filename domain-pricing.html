@@ -132,6 +132,9 @@ tailwind.config = {
         </div>
       </div>
       </div>
+  <div class="text-center mt-6">
+    <a href="javascript:void(0)" onclick="openMoreModal('热门推荐')" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark font-medium text-sm transition-colors">更多域名<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></a>
+  </div>
   </div>
 </section>
 
@@ -279,6 +282,9 @@ tailwind.config = {
         </div>
       </div>
       </div>
+  <div class="text-center mt-6">
+    <a href="javascript:void(0)" onclick="openMoreModal('新顶级域名')" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark font-medium text-sm transition-colors">更多域名<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></a>
+  </div>
   </div>
 </section>
 
@@ -342,6 +348,9 @@ tailwind.config = {
         </div>
       </div>
       </div>
+  <div class="text-center mt-6">
+    <a href="javascript:void(0)" onclick="openMoreModal('中国地区')" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark font-medium text-sm transition-colors">更多域名<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></a>
+  </div>
   </div>
 </section>
 
@@ -457,6 +466,9 @@ tailwind.config = {
         </div>
       </div>
       </div>
+  <div class="text-center mt-6">
+    <a href="javascript:void(0)" onclick="openMoreModal('亚太地区')" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark font-medium text-sm transition-colors">更多域名<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></a>
+  </div>
   </div>
 </section>
 
@@ -598,6 +610,9 @@ tailwind.config = {
         </div>
       </div>
       </div>
+  <div class="text-center mt-6">
+    <a href="javascript:void(0)" onclick="openMoreModal('欧洲地区')" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark font-medium text-sm transition-colors">更多域名<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></a>
+  </div>
   </div>
 </section>
 
@@ -648,6 +663,9 @@ tailwind.config = {
         </div>
       </div>
       </div>
+  <div class="text-center mt-6">
+    <a href="javascript:void(0)" onclick="openMoreModal('美洲地区')" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark font-medium text-sm transition-colors">更多域名<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></a>
+  </div>
   </div>
 </section>
 
@@ -724,6 +742,9 @@ tailwind.config = {
         </div>
       </div>
       </div>
+  <div class="text-center mt-6">
+    <a href="javascript:void(0)" onclick="openMoreModal('中东/其他')" class="inline-flex items-center gap-1.5 text-primary hover:text-primary-dark font-medium text-sm transition-colors">更多域名<span class="icon-mask w-4 h-4" style="-webkit-mask-image:url('assets/icons/outline/arrow-right.svg');mask-image:url('assets/icons/outline/arrow-right.svg')"></span></a>
+  </div>
   </div>
 </section>
 
@@ -757,6 +778,41 @@ tailwind.config = {
     </div>
   </div>
 </div>
+
+<!-- ========== 更多域名弹窗 ========== -->
+<div id="moreModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display:none;">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeMoreModal()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
+    <div class="h-2 bg-gradient-to-r from-primary to-accent shrink-0"></div>
+    <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 shrink-0">
+      <h3 class="text-lg font-bold text-body">更多域名</h3>
+      <button onclick="closeMoreModal()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors text-muted hover:text-body"><span class="icon-mask w-5 h-5" style="-webkit-mask-image:url('assets/icons/outline/x.svg');mask-image:url('assets/icons/outline/x.svg')"></span></button>
+    </div>
+    <div id="moreTabs" class="flex flex-wrap justify-center gap-2 px-6 py-3 border-b border-slate-100 shrink-0"></div>
+    <div id="moreList" class="overflow-y-auto" style="height:clamp(340px, 55vh, 560px);"></div>
+    <div id="morePager" class="shrink-0 px-6 py-3 border-t border-slate-100">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <span id="moreTotal" class="text-xs text-muted">共 0 个域名</span>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs text-muted">每页</span>
+            <div class="dropdown-wrapper" style="min-width:0;">
+              <div class="dropdown-btn dropdown-btn-sm page-size-btn" data-value="10">
+                <span class="text-[12px]">10 条</span>
+                <span class="icon-mask dropdown-arrow w-2.5 h-2.5" style="-webkit-mask-image:url('assets/icons/outline/chevron-down.svg');mask-image:url('assets/icons/outline/chevron-down.svg')"></span>
+              </div>
+            </div>
+          </div>
+          <button id="morePrevBtn" onclick="morePagePrev()" class="px-3 py-1.5 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-body" disabled>上一页</button>
+          <span id="morePageInfo" class="text-sm text-muted">第 1/1 页</span>
+          <button id="moreNextBtn" onclick="morePageNext()" class="px-3 py-1.5 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-body" disabled>下一页</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/domain-data.js"></script>
 
 <script>
 function openConsultModal(){ document.getElementById('consultModal').style.display='flex'; lockBodyScroll(); }
@@ -821,6 +877,141 @@ function submitNoResultConsult(e) {
   e.preventDefault();
   alert('感谢您的咨询，我们将尽快联系您！');
 }
+
+// ===== 更多域名弹窗 =====
+var MORE_CATEGORIES = ['热门推荐', '新顶级域名', '中国地区', '亚太地区', '欧洲地区', '美洲地区', '中东/其他'];
+var MORE_PAGE = 1;
+var MORE_PAGE_SIZE = 10;
+
+function openMoreModal(cat) {
+  if (!window.MORE_TABS_RENDERED) renderMoreTabs();
+  switchMoreTab(cat || MORE_CATEGORIES[0]);
+  document.getElementById('moreModal').style.display = 'flex';
+  lockBodyScroll();
+}
+function closeMoreModal() {
+  document.getElementById('moreModal').style.display = 'none';
+  unlockBodyScroll();
+}
+function renderMoreTabs() {
+  var tabs = document.getElementById('moreTabs');
+  var html = '';
+  for (var i = 0; i < MORE_CATEGORIES.length; i++) {
+    html += '<button data-cat="' + MORE_CATEGORIES[i] + '" onclick="switchMoreTab(this.dataset.cat)" class="bg-white text-muted hover:bg-slate-50 rounded-full px-5 py-2 text-sm transition-all">' + MORE_CATEGORIES[i] + '</button>';
+  }
+  tabs.innerHTML = html;
+  window.MORE_TABS_RENDERED = true;
+}
+function switchMoreTab(cat) {
+  window.MORE_ACTIVE_CAT = cat;
+  document.querySelectorAll('#moreTabs button').forEach(function(btn) {
+    var active = btn.dataset.cat === cat;
+    btn.className = 'rounded-full px-5 py-2 text-sm transition-all ' + (active ? 'bg-primary text-white font-medium shadow-sm' : 'bg-white text-muted hover:bg-slate-50');
+  });
+  MORE_PAGE = 1;
+  renderMoreList();
+}
+function getCategoryDomains(cat) {
+  var list = [];
+  for (var key in window.DOMAIN_DATA) {
+    var d = window.DOMAIN_DATA[key];
+    if (d.category === cat) list.push(d);
+  }
+  return list;
+}
+function renderMoreList() {
+  var cat = window.MORE_ACTIVE_CAT;
+  var list = getCategoryDomains(cat);
+  var total = list.length;
+  var pageCount = Math.max(1, Math.ceil(total / MORE_PAGE_SIZE));
+  if (MORE_PAGE > pageCount) MORE_PAGE = pageCount;
+  var start = (MORE_PAGE - 1) * MORE_PAGE_SIZE;
+  var pageItems = list.slice(start, start + MORE_PAGE_SIZE);
+
+  var rows = '';
+  for (var i = 0; i < pageItems.length; i++) {
+    var d = pageItems[i];
+    var price = d.promoPrice || d.price;
+    var sKey = d.tld.replace(/^\./, '').replace(/\./g, '');
+    var promo = d.promoTag ? '<span class="text-xs bg-red-50 text-[#EF4444] px-1.5 py-0.5 rounded ml-1.5">' + d.promoTag + '</span>' : '';
+    rows += '<tr onclick="window.location.href=\'domain-detail.html?tld=' + sKey + '\'" class="border-b border-slate-100 hover:bg-slate-50 cursor-pointer transition-colors">'
+      + '<td class="py-3 px-2 text-center text-sm text-muted w-14">' + (start + i + 1) + '</td>'
+      + '<td class="py-3 px-4"><span class="font-semibold text-body">' + d.tld + '</span><span class="text-xs text-muted ml-2">' + d.fullName + '</span>' + promo + '</td>'
+      + '<td class="py-3 px-4 text-right"><span class="font-semibold text-primary">¥' + price.toLocaleString('zh-CN') + '</span><span class="text-xs text-muted">/首年</span></td>'
+      + '<td class="py-3 px-4 text-right whitespace-nowrap"><a href="domain-search.html?suffix=' + encodeURIComponent(d.tld) + '" onclick="event.stopPropagation()" class="text-sm text-primary hover:text-primary-dark font-medium">注册 →</a></td>'
+      + '</tr>';
+  }
+  document.getElementById('moreList').innerHTML = '<div class="overflow-x-auto"><table class="w-full table-fixed"><thead><tr class="border-b border-slate-100 text-xs text-muted">'
+    + '<th class="text-center py-2 px-2 font-medium w-14 whitespace-nowrap">序号</th><th class="text-left py-2 px-4 font-medium w-1/2">域名</th><th class="text-right py-2 px-4 font-medium w-28 whitespace-nowrap">首年价格</th><th class="text-right py-2 px-4 font-medium w-20 whitespace-nowrap">操作</th>'
+    + '</tr></thead><tbody>' + (rows || '<tr><td colspan="4" class="text-center py-8 text-muted">该分类暂无域名</td></tr>') + '</tbody></table></div>';
+
+  document.getElementById('moreTotal').textContent = '共 ' + total + ' 个域名';
+  document.getElementById('morePageInfo').textContent = '第 ' + MORE_PAGE + '/' + pageCount + ' 页';
+  document.getElementById('morePrevBtn').disabled = MORE_PAGE <= 1;
+  document.getElementById('moreNextBtn').disabled = MORE_PAGE >= pageCount;
+  var sizeBtn = document.querySelector('#moreModal .page-size-btn');
+  if (sizeBtn) {
+    var sizeText = sizeBtn.querySelector('span');
+    if (sizeText) sizeText.textContent = MORE_PAGE_SIZE + ' 条';
+    sizeBtn.setAttribute('data-value', String(MORE_PAGE_SIZE));
+  }
+}
+function morePagePrev() {
+  if (MORE_PAGE > 1) { MORE_PAGE--; renderMoreList(); }
+}
+function morePageNext() {
+  var cat = window.MORE_ACTIVE_CAT;
+  var pageCount = Math.max(1, Math.ceil(getCategoryDomains(cat).length / MORE_PAGE_SIZE));
+  if (MORE_PAGE < pageCount) { MORE_PAGE++; renderMoreList(); }
+}
+function morePageSizeChange() {
+  var btn = document.querySelector('#moreModal .page-size-btn');
+  var v = btn ? btn.getAttribute('data-value') : '10';
+  MORE_PAGE_SIZE = parseInt(v, 10) || 10;
+  MORE_PAGE = 1;
+  renderMoreList();
+}
+function toggleMorePageSizeDropdown(btn) {
+  var existing = document.getElementById('morePageSizeDropdown');
+  if (existing) { if (existing._cleanup) existing._cleanup(); existing.remove(); return; }
+  var SIZES = [{value:'10',label:'10 条'},{value:'20',label:'20 条'},{value:'50',label:'50 条'}];
+  var dropdown = document.createElement('div');
+  dropdown.id = 'morePageSizeDropdown';
+  dropdown.className = 'dropdown-panel';
+  var inner = document.createElement('div');
+  inner.className = 'dropdown-panel-inner';
+  var cur = btn.getAttribute('data-value') || '10';
+  inner.innerHTML = SIZES.map(function(o){ var sel=o.value===cur; return '<div class="dropdown-option dropdown-option-sm'+(sel?' selected':'')+'" data-value="'+o.value+'"><span>'+o.label+'</span><span class="icon-mask check-icon w-4 h-4" style="-webkit-mask-image:url(\'assets/icons/outline/check.svg\');mask-image:url(\'assets/icons/outline/check.svg\')"></span></div>'; }).join('');
+  dropdown.appendChild(inner);
+  inner.addEventListener('wheel', function(ev) { ev.stopPropagation(); }, { passive: true });
+  var rect = btn.getBoundingClientRect();
+  dropdown.style.top = (rect.bottom + 4) + 'px';
+  dropdown.style.left = rect.left + 'px';
+  dropdown.style.minWidth = '100px';
+  document.body.appendChild(dropdown);
+  var arrow = btn.querySelector('.dropdown-arrow');
+  if (arrow) arrow.classList.add('open');
+  function closeOnScroll() { cleanup(); }
+  window.addEventListener('scroll', closeOnScroll, { passive: true });
+  function cleanup() { dropdown.remove(); if (arrow) arrow.classList.remove('open'); window.removeEventListener('scroll', closeOnScroll); }
+  dropdown._cleanup = cleanup;
+  inner.querySelectorAll('.dropdown-option').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var v = el.getAttribute('data-value');
+      btn.setAttribute('data-value', v);
+      var t = btn.querySelector('span');
+      if (t) t.textContent = SIZES.filter(function(o){return o.value===v;})[0].label;
+      cleanup();
+      morePageSizeChange();
+    });
+  });
+  setTimeout(function(){ document.addEventListener('click', function onDoc(ev){ if (dropdown && !dropdown.contains(ev.target) && !btn.contains(ev.target)) { cleanup(); document.removeEventListener('click', onDoc); } }); }, 0);
+}
+document.addEventListener('click', function(e) {
+  var sizeBtn = e.target.closest && e.target.closest('#moreModal .page-size-btn');
+  if (sizeBtn) { e.stopPropagation(); toggleMorePageSizeDropdown(sizeBtn); }
+});
 </script>
 <script>
 // 域名卡片点击跳转至详情页（点击"注册 →"链接时不触发）
@@ -842,5 +1033,6 @@ function submitNoResultConsult(e) {
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>
 <script src="components/float-actions.js"></script>
+<script src="components/reveal.js"></script>
 </body>
 </html>

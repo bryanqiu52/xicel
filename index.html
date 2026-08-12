@@ -1127,6 +1127,7 @@ function handleDomainSearch() {
 <div id="float-actions-container"></div>
 <script src="components/footer.js"></script>
 <script src="components/float-actions.js"></script>
+<script src="components/reveal.js"></script>
 
 <script>
 // ===== 1. Hero 数据滚动动画 =====
@@ -1363,38 +1364,7 @@ function addSslToCart(name, price, btn){
 })();
 </script>
 
-<!-- ===== 滚动入场动画 ===== -->
-<script>
-(function(){
-  var sections = document.querySelectorAll('section');
-  sections.forEach(function(section){
-    // 给每个 section 内的主要子元素加 scroll-reveal
-    var targets = section.querySelectorAll('.card-white, .grid > a, section > div > div.text-center');
-    targets.forEach(function(el, i){
-      el.classList.add('scroll-reveal');
-      el.style.transitionDelay = (i % 4) * 0.1 + 's';
-    });
-    // section 标题也加动画
-    var heading = section.querySelector('.text-center');
-    if (heading) heading.classList.add('scroll-reveal');
-  });
-
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (!entry.isIntersecting) return;
-      var els = entry.target.querySelectorAll('.scroll-reveal');
-      if (entry.target.classList.contains('scroll-reveal')) {
-        entry.target.classList.add('visible');
-      }
-      els.forEach(function(el){ el.classList.add('visible'); });
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  sections.forEach(function(s){ observer.observe(s); });
-})();
-</script>
-
-
+<!-- ===== 滚动入场动画：已统一由 components/reveal.js 组件管理 ===== -->
 <script>
 // ===== 域名轮播 =====
 (function(){

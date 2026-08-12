@@ -796,19 +796,7 @@
 .news-card .news-thumb { overflow: hidden; }
 .news-card .news-thumb img { transition: transform .6s ease; }
 
-/* ===== 滚动入场动画 + 域名轮播（从 index.html inline 迁移） ===== */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .scroll-reveal { opacity: 1; transform: none; transition: none; }
-}
+/* ===== 滚动入场动画样式已迁移至 css/style.css（全站共用） ===== */
 
 /* 域名轮播 */
 .domain-carousel-wrapper {

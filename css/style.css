@@ -18,6 +18,20 @@ body { background: #FFFFFF; color: #1E293B; padding-top: 65px; }
 @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
 .animate-float { animation: float 3s ease-in-out infinite; }
 
+/* ===== 滚动入场动画（全站组件 components/reveal.js 使用） ===== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal { opacity: 1; transform: none; transition: none; }
+}
+
 /* ===== 免费飘带徽章 ===== */
 .free-ribbon {
   position: absolute; top: -2px; right: -4px;

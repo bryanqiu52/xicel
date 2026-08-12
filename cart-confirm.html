@@ -141,6 +141,20 @@ table.cart-confirm-table select::-ms-expand,
   margin: 0 !important;
 }
 
+/* ===== 序号列：复选框 + 序号（仅购物车表格） ===== */
+#cartTableWrap .table-grid-cb {
+  width: auto !important;
+  min-width: auto !important;
+  flex-shrink: 0 !important;
+}
+#cartTableWrap .row-index {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94A3B8;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 /* ===== 操作列 ===== */
 .cart-confirm-table .cart-op-col {
   width: 80px !important;
@@ -583,6 +597,7 @@ tailwind.config = {
 <script src="components/navbar.js"></script>
 <script src="components/footer.js"></script>
 <script src="components/float-actions.js"></script>
+<script src="components/reveal.js"></script>
 
 <!-- ===== 购物车确认页逻辑 ===== -->
 <script>
@@ -1283,7 +1298,7 @@ tailwind.config = {
 
       var rowOpacity = it.selected === false ? ' opacity-40' : '';
       return '<div data-id="' + esc(it.id) + '" class="grid grid-cols-12 gap-1 px-4 py-3 items-center border-b border-slate-100 hover:bg-slate-50/50 transition-colors' + rowOpacity + '">'
-        + '<div class="col-span-1 table-grid-cb flex items-center justify-center">' + checkboxCell + '</div>'
+        + '<div class="col-span-1 table-grid-cb flex items-center justify-center gap-1.5">' + checkboxCell + '<span class="row-index">' + (start + idx + 1) + '</span></div>'
         + '<div class="col-span-3 font-medium text-sm text-body truncate">' + nameCell + '</div>'
         + '<div class="col-span-2 text-center text-sm text-muted">' + esc(it.productType) + '</div>'
         + '<div class="col-span-2 flex items-center justify-center">' + yearSel + '</div>'
